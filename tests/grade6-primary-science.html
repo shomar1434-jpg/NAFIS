@@ -743,7 +743,9 @@ document.addEventListener('keydown',e=>{
 function finish(){
   stopT();
   const answered=G.ok+G.bad.length,pct=answered?Math.round(G.ok/answered*100):0;
-  window.SafaProgress?.recordResult({correct:G.ok,total:answered,percent:pct});
+  const answeredIds=new Set([...G.okIds,...G.bad.map(b=>b.q.id)]),skillMap={};G.qs.filter(q=>answeredIds.has(q.id)).forEach(q=>{const n=q.k||CAT[q.c]?.[1]||q.c;skillMap[n]=skillMap[n]||{correct:0,total:0};skillMap[n].total++;if(G.okIds.includes(q.id))skillMap[n].correct++});
+  const skills=Object.entries(skillMap).map(([name,v])=>({name,correct:v.correct,total:v.total,percent:Math.round(v.correct/v.total*100)}));
+  window.SafaProgress?.recordResult({correct:G.ok,total:answered,percent:pct,skills});
   let w=store.get('ns6_wrong',[]);w=w.filter(id=>!G.okIds.includes(id));G.bad.forEach(b=>{if(!w.includes(b.q.id))w.push(b.q.id)});store.set('ns6_wrong',w);
   if(S.mode==='challenge'&&answered){const lb=store.get('ns6_lb',[]);lb.push({n:G.name,s:G.score,p:pct,q:answered,d:Date.now()});lb.sort((a,b)=>b.s-a.s);store.set('ns6_lb',lb.slice(0,20))}
   const st=pct>=90?3:pct>=70?2:pct>=50?1:0;

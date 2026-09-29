@@ -766,6 +766,7 @@ function finishQuiz(){
   const total = currentSet.length;
   let correctCount = 0;
   const byDomain = {};
+  const bySkill = {};
 
   currentSet.forEach((q,i)=>{
     const isCorrect = userAnswers[i]===q.correct;
@@ -773,10 +774,15 @@ function finishQuiz(){
     if(!byDomain[q.domain]) byDomain[q.domain] = {correct:0,total:0};
     byDomain[q.domain].total++;
     if(isCorrect) byDomain[q.domain].correct++;
+    const skillName = q.topic || DOMAINS[q.domain]?.label || q.domain;
+    if(!bySkill[skillName]) bySkill[skillName] = {correct:0,total:0};
+    bySkill[skillName].total++;
+    if(isCorrect) bySkill[skillName].correct++;
   });
 
   const pct = Math.round((correctCount/total)*100);
-  window.SafaProgress?.recordResult({correct:correctCount,total:total,percent:pct});
+  const skills = Object.entries(bySkill).map(([name,v])=>({name,correct:v.correct,total:v.total,percent:Math.round(v.correct/v.total*100)}));
+  window.SafaProgress?.recordResult({correct:correctCount,total:total,percent:pct,skills});
 
   saveAttempt({
     date: new Date().toISOString(),

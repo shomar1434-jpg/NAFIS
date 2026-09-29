@@ -1082,7 +1082,7 @@ function selectAnswer(idx, btnEl){
     btnEl.classList.add('wrong');
     allOpts[q.correct].classList.add('correct');
     showToast('bad', null, 'الإجابة الصحيحة: ' + q.options[q.correct]);
-    state.wrong.push({text:q.text, chosen:q.options[idx], correct:q.options[q.correct]});
+    state.wrong.push({text:q.text, cat:q.cat, chosen:q.options[idx], correct:q.options[q.correct]});
   }
   const nextBtn = document.getElementById('nextBtn');
   nextBtn.classList.add('show');
@@ -1106,7 +1106,8 @@ function finishQuiz(){
   const total = state.pool.length;
   const correctCount = total - state.wrong.length;
   const percent = Math.round((correctCount/total)*100);
-  window.SafaProgress?.recordResult({correct:correctCount,total:total,percent:percent});
+  const skills = Object.entries(state.pool.reduce((acc,q)=>{acc[q.cat]=acc[q.cat]||{correct:0,total:0};acc[q.cat].total++;if(!state.wrong.some(w=>w.text===q.text))acc[q.cat].correct++;return acc;},{})).map(([key,v])=>({name:CATEGORY_META[key]?.label||key,correct:v.correct,total:v.total,percent:Math.round(v.correct/v.total*100)}));
+  window.SafaProgress?.recordResult({correct:correctCount,total:total,percent:percent,skills});
 
   let emoji, title, sub;
   if(percent >= 90){ emoji='🏆'; title='بطل نافس الذهبي!'; sub='مستوى ممتاز جدًا، أنت جاهز تمامًا لاختبار نافس!'; }
