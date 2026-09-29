@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#124f46">
+  <meta name="description" content="رحلتنا نحو التميز مع اختبارات نافس - مدرسة الصفا المتوسطة بجازان">
+  <title>رحلتنا نحو التميز مع اختبارات نافس</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='14' width='64' height='64' fill='%23154f46'/%3E%3Cpath d='M14 16h15c5 0 8 3 8 8v26c-2-3-5-5-10-5H14zM50 16H35c-5 0-8 3-8 8v26c2-3 5-5 10-5h13z' fill='%23f4d59a'/%3E%3Cpath d='M9 53h46' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/student.css">
+  <style>
+    :root {
+      --green: #124f46;
+      --green-2: #0d6d60;
+      --gold: #c9a35a;
+      --cream: #fffaf0;
+      --ink: #173a38;
+      --rose: #8e2940;
+      --blue: #154f78;
+      --shadow: 0 18px 42px rgba(33, 48, 42, .18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; background: #e8f0ed; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      font-family: "Tajawal", "Alyamama", "Geeza Pro", Tahoma, Arial, sans-serif;
+      background:
+        linear-gradient(rgba(247, 244, 233, .40), rgba(247, 244, 233, .72)),
+        url("assets/nafes-journey-bg.png") center top / cover fixed no-repeat;
+    }
+
+    a { color: inherit; }
+
+    .page-shell {
+      min-height: 100vh;
+      padding: clamp(14px, 2.5vw, 34px);
+    }
+
+    .poster {
+      width: min(1180px, 100%);
+      min-height: calc(100vh - 40px);
+      margin: 0 auto;
+      padding: clamp(18px, 3vw, 38px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,250,240,.92)),
+        url("assets/nafes-journey-bg.png") center 18% / cover no-repeat;
+      box-shadow: 0 26px 80px rgba(30, 58, 49, .28);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(255,255,255,.08) 0 22%, rgba(255,251,241,.62) 42%, rgba(255,251,241,.94) 100%);
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 170px 1fr 200px;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .nafs-mark {
+      display: grid;
+      place-items: center;
+      gap: 2px;
+      min-height: 122px;
+      padding: 14px;
+      border: 1px solid rgba(18,79,70,.14);
+      border-radius: 24px;
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 12px 30px rgba(22,62,57,.10);
+      text-align: center;
+    }
+
+    .nafs-mark .bars {
+      display: flex;
+      align-items: end;
+      gap: 4px;
+      height: 30px;
+      direction: ltr;
+    }
+
+    .nafs-mark .bars i {
+      display: block;
+      width: 13px;
+      border-radius: 4px 4px 1px 1px;
+      background: linear-gradient(180deg, #36a9a4, #145072);
+      transform: skewY(-8deg);
+    }
+
+    .nafs-mark .bars i:nth-child(1) { height: 11px; }
+    .nafs-mark .bars i:nth-child(2) { height: 20px; }
+    .nafs-mark .bars i:nth-child(3) { height: 30px; }
+    .nafs-mark strong { font-size: 1.8rem; line-height: 1; color: #164969; }
+    .nafs-mark small { font-size: .76rem; line-height: 1.5; font-weight: 700; }
+
+    .title-board {
+      text-align: center;
+    }
+
+    .title-board h1 {
+      margin: 0;
+      padding: 18px 26px 20px;
+      border: 4px solid #b89551;
+      border-radius: 22px;
+      color: white;
+      background: linear-gradient(145deg, #173f38, #0f5c4e 58%, #153e36);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.13), 0 14px 28px rgba(24,52,44,.24);
+      font-size: clamp(1.65rem, 3.2vw, 3rem);
+      line-height: 1.35;
+      text-wrap: balance;
+    }
+
+    .title-board h1 em {
+      color: #f2cb80;
+      font-style: normal;
+      white-space: nowrap;
+    }
+
+    .title-board p {
+      display: inline-block;
+      margin: 0;
+      padding: 10px 24px;
+      border-radius: 0 0 16px 16px;
+      background: rgba(255,250,240,.94);
+      box-shadow: 0 7px 20px rgba(78,61,29,.12);
+      font-size: clamp(.96rem, 1.6vw, 1.25rem);
+      font-weight: 800;
+    }
+
+    .vision-note {
+      padding: 18px 14px;
+      border: 1px solid rgba(185,144,74,.28);
+      border-radius: 4px 24px 4px 24px;
+      background: rgba(255,250,240,.92);
+      box-shadow: 0 12px 26px rgba(81,56,22,.12);
+      color: #254b46;
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.8;
+      text-align: center;
+      transform: rotate(-1.5deg);
+    }
+
+    .journey-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 22px;
+    }
+
+    .journey-tags span {
+      padding: 7px 18px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, #164f45, #18766c);
+      box-shadow: 0 8px 18px rgba(20,74,65,.16);
+      font-size: .91rem;
+      font-weight: 800;
+    }
+
+    .stations {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(12px, 1.7vw, 22px);
+      align-items: start;
+    }
+
+    .station {
+      --accent: #8e2940;
+      --accent-soft: #f7d9df;
+      min-width: 0;
+      overflow: hidden;
+      border: 3px solid color-mix(in srgb, var(--accent), white 42%);
+      border-radius: 78px 78px 30px 30px;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--accent-soft), white 28%), rgba(255,255,255,.92));
+      box-shadow: var(--shadow);
+    }
+
+    .station--gold { --accent: #80601f; --accent-soft: #efdfbd; }
+    .station--teal { --accent: #0d5b52; --accent-soft: #c8e1d9; }
+
+    .station-head {
+      position: relative;
+      padding: 20px 16px 15px;
+      color: color-mix(in srgb, var(--accent), black 10%);
+      text-align: center;
+    }
+
+    .station-no {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 54px;
+      margin: -2px auto 8px;
+      border: 3px solid color-mix(in srgb, var(--accent), white 35%);
+      border-radius: 40px 40px 15px 15px;
+      background: rgba(255,255,255,.88);
+      box-shadow: inset 0 -7px 12px rgba(0,0,0,.05);
+      font-size: 1.6rem;
+      font-weight: 900;
+      direction: ltr;
+    }
+
+    .station-head h2 { margin: 0; font-size: clamp(1.25rem, 2.2vw, 1.75rem); line-height: 1.35; }
+    .station-head p { margin: 6px 0 0; font-weight: 800; }
+
+    .tests {
+      display: grid;
+      gap: 12px;
+      padding: 0 13px 14px;
+    }
+
+    .test-card {
+      --subject: #8e2940;
+      --subject-soft: #f7dbe1;
+      overflow: hidden;
+      border: 1px solid rgba(31,54,51,.13);
+      border-radius: 18px;
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 8px 18px rgba(50,63,58,.12);
+    }
+
+    .test-card.science { --subject: #0e5f4f; --subject-soft: #d8e7c3; }
+    .test-card.math { --subject: #174f77; --subject-soft: #d8e7f4; }
+
+    .subject-name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 52px;
+      padding: 8px 12px;
+      color: var(--subject);
+      background: linear-gradient(180deg, var(--subject-soft), rgba(255,255,255,.32));
+      font-size: 1.22rem;
+      font-weight: 900;
+    }
+
+    .subject-name .icon { font-size: 1.45rem; line-height: 1; }
+
+    .test-action {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      padding: 11px;
+    }
+
+    .qr-link {
+      display: block;
+      border: 2px dashed color-mix(in srgb, var(--subject), white 45%);
+      border-radius: 10px;
+      background: white;
+      transition: transform .2s ease;
+    }
+
+    .qr-link:hover { transform: scale(1.04); }
+    .qr-link img { display: block; width: 100%; height: auto; border-radius: 7px; }
+
+    .test-link {
+      min-width: 0;
+      text-align: center;
+    }
+
+    .test-link span { display: block; margin-bottom: 7px; font-size: .92rem; font-weight: 800; }
+
+    .test-link a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 38px;
+      padding: 7px 10px;
+      border: 2px solid var(--subject);
+      border-radius: 999px;
+      color: var(--subject);
+      background: color-mix(in srgb, var(--subject-soft), white 35%);
+      font-size: .88rem;
+      font-weight: 900;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .test-link a:hover,
+    .test-link a:focus-visible {
+      color: white;
+      background: var(--subject);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .station-quote {
+      min-height: 82px;
+      display: grid;
+      place-items: center;
+      padding: 15px 22px 20px;
+      color: var(--accent);
+      font-size: 1.05rem;
+      font-weight: 900;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .closing {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .closing-card {
+      padding: 15px;
+      border: 1px solid rgba(122,87,32,.18);
+      border-radius: 18px;
+      background: rgba(255,250,240,.92);
+      box-shadow: 0 9px 24px rgba(65,57,43,.10);
+      font-weight: 800;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .school-credit {
+      padding: 17px 20px;
+      border-radius: 20px;
+      color: white;
+      background: linear-gradient(135deg, #123e38, #0f6b5e);
+      box-shadow: 0 12px 28px rgba(20,71,62,.22);
+      text-align: center;
+    }
+
+    .school-credit strong { display: block; font-size: 1.12rem; }
+    .school-credit span { display: block; margin-top: 5px; color: #f1d59b; font-weight: 800; }
+
+    .ribbon {
+      margin: 16px auto 0;
+      width: min(760px, 92%);
+      padding: 11px 20px;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(90deg, #0c5a4f, #168074, #0c5a4f);
+      box-shadow: 0 10px 26px rgba(13,82,71,.18);
+      font-size: 1.02rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .print-button {
+      position: fixed;
+      inset: auto auto 18px 18px;
+      z-index: 10;
+      min-height: 46px;
+      padding: 10px 18px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: #124f46;
+      box-shadow: 0 10px 26px rgba(16,67,58,.26);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .print-button:hover,
+    .print-button:focus-visible { background: #0b6b5c; outline: 3px solid rgba(13,109,96,.22); }
+
+    @media (max-width: 900px) {
+      body { background-attachment: scroll; }
+      .topline { grid-template-columns: 120px 1fr; }
+      .vision-note { grid-column: 1 / -1; transform: none; }
+      .stations { grid-template-columns: 1fr; }
+      .station { border-radius: 52px 52px 25px 25px; }
+      .tests { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .test-action { grid-template-columns: 62px 1fr; }
+      .closing { grid-template-columns: 1fr; }
+      .school-credit { grid-row: 1; }
+    }
+
+    @media (max-width: 700px) {
+      .page-shell { padding: 0; }
+      .poster { min-height: 100vh; padding: 16px 12px 84px; border-radius: 0; }
+      .topline { grid-template-columns: 1fr; }
+      .nafs-mark { min-height: 90px; grid-template-columns: auto auto auto; justify-content: center; gap: 12px; }
+      .title-board h1 { padding: 15px; font-size: 1.65rem; }
+      .tests { grid-template-columns: 1fr; }
+      .test-action { grid-template-columns: 82px 1fr; }
+      .station-quote { min-height: auto; }
+      .print-button { inset: auto 14px 14px 14px; width: calc(100% - 28px); }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .station { animation: rise .65s ease both; }
+      .station:nth-child(2) { animation-delay: .08s; }
+      .station:nth-child(3) { animation-delay: .16s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    }
+
+    @media print {
+      @page { size: A4 portrait; margin: 0; }
+      html, body { width: 210mm; min-height: 297mm; background: white; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page-shell { padding: 0; }
+      .poster {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 7mm;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .topline { grid-template-columns: 31mm 1fr 38mm; gap: 3mm; margin-bottom: 2mm; }
+      .nafs-mark { min-height: 25mm; padding: 2mm; border-radius: 4mm; }
+      .nafs-mark strong { font-size: 15pt; }
+      .nafs-mark small { font-size: 6.5pt; }
+      .vision-note { padding: 3mm 2mm; font-size: 8pt; line-height: 1.5; }
+      .title-board h1 { padding: 3mm; border-width: 1mm; border-radius: 4mm; font-size: 18pt; }
+      .title-board p { padding: 2mm 5mm; font-size: 8pt; }
+      .journey-tags { margin: 2mm 0 4mm; gap: 1.5mm; }
+      .journey-tags span { padding: 1.5mm 4mm; font-size: 7pt; }
+      .stations { gap: 3mm; }
+      .station { border-width: .7mm; border-radius: 12mm 12mm 5mm 5mm; box-shadow: 0 2mm 5mm rgba(33,48,42,.16); }
+      .station-head { padding: 3mm 2mm 2mm; }
+      .station-no { width: 14mm; height: 10mm; margin-bottom: 1mm; border-width: .7mm; font-size: 12pt; }
+      .station-head h2 { font-size: 11pt; }
+      .station-head p { margin-top: 1mm; font-size: 6.7pt; }
+      .tests { gap: 2mm; padding: 0 2mm 2mm; }
+      .test-card { border-radius: 3mm; box-shadow: 0 1mm 3mm rgba(50,63,58,.11); }
+      .subject-name { min-height: 9mm; padding: 1mm 2mm; font-size: 9pt; }
+      .subject-name .icon { font-size: 11pt; }
+      .test-action { grid-template-columns: 14mm 1fr; gap: 2mm; padding: 2mm; }
+      .test-link span { margin-bottom: 1mm; font-size: 6.5pt; }
+      .test-link a { min-height: 7mm; padding: 1mm 2mm; border-width: .5mm; font-size: 6.5pt; }
+      .station-quote { min-height: 16mm; padding: 2mm 3mm 3mm; font-size: 7.5pt; line-height: 1.4; }
+      .closing { gap: 2mm; margin-top: 4mm; }
+      .closing-card, .school-credit { padding: 2.5mm; border-radius: 3mm; font-size: 7pt; line-height: 1.45; }
+      .school-credit strong { font-size: 8pt; }
+      .school-credit span { margin-top: 1mm; font-size: 7pt; }
+      .ribbon { margin-top: 2mm; padding: 2mm; font-size: 7.5pt; }
+      .print-button { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="student-gate" id="studentGate" role="dialog" aria-modal="true" aria-labelledby="studentGateTitle">
+    <div class="student-gate__card">
+      <div class="student-gate__head">
+        <strong id="studentGateTitle">دخول الطالب إلى تدريبات نافس</strong>
+        <span>سجّل بياناتك مرة واحدة ليتم حفظ تقدمك ونتائجك وشهاداتك على هذا الجهاز.</span>
+      </div>
+      <form class="student-form" id="studentForm">
+        <label>اسم الطالب كاملًا<input id="studentName" name="studentName" maxlength="60" autocomplete="name" required></label>
+        <label>الصف<select id="studentGrade" name="studentGrade" required><option value="">اختر الصف</option><option>الصف الثالث الابتدائي</option><option>الصف السادس الابتدائي</option><option>الصف الثالث المتوسط</option></select></label>
+        <label>الفصل<input id="studentClass" name="studentClass" maxlength="20" placeholder="مثال: ٣/أ"></label>
+        <label>الرقم الطلابي - اختياري<input id="studentNumber" name="studentNumber" inputmode="numeric" maxlength="20" placeholder="لتمييز سجل الطالب"></label>
+        <div class="student-form__actions"><button type="submit">دخول وحفظ البيانات</button><button class="secondary" type="button" id="closeStudentGate">إلغاء</button></div>
+      </form>
+    </div>
+  </div>
+
+  <main class="page-shell">
+    <section class="poster" aria-labelledby="page-title">
+      <header class="topline">
+        <div class="nafs-mark" aria-label="نافس - الاختبارات الوطنية لقياس نواتج التعلم">
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+          <strong>نافس</strong>
+          <small>NAFS<br>الاختبارات الوطنية لقياس نواتج التعلم</small>
+        </div>
+
+        <div class="title-board">
+          <h1 id="page-title">رحلتنا نحو التميز<br>مع اختبارات <em>نافس</em></h1>
+          <p>خطوة تقيس .. وأثرًا يصنع الفرق</p>
+        </div>
+
+        <div class="vision-note">بالعلم نبني قدراتنا<br>ونرسم مستقبلنا</div>
+      </header>
+
+      <div class="journey-tags" aria-label="محاور الرحلة">
+        <span>معرفة</span><span>مهارة</span><span>مستقبل واعد</span>
+      </div>
+
+      <section class="student-dashboard" id="studentDashboard" aria-label="متابعة تقدم الطالب" hidden>
+        <div class="student-dashboard__top">
+          <div class="student-dashboard__identity">
+            <div class="student-dashboard__avatar" id="studentAvatar">ط</div>
+            <div><strong id="studentGreeting">مرحبًا</strong><span id="studentMeta"></span></div>
+          </div>
+          <button class="student-dashboard__edit" id="editStudentProfile" type="button">تعديل بيانات الطالب</button>
+        </div>
+        <div class="student-stats">
+          <div class="student-stat"><b id="completedCount">0/8</b><span>تدريبات مكتملة</span></div>
+          <div class="student-stat"><b id="bestScore">0%</b><span>أفضل نتيجة</span></div>
+          <div class="student-stat"><b id="attemptsCount">0</b><span>إجمالي المحاولات</span></div>
+          <div class="student-stat"><b id="certificateCount">0</b><span>شهادات متاحة</span></div>
+        </div>
+        <div class="progress-note">تُحفظ النتائج تلقائيًا بعد إنهاء كل تدريب. نتيجة ٦٠٪ فأعلى تمنح شهادة اجتياز، وما دون ذلك يمنح شهادة تحفيز للاستمرار في التدريب.</div>
+        <div id="certificateSection" hidden><div class="certificate-list" id="certificateList"></div></div>
+      </section>
+
+      <section class="stations" aria-label="محطات اختبارات نافس">
+        <article class="station">
+          <header class="station-head">
+            <div class="station-no">03</div>
+            <h2>محطة الثالث الابتدائي</h2>
+            <p>بداية مشرقة</p>
+          </header>
+          <div class="tests">
+            <section class="test-card">
+              <div class="subject-name"><span class="icon" aria-hidden="true">📖</span> لغتي الجميلة</div>
+              <div class="test-action">
+                <a class="qr-link" href="tests/grade3-primary-arabic.html" aria-label="فتح اختبار لغتي الجميلة للصف الثالث الابتدائي"><img src="assets/grade3-primary-arabic.png" alt="رمز الاستجابة السريعة لاختبار لغتي الجميلة"></a>
+                <div class="test-link"><span>رابط التدريب</span><a href="tests/grade3-primary-arabic.html">ابدأ التدريب</a></div>
+              </div>
+            </section>
+            <section class="test-card math">
+              <div class="subject-name"><span class="icon" aria-hidden="true">➗</span> الرياضيات</div>
+              <div class="test-action">
+                <a class="qr-link" href="tests/grade3-primary-math.html" aria-label="فتح اختبار الرياضيات للصف الثالث الابتدائي"><img src="assets/grade3-primary-math.png" alt="رمز الاستجابة السريعة لاختبار الرياضيات"></a>
+                <div class="test-link"><span>رابط التدريب</span><a href="tests/grade3-primary-math.html">ابدأ التدريب</a></div>
+              </div>
+            </section>
+          </div>
+          <div class="station-quote">خطوات صغيرة ..<br>لإنجازات كبيرة</div>
+        </article>
+
+        <article class="station station--gold">
+          <header class="station-head">
+            <div class="station-no">06</div>
+            <h2>محطة السادس الابتدائي</h2>
+            <p>نخطو بثقة نحو المستقبل</p>
+          </header>
+          <div class="tests">
+            <section class="test-card">
+              <div class="subject-name"><span class="icon" aria-hidden="true">📖</span> لغتي الجميلة</div>
+              <div class="test-action">
+                <a class="qr-link" href="tests/grade6-primary-arabic.html" aria-label="فتح اختبار لغتي الجميلة للصف السادس الابتدائي"><img src="assets/grade6-primary-arabic.png" alt="رمز الاستجابة السريعة لاختبار لغتي الجميلة"></a>
+                <div class="test-link"><span>رابط التدريب</span><a href="tests/grade6-primary-arabic.html">ابدأ التدريب</a></div>
+              </div>
+            </section>
+            <section class="test-card science">
+              <div class="subject-name"><span class="icon" aria-hidden="true">⚗</span> العلوم</div>
+              <div class="test-action">
+                <a class="qr-link" href="tests/grade6-primary-science.html" aria-label="فتح اختبار العلوم للصف السادس الابتدائي"><img src="assets/grade6-primary-science.png" alt="رمز الاستجابة السريعة لاختبار العلوم"></a>
+                <div class="test-link"><span>رابط التدريب</span><a href="tests/grade6-primary-science.html">ابدأ التدريب</a></div>
+              </div>
+            </section>
+            <section class="test-card math">
+              <div class="subject-name"><span class="icon" aria-hidden="true">➗</span> الرياضيات</div>
+              <div class="test-action">
+                <a class="qr-link" href="tests/grade6-primary-math.html" aria-label="فتح اختبار الرياضيات للصف السادس الابتدائي"><img src="assets/grade6-primary-math.png" alt="رمز الاستجابة السريعة لاختبار الرياضيات"></a>
+                <div class="test-link"><span>رابط التدريب</span><a href="tests/grade6-primary-math.html">ابدأ التدريب</a></div>
+              </div>
+            </section>
+          </div>
+          <div class="station-quote">معرفة اليوم ..<br>تصنع فرص الغد</div>
+        </article>
+
+        <article class="station station--teal">
+          <header class="station-head">
+            <div class="station-no">03</div>
+            <h2>محطة الثالث متوسط</h2>
+            <p>نحو آفاق أوسع</p>
+          </header>
+          <div class="tests">
+            <section class="test-card">
+              <div class="subject-name"><span class="icon" aria-hidden="true">📖</span> لغتي الجميلة</div>
+              <div class="test-action">
+                <a class="qr-link" href="tests/grade3-middle-arabic.html" aria-label="فتح اختبار لغتي الجميلة للصف الثالث المتوسط"><img src="assets/grade3-middle-arabic.png" alt="رمز الاستجابة السريعة لاختبار لغتي الجميلة"></a>
+                <div class="test-link"><span>رابط التدريب</span><a href="tests/grade3-middle-arabic.html">ابدأ التدريب</a></div>
+              </div>
+            </section>
+            <section class="test-card science">
+              <div class="subject-name"><span class="icon" aria-hidden="true">⚗</span> العلوم</div>
+              <div class="test-action">
+                <a class="qr-link" href="tests/grade3-middle-science.html" aria-label="فتح اختبار العلوم للصف الثالث المتوسط"><img src="assets/grade3-middle-science.png" alt="رمز الاستجابة السريعة لاختبار العلوم"></a>
+                <div class="test-link"><span>رابط التدريب</span><a href="tests/grade3-middle-science.html">ابدأ التدريب</a></div>
+              </div>
+            </section>
+            <section class="test-card math">
+              <div class="subject-name"><span class="icon" aria-hidden="true">➗</span> الرياضيات</div>
+              <div class="test-action">
+                <a class="qr-link" href="tests/grade3-middle-math.html" aria-label="فتح اختبار الرياضيات للصف الثالث المتوسط"><img src="assets/grade3-middle-math.png" alt="رمز الاستجابة السريعة لاختبار الرياضيات"></a>
+                <div class="test-link"><span>رابط التدريب</span><a href="tests/grade3-middle-math.html">ابدأ التدريب</a></div>
+              </div>
+            </section>
+          </div>
+          <div class="station-quote">معًا نحو نتائج أفضل ..<br>لأننا قادرون</div>
+        </article>
+      </section>
+
+      <footer>
+        <div class="closing">
+          <div class="closing-card">نافس<br><strong>أداء أفضل لمستقبل أجمل</strong></div>
+          <div class="school-credit"><strong>مدرسة الصفا المتوسطة بجازان</strong><span>من إعداد الأستاذ عمر صالح علان</span></div>
+          <div class="closing-card">كل جهد اليوم ..<br><strong>هو خطوة نحو مستقبل أجمل</strong></div>
+        </div>
+        <div class="ribbon">معًا .. لمتعلمين أكثر قدرة وإبداعًا</div>
+      </footer>
+    </section>
+  </main>
+
+  <button class="print-button" type="button" onclick="window.print()">طباعة الصفحة</button>
+  <script src="assets/portal.js"></script>
+</body>
+</html>
