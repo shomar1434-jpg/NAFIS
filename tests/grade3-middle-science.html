@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تدريبات نافس | العلوم | مدرسة الصفا المتوسطة بجازان</title>
+<style>
+:root{
+  --navy:#16324f;
+  --navy-2:#0e2338;
+  --teal:#0f7a72;
+  --teal-light:#e4f4f2;
+  --gold:#c9972e;
+  --gold-light:#faf1dd;
+  --bg:#f5f7f9;
+  --card:#ffffff;
+  --ink:#1c2b3a;
+  --sub:#6b7c8c;
+  --line:#e6ebef;
+  --good:#1e8a5f;
+  --good-bg:#e8f7ef;
+  --bad:#c8433f;
+  --bad-bg:#fdeceb;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(22,50,79,.08);
+  --shadow-sm:0 4px 14px rgba(22,50,79,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:'Tajawal','Cairo',system-ui,-apple-system,'Segoe UI',sans-serif;direction:rtl}
+body{min-height:100vh;display:flex;flex-direction:column}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:980px;margin:0 auto;width:100%;padding:0 18px;flex:1;display:flex;flex-direction:column}
+
+/* ---------- Header ---------- */
+header.app-head{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);padding:18px 0 26px}
+.head-inner{max-width:980px;margin:0 auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:46px;height:46px;border-radius:13px;background:radial-gradient(circle at 30% 30%,#1f4a72,#0f7a72);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.brand-logo svg{width:26px;height:26px}
+.brand-text h1{color:#fff;font-size:19px;font-weight:800;letter-spacing:0}
+.brand-text p{color:#9fb4c7;font-size:12px;margin-top:2px}
+.head-actions{display:flex;gap:8px}
+.icon-btn{width:38px;height:38px;border-radius:11px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.15s}
+.icon-btn:hover{background:rgba(255,255,255,.16)}
+.stat-badge{display:flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:11px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font-size:13px;font-weight:800;white-space:nowrap}
+.stat-badge b{color:#f6c453;font-weight:900}
+@media(max-width:480px){.stat-badge{padding:0 10px;font-size:12px}.brand-text p{display:none}}
+
+/* ---------- Screens ---------- */
+.screen{display:none;padding:26px 0 50px;flex:1}
+.screen.active{display:flex;flex-direction:column;gap:22px}
+
+/* ---------- Home ---------- */
+.intro-card{background:var(--card);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.intro-card h2{font-size:18px;margin-bottom:6px;color:var(--navy)}
+.intro-card p{font-size:14px;color:var(--sub);line-height:1.9}
+.intro-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:12px;background:var(--teal-light);color:var(--teal);padding:5px 12px;border-radius:20px;font-weight:700}
+
+.credit-card{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow);text-align:center}
+.credit-card h3{color:#fff;font-size:15.5px;font-weight:800;line-height:1.9;margin-bottom:14px}
+.credit-card h3 b{color:#f6c453}
+.credit-hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:0 auto 14px;width:80%}
+.credit-schools{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.credit-schools p{font-size:13.5px;color:#e4ecf3}
+.credit-schools p b{color:#6fd3c4;font-weight:800}
+.credit-signature{font-size:13.5px;font-weight:800;color:#f6c453}
+
+.section-title{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:2px;display:flex;align-items:center;gap:8px}
+.section-title .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:640px){.domain-grid{grid-template-columns:1fr}}
+
+.domain-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px;transition:.18s;cursor:pointer}
+.domain-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.domain-card .d-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.domain-card h3{font-size:15.5px;color:var(--ink)}
+.domain-card .d-meta{font-size:12.5px;color:var(--sub)}
+.domain-card .d-start{margin-top:4px;align-self:flex-start;font-size:12.5px;font-weight:800;color:var(--teal);display:flex;align-items:center;gap:5px}
+
+.featured{grid-column:1 / -1;background:linear-gradient(120deg,var(--gold-light) 0%,#fff 60%);border:1px solid #ecd9ab;position:relative;overflow:hidden}
+.featured::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--gold),#e0b354)}
+.featured .d-icon{background:var(--gold);color:#fff}
+.featured h3{font-size:17px}
+
+.d-icon.c1{background:#e7eefc;color:#2455a3}
+.d-icon.c2{background:#eafaf1;color:#1e8a5f}
+.d-icon.c3{background:#fdeeea;color:#c85a3a}
+.d-icon.c4{background:#f3ecfb;color:#7a4fc4}
+
+.history-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+.history-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.history-row:last-child{border-bottom:none}
+.history-row .h-domain{font-weight:700;color:var(--ink)}
+.history-row .h-date{color:var(--sub);font-size:12px}
+.history-score{font-weight:800;padding:4px 12px;border-radius:20px;font-size:12.5px}
+.hs-good{background:var(--good-bg);color:var(--good)}
+.hs-mid{background:var(--gold-light);color:#a3771a}
+.hs-bad{background:var(--bad-bg);color:var(--bad)}
+.empty-hint{color:var(--sub);font-size:13px;text-align:center;padding:14px 0}
+
+/* ---------- Quiz ---------- */
+.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.quiz-meta{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--sub);font-weight:700}
+.quiz-meta .q-count{color:var(--navy)}
+.exit-btn{background:none;border:none;color:var(--sub);font-size:20px;line-height:1;padding:4px 8px;border-radius:8px}
+.exit-btn:hover{background:var(--bad-bg);color:var(--bad)}
+.progress-track{height:8px;background:var(--line);border-radius:20px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),#17a396);border-radius:20px;transition:width .3s}
+
+.q-card{background:var(--card);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.q-domain-badge{display:inline-block;font-size:11.5px;font-weight:800;color:var(--teal);background:var(--teal-light);padding:4px 11px;border-radius:20px;margin-bottom:14px}
+.q-text{font-size:16.5px;line-height:1.9;color:var(--ink);font-weight:700}
+
+.choices{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.choice{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(--line);border-radius:13px;background:#fff;font-size:14.5px;text-align:right;transition:.15s}
+.choice:hover:not(.locked){border-color:var(--teal);background:var(--teal-light)}
+.choice .c-letter{width:26px;height:26px;border-radius:50%;background:var(--bg);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;color:var(--sub);flex-shrink:0}
+.choice.correct{border-color:var(--good);background:var(--good-bg)}
+.choice.correct .c-letter{background:var(--good);border-color:var(--good);color:#fff}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .c-letter{background:var(--bad);border-color:var(--bad);color:#fff}
+.choice.dim{opacity:.5}
+
+.frac{display:inline-flex;flex-direction:column;text-align:center;line-height:1.15;vertical-align:middle;margin:0 3px;font-size:.92em;font-weight:800}
+.frac .fn{border-bottom:1.6px solid currentColor;padding:0 4px}
+.frac .fd{padding:0 4px}
+
+.explain-box{margin-top:16px;padding:13px 15px;border-radius:12px;font-size:13.5px;line-height:1.8;display:none}
+.explain-box.show{display:block}
+.explain-box.good{background:var(--good-bg);color:#186b4a}
+.explain-box.bad{background:var(--bad-bg);color:#a5322e}
+
+.q-actions{display:flex;justify-content:flex-end;margin-top:20px}
+.btn{border:none;border-radius:12px;padding:13px 26px;font-size:14.5px;font-weight:800;transition:.15s}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-2)}
+.btn-primary:disabled{background:#c7d0d9;cursor:not-allowed}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#b6851f}
+
+/* ---------- Results ---------- */
+.result-hero{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:var(--radius);padding:32px 24px;text-align:center;color:#fff;box-shadow:var(--shadow)}
+.score-ring{width:130px;height:130px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;position:relative}
+.score-ring .ring-num{font-size:30px;font-weight:900}
+.score-ring .ring-sub{font-size:11px;color:#c8d6e3}
+.result-msg{font-size:16px;font-weight:800;margin-bottom:4px}
+.result-sub{font-size:13px;color:#9fb4c7}
+
+.domain-breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.db-item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px;box-shadow:var(--shadow-sm)}
+.db-item .db-top{display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:8px;color:var(--sub)}
+.db-bar{height:7px;background:var(--line);border-radius:10px;overflow:hidden}
+.db-fill{height:100%;border-radius:10px;background:var(--teal)}
+
+.review-list{display:flex;flex-direction:column;gap:10px}
+.review-item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+.review-head{display:flex;align-items:flex-start;gap:10px}
+.review-icon{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;margin-top:2px}
+.review-icon.ok{background:var(--good)}
+.review-icon.no{background:var(--bad)}
+.review-text{font-size:13.5px;line-height:1.8}
+.review-answer{font-size:12.5px;margin-top:6px;color:var(--sub)}
+.review-answer b{color:var(--ink)}
+
+.result-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ---------- Modal ---------- */
+.modal-bg{position:fixed;inset:0;background:rgba(14,25,38,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:18px;max-width:420px;width:100%;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal h3{font-size:16px;color:var(--navy);margin-bottom:14px}
+.modal .m-row{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.modal .m-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;background:#fff;font-size:13.5px;font-weight:700;text-align:right}
+.modal .m-btn:hover{border-color:var(--teal)}
+.modal .m-btn.danger:hover{border-color:var(--bad);color:var(--bad)}
+.modal-close{margin-top:6px;width:100%}
+input[type=file]{display:none}
+
+/* ---------- Footer ---------- */
+footer.app-foot{text-align:center;padding:18px 12px;font-size:12.5px;color:var(--ink)}
+footer.app-foot a{color:var(--teal);text-decoration:none;font-weight:700}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:11px 20px;border-radius:11px;font-size:13px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
+</style>
+</head>
+<body>
+
+<header class="app-head">
+  <div class="head-inner">
+    <div class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7l8 4 8-4-8-4Z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke="#f6c453" stroke-width="1.4" stroke-linejoin="round"/><path d="M12 11v10" stroke="#fff" stroke-width="1.2"/></svg>
+      </div>
+      <div class="brand-text">
+        <h1>تدريبات نافس</h1>
+        <p>علوم · الصف الثالث متوسط</p>
+      </div>
+    </div>
+    <div class="head-actions">
+      <div class="stat-badge" id="totalQBadge" title="إجمالي عدد أسئلة المنصة">📝 <b id="totalQCount">0</b> سؤال</div>
+      <button class="icon-btn" id="btnBack" title="العودة">↩️</button>
+      <button class="icon-btn" id="btnHomeIcon" title="الرئيسية">🏠</button>
+      <button class="icon-btn" id="btnSettings" title="الإعدادات">⚙️</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- HOME SCREEN -->
+  <section class="screen active" id="screenHome">
+    <div class="intro-card">
+      <h2>اختبر نفسك ذاتيًا في العلوم</h2>
+      <p>مجموعة أسئلة تدريبية من نوع الاختيار من متعدد في مادة العلوم للصف الثالث متوسط، تغطي الكيمياء وخصائص المادة، والفيزياء والطاقة، وعلوم الأرض والفضاء والبيئة، وعلم الأحياء وجسم الإنسان، لتساعدك على قياس استعدادك ومراجعة أهم المفاهيم.</p>
+      <div class="intro-tags">
+        <span class="tag">اختيار من متعدد</span>
+        <span class="tag">تصحيح فوري</span>
+        <span class="tag">مراجعة الإجابات</span>
+        <span class="tag">تتبع تقدمك</span>
+      </div>
+    </div>
+
+    <div class="credit-card">
+      <h3>مبادرة نافس <b>"اختبر نفسك"</b> — مبادرة لمعلمي المادة أو حصص الانتظار أو الأنشطة الصفية</h3>
+      <hr class="credit-hr">
+      <div class="credit-signature">✦ مدرسة الصفا المتوسطة بجازان ✦<br><span style="color:#6fd3c4;font-size:13px">من إعداد الأستاذ عمر صالح علان</span></div>
+    </div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>اختر نطاقك</div>
+    </div>
+
+    <div class="domain-grid">
+      <div class="domain-card featured" data-domain="all">
+        <div class="d-icon">🏆</div>
+        <h3>الاختبار الشامل</h3>
+        <div class="d-meta">أسئلة متنوعة من جميع النطاقات الأربعة — <span id="countAll"></span></div>
+        <div class="d-start">ابدأ الاختبار ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="chem">
+        <div class="d-icon c1">🧪</div>
+        <h3>الكيمياء وخصائص المادة</h3>
+        <div class="d-meta"><span id="countchem"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="physics">
+        <div class="d-icon c2">⚡</div>
+        <h3>الفيزياء والطاقة</h3>
+        <div class="d-meta"><span id="countphysics"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="earth">
+        <div class="d-icon c3">🌍</div>
+        <h3>علوم الأرض والفضاء والبيئة</h3>
+        <div class="d-meta"><span id="countearth"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="biology">
+        <div class="d-icon c4">🧬</div>
+        <h3>علم الأحياء وجسم الإنسان</h3>
+        <div class="d-meta"><span id="countbiology"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>سجل محاولاتك</div>
+    </div>
+    <div class="history-card" id="historyCard">
+      <div class="empty-hint">لم تُجرِ أي محاولة بعد — ابدأ اختبارًا لتظهر نتائجك هنا.</div>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section class="screen" id="screenQuiz">
+    <div class="quiz-top">
+      <button class="exit-btn" id="btnExitQuiz" title="إنهاء">✕</button>
+      <div class="quiz-meta">
+        <span>⏱️ <span id="quizTimer">00:00</span></span>
+        <span class="q-count"><span id="qIndex">1</span> / <span id="qTotal">16</span></span>
+      </div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:6%"></div></div>
+
+    <div class="q-card">
+      <span class="q-domain-badge" id="qBadge">الأعداد والعمليات عليها</span>
+      <div class="q-text" id="qText"></div>
+      <div class="choices" id="qChoices"></div>
+      <div class="explain-box" id="qExplain"></div>
+      <div class="q-actions">
+        <button class="btn btn-primary" id="btnNext" disabled>التالي</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section class="screen" id="screenResults">
+    <div class="result-hero">
+      <div class="score-ring" id="scoreRing">
+        <div>
+          <div class="ring-num" id="resultPercent">0%</div>
+          <div class="ring-sub" id="resultFraction">0 / 0</div>
+        </div>
+      </div>
+      <div class="result-msg" id="resultMsg">أحسنت!</div>
+      <div class="result-sub" id="resultSub">النطاق: الاختبار الشامل</div>
+    </div>
+
+    <div class="domain-breakdown" id="domainBreakdown"></div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>مراجعة الإجابات</div>
+    </div>
+    <div class="review-list" id="reviewList"></div>
+
+    <div class="result-actions">
+      <button class="btn btn-primary" id="btnRetry">إعادة المحاولة</button>
+      <button class="btn btn-ghost" id="btnHome">الرئيسية</button>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- SETTINGS MODAL -->
+<div class="modal-bg" id="modalSettings">
+  <div class="modal">
+    <h3>الإعدادات والنسخ الاحتياطي</h3>
+    <div class="m-row">
+      <button class="m-btn" id="btnExport">⬇️ تنزيل نسخة احتياطية من سجل محاولاتك (JSON)</button>
+      <button class="m-btn" id="btnImportTrigger">⬆️ استعادة سجل محاولات من ملف</button>
+      <input type="file" id="fileImport" accept=".json">
+      <button class="m-btn danger" id="btnReset">🗑️ مسح سجل المحاولات بالكامل</button>
+    </div>
+    <button class="btn btn-ghost modal-close" id="btnCloseSettings">إغلاق</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= DATA ================= */
+function F(n,d){ return `<span class="frac"><span class="fn">${n}</span><span class="fd">${d}</span></span>`; }
+
+const DOMAINS = {
+  chem:     { label:'الكيمياء وخصائص المادة',        icon:'🧪' },
+  physics:  { label:'الفيزياء والطاقة',              icon:'⚡' },
+  earth:    { label:'علوم الأرض والفضاء والبيئة',    icon:'🌍' },
+  biology:  { label:'علم الأحياء وجسم الإنسان',      icon:'🧬' }
+};
+const QUESTIONS = [
+  /* ---------------- الكيمياء وخصائص المادة ---------------- */
+  { domain:'chem', topic:'المحاليل والمخاليط', text:'ما المحلول غير المتجانس من المحاليل التالية؟',
+    choices:['الطباشير في الماء','الملح في الماء','السكر في الماء','الخل في الماء'], correct:0,
+    explain:'الطباشير لا يذوب في الماء بل يبقى عالقًا فيه مكوّنًا مخلوطًا غير متجانس (معلّق)، بخلاف الملح والسكر والخل التي تذوب مكوّنة محاليل متجانسة.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'ما الجسيمات التي توجد داخل نواة الذرة؟',
+    choices:['البروتونات والنيوترونات','الإلكترونات فقط','البروتونات والإلكترونات','الإلكترونات والنيوترونات'], correct:0,
+    explain:'تقع البروتونات (موجبة الشحنة) والنيوترونات (متعادلة) داخل النواة، بينما تدور الإلكترونات حولها في مستويات الطاقة.' },
+  { domain:'chem', topic:'المحاليل والمخاليط', text:'على ماذا نحصل عند مزج الملح في الماء؟',
+    choices:['محلول (مخلوط)','مركب جديد','عنصر نقي','تفاعل كيميائي ينتج غازاً'], correct:0,
+    explain:'إذابة الملح في الماء عملية فيزيائية تنتج محلولاً (مخلوطًا متجانسًا)، ولا ينتج عنها مادة جديدة.' },
+  { domain:'chem', topic:'المركبات الكيميائية', text:'أي من نسب العناصر التالية تمثل مركب هيدروكسيد الصوديوم (NaOH)؟',
+    choices:['1:1:1','1:2:1','2:1:1','1:1:2'], correct:0,
+    explain:'يتكون هيدروكسيد الصوديوم من ذرة واحدة من كل من الصوديوم والأكسجين والهيدروجين، أي بنسبة 1:1:1.' },
+  { domain:'chem', topic:'التفاعلات الكيميائية والطاقة', text:'أي من التفاعلات التالية لا يعد مثالاً على تفاعل طارد للحرارة؟',
+    choices:['تفكك الماء إلى هيدروجين وأكسجين','احتراق الخشب','تفاعل الحديد مع الأكسجين (الصدأ)','انفجار الألعاب النارية'], correct:0,
+    explain:'تفكك الماء إلى هيدروجين وأكسجين تفاعل ماص للحرارة (يحتاج طاقة كهربائية لإتمامه)، بينما بقية الأمثلة تفاعلات طاردة للحرارة.' },
+  { domain:'chem', topic:'المحاليل والمخاليط', text:'أي من الأمثلة التالية يعد محلولاً مكوناً من سائل في سائل؟',
+    choices:['الأسيتون في الماء','الملح في الماء','الهواء الجوي','السبائك مثل النحاس الأصفر'], correct:0,
+    explain:'الأسيتون سائل يذوب في الماء (سائل) مكوّنًا محلول سائل في سائل، بينما الملح صلب، والهواء غاز في غاز، والسبائك صلب في صلب.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'إذا كان عدد البروتونات في ذرة الكلور ١٧ بروتوناً، فما العدد الذري له؟',
+    choices:['17','35','18','8'], correct:0,
+    explain:'العدد الذري لأي عنصر يساوي عدد البروتونات في نواته، أي 17 لعنصر الكلور.' },
+  { domain:'chem', topic:'المركبات والمخاليط', text:'ما نوع المادة المتكونة من تفاعل غاز الكلور مع فلز الصوديوم؟',
+    choices:['مركب','مخلوط','عنصر','محلول'], correct:0,
+    explain:'اتحاد الصوديوم مع الكلور كيميائيًا ينتج مركبًا جديدًا (كلوريد الصوديوم) بخواص مختلفة عن العنصرين الأصليين.' },
+  { domain:'chem', topic:'عوامل الذوبان', text:'كيف يؤثر حجم الحبيبات في معدل ذوبان المادة؟',
+    choices:['كلما زاد حجم الحبيبات قلّ معدل الذوبان','كلما زاد حجم الحبيبات زاد معدل الذوبان','لا علاقة بين حجم الحبيبات ومعدل الذوبان','حجم الحبيبات يؤثر في اللون فقط'], correct:0,
+    explain:'الحبيبات الكبيرة تقلّل مساحة السطح المعرّضة للمذيب، فيقلّ معدل الذوبان؛ أما الحبيبات الصغيرة (المطحونة) فتزيد معدل الذوبان.' },
+  { domain:'chem', topic:'حالات المادة', text:'ما الخاصية المشتركة بين الحالتين السائلة والغازية؟',
+    choices:['تأخذ شكل الإناء الموضوعة فيه','لها شكل وحجم ثابتان','جسيماتها متراصة بشكل منتظم','لا يمكن ضغطها'], correct:0,
+    explain:'كلتا الحالتين لا تحافظان على شكل ثابت، بل تأخذان شكل الإناء التي توضعان فيه، بخلاف الحالة الصلبة.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'أين تقع نواة الذرة؟',
+    choices:['في مركز الذرة','على سطح الذرة','خارج الذرة','في المستوى الخارجي'], correct:0,
+    explain:'تتركز كتلة الذرة تقريبًا بالكامل في نواتها الواقعة في مركزها، بينما تدور الإلكترونات حولها.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'ما الحد الأقصى لعدد الإلكترونات في المستوى الرئيسي الثالث (M)؟',
+    choices:['18','8','2','32'], correct:0,
+    explain:'يُحسب الحد الأقصى للإلكترونات في مستوى ما بالقانون 2ن²، وللمستوى الثالث (ن=3): 2×3²=18.' },
+
+  /* ---------------- الفيزياء والطاقة ---------------- */
+  { domain:'physics', topic:'الضوء والألوان', text:'سلّط خالد كشافًا ضوئيًا على منشور زجاجي، ما اللون الذي لاحظ أنه ينحرف بشكل أكبر؟',
+    choices:['الأزرق لأن طوله الموجي صغير','الأحمر لأن طوله الموجي كبير','الأخضر لأن سرعته أكبر','جميع الألوان تنحرف بالتساوي'], correct:0,
+    explain:'كلما قلّ الطول الموجي للون زادت درجة انحرافه عند مروره بالمنشور، واللون الأزرق أقصر أطوال موجية من الألوان المرئية الأساسية فينحرف أكثر.' },
+  { domain:'physics', topic:'قوانين نيوتن', text:'عند سقوط حجر على الأرض، فإن الأرض والحجر يجذب كل منهما الآخر، فما تفسير ذلك؟',
+    choices:['أن لكل فعل رد فعل مساوٍ له في المقدار ومعاكس له في الاتجاه','قانون نيوتن الأول (القصور الذاتي)','قانون الجاذبية العامة دون علاقة بالفعل ورد الفعل','قانون حفظ الطاقة'], correct:0,
+    explain:'هذا تطبيق مباشر لقانون نيوتن الثالث للحركة: لكل فعل رد فعل مساوٍ له في المقدار ومعاكس له في الاتجاه.' },
+  { domain:'physics', topic:'تحولات الطاقة', text:'أي التحولات يحدث في محرك السيارة عندما تبدأ بالحركة؟',
+    choices:['طاقة كيميائية إلى ميكانيكية (حركية)','طاقة حرارية إلى كهربائية','طاقة ضوئية إلى كيميائية','طاقة نووية إلى حرارية'], correct:0,
+    explain:'يحوّل المحرك الطاقة الكيميائية المخزّنة في الوقود إلى طاقة ميكانيكية (حركية) تُحرّك السيارة.' },
+  { domain:'physics', topic:'تحولات الطاقة', text:'حينما يؤدي أحمد التمارين الرياضية، ما تحولات الطاقة التي ستحدث في جسمه؟',
+    choices:['تحول الطاقة الكيميائية إلى الطاقة الحركية','تحول الطاقة الحرارية إلى كيميائية','تحول الطاقة الضوئية إلى صوتية','تحول الطاقة الكهربائية إلى مغناطيسية'], correct:0,
+    explain:'يحوّل الجسم الطاقة الكيميائية المخزّنة في الغذاء إلى طاقة حركية أثناء ممارسة الرياضة.' },
+  { domain:'physics', topic:'التغيرات الفيزيائية', text:'ما سبب وجود قطرات من الماء على زجاج السيارة صباحاً؟',
+    choices:['التكثف','التبخر','الانصهار','التجمد'], correct:0,
+    explain:'يتكثف بخار الماء الموجود في الهواء عند ملامسته لسطح الزجاج البارد مكوّنًا قطرات ماء سائلة.' },
+  { domain:'physics', topic:'قوانين نيوتن', text:'لاعب الجمباز أثناء الأداء يدفع جهاز المتوازي بقوة إلى أسفل، فيؤثر الجهاز في اللاعب بقوة، ما مقدار تلك القوة؟',
+    choices:['مساوية له في المقدار إلى أعلى','أكبر منها ومعاكسة لها','أصغر منها وفي نفس الاتجاه','معدومة لأن الجهاز ثابت'], correct:0,
+    explain:'وفق قانون نيوتن الثالث، يستجيب الجهاز بقوة رد فعل مساوية في المقدار ومعاكسة في الاتجاه (إلى أعلى).' },
+  { domain:'physics', topic:'الضوء والمسافات الفلكية', text:'يتطلب وصول ضوء الشمس إلى الأرض ثمان دقائق في حين يتطلب وصول ضوء القمر إلى الأرض ١٫٥ ثانية، فما السبب في ذلك؟',
+    choices:['لأن الشمس أبعد عن الأرض من القمر','لأن ضوء الشمس أبطأ من ضوء القمر','لأن القمر يصدر ضوءه الخاص بسرعة أكبر','لأن الغلاف الجوي يُبطئ ضوء الشمس فقط'], correct:0,
+    explain:'سرعة الضوء ثابتة، والفرق الكبير في الزمن سببه بُعد المسافة؛ فالشمس أبعد بكثير عن الأرض من القمر.' },
+  { domain:'physics', topic:'انتقال الحرارة', text:'لديك مادتان فلزيتان درجتا حرارتهما مختلفتان وُضعتا فوق بعضهما، حدّد اتجاه انتقال الحرارة؟',
+    choices:['من الأعلى (الأسخن) إلى الأقل حرارة','من الأقل حرارة إلى الأعلى (الأسخن)','لا تنتقل حتى تتساوى كتلتاهما','تنتقل باتجاهين متساويين'], correct:0,
+    explain:'تنتقل الحرارة دائمًا من الجسم الأعلى درجة حرارة إلى الجسم الأقل درجة حرارة حتى يصلا إلى حالة الاتزان الحراري.' },
+  { domain:'physics', topic:'قوانين نيوتن', text:'أي القوانين التالية تفسر اندفاع خرطوم الماء للخلف عندما يُفتح، في حين يندفع الماء للأمام؟',
+    choices:['قانون نيوتن الثالث','قانون نيوتن الأول','قانون نيوتن الثاني','قانون الجاذبية العامة'], correct:0,
+    explain:'اندفاع الماء للأمام (الفعل) يقابله اندفاع الخرطوم للخلف (رد الفعل)، وهذا تطبيق لقانون نيوتن الثالث.' },
+  { domain:'physics', topic:'الكهرومغناطيسية', text:'ماذا تسمى الدائرة الكهربائية التي لها مجال مغناطيسي؟',
+    choices:['المغناطيس الكهربائي','المولد الكهربائي','المكثف الكهربائي','المقاومة الكهربائية'], correct:0,
+    explain:'مرور تيار كهربائي في ملف سلكي ينشئ حوله مجالاً مغناطيسيًا، وتُسمى هذه الدائرة بالمغناطيس الكهربائي.' },
+
+  /* ---------------- علوم الأرض والفضاء والبيئة ---------------- */
+  { domain:'earth', topic:'البراكين والصخور', text:'ماذا تسمى الصخور المنصهرة التي تتدفق على سطح الأرض؟',
+    choices:['اللابة','الصهارة (الماجما)','الرماد البركاني','الحمم الغازية'], correct:0,
+    explain:'تُسمى الصخور المنصهرة "صهارة" وهي داخل الأرض، فإذا تدفقت على سطح الأرض سُمّيت "لابة".' },
+  { domain:'earth', topic:'النظام الشمسي', text:'فسّر: يُطلق على كوكب الزهرة نجم الصباح؟',
+    choices:['بسبب انعكاس أشعة الشمس لكثافة غلافه الجوي','لأنه أقرب الكواكب إلى الأرض','لأنه يصدر ضوءه الخاص','بسبب دورانه السريع حول محوره'], correct:0,
+    explain:'يبدو كوكب الزهرة لامعًا في سماء الصباح بسبب انعكاس ضوء الشمس بقوة على غلافه الجوي الكثيف، وليس لأنه يصدر ضوءً ذاتيًا.' },
+  { domain:'earth', topic:'الكوارث الطبيعية', text:'ما هو التسونامي؟',
+    choices:['الموجات الزلزالية المائية','الرياح الموسمية القوية','فيضانات الأنهار','العواصف الرملية'], correct:0,
+    explain:'التسونامي موجات بحرية ضخمة تنتج عادة عن زلازل تحت قاع المحيط، لذا يُطلق عليها "الموجات الزلزالية المائية".' },
+  { domain:'earth', topic:'البراكين والصفائح', text:'ما سبب تكوّن براكين جزر هاواي؟',
+    choices:['البقعة الساخنة','حدود الصفائح المتباعدة','حدود الصفائح المتقاربة','الزلازل البحرية'], correct:0,
+    explain:'تكوّنت جزر هاواي فوق "بقعة ساخنة" ثابتة في باطن الأرض بينما تتحرك الصفيحة المحيطية فوقها، منتجة سلسلة من البراكين.' },
+  { domain:'earth', topic:'الكواكب', text:'تكتسب صخور كوكب المريخ اللون الأحمر بسبب وجود:',
+    choices:['أكاسيد الحديد','أكاسيد الألمنيوم','الكبريت النقي','الغبار البركاني الأسود'], correct:0,
+    explain:'يعود اللون الأحمر المميز لسطح المريخ إلى انتشار أكاسيد الحديد (الصدأ) في تربته وصخوره.' },
+  { domain:'earth', topic:'الموارد الطبيعية', text:'لماذا يُعد القطن من الموارد الطبيعية المتجددة؟',
+    choices:['لأنه يُحصد كل عام','لأنه لا ينضب أبداً مهما استُهلك','لأنه يُصنّع في المصانع','لأنه لا يحتاج ماءً للنمو'], correct:0,
+    explain:'المورد المتجدد هو ما يمكن تعويضه خلال فترة زمنية قصيرة نسبيًا، والقطن يُزرع ويُحصد بشكل دوري كل عام.' },
+  { domain:'earth', topic:'التنوع البيئي', text:'على ماذا يدل وجود حيوانات مختلفة في بيئة واحدة من بيئات المملكة العربية السعودية؟',
+    choices:['تنوع النظام البيئي','تلوث البيئة','ندرة الموارد الغذائية','اختلال التوازن البيئي'], correct:0,
+    explain:'وجود أنواع مختلفة من الكائنات الحية في بيئة واحدة مؤشر صحي على تنوع النظام البيئي وثرائه.' },
+  { domain:'earth', topic:'حماية البيئة', text:'لوحظ أن بعض أنواع الطيور تنقرض، فأيّ مما يلي سبب جوهري لانقراضها؟',
+    choices:['تدمير الموطن البيئي','زيادة عدد المفترسات الطبيعية فقط','الهجرة الموسمية المعتادة','التكاثر السريع لهذه الطيور'], correct:0,
+    explain:'يُعدّ تدمير الموطن البيئي (كإزالة الغابات أو التوسع العمراني) من أهم الأسباب الجوهرية لانقراض الأنواع.' },
+  { domain:'earth', topic:'التغير المناخي', text:'عند دخولك بيتًا زجاجيًا تشعر بتأثير يشبه ظاهرة تُسمى:',
+    choices:['الاحتباس الحراري','طبقة الأوزون','المطر الحمضي','التيارات المحيطية'], correct:0,
+    explain:'يحبس زجاج البيت الزجاجي الحرارة بالداخل بطريقة مشابهة لكيفية احتباس غازات الدفيئة للحرارة في الغلاف الجوي (الاحتباس الحراري).' },
+  { domain:'earth', topic:'التوازن البيئي', text:'تضع الأسماك ملايين البيوض في بحيرة واحدة سنوياً، لماذا لا تمتلئ البحيرة بالأسماك؟',
+    choices:['لأن العديد من البيوض لم تُخصَّب أو لم تنجُ','لأن الأسماك تهاجر بعد وضع البيوض مباشرة','لأن البحيرة تجف كل عام','لأن البيوض تتحول إلى نباتات مائية'], correct:0,
+    explain:'عدد كبير من البيوض لا يُخصَّب، وحتى المخصَّب منها يتعرض كثير منه للافتراس أو الظروف البيئية قبل أن يكتمل نموه.' },
+
+  /* ---------------- علم الأحياء وجسم الإنسان ---------------- */
+  { domain:'biology', topic:'الأمراض ومسبباتها', text:'أي الأمراض التالية يسببه فيروس؟',
+    choices:['الأنفلونزا','السل (الدرن)','الكوليرا','الملاريا'], correct:0,
+    explain:'الأنفلونزا مرض فيروسي، بينما السل والكوليرا تسببهما بكتيريا، والملاريا يسببها طفيلي أولي.' },
+  { domain:'biology', topic:'الجهاز البولي', text:'أي أعضاء الجهاز البولي يتجمع فيه البول؟',
+    choices:['المثانة','الكلية','الحالب','الإحليل'], correct:0,
+    explain:'تُنتج الكلى البول وينتقل عبر الحالبين ليتجمّع في المثانة قبل خروجه عبر الإحليل.' },
+  { domain:'biology', topic:'النباتات', text:'ما الجزء المسؤول عن امتصاص الماء والأملاح المعدنية في جذور النباتات؟',
+    choices:['الشعيرات الجذرية','القلنسوة','الساق','الخشب'], correct:0,
+    explain:'الشعيرات الجذرية امتدادات دقيقة من خلايا الجذر تزيد مساحة سطحه، مما يسهّل امتصاص الماء والأملاح المعدنية.' },
+  { domain:'biology', topic:'جهاز المناعة', text:'ما هو خط الدفاع الأول في جسم الإنسان؟',
+    choices:['الجلد','خلايا الدم البيضاء','الأجسام المضادة','الغدد الليمفاوية'], correct:0,
+    explain:'يُعد الجلد خط الدفاع الأول لأنه يشكّل حاجزًا فيزيائيًا يمنع دخول معظم مسببات المرض إلى الجسم.' },
+  { domain:'biology', topic:'الجلد', text:'أين يُصنَّع فيتامين د في جسم الإنسان؟',
+    choices:['الجلد','الكبد','الكلى','المعدة'], correct:0,
+    explain:'يُصنَّع فيتامين د في الجلد عند تعرضه لأشعة الشمس فوق البنفسجية.' },
+  { domain:'biology', topic:'الوراثة', text:'بماذا تمتاز التوائم المتماثلة؟',
+    choices:['تنشأ من بويضة واحدة','تنشأ من بويضتين منفصلتين','لا تتشابه وراثياً','تختلف دائماً في فصيلة الدم'], correct:0,
+    explain:'ينشأ التوأمان المتماثلان من بويضة واحدة مخصَّبة انقسمت إلى جنينين، لذا يتشابهان وراثيًا تمامًا.' },
+  { domain:'biology', topic:'الغدد الصماء', text:'ما الغدة التي تسيطر على معظم النشاطات الحيوية في الجسم؟',
+    choices:['الغدة النخامية','الغدة الدرقية','الغدة الكظرية','البنكرياس'], correct:0,
+    explain:'تُعرف الغدة النخامية بـ"الغدة الرئيسة" لأنها تفرز هرمونات تنظّم عمل معظم الغدد الصماء الأخرى في الجسم.' },
+  { domain:'biology', topic:'الجهاز الهضمي', text:'في أي الأعضاء التالية يتم امتصاص معظم الماء؟',
+    choices:['الأمعاء الغليظة','المعدة','الأمعاء الدقيقة','المريء'], correct:0,
+    explain:'تتخصص الأمعاء الغليظة بامتصاص معظم الماء المتبقي من الفضلات قبل التخلص منها.' },
+  { domain:'biology', topic:'السلاسل الغذائية', text:'بماذا تمتاز الكائنات المنتجة عن الكائنات المستهلكة؟',
+    choices:['تصنع غذاءها بنفسها','تتغذى على كائنات أخرى','لا تحتاج إلى ضوء الشمس','تعيش في الماء فقط'], correct:0,
+    explain:'الكائنات المنتجة (كالنباتات) قادرة على صنع غذائها بنفسها عن طريق البناء الضوئي، بخلاف المستهلكة التي تعتمد على كائنات أخرى.' },
+  { domain:'biology', topic:'الغدد الصماء', text:'أي الغدد التالية توجد في منطقة العنق؟',
+    choices:['الغدة الدرقية','الغدة النخامية','الغدة الكظرية','الغدة اللعابية'], correct:0,
+    explain:'تقع الغدة الدرقية في مقدمة العنق، وتفرز هرمونات تنظّم معدل الأيض في الجسم.' },
+  { domain:'biology', topic:'جهاز المناعة', text:'أي الخلايا التالية تهاجم مسببات المرض في جسم الإنسان؟',
+    choices:['خلايا الدم البيضاء','خلايا الدم الحمراء','الصفائح الدموية','الخلايا العصبية'], correct:0,
+    explain:'تُعد خلايا الدم البيضاء جزءًا أساسيًا من جهاز المناعة، إذ تهاجم البكتيريا والفيروسات ومسببات المرض الأخرى.' },
+  { domain:'biology', topic:'الجهاز التنفسي', text:'أي العمليات التالية تتم في الحويصلات الهوائية؟',
+    choices:['تبادل الغازات','ترشيح الدم','إنتاج المخاط','تنظيم درجة الحرارة'], correct:0,
+    explain:'الحويصلات الهوائية في الرئتين هي موقع تبادل غازي الأكسجين وثاني أكسيد الكربون بين الهواء والدم.' },
+
+  /* ---------------- إضافات من نموذج اختبار نافس علوم (ثالث متوسط) ---------------- */
+  { domain:'chem', topic:'المنهج العلمي', text:'ما الخطوة الأولى للبحث عن حل مشكلة ما؟',
+    choices:['تحديد المشكلة','تحليل البيانات','استخلاص النتائج','اختبار الفرضية'], correct:0,
+    explain:'تبدأ خطوات المنهج العلمي بتحديد المشكلة أو طرح السؤال العلمي قبل جمع البيانات أو اختبار الفرضيات.' },
+  { domain:'chem', topic:'المنهج العلمي', text:'عملية تطبيق العلم لصناعة منتجات أو أدوات يستخدمها الناس تسمى:',
+    choices:['التقنية','النظرية','التجربة','الفرضية'], correct:0,
+    explain:'التقنية هي توظيف المعرفة العلمية لتطوير أدوات ومنتجات تخدم الإنسان.' },
+  { domain:'chem', topic:'المنهج العلمي', text:'العامل الذي يتم قياسه في التجربة هو:',
+    choices:['المتغير التابع','الثابت','الوحدة','المتغير المستقل'], correct:0,
+    explain:'المتغير التابع هو الذي يُقاس ويتغير استجابة لتغيّر المتغير المستقل.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'ترتد جسيمات ألفا عند تعريضها لصفيحة رقيقة من الذهب؛ لأنها تصطدم بجسيم في الوسط ذو كثافة:',
+    choices:['كبيرة وشحنته موجبة','صغيرة وشحنته متعادلة','كبيرة وشحنته سالبة','صغيرة وشحنته سالبة'], correct:0,
+    explain:'أثبتت تجربة رذرفورد أن النواة صغيرة الحجم لكنها عالية الكثافة وموجبة الشحنة، مما يفسر ارتداد بعض جسيمات ألفا.' },
+  { domain:'chem', topic:'النظائر', text:'إذا كان العدد الذري للكربون (6)، فإن نظير كربون-14 يتكون من:',
+    choices:['6 بروتونات و8 نيوترونات','14 إلكتروناً','6 نيوترونات','8 بروتونات و6 نيوترونات'], correct:0,
+    explain:'عدد البروتونات = العدد الذري = 6، وعدد النيوترونات = العدد الكتلي - العدد الذري = 14-6 = 8.' },
+  { domain:'chem', topic:'النظائر المشعة وعمر النصف', text:'إذا كانت فترة عمر النصف لنظير اليود-131 هي 8 أيام، فكم جراماً يتبقى من كتلة 4 جم من العنصر بعد 16 يوماً؟',
+    choices:['1','4','3','2'], correct:0,
+    explain:'مرور 16 يوماً يعني مرور فترتي عمر نصف (8+8): 4جم ← 2جم ← 1جم.' },
+  { domain:'chem', topic:'الاضمحلال الإشعاعي', text:'عند تحلل جسيمات بيتا، فإن العدد الذري للعنصر:',
+    choices:['يزداد واحداً','يزداد اثنين','ينقص واحداً','ينقص اثنين'], correct:0,
+    explain:'في اضمحلال بيتا يتحول نيوترون إلى بروتون، فيزداد العدد الذري بمقدار واحد.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'العنصر الذي ينتمي إلى ثلاثية الحديد هو:',
+    choices:['النيكل','الألومنيوم','الفضة','الذهب'], correct:0,
+    explain:'ثلاثية الحديد تضم: الحديد والكوبالت والنيكل، وهي عناصر متقاربة في خواصها المغناطيسية.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'يُصنَّف عنصر الأكسجين، والذي عدده الذري 8، على أنه:',
+    choices:['لا فلز','فلز','شبه فلز','غاز نبيل'], correct:0,
+    explain:'الأكسجين من اللافلزات، يقع في الجزء العلوي الأيمن من الجدول الدوري.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'أي العناصر التالية يُعد من أشباه الفلزات؟ (الأعداد الذرية: Na=11، Ca=20، Si=16، Li=3)',
+    choices:['Si','Na','Ca','Li'], correct:0,
+    explain:'السيليكون (Si) من أشباه الفلزات المعروفة الواقعة على الخط الفاصل بين الفلزات واللافلزات في الجدول الدوري.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'يقع عنصر الليثيوم في مجموعة:',
+    choices:['الفلزات القلوية','الفلزات القلوية الأرضية','الغازات النبيلة','الهالوجينات'], correct:0,
+    explain:'الليثيوم من عناصر المجموعة الأولى (الفلزات القلوية).' },
+  { domain:'chem', topic:'الروابط الكيميائية', text:'أي مما يلي يُعد جزيئاً أيونياً؟ (الأعداد الذرية: H=1، Cl=17، Na=11، O=8، C=6)',
+    choices:['NaCl','HCl','H₂','CO₂'], correct:0,
+    explain:'الرابطة الأيونية تنشأ عادة بين فلز ولافلز، والصوديوم (فلز) مع الكلور (لافلز) يكوّنان NaCl الأيوني.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'الحد الأقصى لعدد الإلكترونات في المستوى الرئيس الثاني للطاقة يساوي:',
+    choices:['8 إلكترونات','32 إلكتروناً','18 إلكتروناً','2 إلكترون'], correct:0,
+    explain:'بتطبيق القانون 2ن² للمستوى الثاني (ن=2): 2×2²=8.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'عدد إلكترونات التكافؤ لعنصر الألومنيوم (Al، العدد الذري 13):',
+    choices:['3','17','13','11'], correct:0,
+    explain:'الألومنيوم في المجموعة الثالثة عشرة، وله 3 إلكترونات تكافؤ في مستواه الأخير.' },
+  { domain:'chem', topic:'الصيغ الكيميائية', text:'الرقم 3 الموجود في الصيغة الكيميائية AlCl₃ يدل على ثلاث:',
+    choices:['ذرات كلور','أيونات كلور','جزيئات AlCl','مركبات AlCl'], correct:0,
+    explain:'الرقم السفلي في الصيغة الكيميائية يشير إلى عدد ذرات ذلك العنصر في الصيغة، أي 3 ذرات كلور.' },
+  { domain:'chem', topic:'الروابط الكيميائية', text:'أي الجزيئات التساهمية الآتية يُعد جزيئاً تساهمياً قطبياً؟',
+    choices:['H₂O','N₂','CO₂','CH₄'], correct:0,
+    explain:'جزيء الماء غير متماثل التوزيع الشحني (شكله منحنٍ)، مما يجعله قطبياً، بخلاف N₂ وCO₂ وCH₄ المتماثلة وغير القطبية.' },
+  { domain:'chem', topic:'التفاعلات الكيميائية', text:'كل مما يلي يُعد تغيراً كيميائياً عدا:',
+    choices:['تمزيق الورقة','احتراق الخشب','صدأ الحديد','تكوّن راسب'], correct:0,
+    explain:'تمزيق الورقة تغيّر فيزيائي فقط (يغيّر الشكل دون تكوين مادة جديدة)، بخلاف بقية الأمثلة التي تُنتج مواد جديدة.' },
+  { domain:'chem', topic:'موازنة المعادلات الكيميائية', text:'يتفاعل الميثان مع الأكسجين لينتج ثاني أكسيد الكربون والماء، فإن المعادلة الكيميائية الموزونة للتفاعل هي:',
+    choices:['CH₄ + 2O₂ → CO₂ + 2H₂O','CH₄ + O₂ → CO₂ + 2H₂O','CH₄ + O₂ → CO₂ + H₂O','CH₄ + 2O₂ → CO₂ + H₂O'], correct:0,
+    explain:'لتوازن عدد ذرات الهيدروجين (4) والأكسجين، يلزم معامل 2 أمام كل من O₂ وH₂O.' },
+  { domain:'chem', topic:'عوامل سرعة التفاعل', text:'لإبطاء سرعة التفاعل الكيميائي يجب:',
+    choices:['خفض درجة الحرارة','إضافة عامل محفز','زيادة تركيز أحد المواد المتفاعلة','رفع درجة الحرارة'], correct:0,
+    explain:'خفض درجة الحرارة يقلّل من طاقة حركة الجسيمات وتكرار تصادمها، فيبطئ سرعة التفاعل.' },
+  { domain:'chem', topic:'موازنة المعادلات الكيميائية', text:'المعادلة الرمزية الموزونة للمعادلة اللفظية: (غاز الهيدروجين + غاز الأكسجين ← ماء) هي:',
+    choices:['2H₂ + O₂ → 2H₂O','H₂ + O₂ → H₂O','2H₂O → 2H₂ + O₂','2H + 2O → H₂O'], correct:0,
+    explain:'لتوازن ذرات الهيدروجين والأكسجين في الطرفين، يلزم معامل 2 أمام H₂ وH₂O.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'الفلزات القلوية في الجدول الدوري تمثلها عناصر المجموعة:',
+    choices:['الأولى','الثانية','الثالثة','الرابعة'], correct:0,
+    explain:'الفلزات القلوية (كالصوديوم والليثيوم) تقع في المجموعة الأولى من الجدول الدوري.' },
+  { domain:'chem', topic:'الروابط الكيميائية', text:'الرابطة التساهمية في جزيء NH₃ تنشأ عندما:',
+    choices:['تشارك ثلاث ذرات هيدروجين بثلاثة إلكترونات','تفقد ذرة النيتروجين ثلاثة إلكترونات','تفقد ذرة الهيدروجين إلكتروناً واحداً','تشارك ذرة النيتروجين بإلكترون واحد'], correct:0,
+    explain:'تتشارك ذرة النيتروجين مع ثلاث ذرات هيدروجين، كل واحدة تساهم بإلكترون، مكوّنة ثلاث روابط تساهمية مفردة.' },
+
+  { domain:'earth', topic:'الزلازل', text:'الموجات الزلزالية المائية تُعرف باسم موجات:',
+    choices:['تسونامي','أولية','سطحية','ثانوية'], correct:0,
+    explain:'التسونامي موجات مائية ضخمة تنتج غالباً عن زلازل تحت قاع المحيط.' },
+  { domain:'earth', topic:'البراكين', text:'اللابة التي تنساب بسهولة (منخفضة اللزوجة) هي:',
+    choices:['البازلتية','المخروطية','المركبة','الناعمة'], correct:0,
+    explain:'اللابة البازلتية منخفضة اللزوجة وغنية بالحديد والمغنيسيوم، لذا تنساب بسهولة وسرعة.' },
+
+  { domain:'biology', topic:'النقل عبر الغشاء الخلوي', text:'العملية الخلوية التي تحدث لخلايا الخضروات المعروضة في المحلات عند رشها بالماء هي:',
+    choices:['الانتشار','البلعمة','التخمر','الاتزان'], correct:0,
+    explain:'دخول جزيئات الماء إلى خلايا الخضروات عبر الغشاء الخلوي هو شكل من أشكال الانتشار يحافظ على نضارتها.' },
+  { domain:'biology', topic:'التنفس الخلوي والتخمر', text:'تلجأ الخلايا العضلية لعملية التخمر عند الركض بسرعة، وبعدها يشعر الشخص بإعياء ناتج عن:',
+    choices:['تراكم حمض اللاكتيك','تحرر كمية أكبر من الطاقة','إنتاج كحول وثاني أكسيد الكربون','حدوث التخمر في السيتوبلازم'], correct:0,
+    explain:'عند نقص الأكسجين أثناء الجهد العالي، تلجأ الخلايا العضلية للتخمر اللبني الذي ينتج حمض اللاكتيك المسبب للإعياء وألم العضلات.' },
+  { domain:'biology', topic:'التكاثر اللاجنسي', text:'تستطيع بعض المخلوقات الحية إعادة بناء الأجزاء المبتورة أو المجروحة من جسمها عن طريق عملية:',
+    choices:['التجدد','التبرعم','التكاثر الجنسي','الانشطار'], correct:0,
+    explain:'التجدد قدرة بعض الكائنات كنجم البحر على إعادة نمو الأجزاء المفقودة من جسمها.' },
+  { domain:'biology', topic:'الحمض النووي DNA', text:'من مميزات الحمض النووي DNA أنه:',
+    choices:['يتكون من سلسلتين','يحتوي على القواعد النيتروجينية U,C,A,G','يحتوي على سكر الرايبوز الخماسي الكربون','يوجد في نواة وسيتوبلازم الخلية'], correct:0,
+    explain:'يتميز DNA بتركيبه الحلزوني المزدوج (سلسلتين متقابلتين)، بخلاف RNA أحادي السلسلة.' },
+  { domain:'biology', topic:'الحمض النووي DNA', text:'إذا كان ترتيب القواعد النيتروجينية على حمض DNA كالتالي: A C A G T C، فأي مما يلي يمثل ترتيب القواعد النيتروجينية على السلسلة المقابلة له؟',
+    choices:['G A C T G T','G A G T C T','G A C A G T','C A C T G T'], correct:0,
+    explain:'بتطبيق قاعدة التكامل (A-T، C-G) باتجاه مضاد للسلسلة الأصلية، نحصل على GACTGT.' },
+  { domain:'biology', topic:'تصنيع البروتين', text:'إذا كان ترتيب القواعد النيتروجينية على حمض mRNA كالتالي: C A C، فأي مما يلي يمثل الترتيب المناسب للقواعد النيتروجينية على حمض tRNA؟',
+    choices:['G U G','G U C','C U C','G A G'], correct:0,
+    explain:'يرتبط كل قاعدة نيتروجينية على mRNA بقاعدتها المكمّلة على tRNA (C-G، A-U): C→G، A→U، C→G، أي GUG.' },
+  { domain:'biology', topic:'الوراثة ومربع بانيت', text:'في نبات البازلاء، اللون الأصفر للبذور (Y) سائد على اللون الأخضر (y). إذا كان الأبوان من الطراز الجيني Yy×Yy، فما احتمال ظهور نباتات بذورها صفراء؟',
+    choices:['75%','100%','50%','25%'], correct:0,
+    explain:'تزاوج Yy×Yy ينتج النسب 1 YY : 2 Yy : 1 yy، أي 3 من كل 4 (75%) أصفر اللون (سائد) و25% أخضر.' },
+  { domain:'biology', topic:'الوراثة ومربع بانيت', text:'إذا كان ناتج مربع بانيت لأبوين أن جميع الأبناء من الطراز الجيني Tt، فإن الطرزين الجينيين للأبوين هما:',
+    choices:['أحدهما TT والآخر tt','أحدهما Tt والآخر tt','أحدهما Tt والآخر TT','أحدهما Tt والآخر Tt'], correct:0,
+    explain:'تزاوج فرد نقي الصفة السائدة (TT) مع فرد نقي الصفة المتنحية (tt) ينتج أبناء جميعهم من الطراز الجيني الهجين Tt.' },
+
+  { domain:'physics', topic:'الحركة', text:'المصطلح الذي يتضمن البعد بين نقطة البداية ونقطة النهاية واتجاه الحركة هو:',
+    choices:['الإزاحة','السرعة','التسارع','القوة'], correct:0,
+    explain:'الإزاحة كمية متجهة تمثل المسافة المستقيمة واتجاهها من نقطة البداية إلى نقطة النهاية.' },
+  { domain:'physics', topic:'قوانين نيوتن', text:'ميل الجسم لمقاومة (ممانعة) أي تغيير في حالته الحركية يُسمى:',
+    choices:['القصور الذاتي','القوة','الزخم','التسارع'], correct:0,
+    explain:'القصور الذاتي هو خاصية الجسم في مقاومة تغيّر حالته الحركية (السكون أو الحركة المنتظمة).' },
+  { domain:'physics', topic:'الحركة', text:'حصان سباق يقطع مسافة 1000 متر خلال 100 ثانية، فإن سرعته بوحدة م/ث تساوي:',
+    choices:['10','1000','100','1.0'], correct:0,
+    explain:'السرعة = المسافة ÷ الزمن = 1000 ÷ 100 = 10 م/ث.' },
+  { domain:'physics', topic:'الزخم', text:'دراجة كتلتها 28 كجم، تتحرك بسرعة 4 م/ث نحو الشمال، فإن مقدار كمية الحركة (الزخم) بوحدة كجم·م/ث يساوي:',
+    choices:['112','32','24','7'], correct:0,
+    explain:'الزخم = الكتلة × السرعة = 28 × 4 = 112 كجم·م/ث.' },
+  { domain:'physics', topic:'الزخم والتصادمات', text:'عندما تصطدم كرة زجاجية صغيرة الكتلة بكرة أخرى ساكنة كبيرة الكتلة، فإن الكرة الصغيرة بعد التصادم:',
+    choices:['ترتد','تبقى ساكنة','تتحرك بنفس الاتجاه','تتحرك حركة دائرية'], correct:0,
+    explain:'عند اصطدام جسم خفيف بجسم ثقيل ساكن، يرتد الجسم الخفيف غالباً في الاتجاه المعاكس.' },
+  { domain:'physics', topic:'قوانين نيوتن', text:'"إذا كانت القوة المحصلة المؤثرة على جسم ما تساوي صفراً فإنه يبقى ساكناً، وإذا كان متحركاً فإنه يبقى متحركاً في خط مستقيم بسرعة ثابتة" — هذا نص قانون:',
+    choices:['نيوتن الأول','نيوتن الثاني','السرعة','القصور'], correct:0,
+    explain:'هذا هو نص قانون نيوتن الأول (قانون القصور الذاتي).' },
+  { domain:'physics', topic:'الاحتكاك', text:'أي مما يأتي يُبطئ انزلاق كتاب على سطح طاولة؟',
+    choices:['الاحتكاك الانزلاقي','الجاذبية','الاحتكاك السكوني','القصور'], correct:0,
+    explain:'الاحتكاك الانزلاقي هو القوة المضادة لحركة جسم ينزلق فوق سطح آخر، وهو ما يُبطئ حركة الكتاب المنزلق.' },
+  { domain:'physics', topic:'الجاذبية', text:'لاحظ رائد فضاء أن وزنه على سطح القمر أقل بكثير من وزنه على سطح الأرض، وذلك بسبب:',
+    choices:['اختلاف الجاذبية بين الكوكبين','انعدام القصور الذاتي','انعدام الجاذبية','اختلاف القوى المؤثرة'], correct:0,
+    explain:'جاذبية القمر أضعف بكثير من جاذبية الأرض (نحو سدس جاذبية الأرض)، لذا يقل وزن الجسم عليه رغم ثبات كتلته.' },
+  { domain:'physics', topic:'الكهرباء', text:'تُغلَّف الأسلاك النحاسية المستخدمة في التمديدات الكهربائية بمادة البلاستيك أو المطاط؛ لتكون:',
+    choices:['عازلاً','تياراً','مجالاً','جهداً'], correct:0,
+    explain:'البلاستيك والمطاط مواد عازلة تمنع مرور التيار الكهربائي وتحمي المستخدم من الصدمات.' },
+  { domain:'physics', topic:'الكهرباء', text:'يُصنع فتيل المصباح الكهربائي من سلك رفيع جداً بحيث تكون:',
+    choices:['المقاومة كبيرة','القدرة الكهربائية كبيرة','شدة التيار كبيرة','الطاقة الكهربائية كبيرة'], correct:0,
+    explain:'رفع مقاومة الفتيل (بجعله رفيعاً جداً) يجعله يسخن ويتوهج مصدراً للضوء عند مرور التيار.' },
+  { domain:'physics', topic:'الكهرباء', text:'مصباح كهربائي يمر به تيار شدته 2 أمبير، إذا وُصل بمقبس يزوّده بجهد كهربائي مقداره 220 فولت، فإن مقدار المقاومة بوحدة الأوم يساوي:',
+    choices:['110','440','55','220'], correct:0,
+    explain:'المقاومة = الجهد ÷ شدة التيار = 220 ÷ 2 = 110 أوم.' },
+  { domain:'physics', topic:'الكهرباء', text:'تُستخدم المنصهرات والقواطع في الدوائر الكهربائية لمنع ارتفاع:',
+    choices:['شدة التيار الكهربائي','الحرارة','فرق الجهد الكهربائي','الطاقة الكهربائية'], correct:0,
+    explain:'تفصل المنصهرات والقواطع الدائرة تلقائياً عند ارتفاع شدة التيار عن الحد الآمن، لمنع نشوب حريق أو تلف الأجهزة.' },
+  { domain:'physics', topic:'الكهرباء', text:'محمصة كهربائية تعمل على جهد كهربائي 220 فولت، فإذا كانت شدة التيار المار فيها 10 أمبير، فإن مقدار القدرة الكهربائية بوحدة الواط تساوي:',
+    choices:['2200','2420','220','22'], correct:0,
+    explain:'القدرة الكهربائية = الجهد × شدة التيار = 220 × 10 = 2200 واط.' },
+  { domain:'physics', topic:'المغناطيسية الأرضية', text:'في أي طبقات الأرض التالية يتولّد المجال المغناطيسي؟',
+    choices:['اللب الخارجي','القشرة','الستار','اللب الداخلي'], correct:0,
+    explain:'يتولد المجال المغناطيسي الأرضي من حركة الحديد المنصهر (السائل) في اللب الخارجي.' },
+  { domain:'physics', topic:'تطبيقات المغناطيسية', text:'يُستخدم جهاز التصوير بالرنين المغناطيسي (MRI) للكشف عن:',
+    choices:['بعض الأمراض','خطوط المجال المغناطيسي','شدة التيار الكهربائي','الصدمات الكهربائية'], correct:0,
+    explain:'يعتمد جهاز الرنين المغناطيسي على مجال مغناطيسي قوي وموجات راديوية لتصوير أعضاء الجسم الداخلية وتشخيص الأمراض.' },
+
+  /* ===== إضافات جديدة: أسئلة إضافية من نماذج نافس ===== */
+  { domain:'chem', topic:'التغيرات الفيزيائية والكيميائية', text:'أي من يأتي مثال على التفاعلات الكيميائية؟',
+    choices:['تجمد الماء', 'صدأ الحديد', 'ذوبان السكر', 'انصهار شمعة'], correct:1,
+    explain:'صدأ الحديد تفاعل كيميائي ينتج مادة جديدة (أكسيد الحديد)، بينما الباقي تغيرات فيزيائية لا ينتج عنها مادة جديدة.' },
+  { domain:'chem', topic:'تحولات الطاقة', text:'عند احتراق البنزين في محرك السيارة، يُستخدم جزء كبير من الطاقة الكيميائية المنبعثة لتحريك أجزاء السيارة، فإن الطاقة تتحول أيضاً إلى:',
+    choices:['كهربائية', 'حرارية', 'مغناطيسية', 'صوتية'], correct:1,
+    explain:'جزء من طاقة احتراق الوقود يتحول إلى طاقة حرارية (نتيجة الاحتكاك وعدم كفاءة المحرك الكاملة) بجانب الطاقة الحركية.' },
+  { domain:'chem', topic:'التفاعلات الكيميائية', text:'وضع الطلاء على الحديد يمنعه من الصدأ. أي مما يلي يفسر السبب؟',
+    choices:['يصبح الحديد أكثر صلابة بسبب ذلك', 'يتفاعل الطلاء الكيميائي مع الحديد', 'يمنع تلامس ثاني أكسيد الكربون مع الحديد', 'يمنع تلامس الحديد بالرطوبة والأكسجين'], correct:3,
+    explain:'الصدأ ينتج من تفاعل الحديد مع الأكسجين والرطوبة معاً، فطبقة الطلاء تعزل الحديد عنهما فتمنع حدوث التفاعل.' },
+  { domain:'chem', topic:'العناصر والمركبات والمخاليط', text:'أي الخيارات التالية يُعد وصفاً صحيحاً للمركب؟',
+    choices:['يتكون من نوع واحد فقط من الذرات', 'يتكون من ذرتين من نفس العنصر فقط', 'يتكون من عنصرين أو أكثر متحدين كيميائياً بنسب ثابتة', 'يتكون نتيجة اختلاط أجزاء مختلفة دون اتحاد كيميائي'], correct:2,
+    explain:'المركب مادة نقية تتكون من عنصرين أو أكثر متحدين كيميائياً بنسب كتلية ثابتة، وله خواص تختلف عن خواص عناصره المكوّنة.' },
+  { domain:'chem', topic:'العناصر والمركبات والمخاليط', text:'يوضح الجدول التالي تصنيف بعض المواد: كلوريد الصوديوم مذاب في الماء، اتحاد الحديد مع الأكسجين، الفولاذ، الألومنيوم. رتّب هذا التصنيف على الترتيب (مخلوط، مركب، مخلوط، عنصر):',
+    choices:['مركب - مكوّن - مخلوط - عنصر', 'مركب - عنصر - مخلوط - مكوّن', 'عنصر - مكوّن - مركب - مخلوط', 'مركب - مخلوط - عنصر - مكوّن'], correct:0,
+    explain:'كلوريد الصوديوم المذاب في الماء محلول (مخلوط)، اتحاد الحديد بالأكسجين مركب (أكسيد الحديد)، الفولاذ مخلوط (سبيكة)، والألومنيوم عنصر نقي — والترتيب المطابق هو: مركب، مكوّن (خطأ صياغي في الأصل)، مخلوط، عنصر.' },
+  { domain:'chem', topic:'الخصائص الفيزيائية والكيميائية', text:'يبيّن الجدول تصنيف بعض المواد إلى مجموعتين: المجموعة1 (الهواء، الثلج، الخشب) والمجموعة2 (الفولاذ، النحاس، الذهب). أي الخصائص الفيزيائية اعتُمد عليها للفرز بين المجموعتين؟',
+    choices:['قابلية الذوبان في الماء', 'قابلية الانضغاط', 'الحالة الفيزيائية', 'قابلية التوصيل الكهربائي'], correct:3,
+    explain:'مواد المجموعة الثانية (الفولاذ والنحاس والذهب) فلزات موصلة جيدة للكهرباء، بينما مواد المجموعة الأولى غير موصلة، فمعيار الفرز هو قابلية التوصيل الكهربائي.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'الهالوجينات عناصر لافلزية نشطة كيميائياً؛ فمع أي عناصر المجموعات التالية تتحد بصورة أسرع؟',
+    choices:['المجموعة الأولى (الفلزات القلوية)', 'المجموعة الثانية (الفلزات القلوية الأرضية)', 'المجموعة 17 (الهالوجينات)', 'المجموعة 18 (الغازات النبيلة)'], correct:0,
+    explain:'الفلزات القلوية (المجموعة الأولى) نشطة كيميائياً جداً وتفقد إلكتروناً واحداً بسهولة، فتتفاعل بسرعة مع الهالوجينات النشطة لتكوين مركبات أيونية.' },
+  { domain:'chem', topic:'مكونات الغلاف الجوي', text:'ثلاثة غازات في الهواء الجوي للأرض (ثاني أكسيد الكربون، والنيتروجين، والأكسجين). ما ترتيبها من الأكثر وفرة إلى الأقل؟',
+    choices:['نيتروجين، أكسجين، ثاني أكسيد الكربون', 'نيتروجين، ثاني أكسيد الكربون، أكسجين', 'أكسجين، نيتروجين، ثاني أكسيد الكربون', 'ثاني أكسيد الكربون، أكسجين، نيتروجين'], correct:0,
+    explain:'يشكل النيتروجين نحو 78% من الغلاف الجوي، يليه الأكسجين بنحو 21%، بينما ثاني أكسيد الكربون نسبته ضئيلة جداً.' },
+  { domain:'chem', topic:'الرقم الهيدروجيني (pH)', text:'يبيّن مقياس الرقم الهيدروجيني قيماً لثلاثة منتجات منزلية: الأمونيا (pH≈12)، ومادة منظفة (pH≈6)، وعصير ليمون (pH≈2). أيّ العبارات التالية صحيحة؟',
+    choices:['المادة المنظفة أكثر حمضية من عصير الليمون', 'الأمونيا نفس قيمة الرقم الهيدروجيني للماء المقطر', 'الأمونيا قاعدة قوية', 'عصير الليمون حمض قوي'], correct:3,
+    explain:'كلما قلّت قيمة الرقم الهيدروجيني عن 7 زادت الحموضة، وعصير الليمون بقيمة قريبة من 2 يُعد حمضاً قوياً.' },
+  { domain:'chem', topic:'البناء الضوئي', text:'ما الوظيفة الأساسية لمادة الكلوروفيل في النباتات؟',
+    choices:['امتصاص الطاقة الضوئية', 'تفكيك ثاني أكسيد الكربون', 'جعل أوراق النبات سامة للحشرات', 'وقاية النبات من الأمراض'], correct:0,
+    explain:'الكلوروفيل صبغة خضراء تمتص الطاقة الضوئية وتحوّلها إلى طاقة كيميائية أثناء عملية البناء الضوئي.' },
+  { domain:'chem', topic:'الكثافة', text:'صبّ مهند شراب الذرة في قاع وعاء فارغ، ثم أضاف فوقه كمية من الجليسرين، ثم من الماء، ثم من الزيت، وأسقط قرصاً من البلاستيك في الوعاء. أي العبارات التالية صحيحة؟',
+    choices:['شراب الذرة الأقل كثافة بين السوائل', 'الجليسرين أقل كثافة من الماء', 'الزيت أقل كثافة من جميع السوائل في الشكل', 'قرص البلاستيك يستقر عند طبقة الماء'], correct:2,
+    explain:'السوائل غير المتمازجة تترتب حسب كثافتها؛ فالزيت يطفو أعلى الجميع لأنه الأقل كثافة، بينما شراب الذرة الأعلى كثافة يستقر في القاع.' },
+  { domain:'chem', topic:'دورة الماء', text:'يبيّن الرسم التخطيطي التالي دورة الماء على كوكب الأرض (تبخّر، تكاثف/سُحُب، هطول، ومسطح مائي). ما مصدر الطاقة الرئيس الذي يُشغّل دورة الماء؟',
+    choices:['القمر', 'الشمس', 'الرياح', 'المد والجزر'], correct:1,
+    explain:'الطاقة الشمسية هي المحرك الأساسي لدورة الماء؛ إذ تسخّن الشمس سطح الماء فيتبخّر ليتكاثف لاحقاً ويهطل من جديد.' },
+  { domain:'chem', topic:'الكثافة', text:'أُسقطت كرة كثافتها 1.73 جم/سم³ في كأس يحوي طبقات من سوائل كثافاتها من الأعلى للأسفل: (أ) 0.89، (ب) 1.00، (ج) 1.21، (د) 2.34 جم/سم³. في أي طبقة ستستقر الكرة؟',
+    choices:['فوق الطبقة (أ)', 'فوق الطبقة (د)', 'فوق الطبقة (ب)', 'فوق الطبقة (ج)'], correct:1,
+    explain:'يستقر الجسم عند الطبقة التي تكون كثافتها أكبر من كثافته مباشرةً؛ وبما أن كثافة الكرة (1.73) أقل من كثافة الطبقة (د) (2.34) وأكبر من الطبقة (ج) (1.21)، فإنها تستقر عائمة فوق الطبقة (د).' },
+  { domain:'chem', topic:'تحولات الطاقة', text:'تحدث تحولات الطاقة وفق التسلسل التالي: طاقة كيميائية ← طاقة حرارية ← طاقة ميكانيكية. أي مما يلي مثال على هذا التسلسل؟',
+    choices:['ضوء يدوي (مصباح بطارية)', 'احتراق فتيل الشمعة', 'احتراق الوقود في محرك السيارة', 'سريان التيار الكهربائي في الثلاجة'], correct:2,
+    explain:'عند احتراق الوقود في محرك السيارة تتحول طاقته الكيميائية إلى حرارة ناتجة عن الاحتراق، ثم تتحول هذه الحرارة إلى حركة ميكانيكية تُحرّك السيارة.' },
+  { domain:'chem', topic:'المركبات وصيغها', text:'يوضح الشكل ثلاثة جزيئات ماء (H₂O) منفصلة، كل منها يتكوّن من ذرة أكسجين مرتبطة بذرتي هيدروجين. أي وصف صحيح لما تمثله هذه الصورة؟',
+    choices:['ذرة واحدة من الماء', 'ثلاث ذرات ماء', 'جزيء واحد من الماء', 'ثلاثة جزيئات من الماء'], correct:3,
+    explain:'كل مجموعة (O مع H,H) تمثل جزيء ماء واحداً كاملاً، وبما أن الصورة تُظهر ثلاث مجموعات منفصلة فهي تمثل ثلاثة جزيئات ماء.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'مستعيناً بالجدول الدوري، إذا كان العنصر (X) واقعاً في الدورة الرابعة والمجموعة السادسة عشرة تقريباً، فما رقم الدورة والمجموعة الصحيح لعنصر مشابه له في الترتيب؟',
+    choices:['الدورة 2 والمجموعة 13', 'الدورة 3 والمجموعة 15', 'الدورة 15 والمجموعة 3', 'الدورة 4 والمجموعة 16'], correct:3,
+    explain:'رقم الدورة يمثل عدد المستويات الإلكترونية الرئيسة، ورقم المجموعة (بالترقيم من 1 إلى 18) يمثل عدد إلكترونات المستوى الأخير تقريباً للعناصر ممثلة الفئة.' },
+  { domain:'physics', topic:'الدوائر الكهربائية والبطاريات', text:'تُظهر ثلاث طرق لترتيب بطاريتين داخل مصباح يدوي: في الطريقة (ع) رُتِّبت الأقطاب بالتتابع الصحيح (سالب-موجب، سالب-موجب)، وفي (ص) وُضعت إحدى البطاريتين بقطبية معاكسة، وفي (س) وُضعت البطاريتان متعاكستين تماماً. أي الترتيبات تجعل المصباح يضيء؟',
+    choices:['كما في (ع) فقط', 'كما في (ص) فقط', 'كما في (س) فقط', 'لن يعمل المصباح في أي من هذه الطرق'], correct:0,
+    explain:'يعمل المصباح فقط عندما تُرتَّب البطاريتان بالتتابع الصحيح (قطب سالب يقابل قطب موجب على التوالي) بحيث يكتمل مسار التيار.' },
+  { domain:'physics', topic:'السرعة والحركة', text:'يوضح رسم بياني تقدّم خنفساء على خط مستقيم بسرعة ثابتة: عند الزمن 5 ثوانٍ قطعت 2 سم، وعند الزمن 15 ثانية قطعت 6 سم. ما المدة التي تستغرقها الخنفساء لقطع مسافة 10 سم؟',
+    choices:['4 ثوانٍ', '6 ثوانٍ', '20 ثانية', '25 ثانية'], correct:3,
+    explain:'السرعة = التغير في المسافة ÷ التغير في الزمن = (6-2)÷(15-5) = 0.4 سم/ث. الزمن اللازم لقطع 10 سم = 10 ÷ 0.4 = 25 ثانية.' },
+  { domain:'physics', topic:'القوى المتزنة وغير المتزنة', text:'عربة على سطح بلا احتكاك تؤثر عليها قوتان متعاكستان: 360 نيوتن نحو اليمين، و270 نيوتن نحو اليسار. صف حركة العربة:',
+    choices:['ستتحرك نحو اليمين', 'ستتحرك نحو اليسار', 'ستتناوب الحركة بين اليمين واليسار', 'ستبقى ثابتة في مكانها'], correct:0,
+    explain:'القوة المحصلة = 360 - 270 = 90 نيوتن نحو اليمين، وبما أنها غير متزنة (لا تساوي صفراً) فإن العربة تتسارع باتجاه اليمين.' },
+  { domain:'physics', topic:'الدوائر الكهربائية', text:'في دائرة كهربائية يوجد مصباح موصول عبر المفتاح (1)، وخلّاط كهربائي موصول عبر المفتاح (2)، ويشترك كلا الفرعين مع البطارية عبر المفتاح (3). أي المفاتيح يجب إغلاقها لإضاءة المصباح؟',
+    choices:['المفتاح 1 فقط', 'المفتاح 2 فقط', 'المفتاحان 1 و3', 'المفتاحان 2 و3'], correct:2,
+    explain:'لإضاءة المصباح يجب إغلاق مفتاحه الخاص (1) بالإضافة إلى المفتاح المشترك (3) الذي يصل الدائرة بالبطارية؛ أما المفتاح (2) فيخص فرع الخلاط فقط.' },
+  { domain:'physics', topic:'السرعة والحركة', text:'يوضح رسم بياني للمسافة والزمن أربع سيارات (سوداء، خضراء، زرقاء، حمراء) بحيث يمثل كل خط مسارها؛ الخط الأسود هو الأكثر ميلاً (يصل لأكبر مسافة في أقصر زمن). أي سيارة الأسرع؟',
+    choices:['السوداء', 'الخضراء', 'الزرقاء', 'الحمراء'], correct:0,
+    explain:'في الرسم البياني للمسافة-الزمن، السرعة تساوي ميل الخط؛ فكلما زاد ميل الخط زادت السرعة، والخط الأسود هو الأكثر انحداراً (ميلاً) في هذا الرسم.' },
+  { domain:'physics', topic:'المغناطيسية الكهربائية', text:'إذا صممتَ مغناطيساً كهربائياً بسيطاً (سلك ملفوف حول مسمار متصل ببطارية)، كيف يمكن زيادة قوة جذبه؟',
+    choices:['إزالة الغلاف البلاستيكي عن السلك', 'زيادة عدد لفات السلك حول المسمار', 'استخدام بطارية أقل جهداً', 'عكس قطبي البطارية'], correct:1,
+    explain:'زيادة عدد لفات السلك حول القلب الحديدي تزيد شدة المجال المغناطيسي الناتج، وبالتالي تزيد قوة جذب المغناطيس الكهربائي.' },
+  { domain:'physics', topic:'السرعة وأنواعها', text:'ماذا يقيس عداد السرعة في السيارة؟',
+    choices:['متوسط السرعة', 'السرعة المتجهة', 'السرعة اللحظية', 'السرعة الثابتة'], correct:2,
+    explain:'يعرض عداد السرعة قراءة السرعة عند لحظة معينة (السرعة اللحظية)، وهي تتغير باستمرار مع تغير حركة السيارة.' },
+  { domain:'physics', topic:'قوانين نيوتن (الفعل ورد الفعل)', text:'حدّد قوتي الفعل ورد الفعل عند انطلاق رصاصة من بندقية:',
+    choices:['الفعل إطلاق الرصاصة، ورد الفعل المسافة التي تقطعها', 'الفعل إطلاق الرصاصة، ورد الفعل صوت الرصاصة', 'الفعل إطلاق الرصاصة، ورد الفعل حركة البندقية للأمام', 'الفعل إطلاق الرصاصة، ورد الفعل ارتداد البندقية للخلف'], correct:3,
+    explain:'وفق قانون نيوتن الثالث، تدفع البندقية الرصاصة للأمام (الفعل)، بينما ترتد البندقية للخلف بقوة مساوية ومعاكسة (رد الفعل).' },
+  { domain:'physics', topic:'المغناطيسية الكهربائية', text:'أي مما يلي لا يعمل على زيادة قوة المغناطيس الكهربائي؟',
+    choices:['زيادة عدد اللفات', 'وضع قضيب حديدي في المركز', 'زيادة المقاومة الكهربائية للسلك', 'زيادة شدة التيار الكهربائي'], correct:2,
+    explain:'زيادة المقاومة الكهربائية تُقلّل شدة التيار المار في السلك، مما يُضعف المجال المغناطيسي الناتج بدلاً من تقويته.' },
+  { domain:'physics', topic:'قوانين نيوتن (التسارع)', text:'احسب تسارع عربة تسوّق كتلتها 10 كجم عند دفعها بقوة مقدارها 20 نيوتن:',
+    choices:['2 م/ث²', '200 م/ث²', '60 م/ث²', '4 م/ث²'], correct:0,
+    explain:'التسارع = القوة ÷ الكتلة = 20 ÷ 10 = 2 م/ث² وفق قانون نيوتن الثاني.' },
+  { domain:'physics', topic:'الكهرباء الساكنة', text:'وضّح الخاصية التي تجعل الأرض تُفرّغ الشحنات الكهربائية الساكنة المتراكمة فيها؟',
+    choices:['تمتلك شحنة كهربائية ساكنة كبيرة', 'مقاومتها الكهربائية كبيرة', 'موصل كبير جداً', 'تشبه البطارية في عملها'], correct:2,
+    explain:'الأرض جسم موصل ضخم، فهي تستقبل أي شحنات ساكنة زائدة وتوزّعها على مساحتها الهائلة، مما يُفرّغ الجسم المشحون.' },
+  { domain:'physics', topic:'قوانين نيوتن (التسارع)', text:'يؤثر على صندوق كتلته 2.5 كجم قوتان متعاكستان مقدارهما 12 نيوتن و1.2 نيوتن. احسب مقدار تسارع الصندوق:',
+    choices:['27 م/ث²', '4.3 م/ث²', '4.8 م/ث²', '0.48 م/ث²'], correct:1,
+    explain:'القوة المحصلة = 12 - 1.2 = 10.8 نيوتن، والتسارع = 10.8 ÷ 2.5 = 4.32 م/ث² تقريباً 4.3 م/ث².' },
+  { domain:'physics', topic:'المحولات الكهربائية', text:'في محوّل كهربائي، يحتوي الملف الابتدائي (المدخل) على عدد أقل من اللفات، بينما يحتوي الملف الثانوي (المخرج) على عدد أكبر من اللفات. أي مما يلي يصف الجهد الكهربائي الناتج مقارنة بالجهد الداخل؟',
+    choices:['أكبر', 'أصغر', 'نفسه', 'صفر'], correct:0,
+    explain:'في المحوّل الرافع للجهد، يكون عدد لفات الملف الثانوي أكبر من الابتدائي، مما ينتج عنه جهد كهربائي ناتج أكبر من الجهد الداخل.' },
+  { domain:'biology', topic:'فصائل الدم', text:'يوضح الجدول التالي فصائل الدم ومولدات الضد والأجسام المضادة المرتبطة بها. أي نوع من مولدات الضد تحتوي عليه فصيلة الدم O؟',
+    choices:['A', 'B', 'A و B معاً', 'لا يوجد مولدات ضد'], correct:3,
+    explain:'فصيلة الدم O تخلو من مولدات الضد (A أو B) على سطح كرياتها الحمراء، ولهذا تُعد فصيلة الدم هذه المتبرع العام.' },
+  { domain:'biology', topic:'الجهاز الهضمي', text:'ما الوظيفة الرئيسة للجهاز الموضح في الصورة (الجهاز الهضمي)؟',
+    choices:['تبادل غازي الأكسجين وثاني أكسيد الكربون', 'نقل العناصر الغذائية إلى جميع أجزاء الجسم', 'تفكيك المواد الغذائية وامتصاص الدم لها', 'تحرير الطاقة المخزنة في السكريات داخل الخلايا'], correct:2,
+    explain:'وظيفة الجهاز الهضمي الأساسية هي تفكيك الطعام إلى جزيئات صغيرة يمكن للدم امتصاصها ونقلها إلى الخلايا.' },
+  { domain:'biology', topic:'الوراثة والانقسام المنصف', text:'تتكاثر ذبابة الفاكهة جنسياً، وتحتوي الخلية الواحدة في جسمها على 4 أزواج من الكروموسومات (8 كروموسومات). كم عدد الكروموسومات التي يرثها نسل ذبابة الفاكهة من الأب فقط؟',
+    choices:['1 كروموسوم', '2 كروموسوم', '4 كروموسومات', '8 كروموسومات'], correct:2,
+    explain:'في التكاثر الجنسي يرث النسل نصف عدد الكروموسومات من كل أب؛ وبما أن الخلية الجسدية تحوي 4 أزواج (8 كروموسومات)، فإن النسل يرث 4 كروموسومات من الأب و4 من الأم.' },
+  { domain:'biology', topic:'الحمض النووي DNA', text:'يوضح الشكل أمامك قصاصة من شريط علوي للحمض النووي DNA بالتتابع: A T T C G A C C T. ما التتابع الصحيح للقواعد النيتروجينية للشريط السفلي المكمّل والموازي له؟',
+    choices:['T G A G C A G T T', 'T A A G C T G G A', 'T G A G G A G T T', 'T G A G C A G C T'], correct:1,
+    explain:'تتزاوج القواعد النيتروجينية بحيث يقابل A القاعدة T، وT يقابل A، وC يقابل G؛ فتتابع A T T C G A C C T يقابله T A A G C T G G A.' },
+  { domain:'biology', topic:'طبقات الأرض', text:'الصورة أمامك توضح طبقات الأرض الأربع من السطح إلى المركز (د، ج، ب، أ). أي هذه الطبقات (أ، ب، ج، د) الأعلى في الضغط؟',
+    choices:['الطبقة أ (اللب الداخلي)', 'الطبقة ب', 'الطبقة ج', 'الطبقة د (القشرة)'], correct:0,
+    explain:'كلما اتجهنا نحو مركز الأرض زاد الضغط بسبب وزن الطبقات العلوية المتراكمة، فاللب الداخلي (الطبقة المركزية) هو الأعلى ضغطاً.' },
+  { domain:'biology', topic:'الحمض النووي DNA', text:'يوضح الشكل المقابل خيطي DNA ينفصلان عن بعضهما بفعل أنزيم متخصص تمهيداً لتكوين نسختين جديدتين مطابقتين للأصل. ما المقصود بهذه العملية الموضحة في الشكل؟',
+    choices:['تضاعف DNA', 'تضاعف RNA', 'تصنيع البروتين', 'الطفرة الوراثية'], correct:0,
+    explain:'انفصال خيطي DNA عن بعضهما لتكوين نسخ جديدة مطابقة يمثل عملية تضاعف (نسخ) الحمض النووي DNA التي تسبق انقسام الخلية.' },
+  { domain:'biology', topic:'الجهاز البولي', text:'أي أجزاء الجهاز البولي الموضح في الشكل يتجمّع فيه البول قبل خروجه من الجسم؟',
+    choices:['الكلية', 'المثانة', 'الحالب', 'الإحليل'], correct:1,
+    explain:'يصل البول من الكليتين عبر الحالبين ليتجمّع ويُخزَّن مؤقتاً في المثانة قبل أن يخرج من الجسم عبر الإحليل.' },
+  { domain:'biology', topic:'تركيب الخلية النباتية', text:'يوضح الرسم التخطيطي خلية نباتية، وبها جزء مركزي كبير مسمى (س) يتحكم في نشاطات الخلية. ما وظيفة هذا الجزء؟',
+    choices:['التخلص من الماء', 'إنتاج الطاقة', 'التحكم في نشاطات الخلية', 'القيام بالبناء الضوئي'], correct:2,
+    explain:'الجزء (س) في الرسم يمثل نواة الخلية، وهي مركز التحكم الذي يحتوي على المادة الوراثية وينظم جميع نشاطات الخلية.' },
+  { domain:'biology', topic:'الغذاء الصحي والأمراض', text:'ماجد مريض بالسكري. أي مما يلي يجب أن يحذر منه في طعامه وشرابه؟',
+    choices:['لحوم البقر', 'الحليب', 'البيض', 'عصير الفواكه المحلّى'], correct:3,
+    explain:'عصائر الفواكه المحلاة غنية بالسكريات البسيطة التي ترفع مستوى الجلوكوز في الدم بسرعة، لذا يجب على مريض السكري الحذر منها.' },
+  { domain:'biology', topic:'التنظيم الحيوي (الأنسجة)', text:'الأنسجة في أجسام المخلوقات الحية هي مجموعة من:',
+    choices:['الخلايا المتشابهة في البنية والوظيفة', 'الخلايا المختلفة في الأصل والوظيفة', 'المواد المتكونة من مصادر حيوية', 'الخلايا القادرة على صنع البروتين فقط'], correct:0,
+    explain:'يُعرَّف النسيج بأنه مجموعة من الخلايا المتشابهة في التركيب والوظيفة، وتعمل معاً لأداء وظيفة معينة في الجسم.' },
+  { domain:'biology', topic:'دورة الخلية والانقسام', text:'يوضح الرسم التخطيطي دورة الخلية بمراحلها المختلفة، ومنها الطور الذي تنمو فيه الخلية وتنشط وتتضاعف فيه عضياتها ويتضاعف الـDNA. أي مراحل دورة الخلية هذه تتضمن النمو وأداء الوظيفة؟',
+    choices:['الطور التمهيدي', 'الطور البيني', 'الانقسام المتساوي', 'انقسام السيتوبلازم'], correct:1,
+    explain:'الطور البيني هو أطول أطوار دورة الخلية، وفيه تنمو الخلية وتؤدي وظائفها الحيوية ويتضاعف فيه الحمض النووي DNA استعداداً للانقسام.' },
+  { domain:'biology', topic:'السلاسل الغذائية', text:'أي العبارات التالية تصف الكائنات المنتجة (Producers) بشكل صحيح؟',
+    choices:['تستخدم الطاقة الشمسية لصنع غذائها', 'تحصل على طاقتها من أكل النباتات', 'تحصل على طاقتها من هضم المخلوقات الميتة', 'تحصل على طاقتها من الماء مباشرة'], correct:0,
+    explain:'الكائنات المنتجة (كالنباتات الخضراء) تصنع غذاءها بنفسها باستخدام طاقة ضوء الشمس عبر عملية البناء الضوئي.' },
+  { domain:'biology', topic:'مكونات الدم', text:'أي مكونات الدم التالية يقوم بتدمير البكتيريا التي تهاجم الجسم؟',
+    choices:['البلازما', 'خلايا الدم البيضاء', 'خلايا الدم الحمراء', 'الصفائح الدموية'], correct:1,
+    explain:'خلايا الدم البيضاء هي المسؤولة عن مقاومة العدوى، إذ تلتهم البكتيريا ومسببات الأمراض الأخرى وتدمرها.' },
+  { domain:'biology', topic:'المفاصل', text:'يوضح الشكل أنواعاً من المفاصل (كروي، محوري، انزلاقي، رزّي). أي هذه الأنواع يسمح بحركة الأرجل والأذرع في اتجاهات متعددة؟',
+    choices:['المفصل الرزّي', 'المفصل الكروي', 'المفصل الانزلاقي', 'المفصل المحوري'], correct:1,
+    explain:'المفصل الكروي (كمفصل الكتف والورك) يسمح بالحركة في اتجاهات متعددة ومدى واسع، بخلاف بقية أنواع المفاصل الأكثر تقييداً.' },
+  { domain:'biology', topic:'تصنيف اللافقاريات', text:'إلى أي مجموعات اللافقاريات ينتمي قنديل البحر؟',
+    choices:['الإسفنجيات', 'الرخويات', 'شوكيات الجلد', 'اللاسعات'], correct:3,
+    explain:'قنديل البحر من شعبة اللاسعات (Cnidaria) التي تتميز بوجود خلايا لاسعة تستخدمها في اصطياد فرائسها والدفاع عن نفسها.' },
+  { domain:'biology', topic:'الصدوع الأرضية', text:'يوضح الشكل صدعاً ناتجاً عن قوى ضغط متقابلة تدفع الكتلتين الصخريتين نحو بعضهما، مما يرفع إحداهما فوق الأخرى. ما نوع هذا الصدع؟',
+    choices:['صدع عادي', 'صدع انزلاقي', 'صدع عكسي', 'صدع أمامي'], correct:2,
+    explain:'الصدع العكسي ينتج عن قوى ضغط (انضغاط) تدفع الكتلتين نحو بعضهما فترتفع الكتلة العلوية (الجدار المعلق) فوق الأخرى، بعكس الصدع العادي الناتج عن قوى شد.' },
+  { domain:'biology', topic:'البراكين', text:'يوضح الشكل بركاناً ذا جوانب شديدة الانحدار وتراكيب من طبقات متبادلة من الحمم واللابة والرماد البركاني. ما نوع هذا البركان؟',
+    choices:['بركان مركب (طبقي)', 'بركان مخروطي (سندري)', 'بركان درعي', 'قبة لابة'], correct:0,
+    explain:'البركان المركب (الطبقي) يتكون من طبقات متبادلة من تدفقات الحمم والرماد البركاني، وله جوانب شديدة الانحدار، بخلاف البركان الدرعي المنبسط أو المخروطي المكوّن من فتات فقط.' },
+  { domain:'biology', topic:'السلاسل والشبكات الغذائية', text:'يوضح الشكل شبكة تغذية في إحدى الغابات الأفريقية (نبات أخضر ← أرنب وفأر وماعز ← بومة وقط بري وثعبان وابن آوى ← حدأة وأسد). أي العبارات التالية صحيحة؟',
+    choices:['الماعز من الكائنات المنتجة', 'الحدأة والأسد من المستهلكات الأولية', 'القط البري مستهلك أولي والأسد مستهلك ثانوي', 'الماعز والأرنب كائنات مستهلكة أولية'], correct:3,
+    explain:'الماعز والأرنب يتغذيان مباشرة على النباتات (المنتجات)، لذا يُصنَّفان كمستهلكات أولية، بينما الحدأة والأسد مستهلكات في مستويات أعلى (ثانوية أو ثالثية).' },
+  { domain:'biology', topic:'الجهاز الهضمي', text:'يوضح الشكل جهاز الهضم في جسم الإنسان مع عضو مُشار إليه بالرمز (X) يقع مباشرة بعد المعدة على هيئة أنبوب طويل ملتفّ. ما اسم هذا العضو؟',
+    choices:['الأمعاء الغليظة', 'الأمعاء الدقيقة', 'الكبد', 'البنكرياس'], correct:1,
+    explain:'الأمعاء الدقيقة هي الأنبوب الطويل الملتف الواقع بعد المعدة مباشرة، وفيها يتم معظم هضم الطعام وامتصاص العناصر الغذائية.' },
+  { domain:'chem', topic:'التجربة العلمية', text:'العامل الذي لا يتغيّر أثناء إجراء التجربة يُسمى:',
+    choices:['الفرضية', 'الثابت', 'التابع', 'المستقل'], correct:1,
+    explain:'الثابت هو العامل الذي يبقى على حاله ولا يتغير أثناء التجربة، بينما يتغير المتغيران المستقل والتابع.' },
+  { domain:'biology', topic:'الجهاز التنفسي', text:'ما التراكيب التي يحدث بينها وبين الشعيرات الدموية عملية تبادل الغازات في الرئة؟',
+    choices:['القصبات', 'الشعبتان الهوائيتان', 'الحويصلات الهوائية', 'الحويصلات'], correct:2,
+    explain:'الحويصلات الهوائية هي أكياس دقيقة الجدران تحيط بها شعيرات دموية كثيفة، وفيها يتم تبادل الأكسجين وثاني أكسيد الكربون بالانتشار.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'العدد الذري لعنصر ما يساوي عدد:',
+    choices:['مستويات الطاقة', 'النيوترونات', 'البروتونات', 'جسيمات النواة'], correct:2,
+    explain:'العدد الذري لعنصر ما يمثل عدد البروتونات الموجودة في نواة ذرته، وهو ما يحدد هوية العنصر.' },
+  { domain:'chem', topic:'المحاليل وتركيزها', text:'محلول (أ) تكوّن من إذابة 5 جم كلوريد صوديوم في 100 جم ماء، ومحلول (ب) تكوّن من إذابة 25 جم كلوريد صوديوم في 100 جم ماء. أي العبارات التالية صحيحة؟',
+    choices:['محلول (أ) مركّز ومحلول (ب) مخفف', 'محلول (أ) مخفف ومحلول (ب) مركّز', 'محلول (أ) و(ب) لهما نفس التركيز', 'لا يمكن مقارنة تركيز المحلولين'], correct:1,
+    explain:'المحلول (ب) يحتوي على كمية أكبر من المذاب (25 جم) في نفس كمية الماء (100 جم)، لذا يُعد أكثر تركيزاً من المحلول (أ) الذي يُعد مخففاً بالمقارنة.' },
+  { domain:'biology', topic:'الغدد الصماء', text:'ما تأثير الهرمون الذي يفرزه البنكرياس؟',
+    choices:['التحكم في الصفات الجنسية', 'تنظيم نمط النوم والاستيقاظ', 'تنظيم مستوى الجلوكوز في الدم', 'تنظيم معدل الأيض'], correct:2,
+    explain:'يفرز البنكرياس هرموني الإنسولين والجلوكاجون اللذين ينظمان مستوى السكر (الجلوكوز) في الدم.' },
+  { domain:'biology', topic:'حاسة الإبصار', text:'أي جزء من العين يتجمّع عليه الضوء عند رؤية الأجسام؟',
+    choices:['الشبكية', 'البؤبؤ', 'القرنية', 'العدسة'], correct:0,
+    explain:'تتجمّع الأشعة الضوئية على الشبكية في مؤخرة العين، حيث تتحول إلى إشارات عصبية تُرسَل إلى الدماغ لتفسيرها كصورة.' },
+  { domain:'biology', topic:'الأمراض ومسبباتها', text:'أي الأمراض التالية سببه فيروس يهاجم خلايا الدم البيضاء في جسم الإنسان؟',
+    choices:['الأيدز', 'الحصبة', 'الأنفلونزا', 'شلل الأطفال'], correct:0,
+    explain:'يهاجم فيروس نقص المناعة المكتسبة (المسبب لمرض الأيدز) خلايا الدم البيضاء تحديداً، مما يُضعف جهاز المناعة في الجسم.' },
+  { domain:'biology', topic:'الجهاز الهيكلي', text:'ما وظيفة العظم الإسفنجي؟',
+    choices:['التقاء عظمين معاً', 'إنتاج كريات الدم الحمراء', 'تخزين الأملاح المعدنية', 'إنتاج خلايا الدم البيضاء'], correct:2,
+    explain:'يُخزّن العظم الإسفنجي الأملاح المعدنية كالكالسيوم والفوسفور، بينما يُنتج نخاع العظم الأحمر خلايا الدم.' },
+  { domain:'physics', topic:'الطفو والكثافة', text:'أي الحالات التالية ينغمر فيها الجسم كاملاً في سائل ما؟',
+    choices:['قوة الطفو تساوي وزن الجسم', 'قوة الطفو تساوي صفراً', 'قوة الطفو أقل من وزن الجسم', 'قوة الطفو أكبر من وزن الجسم'], correct:2,
+    explain:'يغرق الجسم وينغمر بالكامل في السائل عندما تكون قوة الطفو المؤثرة عليه أقل من وزنه، فلا تستطيع موازنته ليطفو.' },
+  { domain:'biology', topic:'فصائل الدم', text:'أي فصائل الدم التالية تُعد مستقبِلاً عاماً في عمليات نقل الدم؟',
+    choices:['B', 'A', 'AB', 'O'], correct:2,
+    explain:'فصيلة الدم AB تحتوي على النوعين من مولدات الضد (A وB) على سطح كرياتها، ولذلك لا تكوّن أجساماً مضادة ضدهما فتستطيع استقبال الدم من أي فصيلة.' },
+  { domain:'chem', topic:'موازنة المعادلات الكيميائية', text:'المعادلة الكيميائية الموزونة يجب أن تحتوي على أعداد متساوية في كل من طرفيها من:',
+    choices:['المركبات', 'الجزيئات', 'المواد المتفاعلة', 'الذرات'], correct:3,
+    explain:'موازنة المعادلة الكيميائية تعني أن عدد ذرات كل عنصر في جانب المتفاعلات يساوي عددها في جانب النواتج، تطبيقاً لقانون حفظ الكتلة.' },
+  { domain:'biology', topic:'تركيب الخلية', text:'أي تراكيب الخلية التالية يمدّها بالطاقة؟',
+    choices:['النواة', 'الميتوكوندريا', 'الفجوة العصارية', 'الكروموسومات'], correct:1,
+    explain:'الميتوكوندريا هي عضية الخلية المسؤولة عن التنفس الخلوي وإنتاج معظم الطاقة (ATP) التي تحتاجها الخلية.' },
+  { domain:'biology', topic:'تصنيف المخلوقات الحية', text:'أي مما يلي لا ينتمي إلى مجموعة اللافقاريات؟',
+    choices:['الإسفنجيات', 'الرخويات', 'الحبليات', 'المفصليات'], correct:2,
+    explain:'الحبليات (مثل الفقاريات) تضم المخلوقات ذات العمود الفقري أو الحبل الظهري، وهي مجموعة منفصلة عن اللافقاريات.' },
+  { domain:'chem', topic:'تحولات الطاقة', text:'ما نوع تحولات الطاقة التي تحدث في عضلات جسم الإنسان أثناء الحركة؟',
+    choices:['من حرارية إلى إشعاعية', 'من حركية إلى كيميائية', 'من كيميائية إلى حركية', 'من وضع إلى كيميائية'], correct:2,
+    explain:'تُحوّل العضلات الطاقة الكيميائية المخزنة (في الجلوكوز وATP) إلى طاقة حركية أثناء الانقباض العضلي.' },
+  { domain:'biology', topic:'وظائف الجلد', text:'كل مما يأتي من وظائف الجلد ما عدا:',
+    choices:['الحماية والاستجابة الحسية', 'حماية العظام والأعضاء الداخلية', 'تخليص الجسم من الفضلات (العرق)', 'تصنيع فيتامين د'], correct:1,
+    explain:'حماية العظام والأعضاء الداخلية وظيفة الهيكل العظمي والعضلات وليست من وظائف الجلد المباشرة.' },
+  { domain:'biology', topic:'تصنيف النباتات', text:'تُسمّى النباتات التي لا تنمو لها أزهار وتكون بذورها غير محاطة بغلاف (قاسية ومكشوفة) بـ:',
+    choices:['مغطاة البذور', 'معراة البذور', 'الحزازيات', 'السرخسيات'], correct:1,
+    explain:'نباتات معراة البذور (كالصنوبريات) تنتج بذوراً غير محاطة بمبيض، وتكون بذورها عادة صلبة ومكشوفة كما في المخاريط.' },
+  { domain:'biology', topic:'النقل عبر الغشاء الخلوي', text:'ما اسم العملية التي تستخدم فيها الخلية طاقة لنقل المواد عبر غشائها من تركيز منخفض إلى تركيز أعلى؟',
+    choices:['الانتشار', 'النقل النشط', 'الخاصية الأسموزية', 'التصفية'], correct:1,
+    explain:'النقل النشط هو العملية التي تستهلك فيها الخلية طاقة (ATP) لنقل المواد عكس تدرج التركيز (من المنخفض إلى المرتفع).' },
+  { domain:'earth', topic:'الصخور', text:'تتكوّن الصخور المتحولة بسبب:',
+    choices:['ترسّب طبقة من الرسوبيات', 'تصلّب اللابة في ماء البحر', 'الحرارة الشديدة والضغط المرتفع', 'تفتت الصخور على سطح الأرض'], correct:2,
+    explain:'تنتج الصخور المتحولة من تعرّض صخور موجودة سابقاً لحرارة شديدة وضغط مرتفع داخل الأرض دون أن تنصهر كلياً، فتتغير تركيبتها وبنيتها.' },
+  { domain:'earth', topic:'طبقات الأرض', text:'أي طبقات الأرض الداخلية أكبر حجماً؟',
+    choices:['القشرة', 'الستار', 'اللب الخارجي', 'اللب الداخلي'], correct:1,
+    explain:'الستار (الوشاح) هو أكبر طبقات الأرض حجماً، إذ يُشكّل نحو 84% من حجم الأرض الكلي، ويقع بين القشرة واللب.' },
+  { domain:'chem', topic:'النظائر المشعة', text:'مقياس تحلل النواة المشعة هو:',
+    choices:['جسيم بيتا', 'جسيم ألفا', 'عمر النصف', 'عدد النيوترونات'], correct:2,
+    explain:'عمر النصف هو الزمن اللازم لتحلل نصف كمية العنصر المشع الموجودة، ويُستخدم كمقياس لسرعة تحلل الأنوية المشعة.' },
+  { domain:'physics', topic:'الحركة والتسارع', text:'تسير عربة في مدينة الألعاب بسرعة 10 م/ث، وبعد 5 ثوانٍ من المسير على المنحدر أصبحت سرعتها 25 م/ث. احسب تسارع هذه العربة:',
+    choices:['5 م/ث²', '3 م/ث²', '7 م/ث²', '15 م/ث²'], correct:1,
+    explain:'التسارع = (السرعة النهائية - السرعة الابتدائية) ÷ الزمن = (25 - 10) ÷ 5 = 3 م/ث².' },
+  { domain:'earth', topic:'البراكين', text:'من الأمثلة على البراكين الدرعية في المملكة العربية السعودية حرّة:',
+    choices:['رهط', 'البرك', 'خيبر', 'ثنيان'], correct:2,
+    explain:'يُعد بركان جبل القدر في حرّة خيبر شمال المدينة المنورة من الأمثلة المعروفة على البراكين الدرعية في المملكة العربية السعودية.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'باستخدام جزء من الجدول الدوري يضم العناصر (Li) و(F) في الدورة الثانية، و(Ca) و(Co) في دورة لاحقة: ما رقم الدورة والمجموعة لعنصر الفلور (F)؟',
+    choices:['الدورة الأولى، المجموعة 17', 'الدورة الثانية، المجموعة 16', 'الدورة الثانية، المجموعة 17', 'الدورة الأولى، المجموعة 16'], correct:2,
+    explain:'يقع الفلور (F) في الدورة الثانية (لأن له مستويين رئيسيين للطاقة) والمجموعة 17 (مجموعة الهالوجينات)، وذلك بجوار عنصر الليثيوم (Li) في نفس الدورة.' },
+  { domain:'chem', topic:'نماذج تركيب الذرة', text:'يوجد أربعة نماذج تاريخية تمثل تصورات العلماء لتركيب الذرة: (أ) كرة متجانسة الكتلة بلا شحنات ظاهرة، (ب) كرة موجبة الشحنة متناثرة فيها إلكترونات سالبة كالزبيب في الكعكة، (ج) نواة صغيرة محاطة بسحابة إلكترونية، (د) نواة يدور حولها إلكترونات في مدارات محددة. أي هذه النماذج يمثل نموذج طومسون؟',
+    choices:['النموذج (أ)', 'النموذج (ب)', 'النموذج (ج)', 'النموذج (د)'], correct:1,
+    explain:'اقترح طومسون نموذج "الكعكة بالزبيب"، وفيه تتوزع الإلكترونات السالبة داخل كتلة موجبة الشحنة متجانسة، قبل اكتشاف النواة لاحقاً.' },
+  { domain:'biology', topic:'النقل عبر الغشاء الخلوي', text:'توضح الصورة خلية أميبية تحيط تدريجياً بجسيم غذائي عبر عدة مراحل حتى تبتلعه بالكامل داخل تجويف غذائي. ما اسم هذه العملية الخلوية؟',
+    choices:['البلعمة', 'الانتشار', 'الأسموزية', 'النقل النشط'], correct:0,
+    explain:'البلعمة عملية خلوية تحيط فيها الخلية بجسيم كبير (كبكتيريا أو جسيم غذائي) بامتداد غشائها حوله حتى يُحاط بالكامل ويدخل الخلية.' },
+  { domain:'physics', topic:'قوانين نيوتن (القوة)', text:'سيارة كتلتها 1050 كجم تتحرك بتسارع مقداره 5 م/ث²، فإن مقدار القوة المحصلة المؤثرة عليها بوحدة النيوتن يساوي:',
+    choices:['5250', '1050', '210', '5'], correct:0,
+    explain:'القوة = الكتلة × التسارع = 1050 × 5 = 5250 نيوتن، وفق قانون نيوتن الثاني.' },
+  { domain:'physics', topic:'المولدات الكهربائية', text:'يوضح الشكل مغناطيساً بين قطبيه ملف سلكي متصل بجهاز قياس (جلفانومتر)، بحيث تُحرَّك الأسلاك داخل المجال المغناطيسي فيتولد تيار كهربائي يظهر في الجهاز. يمثل هذا الشكل نموذجاً لـ:',
+    choices:['المحرك الكهربائي', 'المحوّل الكهربائي', 'المولد الكهربائي', 'المغناطيس الكهربائي'], correct:2,
+    explain:'يعمل المولد الكهربائي بمبدأ الحث الكهرومغناطيسي: تحريك سلك داخل مجال مغناطيسي يُولّد تياراً كهربائياً، وهو ما يوضحه الشكل بوجود قطبي المغناطيس والملف وجهاز القياس.' },
+  { domain:'biology', topic:'فصائل الدم', text:'تزوّج رجل فصيلة دمه A من فتاة فصيلة دمها B، فأنجبا طفلاً فصيلة دمه O. إذا استدعت حالة الطفل نقل دم له، فأي الوالدين يستطيع أن يتبرع له؟',
+    choices:['كلا الأبوين يستطيع التبرع له', 'لا يستطيع كلا الأبوين التبرع له', 'الأب فقط يستطيع التبرع له', 'الأم فقط تستطيع التبرع له'], correct:1,
+    explain:'فصيلة الدم O لا تحتوي على أي مولد ضد، بينما تحتوي فصيلتا A وB على مولدات ضد تجعل دمهما غير متوافق مع الطفل ذي الفصيلة O، فلا يستطيع أي من الوالدين التبرع له مباشرة.' },
+  { domain:'biology', topic:'نمو الجنين', text:'أي التراكيب التالية يعمل كعضو تنفسي لجنين الإنسان؟',
+    choices:['الغشاء الرحمي', 'الحبل السري', 'المشيمة', 'السائل الأمنيوسي'], correct:1,
+    explain:'ينقل الحبل السري الغازات والمواد الغذائية بين الجنين والمشيمة، فيعمل بذلك كعضو تنفسي وغذائي للجنين داخل الرحم.' },
+  { domain:'biology', topic:'الأمراض ومسبباتها', text:'من بين الأمراض التالية، ما المرض الذي يسببه فيروس؟',
+    choices:['الإنفلونزا', 'السل', 'التيفوئيد', 'التهاب الحلق البكتيري'], correct:0,
+    explain:'الإنفلونزا مرض فيروسي معدٍ يصيب الجهاز التنفسي، بينما تُعد الأمراض الأخرى المذكورة أمثلة على أمراض بكتيرية المنشأ.' },
+  { domain:'chem', topic:'تركيب الذرة', text:'ما الجسيمات سالبة الشحنة التي تدور حول نواة الذرة؟',
+    choices:['البروتونات', 'النيترونات', 'الإلكترونات', 'البوزيترونات'], correct:2,
+    explain:'تدور الإلكترونات سالبة الشحنة حول نواة الذرة في مستويات طاقة محددة، بينما تستقر البروتونات والنيوترونات داخل النواة.' },
+  { domain:'chem', topic:'الذائبية', text:'يوضح رسم بياني ثلاثة منحنيات (B مرتفع، A متوسط، C منخفض) تمثل تغيّر ذائبية ثلاث مواد مختلفة بارتفاع درجة الحرارة. أي هذه المنحنيات يمثل المادة الأكثر ذائبية؟',
+    choices:['A', 'B', 'C', 'لا يمكن تحديد ذلك'], correct:1,
+    explain:'كلما ارتفع المنحنى في رسم الذائبية-درجة الحرارة، دلّ ذلك على أن كمية أكبر من المادة تذوب عند كل درجة حرارة، والمنحنى B هو الأعلى بين الثلاثة.' },
+  { domain:'physics', topic:'التوتر السطحي', text:'ما سبب طفو إبرة معدنية على سطح الماء رغم أن كثافتها أكبر من كثافة الماء؟',
+    choices:['اللزوجة', 'الجاذبية', 'التوتر السطحي', 'الخاصية الأسموزية'], correct:2,
+    explain:'التوتر السطحي قوة تماسك بين جزيئات سطح الماء تجعله يتصرف كغشاء مرن قادر على حمل أجسام خفيفة كالإبرة دون أن تغرق.' },
+  { domain:'physics', topic:'الموصلات الكهربائية', text:'ما سبب استخدام أسلاك النحاس في التمديدات الكهربائية للمنازل؟',
+    choices:['لا يصدأ بسهولة', 'عازل ولا يوصل الشحنات الكهربائية', 'لا يسخن كثيراً عند مرور تيار كهربائي فيه', 'ترتفع حرارته بسرعة كبيرة'], correct:2,
+    explain:'النحاس موصل ممتاز ذو مقاومة كهربائية منخفضة، لذا لا يسخن بشكل كبير عند مرور التيار الكهربائي فيه، مما يجعله آمناً واقتصادياً للاستخدام في التمديدات.' },
+  { domain:'chem', topic:'الجدول الدوري', text:'عناصر المجموعة الواحدة في الجدول الدوري تتشابه في:',
+    choices:['العدد الذري', 'الخواص الفيزيائية فقط', 'الخواص الكيميائية', 'الكتلة الذرية'], correct:2,
+    explain:'تتشابه عناصر المجموعة الواحدة في عدد إلكترونات التكافؤ، مما يجعلها متشابهة في خواصها الكيميائية وطريقة تفاعلها.' },
+  { domain:'chem', topic:'الروابط الكيميائية', text:'ما نوع الرابطة في مركب كلوريد الصوديوم (Na⁺Cl⁻)؟',
+    choices:['رابطة فيزيائية', 'رابطة فلزية', 'رابطة أيونية', 'رابطة تساهمية'], correct:2,
+    explain:'تتكون الرابطة الأيونية بين أيون موجب (Na⁺) وأيون سالب (Cl⁻) نتيجة انتقال إلكترون من ذرة الصوديوم إلى ذرة الكلور، كما هو الحال في كلوريد الصوديوم.' },
+  { domain:'chem', topic:'التفاعلات الطاردة للحرارة', text:'عندما يُطلَق حرارة في التفاعلات الكيميائية الطاردة للحرارة، كيف تكون طاقة الروابط في النواتج مقارنة بالمتفاعلات؟',
+    choices:['أقل منها في المتفاعلات', 'أعلى منها في المتفاعلات', 'أقل استقراراً من المتفاعلات', 'لا تتغير طاقتها'], correct:1,
+    explain:'في التفاعلات الطاردة للحرارة تتكون روابط أقوى (وأعلى طاقة تثبيت) في النواتج مقارنة بالمتفاعلات، والفرق في الطاقة يُطلَق على هيئة حرارة.' },
+  { domain:'physics', topic:'الطاقة الحركية', text:'إذا تضاعفت سرعة جسم إلى الضعف، فإن طاقته الحركية:',
+    choices:['تقل إلى النصف', 'تزداد إلى الضعف', 'تقل إلى الربع', 'تزداد أربعة أضعاف'], correct:3,
+    explain:'الطاقة الحركية تتناسب طردياً مع مربع السرعة (ك.ح = ½×الكتلة×السرعة²)، فإذا تضاعفت السرعة تصبح الطاقة الحركية 2² = 4 أضعاف قيمتها الأصلية.' },
+  { domain:'physics', topic:'انتقال الحرارة', text:'لديك مادتان فلزيتان مختلفتا درجة الحرارة وُضعتا فوق بعضهما البعض، ما اتجاه انتقال الحرارة بينهما؟',
+    choices:['من المادة الأعلى حرارة إلى الأقل حرارة', 'من المادة الأقل حرارة إلى الأعلى حرارة', 'لا تنتقل الحرارة بينهما', 'تزداد حرارة المادتين معاً'], correct:0,
+    explain:'تنتقل الحرارة دائماً بالتوصيل من الجسم الأعلى درجة حرارة إلى الجسم الأقل درجة حرارة حتى يصل الجسمان إلى حالة اتزان حراري.' },
+  { domain:'physics', topic:'الدوائر الكهربائية', text:'في دائرة كهربائية تحتوي على مصباحين، كل منهما موصول بمسار منفصل يعود مباشرة إلى البطارية (بحيث يستمر أحدهما بالإضاءة حتى لو انقطع التيار عن الآخر)، ما نوع هذا التوصيل؟',
+    choices:['التوصيل على التوالي', 'التوصيل على التوازي', 'التوصيل المعقد', 'التوصيل المزدوج'], correct:1,
+    explain:'في التوصيل على التوازي يكون لكل عنصر في الدائرة مسار مستقل يصله بالبطارية، لذا يستمر عمل بقية العناصر حتى لو تعطل أحدها أو انقطع مساره.' },
+  { domain:'physics', topic:'الطاقة الكامنة', text:'وضعت سارة فازة من الورد في أعلى الرفوف، بينما وضعت حوض سمك في أسفل الرف. أيّهما يمتلك طاقة كامنة أعلى؟',
+    choices:['حوض السمك', 'فازة الورد', 'كلاهما لهما نفس الطاقة الكامنة', 'تنعدم الطاقة الكامنة فيهما'], correct:1,
+    explain:'الطاقة الكامنة للجاذبية تتناسب طردياً مع ارتفاع الجسم عن سطح الأرض، وبما أن فازة الورد أعلى ارتفاعاً من حوض السمك، فإنها تمتلك طاقة كامنة أكبر.' },
+  { domain:'physics', topic:'انعكاس الضوء', text:'تراقب هدى حركة الأسماك من داخل غواصة باستخدام جهاز بصري (بريسكوب) يعتمد على مرايا مائلة. ما الظاهرة الضوئية التي تساعدها على رؤية الأسماك؟',
+    choices:['انكسار الضوء', 'حيود الضوء', 'انعكاس الضوء', 'تحلل الضوء'], correct:2,
+    explain:'يعتمد جهاز البريسكوب على انعكاس أشعة الضوء على مرايا مائلة داخله لنقل الرؤية من سطح الماء إلى داخل الغواصة.' },
+  { domain:'earth', topic:'مصادر الطاقة', text:'يبيّن مخطط دائري بعض مصادر الطاقة التي تزوّد العالم باحتياجاته (نفط نحو 23%، فحم حجري نحو 24%، غاز طبيعي نحو 24%، طاقة نووية وطاقة متجددة الباقي). أي هذه الموارد يزوّدنا مجموعها بنحو 81% من إجمالي الطاقة المستهلكة؟',
+    choices:['نفط، فحم حجري، غاز طبيعي', 'نفط، غاز طبيعي، طاقة متجددة', 'نفط، طاقة نووية، طاقة متجددة', 'فحم حجري، غاز طبيعي، طاقة نووية'], correct:0,
+    explain:'مصادر الطاقة غير المتجددة الثلاثة (النفط والفحم الحجري والغاز الطبيعي) هي المصدر الأكبر لاحتياجات العالم من الطاقة، إذ تشكل مجتمعة نحو 81% منها.' },
+  { domain:'biology', topic:'التصنيف', text:'صنّف العالِم لينيوس المخلوقات الحية بناءً على:',
+    choices:['التسمية الثنائية', 'الشكل الخارجي والسلوك', 'العلاقات الوراثية', 'الصفات المشتقة'], correct:1,
+    explain:'اعتمد نظام تصنيف لينيوس التقليدي على الشكل الخارجي وأوجه التشابه في البنية والسلوك بين المخلوقات الحية، خلافاً للتصنيفات الحديثة التي تعتمد على العلاقات الوراثية.' },
+];
+
+/* ================= STATE ================= */
+let currentSet = [];
+let currentDomainKey = 'all';
+let currentIndex = 0;
+let userAnswers = [];
+let timerInterval = null;
+let elapsedSec = 0;
+
+const HIST_KEY = 'scienceQuizHistory_v1';
+
+/* ================= INIT ================= */
+function countByDomain(key){
+  return QUESTIONS.filter(q=>q.domain===key).length;
+}
+function initCounts(){
+  document.getElementById('countAll').textContent = QUESTIONS.length + ' سؤال متنوع';
+  document.getElementById('totalQCount').textContent = QUESTIONS.length;
+  Object.keys(DOMAINS).forEach(k=>{
+    const el = document.getElementById('count'+k);
+    if(el) el.textContent = countByDomain(k) + ' أسئلة';
+  });
+}
+initCounts();
+
+document.querySelectorAll('.domain-card').forEach(card=>{
+  card.addEventListener('click', ()=>startQuiz(card.dataset.domain));
+});
+
+/* ================= QUIZ FLOW ================= */
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function startQuiz(domainKey){
+  currentDomainKey = domainKey;
+  currentSet = domainKey==='all' ? shuffle(QUESTIONS) : shuffle(QUESTIONS.filter(q=>q.domain===domainKey));
+  currentIndex = 0;
+  userAnswers = [];
+  elapsedSec = 0;
+  showScreen('screenQuiz');
+  document.getElementById('qTotal').textContent = currentSet.length;
+  startTimer();
+  renderQuestion();
+}
+
+function startTimer(){
+  clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{
+    elapsedSec++;
+    const m = String(Math.floor(elapsedSec/60)).padStart(2,'0');
+    const s = String(elapsedSec%60).padStart(2,'0');
+    document.getElementById('quizTimer').textContent = `${m}:${s}`;
+  },1000);
+}
+
+function renderQuestion(){
+  const q = currentSet[currentIndex];
+  document.getElementById('qIndex').textContent = currentIndex+1;
+  document.getElementById('progressFill').style.width = ((currentIndex)/currentSet.length*100)+'%';
+  document.getElementById('qBadge').innerHTML = DOMAINS[q.domain].icon + ' ' + DOMAINS[q.domain].label + ' · ' + q.topic;
+  document.getElementById('qText').innerHTML = q.text;
+
+  const lettersAr = ['أ','ب','ج','د'];
+  const box = document.getElementById('qChoices');
+  box.innerHTML = '';
+  q.choices.forEach((choiceHTML, idx)=>{
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.innerHTML = `<span class="c-letter">${lettersAr[idx]}</span><span>${choiceHTML}</span>`;
+    btn.addEventListener('click', ()=>selectChoice(idx));
+    box.appendChild(btn);
+  });
+
+  document.getElementById('qExplain').classList.remove('show');
+  document.getElementById('btnNext').disabled = true;
+  document.getElementById('btnNext').textContent = currentIndex === currentSet.length-1 ? 'عرض النتيجة' : 'التالي';
+}
+
+function selectChoice(idx){
+  const q = currentSet[currentIndex];
+  if(userAnswers[currentIndex] !== undefined) return; // already answered
+
+  userAnswers[currentIndex] = idx;
+  const buttons = document.querySelectorAll('#qChoices .choice');
+  buttons.forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===q.correct) b.classList.add('correct');
+    else if(i===idx) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const exp = document.getElementById('qExplain');
+  const isCorrect = idx===q.correct;
+  exp.className = 'explain-box show ' + (isCorrect?'good':'bad');
+  exp.textContent = (isCorrect ? '✔ إجابة صحيحة — ' : '✘ إجابة غير صحيحة — ') + q.explain;
+
+  document.getElementById('btnNext').disabled = false;
+}
+
+document.getElementById('btnNext').addEventListener('click', ()=>{
+  if(currentIndex < currentSet.length-1){
+    currentIndex++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+});
+
+document.getElementById('btnExitQuiz').addEventListener('click', ()=>{
+  if(confirm('هل تريد إنهاء الاختبار الحالي؟ لن تُحتسب نتيجته.')){
+    clearInterval(timerInterval);
+    renderHistory();
+    showScreen('screenHome');
+  }
+});
+
+/* Header navigation icons: home + back */
+function goHome(){
+  const activeScreen = document.querySelector('.screen.active').id;
+  if(activeScreen === 'screenQuiz'){
+    if(!confirm('هل تريد إنهاء الاختبار الحالي؟ لن تُحتسب نتيجته.')) return;
+    clearInterval(timerInterval);
+  }
+  renderHistory();
+  showScreen('screenHome');
+}
+document.getElementById('btnHomeIcon').addEventListener('click', goHome);
+document.getElementById('btnBack').addEventListener('click', ()=>{
+  const activeScreen = document.querySelector('.screen.active').id;
+  if(activeScreen === 'screenHome') return; // already home, nothing to go back to
+  goHome();
+});
+
+/* ================= RESULTS ================= */
+function finishQuiz(){
+  clearInterval(timerInterval);
+  document.getElementById('progressFill').style.width = '100%';
+
+  const total = currentSet.length;
+  let correctCount = 0;
+  const byDomain = {};
+
+  currentSet.forEach((q,i)=>{
+    const isCorrect = userAnswers[i]===q.correct;
+    if(isCorrect) correctCount++;
+    if(!byDomain[q.domain]) byDomain[q.domain] = {correct:0,total:0};
+    byDomain[q.domain].total++;
+    if(isCorrect) byDomain[q.domain].correct++;
+  });
+
+  const pct = Math.round((correctCount/total)*100);
+  window.SafaProgress?.recordResult({correct:correctCount,total:total,percent:pct});
+
+  saveAttempt({
+    date: new Date().toISOString(),
+    domain: currentDomainKey,
+    domainLabel: currentDomainKey==='all' ? 'الاختبار الشامل' : DOMAINS[currentDomainKey].label,
+    correct: correctCount,
+    total: total,
+    percent: pct,
+    seconds: elapsedSec
+  });
+
+  renderResults(correctCount, total, pct, byDomain);
+  showScreen('screenResults');
+}
+
+function ringColor(pct){
+  if(pct>=80) return 'var(--good)';
+  if(pct>=50) return 'var(--gold)';
+  return 'var(--bad)';
+}
+
+function renderResults(correctCount,total,pct,byDomain){
+  const ring = document.getElementById('scoreRing');
+  const col = ringColor(pct);
+  ring.style.background = `conic-gradient(${col} ${pct*3.6}deg, rgba(255,255,255,.15) 0deg)`;
+  document.getElementById('resultPercent').textContent = pct+'%';
+  document.getElementById('resultFraction').textContent = correctCount+' / '+total;
+
+  let msg;
+  if(pct>=90) msg='ممتاز! إتقان رائع 🎉';
+  else if(pct>=75) msg='أداء جيد جدًا 👏';
+  else if(pct>=50) msg='أداء مقبول، واصل التدريب 💪';
+  else msg='تحتاج لمزيد من المراجعة والتدريب 📚';
+  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('resultSub').textContent = 'النطاق: ' + (currentDomainKey==='all' ? 'الاختبار الشامل' : DOMAINS[currentDomainKey].label);
+
+  const bd = document.getElementById('domainBreakdown');
+  bd.innerHTML = '';
+  Object.keys(byDomain).forEach(dk=>{
+    const d = byDomain[dk];
+    const p = Math.round((d.correct/d.total)*100);
+    const item = document.createElement('div');
+    item.className = 'db-item';
+    item.innerHTML = `<div class="db-top"><span>${DOMAINS[dk].icon} ${DOMAINS[dk].label}</span><span>${d.correct}/${d.total}</span></div>
+      <div class="db-bar"><div class="db-fill" style="width:${p}%"></div></div>`;
+    bd.appendChild(item);
+  });
+
+  const lettersAr = ['أ','ب','ج','د'];
+  const rl = document.getElementById('reviewList');
+  rl.innerHTML = '';
+  currentSet.forEach((q,i)=>{
+    const isCorrect = userAnswers[i]===q.correct;
+    const item = document.createElement('div');
+    item.className = 'review-item';
+    item.innerHTML = `
+      <div class="review-head">
+        <div class="review-icon ${isCorrect?'ok':'no'}">${isCorrect?'✔':'✘'}</div>
+        <div>
+          <div class="review-text">${i+1}. ${q.text}</div>
+          <div class="review-answer">إجابتك: <b>${lettersAr[userAnswers[i]]}</b>${isCorrect?'':' — الإجابة الصحيحة: <b>'+lettersAr[q.correct]+'</b>'}</div>
+        </div>
+      </div>`;
+    rl.appendChild(item);
+  });
+}
+
+document.getElementById('btnRetry').addEventListener('click', ()=>startQuiz(currentDomainKey));
+document.getElementById('btnHome').addEventListener('click', ()=>{ renderHistory(); showScreen('screenHome'); });
+
+/* ================= HISTORY / STORAGE ================= */
+function loadHistory(){
+  try{ return JSON.parse(localStorage.getItem(HIST_KEY)) || []; }
+  catch(e){ return []; }
+}
+function saveAttempt(attempt){
+  const hist = loadHistory();
+  hist.unshift(attempt);
+  localStorage.setItem(HIST_KEY, JSON.stringify(hist.slice(0,50)));
+}
+function renderHistory(){
+  const hist = loadHistory();
+  const card = document.getElementById('historyCard');
+  if(hist.length===0){
+    card.innerHTML = '<div class="empty-hint">لم تُجرِ أي محاولة بعد — ابدأ اختبارًا لتظهر نتائجك هنا.</div>';
+    return;
+  }
+  card.innerHTML = '';
+  hist.slice(0,8).forEach(a=>{
+    const d = new Date(a.date);
+    const dateStr = d.toLocaleDateString('ar-SA', {day:'numeric',month:'short',year:'numeric'});
+    const cls = a.percent>=80 ? 'hs-good' : (a.percent>=50 ? 'hs-mid' : 'hs-bad');
+    const row = document.createElement('div');
+    row.className = 'history-row';
+    row.innerHTML = `<div><div class="h-domain">${a.domainLabel}</div><div class="h-date">${dateStr}</div></div>
+      <div class="history-score ${cls}">${a.correct}/${a.total} — ${a.percent}%</div>`;
+    card.appendChild(row);
+  });
+}
+renderHistory();
+
+/* ================= SETTINGS MODAL ================= */
+const modal = document.getElementById('modalSettings');
+document.getElementById('btnSettings').addEventListener('click', ()=>modal.classList.add('show'));
+document.getElementById('btnCloseSettings').addEventListener('click', ()=>modal.classList.remove('show'));
+modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('show'); });
+
+document.getElementById('btnExport').addEventListener('click', ()=>{
+  const data = JSON.stringify(loadHistory(), null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'نسخة-احتياطية-اختبر-نفسك-علوم.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('تم تنزيل النسخة الاحتياطية');
+});
+
+document.getElementById('btnImportTrigger').addEventListener('click', ()=>document.getElementById('fileImport').click());
+document.getElementById('fileImport').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(evt){
+    try{
+      const imported = JSON.parse(evt.target.result);
+      if(!Array.isArray(imported)) throw new Error('bad format');
+      const merged = imported.concat(loadHistory()).slice(0,50);
+      localStorage.setItem(HIST_KEY, JSON.stringify(merged));
+      renderHistory();
+      showToast('تم استيراد السجل بنجاح');
+      modal.classList.remove('show');
+    }catch(err){
+      showToast('تعذّر قراءة الملف، تأكد من أنه نسخة احتياطية صحيحة');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+document.getElementById('btnReset').addEventListener('click', ()=>{
+  if(confirm('سيتم حذف كل سجل محاولاتك نهائيًا. متابعة؟')){
+    localStorage.removeItem(HIST_KEY);
+    renderHistory();
+    showToast('تم مسح السجل');
+    modal.classList.remove('show');
+  }
+});
+
+/* ================= HELPERS ================= */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2400);
+}
+</script>
+<script>window.NAFS_TEST_CONFIG={"id":"grade3-middle-science","title":"العلوم","grade":"الصف الثالث المتوسط"};</script>
+<script src="../assets/student-bridge.js"></script>
+</body>
+</html>

@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تدريبات نافس | لغتي الجميلة | مدرسة الصفا المتوسطة بجازان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Baloo+Bhaijaan+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-900:#0b3b3c;
+    --teal-800:#0f5257;
+    --teal-700:#146b6e;
+    --teal-500:#1a8f8a;
+    --teal-300:#5fc7bd;
+    --sand:#fbf3e3;
+    --gold:#e0a736;
+    --gold-dark:#c8871f;
+    --coral:#ef6f6c;
+    --violet:#7c6ff0;
+    --ink:#0e2b2c;
+    --white:#ffffff;
+    --radius:22px;
+    --shadow: 0 18px 40px rgba(11,59,60,.18);
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family:'Tajawal', sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(224,167,54,.25), transparent 60%),
+      radial-gradient(1000px 700px at 110% 10%, rgba(124,111,240,.22), transparent 55%),
+      linear-gradient(160deg, var(--teal-900), var(--teal-800) 45%, var(--teal-700) 100%);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:22px 14px;
+    position:relative;
+    overflow-x:hidden;
+  }
+  .bg-shapes span{
+    position:fixed;
+    border-radius:40%;
+    background:rgba(255,255,255,.06);
+    animation:float 14s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-28px) rotate(15deg);}
+  }
+  #app{
+    width:100%;
+    max-width:820px;
+    position:relative;
+    z-index:2;
+  }
+  .card{
+    background:var(--white);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:34px 30px;
+    position:relative;
+    overflow:hidden;
+    animation:pop .45s cubic-bezier(.2,.9,.3,1.2);
+  }
+  @keyframes pop{from{opacity:0; transform:translateY(18px) scale(.98);} to{opacity:1; transform:none;}}
+  .screen{display:none;}
+  .screen.active{display:block;}
+
+  .brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:6px;
+  }
+  .brand-badge{
+    width:52px;height:52px;border-radius:16px;
+    background:linear-gradient(135deg, var(--gold), var(--gold-dark));
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;
+    box-shadow:0 8px 18px rgba(200,135,31,.4);
+    flex:none;
+  }
+  h1.title{
+    font-family:'Baloo Bhaijaan 2', 'Tajawal', sans-serif;
+    font-size:28px;
+    margin:0;
+    color:var(--teal-900);
+    text-align:center;
+  }
+  .subtitle{
+    text-align:center;
+    color:#5a7a7b;
+    font-weight:500;
+    margin:4px 0 26px;
+    font-size:15px;
+  }
+  .qcount-badge{
+    display:block;
+    width:fit-content;
+    margin:-14px auto 22px;
+    background:linear-gradient(135deg, var(--teal-500), var(--teal-700));
+    color:#fff;
+    font-weight:800;
+    font-size:13.5px;
+    padding:7px 18px;
+    border-radius:999px;
+    box-shadow:0 8px 18px rgba(11,59,60,.25);
+  }
+  .pill-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:22px;
+  }
+  .pill{
+    background:var(--sand);
+    color:var(--teal-800);
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:12.5px;
+    font-weight:700;
+    border:1px solid #eddcb6;
+  }
+
+  label{
+    display:block;
+    font-weight:700;
+    color:var(--teal-900);
+    margin:16px 0 8px;
+    font-size:15px;
+  }
+  input[type=text]{
+    width:100%;
+    padding:14px 16px;
+    border-radius:14px;
+    border:2px solid #e4ece9;
+    font-family:inherit;
+    font-size:16px;
+    background:#f8fbfa;
+    transition:.2s;
+  }
+  input[type=text]:focus{
+    outline:none;
+    border-color:var(--teal-500);
+    background:#fff;
+  }
+
+  .choice-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:10px;
+  }
+  .choice-btn{
+    padding:14px 10px;
+    border-radius:16px;
+    border:2px solid #e4ece9;
+    background:#f8fbfa;
+    cursor:pointer;
+    font-family:inherit;
+    font-weight:700;
+    font-size:14.5px;
+    color:var(--teal-900);
+    transition:.15s;
+    text-align:center;
+  }
+  .choice-btn:hover{border-color:var(--teal-300); transform:translateY(-2px);}
+  .choice-btn.selected{
+    background:linear-gradient(135deg, var(--teal-500), var(--teal-700));
+    color:#fff;
+    border-color:transparent;
+    box-shadow:0 10px 20px rgba(26,143,138,.3);
+  }
+
+  .start-btn{
+    width:100%;
+    margin-top:26px;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    background:linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color:#fff;
+    font-family:inherit;
+    font-weight:800;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 14px 24px rgba(200,135,31,.35);
+    transition:.15s;
+  }
+  .start-btn:hover{transform:translateY(-2px); box-shadow:0 18px 30px rgba(200,135,31,.42);}
+  .start-btn:disabled{opacity:.5; cursor:not-allowed; transform:none;}
+  .start-btn.ghost{
+    background:transparent;
+    color:var(--teal-700);
+    border:2px solid var(--teal-300);
+    box-shadow:none;
+  }
+
+  /* ===== Quiz screen ===== */
+  .quiz-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+  }
+  .stat-chip{
+    background:var(--sand);
+    border-radius:14px;
+    padding:8px 14px;
+    font-weight:800;
+    font-size:14px;
+    color:var(--teal-800);
+    display:flex;
+    align-items:center;
+    gap:6px;
+    white-space:nowrap;
+  }
+  .progress-wrap{
+    height:12px;
+    background:#eef3f2;
+    border-radius:999px;
+    overflow:hidden;
+    margin-bottom:22px;
+  }
+  .progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--teal-300), var(--teal-500));
+    border-radius:999px;
+    transition:width .35s ease;
+  }
+  .q-category{
+    display:inline-block;
+    background:linear-gradient(135deg, var(--violet), #5b4fd6);
+    color:#fff;
+    font-size:12.5px;
+    font-weight:700;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:12px;
+  }
+  .passage-box{
+    display:none;
+    background:#fbf8ef;
+    border:1px dashed #e3cf9c;
+    border-radius:16px;
+    padding:14px 16px;
+    margin-bottom:14px;
+    font-size:15px;
+    line-height:1.9;
+    color:#5a4a22;
+    max-height:190px;
+    overflow-y:auto;
+  }
+  .passage-box::-webkit-scrollbar{width:6px;}
+  .passage-box::-webkit-scrollbar-thumb{background:#e3cf9c; border-radius:6px;}
+  .passage-box.show{display:block;}
+  .passage-label{
+    font-weight:800;
+    color:var(--gold-dark);
+    font-size:12.5px;
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .q-text{
+    font-size:19px;
+    font-weight:700;
+    line-height:1.7;
+    color:var(--teal-900);
+    margin-bottom:20px;
+    background:#f6faf9;
+    padding:16px 18px;
+    border-radius:16px;
+    border-inline-start:5px solid var(--teal-500);
+  }
+  .options{
+    display:grid;
+    gap:12px;
+  }
+  .option{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 16px;
+    border-radius:16px;
+    border:2px solid #e4ece9;
+    background:#fff;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:15.5px;
+    font-weight:600;
+    color:var(--ink);
+    transition:.15s;
+    text-align:right;
+  }
+  .option:hover{border-color:var(--teal-300); background:#f6fbfa;}
+  .option .letter{
+    flex:none;
+    width:32px;height:32px;
+    border-radius:10px;
+    background:var(--sand);
+    color:var(--teal-800);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;
+    font-size:14px;
+  }
+  .option.correct{
+    background:linear-gradient(135deg,#d7f5e8,#c1efd8);
+    border-color:#48c78e;
+  }
+  .option.correct .letter{background:#48c78e; color:#fff;}
+  .option.wrong{
+    background:linear-gradient(135deg,#fde2e1,#fbd0cf);
+    border-color:var(--coral);
+  }
+  .option.wrong .letter{background:var(--coral); color:#fff;}
+  .option.disabled{cursor:default; pointer-events:none;}
+
+  .home-btn{
+    position:fixed;
+    top:16px;
+    inset-inline-start:16px;
+    z-index:60;
+    display:none;
+    align-items:center;
+    gap:6px;
+    background:#fff;
+    border:none;
+    border-radius:999px;
+    padding:9px 16px;
+    font-family:inherit;
+    font-weight:800;
+    font-size:13.5px;
+    color:var(--teal-800);
+    box-shadow:0 8px 20px rgba(11,59,60,.22);
+    cursor:pointer;
+    transition:.15s;
+  }
+  .home-btn:hover{background:var(--sand); transform:translateY(-1px);}
+  .home-btn.show{display:flex;}
+  @media (max-width:480px){
+    .home-btn{
+      top:10px;
+      inset-inline-start:10px;
+      padding:8px 10px;
+      font-size:0;
+      gap:0;
+    }
+    .home-btn .home-icon{font-size:18px;}
+  }
+  .feedback-box{display:none !important;}
+
+  /* ===== Toast تشجيعي (لا يزيد ارتفاع البطاقة) ===== */
+  #toastWrap{
+    position:fixed;
+    top:18px;
+    left:0; right:0;
+    display:flex;
+    justify-content:center;
+    z-index:999;
+    pointer-events:none;
+    padding:0 12px;
+  }
+  .toast{
+    pointer-events:none;
+    max-width:460px;
+    width:100%;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 16px 34px rgba(11,59,60,.28);
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    opacity:0;
+    transform:translateY(-40px) scale(.92);
+    transition:transform .45s cubic-bezier(.2,.9,.3,1.4), opacity .3s;
+    border:2px solid transparent;
+  }
+  .toast.show{opacity:1; transform:translateY(0) scale(1);}
+  .toast.good{border-color:#48c78e; background:linear-gradient(135deg,#eefcf5,#ffffff);}
+  .toast.bad{border-color:var(--coral); background:linear-gradient(135deg,#fff1f0,#ffffff);}
+  .toast .toast-emoji{
+    font-size:30px;
+    flex:none;
+    animation:toastEmoji .6s ease;
+  }
+  @keyframes toastEmoji{
+    0%{transform:scale(.3) rotate(-15deg);}
+    55%{transform:scale(1.25) rotate(8deg);}
+    100%{transform:scale(1) rotate(0);}
+  }
+  .toast .toast-text{
+    font-weight:800;
+    font-size:15px;
+    line-height:1.5;
+  }
+  .toast.good .toast-text{color:#1c7a4d;}
+  .toast.bad .toast-text{color:#c14340;}
+  .toast .toast-sub{
+    display:block;
+    font-weight:600;
+    font-size:12.5px;
+    color:#7d9596;
+    margin-top:2px;
+  }
+
+  /* ===== قصّ الاحتفال (كونفيتي) ===== */
+  .confetti-piece{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    z-index:998;
+    pointer-events:none;
+    animation:confettiFall linear forwards;
+  }
+  @keyframes confettiFall{
+    0%{transform:translateY(0) rotate(0deg); opacity:1;}
+    100%{transform:translateY(110vh) rotate(540deg); opacity:0;}
+  }
+
+  /* ===== تذييل التصميم (لا يظهر عند الطباعة) ===== */
+  .site-footer{
+    position:fixed;
+    bottom:8px;
+    left:0; right:0;
+    text-align:center;
+    font-size:12.5px;
+    font-weight:700;
+    color:rgba(255,255,255,.75);
+    z-index:50;
+    pointer-events:none;
+  }
+  .site-footer a{
+    color:var(--gold);
+    font-weight:800;
+    text-decoration:underline;
+    pointer-events:auto;
+  }
+  @media print{
+    .no-print{display:none !important;}
+  }
+
+  .next-btn{
+    margin-top:18px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background:var(--teal-800);
+    color:#fff;
+    font-weight:800;
+    font-size:16px;
+    cursor:pointer;
+    display:none;
+  }
+  .next-btn.show{display:block;}
+  .next-btn:hover{background:var(--teal-900);}
+
+  /* ===== Result screen ===== */
+  .result-hero{
+    text-align:center;
+    padding:10px 0 6px;
+  }
+  .badge-emoji{
+    font-size:64px;
+    display:block;
+    margin-bottom:6px;
+    animation:bounceIn .6s;
+  }
+  @keyframes bounceIn{
+    0%{transform:scale(.4); opacity:0;}
+    60%{transform:scale(1.12); opacity:1;}
+    100%{transform:scale(1);}
+  }
+  .badge-title{
+    font-family:'Baloo Bhaijaan 2', sans-serif;
+    font-size:26px;
+    color:var(--teal-900);
+    margin:4px 0;
+  }
+  .badge-sub{
+    color:#6b8b8c;
+    font-weight:600;
+    margin-bottom:20px;
+  }
+  .score-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .score-box{
+    background:var(--sand);
+    border-radius:16px;
+    padding:16px 8px;
+    text-align:center;
+  }
+  .score-box .num{
+    font-family:'Baloo Bhaijaan 2', sans-serif;
+    font-size:26px;
+    color:var(--teal-800);
+    display:block;
+  }
+  .score-box .lbl{
+    font-size:12px;
+    color:#7d9596;
+    font-weight:700;
+  }
+  .review-list{
+    max-height:260px;
+    overflow-y:auto;
+    margin:10px 0 20px;
+    padding-inline-start:0;
+  }
+  .review-item{
+    background:#f8fbfa;
+    border-radius:14px;
+    padding:12px 14px;
+    margin-bottom:10px;
+    font-size:14px;
+    line-height:1.6;
+  }
+  .review-item .qline{font-weight:700; color:var(--teal-900); margin-bottom:6px;}
+  .review-item .ans-wrong{color:var(--coral); font-weight:700;}
+  .review-item .ans-right{color:#1c7a4d; font-weight:700;}
+  .review-toggle{
+    background:none;
+    border:none;
+    color:var(--teal-700);
+    font-weight:800;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:14px;
+    text-decoration:underline;
+    padding:0;
+    margin-bottom:6px;
+  }
+  .btn-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .btn-row .start-btn{margin-top:0;}
+
+  .leader-title{
+    font-weight:800;
+    color:var(--teal-900);
+    margin:24px 0 10px;
+    font-size:15px;
+  }
+  .leader-row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 12px;
+    background:#f8fbfa;
+    border-radius:12px;
+    margin-bottom:6px;
+    font-size:13.5px;
+    font-weight:700;
+    color:var(--teal-800);
+  }
+
+  @media (max-width:520px){
+    .card{padding:24px 18px;}
+    h1.title{font-size:22px;}
+    .q-text{font-size:16.5px;}
+    .score-grid{grid-template-columns:repeat(3,1fr); gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="toastWrap"><div class="toast" id="toast"><span class="toast-emoji" id="toastEmoji">🎉</span><span class="toast-text" id="toastText"></span></div></div>
+
+<button class="home-btn" id="floatingHomeBtn"><span class="home-icon">🏠</span><span class="home-label">الرئيسية</span></button>
+
+<div class="bg-shapes">
+  <span style="width:220px;height:220px;top:6%;right:6%;"></span>
+  <span style="width:160px;height:160px;bottom:10%;left:4%;animation-delay:2s;"></span>
+  <span style="width:120px;height:120px;top:60%;right:14%;animation-delay:4s;"></span>
+</div>
+
+<div id="app">
+
+  <!-- ===================== START SCREEN ===================== -->
+  <div class="screen active card" id="screen-start">
+    <div class="brand">
+      <div class="brand-badge">📖</div>
+      <h1 class="title">مُسَابَقَةُ نَافِسَ</h1>
+    </div>
+    <p class="subtitle">مادة لغتي — الصف الثالث الابتدائي · اختبر نفسك قبل اختبارات نافس الوطنية</p>
+    <div class="qcount-badge" id="qcountBadge">📊 بنك الأسئلة: <span id="qcountNum">0</span> سؤال</div>
+
+    <div class="pill-row">
+      <span class="pill">🧩 قواعد نحوية</span>
+      <span class="pill">📚 معاني ومفردات</span>
+      <span class="pill">🔍 فهم قرائي</span>
+      <span class="pill">✨ أساليب لغوية</span>
+      <span class="pill">💡 إبداء رأي</span>
+    </div>
+
+    <label for="playerName">✏️ اكتب اسمك</label>
+    <input type="text" id="playerName" placeholder="مثال: سارة" maxlength="30">
+
+    <label>📂 اختر مجال الاختبار</label>
+    <div class="choice-grid" id="categoryGrid"></div>
+
+    <label>🔢 عدد الأسئلة</label>
+    <div class="choice-grid" id="countGrid">
+      <button class="choice-btn" data-count="10">10 أسئلة</button>
+      <button class="choice-btn selected" data-count="15">15 سؤالًا</button>
+      <button class="choice-btn" data-count="25">25 سؤالًا</button>
+      <button class="choice-btn" data-count="999">كل الأسئلة</button>
+    </div>
+
+    <button class="start-btn" id="startBtn">🚀 ابدأ المسابقة</button>
+
+    <div class="leader-title" id="leaderTitle" style="display:none;">🏆 أفضل النتائج على هذا الجهاز</div>
+    <div id="leaderList"></div>
+  </div>
+
+  <!-- ===================== QUIZ SCREEN ===================== -->
+  <div class="screen card" id="screen-quiz">
+    <div class="quiz-top">
+      <div class="stat-chip">👤 <span id="quizPlayer"></span></div>
+      <div class="stat-chip">⭐ النقاط: <span id="quizScore">0</span></div>
+      <div class="stat-chip">⏱️ <span id="quizTimer">00:00</span></div>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="q-category" id="qCategory"></div>
+    <div class="passage-box" id="passageBox">
+      <div class="passage-label">📄 اقرأ النص أولًا:</div>
+      <div id="passageText"></div>
+    </div>
+    <div class="q-text" id="qText"></div>
+    <div class="options" id="qOptions"></div>
+    <button class="next-btn" id="nextBtn">السؤال التالي ⬅️</button>
+  </div>
+
+  <!-- ===================== RESULT SCREEN ===================== -->
+  <div class="screen card" id="screen-result">
+    <div class="result-hero">
+      <span class="badge-emoji" id="resultEmoji">🏆</span>
+      <div class="badge-title" id="resultTitle">بطل نافس!</div>
+      <div class="badge-sub" id="resultSub"></div>
+    </div>
+
+    <div class="score-grid">
+      <div class="score-box">
+        <span class="num" id="resCorrect">0</span>
+        <span class="lbl">إجابات صحيحة</span>
+      </div>
+      <div class="score-box">
+        <span class="num" id="resPercent">0%</span>
+        <span class="lbl">النسبة المئوية</span>
+      </div>
+      <div class="score-box">
+        <span class="num" id="resTime">00:00</span>
+        <span class="lbl">الزمن المستغرق</span>
+      </div>
+    </div>
+
+    <button class="review-toggle" id="toggleReview">👀 عرض الأسئلة التي أخطأت فيها</button>
+    <div class="review-list" id="reviewList" style="display:none;"></div>
+
+    <div class="btn-row">
+      <button class="start-btn" id="retryBtn" style="flex:1;">🔁 حاول مرة أخرى</button>
+      <button class="start-btn ghost" id="homeBtn" style="flex:1;">🏠 العودة للرئيسية</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ========================= النصوص/القطع الكاملة المستخدمة في الأسئلة ========================= */
+const P_GHURAB = "فِي يَوْمٍ صَيْفِيٍّ حَارٍّ، عَطِشَ الْغُرَابُ كَثِيرًا، وَبَحَثَ عَنِ الْمَاءِ فَلَمْ يَجِدْهُ. وَبَعْدَ بَحْثٍ طَوِيلٍ وَجَدَ جَرَّةً فِيهَا مَاءٌ قَلِيلٌ، حَاوَلَ أَنْ يَصِلَ إِلَى الْمَاءِ بِمِنْقَارِهِ فَلَمْ يَسْتَطِعْ. فَكَّرَ طَوِيلًا: كَيْفَ يُمْكِنُ أَنْ أَصِلَ إِلَى الْمَاءِ؟! نَظَرَ حَوْلَهُ فَوَجَدَ حِجَارَةً صَغِيرَةً، فَأَخَذَ يُلْقِي هَذِهِ الْحِجَارَةَ دَاخِلَ الْجَرَّةِ حَتَّى ارْتَفَعَ الْمَاءُ، وَصَارَ بِإِمْكَانِهِ الْوُصُولُ إِلَيْهِ بِمِنْقَارِهِ، فَشَرِبَ حَتَّى ارْتَوَى.";
+
+const P_TAALAB = "أَرَادَ الثَّعْلَبُ الصَّغِيرُ أَنْ يُجَرِّبَ مَهَارَتَهُ فِي الصَّيْدِ، فَسَارَ نَحْوَ مَجْمُوعَةٍ مِنْ صِغَارِ الْأَرَانِبِ يَلْعَبُونَ، اقْتَرَبَ مِنْ أَصْغَرِهِمْ، وَأَطْبَقَ عَلَيْهِ بِفَكَّيْهِ، عِنْدَهَا صَاحَتِ الْأَرَانِبُ الصِّغَارُ حَتَّى جَاءَ وَالِدُهُمْ. شَعَرَ الثَّعْلَبُ الصَّغِيرُ بِالْخَوْفِ، وَتَظَاهَرَ بِالْمَوْتِ، نَظَرَ إِلَيْهِ الْأَبُ وَقَالَ مُتَعَجِّبًا: إِنَّ الثَّعْلَبَ يَمُوتُ وَفَمُهُ مَفْتُوحٌ! عِنْدَهَا فَتَحَ الثَّعْلَبُ فَاهُ، وَأَفْلَتَ الْأَرْنَبُ الصَّغِيرُ وَنَجَا، وَنَجَحَتْ خُطَّةُ وَالِدِهِ.";
+
+const P_NAML = "النَّمْلُ يَحْتَاجُ إِلَى الْمَاءِ وَالْغِذَاءِ؛ لِيَبْقَى عَلَى قَيْدِ الْحَيَاةِ تَمَامًا كَأَيِّ كَائِنٍ حَيٍّ آخَرَ. يَتَأَلَّفُ جِسْمُ النَّمْلَةِ مِنَ الْخَارِجِ مِنْ ثَلَاثَةِ أَقْسَامٍ رَئِيسَةٍ، هِيَ: الرَّأْسُ، وَالصَّدْرُ، وَالْبَطْنُ. وَالنَّمْلَةُ الْوَاحِدَةُ تَسْتَطِيعُ حَمْلَ قِطْعَةٍ مِنَ الطَّعَامِ وَزْنُهَا عَشَرَةُ أَضْعَافِ وَزْنِهَا.";
+
+const P_HAMAM_SHABAKA = "وَضَعَ أَحَدُ الصَّيَّادِينَ فِي أَحَدِ أَيَّامِ الصَّيْفِ شَبَكَةً كَبِيرَةً عَلَى الْأَرْضِ بِالْقُرْبِ مِنْ شَجَرَةٍ كَبِيرَةٍ. حَاوَلَتِ الْحَمَامَاتُ السَّيْرَ بِاتِّجَاهٍ وَاحِدٍ وَهُنَّ فِي الشَّبَكَةِ. قَالَتْ إِحْدَى الْحَمَامَاتِ بِأَسًى: مَاذَا نَفْعَلُ الْآنَ؟ كَيْفَ سَنَخْرُجُ مِنَ الشَّبَكَةِ؟";
+
+const P_SANJOUB = "كَانَ هُنَاكَ سِنْجَابٌ صَغِيرٌ يُدْعَى سَنْجُوب، أَحَبَّ يَوْمًا أَنْ يَتَمَشَّى مَعَ أُمِّهِ فِي الْغَابَةِ الْقَرِيبَةِ؛ لِرُؤْيَةِ الْأَشْجَارِ وَالْوَرُودِ الَّتِي تَفَتَّحَتْ مَعَ قُدُومِ فَصْلِ الرَّبِيعِ.";
+
+const P_FARASHA = "تُعْتَبَرُ الْفَرَاشَةُ وَاحِدَةً مِنْ أَجْمَلِ الْحَشَرَاتِ قَاطِبَةً، وَلِذَا فُتِنَ النَّاسُ بِجَمَالِ أَجْنِحَتِهَا الرَّقِيقَةِ ذَاتِ الْأَلْوَانِ الْجَذَّابَةِ. تَعِيشُ الْفَرَاشَاتُ فِي كُلِّ أَنْحَاءِ الْعَالَمِ؛ فَبَعْضُهَا يَعِيشُ عَلَى قِمَمِ الْجِبَالِ الْبَارِدَةِ، وَالْبَعْضُ الْآخَرُ فِي الصَّحَارِي الْحَارَّةِ، وَتُهَاجِرُ كَثِيرٌ مِنَ الْفَرَاشَاتِ لِمَسَافَاتٍ طَوِيلَةٍ لِقَضَاءِ الشِّتَاءِ فِي الْمَنَاطِقِ الدَّافِئَةِ.";
+
+const P_HAMAM_SULHUFAT = "يُحْكَى أَنَّ حَمَامَتَيْنِ جَمِيلَتَيْنِ قَرَّرَتَا السَّفَرَ وَالِابْتِعَادَ عَنِ الْغَدِيرِ الَّذِي عَاشَتَا إِلَى جَانِبِهِ طَوِيلًا بِسَبَبِ شُحِّ الْمَاءِ فِيهِ، فَحَزِنَتْ صَدِيقَتُهُمَا السُّلَحْفَاةُ وَطَلَبَتْ مِنْهُمَا أَنْ تَأْخُذَاهَا مَعَهُمَا، فَأَجَابَتْهَا الْحَمَامَتَانِ بِأَنَّهُمَا لَا تَسْتَطِيعَانِ الطَّيَرَانَ، بَكَتِ السُّلَحْفَاةُ كَثِيرًا وَتَوَسَّلَتْ إِلَيْهِمَا أَنْ تَجِدَا طَرِيقَةً لِنَقْلِهَا مَعَهُمَا. فَكَّرَتِ الْحَمَامَتَانِ كَثِيرًا وَقَرَّرَتَا حَمْلَهَا مَعَهُمَا، فَأَحْضَرَتَا عُودًا قَوِيًّا أَمْسَكَتْ كُلُّ وَاحِدَةٍ مِنْهُمَا بِهِ مِنْ طَرَفٍ، وَطَلَبَتَا مِنَ السُّلَحْفَاةِ أَنْ تَعَضَّ عَلَى هَذَا الْعُودِ حَتَّى تَطِيرَا بِهَا، وَحَذَّرَتَاهَا مِنْ أَنْ تَفْتَحَ فَمَهَا مَهْمَا كَلَّفَ الْأَمْرُ؛ لِأَنَّ ذَلِكَ سَيُؤَدِّي إِلَى سُقُوطِهَا.";
+
+const P_ASAD_FAAR = "مَشَى فَأْرٌ عَلَى جِسْمِ أَسَدٍ نَائِمٍ، فَنَهَضَ الْأَسَدُ مِنْ نَوْمِهِ غَضْبَانَ، وَقَبَضَ عَلَى الْفَأْرِ لِيَقْتُلَهُ. فَبَكَى الْفَأْرُ وَقَالَ لِلْأَسَدِ: اتْرُكْنِي فَقَدْ أَنْفَعُكَ فِي يَوْمٍ مِنَ الْأَيَّامِ. فَعَفَا عَنْهُ وَتَرَكَهُ. وَذَاتَ يَوْمٍ وَقَعَ الْأَسَدُ فِي شَرَكٍ، وَسَمِعَ الْفَأْرُ زَئِيرَهُ، فَأَتَى إِلَيْهِ مُسْرِعًا، وَصَارَ يَقْرِضُ الْحَبْلَ بِأَسْنَانِهِ حَتَّى قَطَعَهُ. فَنَجَا الْأَسَدُ وَشَكَرَ الْفَأْرَ عَلَى صَنِيعِهِ.";
+
+const P_HATIF = "اصْطَحَبَ الْوَالِدُ ابْنَهُ فَوَّازَ لِزِيَارَةِ جَارِهِ فِي الْمُسْتَشْفَى. وَعِنْدَ دُخُولِهِمْ رَأَى فَوَّازُ لَوْحَةً تُشِيرُ إِلَى مَنْعِ اسْتِخْدَامِ الْهَاتِفِ الْمَحْمُولِ فِي الْمُسْتَشْفَى، فَسَأَلَ وَالِدَهُ عَنِ السَّبَبِ، فَقَالَ الْأَبُ: إِنَّ اسْتِخْدَامَ الْهَاتِفِ الْمَحْمُولِ قَدْ يُؤَثِّرُ عَلَى بَعْضِ الْأَجْهِزَةِ الطِّبِّيَّةِ فِي الْمُسْتَشْفَيَاتِ، وَمِنَ الْأَمَاكِنِ الْمُهِمَّةِ أَيْضًا الْمَسَاجِدُ وَبُيُوتُ اللَّهِ؛ فَإِنَّ الْهَاتِفَ الْمَحْمُولَ يُزْعِجُ الْمُصَلِّينَ وَيُقَاطِعُ خُشُوعَهُمْ. إِنَّ الْهَاتِفَ الْمَحْمُولَ نِعْمَةٌ مِنَ اللَّهِ عَلَيْنَا، وَبَعْضُنَا يُسِيءُ اسْتِخْدَامَهُ، غَيْرَ مُقَدَّرٍ لِهَذِهِ النِّعْمَةِ.";
+
+const P_BEEA_NAZEEFA = "فِي أَحَدِ الْأَيَّامِ خَرَجَتْ عَائِلَةُ مُحَمَّدٍ فِي رِحْلَةٍ إِلَى حَدِيقَةٍ عَامَّةٍ، لَعِبَ مُحَمَّدٌ وَإِخْوَتُهُ فِيهَا وَتَنَاوَلُوا وَجْبَةَ الْغَدَاءِ، ثُمَّ عَادُوا إِلَى مَنْزِلِهِمْ بَعْدَ صَلَاةِ الْعَصْرِ، تَارِكِينَ خَلْفَهُمْ -لِلْأَسَفِ- نُفَايَاتِهِمْ فِي الْحَدِيقَةِ، دُونَ أَنْ يُفَكِّرَ أَحَدٌ مِنْهُمْ بِأَنْ يَرْمِيَ النُّفَايَاتِ فِي سَلَّةِ الْمُهْمَلَاتِ، وَلَمْ يُفَكِّرُوا أَيْضًا بِأَنَّ تِلْكَ الْقَاذُورَاتِ قَدْ تُؤْذِي شَخْصًا آخَرَ أَوْ تُؤْذِي الْبِيئَةَ. وَفِي ذَاتِ الْيَوْمِ ذَهَبَتْ عَائِلَةُ إِبْرَاهِيمَ إِلَى الْحَدِيقَةِ نَفْسِهَا، وَفِيمَا كَانَ إِبْرَاهِيمُ يَلْعَبُ مَعَ أُخْتِهِ سَلْمَى صَرَخَتْ سَلْمَى بِصَوْتٍ عَالٍ! سَمِعَ الْوَالِدَانِ صُرَاخَ ابْنَتِهِمَا، فَرَكَضَا نَحْوَهَا، وَتَفَاجَآ بِوُجُودِ زُجَاجَةٍ كَبِيرَةٍ شَقَّتْ قَدَمَهَا، فَحَمَلُوهَا إِلَى الْمُسْتَشْفَى، وَتَحَوَّلَتْ نُزْهَةُ عَائِلَةِ إِبْرَاهِيمَ إِلَى حَادِثَةٍ أَفْسَدَتْ فَرْحَتَهُمْ.";
+
+const P_GHIZA = "أَنَا أُحِبُّ الْغِذَاءَ الصِّحِّيَّ فَأَتَنَاوَلُ طَعَامًا صَحِيًّا فِيهِ نَشَوِيَّاتٌ وَخَضْرَاوَاتٌ وَفَاكِهَةٌ وَبُرُوتَيْنَاتٌ.";
+
+const P_MUHAMMAD_BILAL = "مُحَمَّدٌ وَبِلَالٌ صَدِيقَانِ، مَرِضَ مُحَمَّدٌ وَغَابَ عَنِ الْمَدْرَسَةِ أُسْبُوعًا، فَاتَّصَلَ بِهِ بِلَالٌ وَقَالَ: لَا تَقْلَقْ، سَأُسَاعِدُكَ فِي حَلِّ وَاجِبَاتِكَ.";
+
+const P_AYAH = "﴿وَقَضَى رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا إِمَّا يَبْلُغَنَّ عِنْدَكَ الْكِبَرَ أَحَدُهُمَا أَوْ كِلَاهُمَا فَلَا تَقُلْ لَهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا وَقُلْ لَهُمَا قَوْلًا كَرِيمًا﴾.";
+
+const P_DEEK = "خَرَجَ دِيكٌ فِي الصَّبَاحِ الْبَاكِرِ لِيُفَتِّشَ عَنْ طَعَامٍ لَهُ، فَابْتَعَدَ عَنِ الْقَرْيَةِ، فَرَآهُ ثَعْلَبٌ جَاءَ إِلَيْهِ مُسْرِعًا. خَافَ الدِّيكُ وَصَعِدَ فَوْقَ الشَّجَرَةِ.";
+
+const P_JABER = "كَانَ وَالِدُ جَابِرِ بْنِ حَيَّانَ صَيْدَلِيًّا، مَارَسَ هَذِهِ الْمِهْنَةَ مُدَّةً طَوِيلَةً؛ فَكَانَ عَمَلُهُ دَافِعًا لِشَغَفِ جَابِرٍ بِعِلْمِ الْكِيمِيَاءِ. أَلَّفَ جَابِرٌ عَدَدًا كَبِيرًا مِنَ الْكُتُبِ، وَلَهُ عَدِيدٌ مِنَ الِاخْتِرَاعَاتِ؛ فَهُوَ أَوَّلُ مَنْ حَضَّرَ مَاءَ الذَّهَبِ، وَأَوَّلُ مَنْ صَنَعَ الْمَوَادَّ الَّتِي تَعْزِلُ الْبَلَلَ عَنِ الثِّيَابِ. وَتَلْبِيَةً لِطَلَبِ أُسْتَاذِهِ، اخْتَرَعَ نَوْعًا مِنَ الْوَرَقِ لَا تُؤَثِّرُ فِيهِ النَّارُ. وَذَاتَ يَوْمٍ، وَبَيْنَمَا كَانَ أُسْتَاذُهُ جَالِسًا فِي بَيْتِهِ وَمَعَهُ عَدَدٌ كَبِيرٌ مِنْ ضُيُوفِهِ يَحْتَفِلُونَ بِانْتِهَاءِ تَأْلِيفِ كِتَابٍ ضَخْمٍ، دَخَلَ عَلَيْهِمْ جَابِرٌ حَامِلًا بَيْنَ يَدَيْهِ نُسْخَةً أُخْرَى مِنَ الْكِتَابِ مُغَلَّفَةً بِغِلَافٍ جَمِيلٍ، ثُمَّ فَاجَأَ الْحَاضِرِينَ بِإِلْقَاءِ هَذِهِ النُّسْخَةِ فِي مَوْقِدِ النَّارِ، فَصَدَرَتْ مِنَ الْجَمِيعِ صَرَخَاتُ الِاسْتِنْكَارِ، إِلَّا أَنَّ جَابِرًا أَخْرَجَ الْكِتَابَ مِنَ النَّارِ سَلِيمًا كَأَنَّ النَّارَ لَمْ تَمَسَّهُ. وَقَدِ اعْتَرَفَ بِفَضْلِهِ عُلَمَاءُ الشَّرْقِ وَالْغَرْبِ حِينَ بَرَعَ فِي عِلْمٍ لَمْ يَشْتَهِرْ فِيهِ أَحَدٌ قَبْلَهُمْ.";
+
+const P_ASAFEER = "فِي يَوْمٍ عَاصِفٍ مِنْ أَيَّامِ الشِّتَاءِ الْتَقَى عُصْفُورَانِ صَغِيرَانِ عَلَى غُصْنِ شَجَرَةِ زَيْتُونٍ كَبِيرَةٍ، وَالشَّجَرَةُ الضَّخْمَةُ كَانَتْ ضَعِيفَةً وَلَا تَكَادُ تَقْوَى عَلَى مُوَاجَهَةِ الرِّيحِ. انْتَفَضَ الْعُصْفُورُ الْأَوَّلُ وَقَالَ: لَقَدْ مَلَلْتُ الِانْتِقَالَ مِنْ مَكَانٍ إِلَى آخَرَ، مَا أَعْتَادُ عَلَى مَسْكَنٍ حَتَّى يُدَاهِمَنَا الْبَرْدُ وَالشِّتَاءُ فَنُضْطَرُّ لِلرَّحِيلِ مَرَّةً أُخْرَى. ضَحِكَ الْعُصْفُورُ الثَّانِي وَقَالَ بِسُخْرِيَةٍ: نَحْنُ مَعْشَرَ الطُّيُورِ خُلِقْنَا لِلِارْتِحَالِ الدَّائِمِ. ثُمَّ الْتَفَتَ فَرَأَى سَحَابَةً سَوْدَاءَ تَقْتَرِبُ بِسُرْعَةٍ نَحْوَهُمَا، فَخَافَ الْعُصْفُورَانِ خَوْفًا شَدِيدًا، وَبَسَطَ كُلُّ وَاحِدٍ مِنْهُمَا جَنَاحَيْهِ، وَانْطَلَقَا مِثْلَ السَّهْمِ مَذْعُورَيْنِ لِيَلْحَقَا بِسِرْبِهِمَا.";
+
+const P_FAHD = "الْفَهْدُ حَيَوَانٌ مُفْتَرِسٌ مِنْ أَكَلَةِ اللُّحُومِ، فَهُوَ يَتَوَاجَدُ فِي أَمَاكِنَ عَدِيدَةٍ مِنْ أَفْرِيقِيَا وَآسِيَا، إِلَّا أَنَّهُ لَا يَتَوَاجَدُ فِي أُسْتُرَالِيَا، أَوْ فِي الْمَنَاطِقِ الْقُطْبِيَّةِ. يَتَّصِفُ الْفَهْدُ بِجِسْمٍ قَوِيٍّ وَرَشِيقٍ، مُهَيَّأً لِلْمُطَارَدَةِ، وَهُوَ ذَكِيٌّ وَمُخَادِعٌ، يُمَارِسُ الصَّيْدَ لَيْلًا وَنَهَارًا، وَلَهُ أَسْنَانٌ وَمَخَالِبُ حَادَّةٌ، وَيُعَدُّ مِنْ أَكْثَرِ الْحَيَوَانَاتِ مَهَارَةً فِي الصَّيْدِ، وَيَكْسُو جِسْمَهُ فَرَاءٌ سَمِيكٌ. وَلِلْفُهُودِ أَسَالِيبُ خَاصَّةٌ بِهَا فِي الصَّيْدِ، وَاخْتَلَفَتْ عَنْ بَعْضِهَا حَسَبَ الْبِيئَةِ الَّتِي يَتَوَاجَدُ فِيهَا كُلُّ صِنْفٍ مِنْهَا، فَهُنَاكَ فَهْدُ الْغَابَاتِ الَّذِي يَعْتَمِدُ عَلَى تَسَلُّقِ الْأَشْجَارِ، وَالِاخْتِبَاءِ بَيْنَ فُرُوعِهَا، ثُمَّ الِانْقِضَاضِ عَلَى الْفَرِيسَةِ مِنْ بَيْنِهَا، وَهُنَاكَ فَهْدُ الْبَرَارِي الَّذِي يَخْتَبِئُ بَيْنَ الْحَشَائِشِ وَالنَّبَاتَاتِ الْبَرِّيَّةِ، ثُمَّ يُهَاجِمُ الْفَرِيسَةَ عَلَى الْأَرْضِ. تَخْتَلِفُ أَلْوَانُ الْفُهُودِ بِاخْتِلَافِ الْبِيئَةِ (الْمَكَانِ) الَّتِي تَنْتَمِي إِلَيْهَا، فَالْفُهُودُ الْإِفْرِيقِيَّةُ أَلْوَانُهَا تَتَّصِفُ بِبُقَعٍ مُسْتَدِيرَةٍ عَلَى قَاعِدَةٍ بُرْتُقَالِيَّةٍ ضَارِبَةٍ إِلَى الذَّهَبِيِّ، وَقَدْ تَكُونُ أَلْوَانُهَا سَوْدَاءَ، أَمَّا فِي جِبَالِ الْهِمَالَايَا وَالْمَنَاطِقِ الْبَارِدَةِ فَإِنَّ لَوْنَ الْقَاعِدَةِ يَكُونُ بُنِّيًّا. تَحْمِلُ أُنْثَى الْفَهْدِ مَرَّةً وَاحِدَةً فِي الْعَامِ، وَيَسْتَمِرُّ حَمْلُهَا لِمُدَّةِ خَمْسَةِ أَشْهُرٍ، وَتُنْجِبُ مِنْ وَاحِدٍ إِلَى أَرْبَعَةِ فُهُودٍ.";
+
+const P_ZARAFA = "الزَّرَافَةُ حَيَوَانٌ طَوِيلُ الْقَامَةِ، يُعَدُّ أَكْثَرَ الْحَيَوَانَاتِ ارْتِفَاعًا؛ حَيْثُ يَبْلُغُ طُولُ قَامَةِ الذَّكَرِ سِتَّةَ أَمْتَارٍ. أَمَّا مُعْظَمُ الْإِنَاثِ فَيَبْلُغُ ارْتِفَاعُهَا نَحْوَ أَرْبَعَةِ أَمْتَارٍ وَنِصْفٍ. وَيَتَغَذَّى الزَّرَافُ بِأَوْرَاقِ الشَّجَرِ وَالْأَغْصَانِ وَفَاكِهَةِ الْأَشْجَارِ وَالشُّجَيْرَاتِ، وَهِيَ لَا تَسْكُنُ الْغَابَةَ؛ لِأَنَّ النَّبَاتَاتِ الْكَثِيفَةَ قَدْ تَمْنَعُهَا مِنَ الْهَرَبِ فِي حَالَةِ الْخَطَرِ. وَيُمْكِنُ لِلزَّرَافِ أَنْ يَعِيشَ بِدُونِ مَاءٍ لِعِدَّةِ أَسَابِيعَ مِثْلَ الْجَمَلِ، وَالْإِنْسَانُ وَالْأَسَدُ خَصْمَانِ رَئِيسَانِ لِلزَّرَافَةِ، وَإِذَا شَعَرَتْ بِالْخَطَرِ تَهْرُبُ بِسُرْعَةٍ فَلَا يَكَادُ يَلْحَقُهَا أَحَدٌ. أَلْوَانُهَا مُرَقَّعَةٌ بَيْنَ الْبُنِّيِّ وَالْأَصْفَرِ الْخَفِيفِ وَالْخُطُوطِ الْبَيْضَاءِ، وَهِيَ حِمَايَةٌ لِلزَّرَافَةِ؛ حَيْثُ تَصْعُبُ رُؤْيَتُهَا حِينَمَا تَقِفُ بَيْنَ الْأَشْجَارِ. تَحْمِلُ أُنْثَى الزَّرَافَةِ صَغِيرَهَا لِمُدَّةٍ تَبْلُغُ حَوَالَيْ خَمْسَةَ عَشَرَ شَهْرًا قَبْلَ وِلَادَتِهِ، وَتَضَعُ الزَّرَافَةُ جَنِينًا جَدِيدًا فِي كُلِّ مَرَّةٍ.";
+
+const P_ASMAK_HAMQA = "فِي بِرْكَةٍ وَاسِعَةٍ وَعَمِيقَةٍ عَاشَتْ مَجْمُوعَةٌ كَبِيرَةٌ مِنَ الْأَسْمَاكِ الْمُلَوَّنَةِ الْجَمِيلَةِ، لَكِنَّهَا اتَّصَفَتْ بِالْغُرُورِ وَعَدَمِ الِاسْتِمَاعِ لِنَصِيحَةِ أَحَدٍ. عَاشَتْ مَعَهُمْ فِي الْبِرْكَةِ سُلَحْفَاةٌ طَيِّبَةُ الْقَلْبِ، وَالَّتِي كَانَتْ تَنْصَحُ الْأَسْمَاكَ الْمُلَوَّنَةَ بِالتَّوَقُّفِ عَنِ التَّبَاهِي وَالْغُرُورِ، وَأَهَمِّيَّةِ سَمَاعِ النَّصِيحَةِ. ذَاتَ يَوْمٍ بَعْدَ الظُّهِيرَةِ كَانَتِ السُّلَحْفَاةُ خَارِجَ الْبِرْكَةِ تَجْلِسُ خَلْفَ صَخْرَةٍ لِتَسْتَرِيحَ مِنْ حَرَارَةِ الشَّمْسِ بِالْقُرْبِ مِنَ الْبِرْكَةِ، فَسَمِعَتْ صَيَّادَيْنِ يَتَحَدَّثَانِ عَنِ الْأَسْمَاكِ الْمُلَوَّنَةِ وَيُخَطِّطَانِ لِلْعَوْدَةِ فِي الْيَوْمِ التَّالِي مَعَهُمْ شِبَاكٌ لِصَيْدِهَا. أَسْرَعَتِ السُّلَحْفَاةُ لِتُحَذِّرَ الْأَسْمَاكَ الْمُلَوَّنَةَ وَتَطْلُبَ مِنْهَا تَرْكَ الْبِرْكَةِ وَالنَّجَاةَ بِأَنْفُسِهَا، لَكِنَّ الْأَسْمَاكَ رَدَّتْ بِصَوْتٍ سَاخِرٍ: لَطَالَمَا حَاوَلَ الْعَدِيدُ مِنَ الصَّيَّادِينَ الْإِمْسَاكَ بِنَا وَلَمْ يَنْجَحْ أَحَدٌ مِنْهُمْ، سَنَبْقَى فِي بِرْكَتِنَا وَلَنْ نُغَادِرَهَا. وَفِي صَبَاحِ الْيَوْمِ التَّالِي عَادَ الصَّيَّادُونَ وَمَعَهُمْ شِبَاكُهُمْ الَّتِي أَلْقَوْهَا فِي الْمَاءِ، وَكَانَتِ الشِّبَاكُ قَوِيَّةً وَكَبِيرَةً، وَتَمَكَّنَتْ خِلَالَ وَقْتٍ قَصِيرٍ مِنْ صَيْدِ جَمِيعِ الْأَسْمَاكِ، فَأَخَذَهَا الصَّيَّادُونَ إِلَى السُّوقِ وَبَاعُوهَا، وَكَانَتْ هَذِهِ نِهَايَةَ الْأَسْمَاكِ الْحَمْقَاءِ.";
+
+/* ========================= بنك الأسئلة ========================= */
+const QUESTIONS = [
+  // ---------- القواعد النحوية ----------
+  {cat:"grammar", text:"اختر الكلمة المذكّرة:", options:["مَلْعَب","مَدْرَسَة","حَدِيقَة","رَوْضَة"], correct:0},
+  {cat:"grammar", text:"اختر الكلمة المؤنّثة:", options:["فَضْل","مَسْجِد","مَكْتَبَة","مَجْلِس"], correct:2},
+  {cat:"grammar", text:"مذكّر كلمة (بِنْت):", options:["وَلَد","بَنَات","أَوْلاد","أَصْدِقَاء"], correct:0},
+  {cat:"grammar", text:"(بَيْتٌ / مَسْرَحٌ / مُعَلِّمٌ / نَافِذَةٌ) الكلمة المؤنَّثة هنا:", options:["بَيْتٌ","مَسْرَحٌ","مُعَلِّمٌ","نَافِذَةٌ"], correct:3},
+  {cat:"grammar", passage:"كَتَبَ الطَّالِبُ الوَاجِبَ.", text:"عند تحويل الجملة السابقة من مذكّر إلى مؤنّث تصبح:", options:["كَتَبَ الطُّلَّابُ الوَاجِبَ","كَتَبَتِ الطَّالِبَةُ الوَاجِبَ","كَتَبَ الطَّالِبُ الوَاجِبَاتِ","كَتَبَتِ الطَّالِبُ الوَاجِبَ"], correct:1},
+  {cat:"grammar", passage:P_MUHAMMAD_BILAL, text:"نوع كلمة (عَنِ) الواردة في النص:", options:["اسم","حرف","فعل","جميع ما سبق"], correct:1},
+  {cat:"grammar", passage:P_HAMAM_SHABAKA, text:"ما الفعل الوارد في الجملة الأولى من النص؟", options:["أَحَدُ","وَضَعَ","فِي","شَبَكَةً"], correct:1},
+  {cat:"grammar", passage:P_GHIZA, text:"كلمة (الغِذَاءَ) الواردة في النص نوعها:", options:["اسم","فعل","حرف","اسم إشارة"], correct:0},
+  {cat:"grammar", text:"ما نوع كلمة (عَائِشَة)؟", options:["اسم","فعل","حرف جر","حرف عطف"], correct:0},
+  {cat:"grammar", text:"أيّ الكلمات التالية تدلّ على فعل؟", options:["الباب","في","البنت","سَأَلَ"], correct:3},
+  {cat:"grammar", passage:P_HAMAM_SHABAKA, text:"الحرف الوارد في جملة (حَاوَلَتِ الْحَمَامَاتُ السَّيْرَ وَهُنَّ فِي الشَّبَكَةِ):", options:["حَاوَلَتِ","الحَمَامَاتُ","فِي","السَّيْرَ"], correct:2},
+  {cat:"grammar", text:"مفرد كلمة (أَشْكَال):", options:["شَكْلَانِ","شَكْلُه","شَكْل","جميع ما سبق"], correct:2},
+  {cat:"grammar", text:"(مَدَارِس / بُيُوت / فَصْل / مَسَاجِد) الكلمة المختلفة عدديًّا:", options:["مَدَارِس","بُيُوت","فَصْل","مَسَاجِد"], correct:2},
+  {cat:"grammar", text:"مثنى كلمة (الطَّالِب):", options:["الطُّلَّاب","الطَّالِبَات","الطَّالِبَانِ","جميع ما سبق"], correct:2},
+  {cat:"grammar", passage:P_NAML, text:"مفرد كلمة (أَقْسَام) الواردة في النص:", options:["قِسْمَانِ","قِسْم","قِسْمَات","جميع ما سبق"], correct:1},
+  {cat:"grammar", text:"(حَفْل / سَيَّارَة / قِطَار / طَائِرَات) الكلمة المختلفة من حيث العدد:", options:["حَفْل","سَيَّارَة","قِطَار","طَائِرَات"], correct:3},
+  {cat:"grammar", text:"«النَّمْلُ مِنَ الحَشَرَاتِ المُنْتَشِرَةِ انْتِشَارًا هَائِلًا» الكلمة المثنى هنا:", options:["انْتِشَارًا","الحَشَرَاتِ","النَّمْلُ","لا يوجد"], correct:3},
+  {cat:"grammar", passage:"رَدَّتِ الْحَمَامَةُ: أَنَا قَائِدَةُ هَذِهِ الْحَمَامَاتِ.", text:"الكلمة الجمع في النص السابق:", options:["الحَمَامَاتِ","الحَمَامَةُ","أَنَا","قَائِدَةُ"], correct:0},
+  {cat:"grammar", passage:"وَصَلَ الْمُسَافِرُ إِلَى الْمَطَارِ.", text:"عند تحويل الجملة من المفرد إلى الجمع تصبح:", options:["وَصَلَ المُسَافِرَانِ إلى المَطَارِ","وَصَلَتِ المُسَافِرَةُ إلى المَطَارِ","وَصَلُوا المُسَافِرَ إلى المَطَارِ","وَصَلَ المُسَافِرُونَ إلى المَطَارِ"], correct:3},
+
+  // ---------- المعاني والمفردات ----------
+  {cat:"vocab", passage:"عِنْدَمَا حَصَلَ عَادِلٌ عَلَى دَرَجَةٍ عَالِيَةٍ، أَعْطَتْهُ أُمُّهُ هَدِيَّةً جَمِيلَةً.", text:"مضاد كلمة (أَعْطَتْهُ) الواردة في النص:", options:["سَلَّمَتْ عَلَيْهِ","نَامَتْ عِنْدَهُ","قَدَّمَتْ لَهُ","أَخَذَتْ مِنْهُ"], correct:3},
+  {cat:"vocab", passage:"قَالَتِ النَّحْلَةُ بِفَرَحٍ: شُكْرًا كَثِيرًا لَكَ.", text:"مضاد كلمة (بِفَرَحٍ) الواردة في النص:", options:["بِخَوْفٍ","بِسُرْعَةٍ","بِحُزْنٍ","بِشَغَفٍ"], correct:2},
+  {cat:"vocab", passage:"بَحَثَ سَنْجُوبٌ عَنْ وَرْدَةٍ جَدِيدَةٍ، وَتَوَقَّفَ عِنْدَ وَرْدَةٍ بَيْضَاءَ.", text:"مضاد كلمة (جَدِيدَةٍ) الواردة في النص:", options:["قَدِيمَةٍ","حَدِيثَةٍ","بَعِيدَةٍ","قَرِيبَةٍ"], correct:0},
+  {cat:"vocab", passage:"إِنَّ هَذِهِ الْوَرْدَةَ هِيَ بَيْتِي، وَإِذَا قَطَفْتَهَا لَنْ يُصْبِحَ لَدَيَّ بَيْتٌ آوِي إِلَيْهِ.", text:"مضاد كلمة (قَطَفْتَهَا) الواردة في النص:", options:["سَلَّمْتُ عَلَيْهَا","قَطَعْتَهَا","تَرَكْتَهَا","سَقَيْتَهَا"], correct:2},
+  {cat:"vocab", passage:"أَلْقَى الْمُعَلِّمُ عَلَيْهِ سُؤَالًا.", text:"مرادف كلمة (أَلْقَى) الواردة في النص:", options:["أَسْقَطَ","أَكْسَرَه","طَرَحَ عَلَيْهِ","نَادَاه"], correct:2},
+  {cat:"vocab", passage:P_GHURAB, text:"معنى كلمة (عَطِشَ) الواردة في النص:", options:["احتاج للنوم","احتاج للماء","جلس","شرب"], correct:1},
+
+  // ---------- الفهم القرائي ----------
+  {cat:"reading", passage:P_GHURAB, text:"في أيّ فصل حدثت هذه القصة؟", options:["الربيع","الخريف","الصيف","الشتاء"], correct:2},
+  {cat:"reading", passage:P_GHURAB, text:"لماذا عطش الغراب كثيرًا في رأيك حسب النص؟", options:["بسبب نومه كثيرًا","بسبب حرارة الجو المرتفعة في الصيف","لأنه ذكي","جميع ما سبق"], correct:1},
+  {cat:"reading", passage:P_GHURAB, text:"من الدروس المستفادة من هذه القصة:", options:["البحث عن الماء فقط","حبّ فصل الصيف","عدم الاستسلام والتفكير في الحلول","الكسل والفشل"], correct:2},
+  {cat:"reading", passage:P_TAALAB, text:"لماذا سار الثعلب الصغير نحو مجموعة الأرانب؟", options:["من أجل الترفيه","من أجل الرياضة","لقضاء وقت الفراغ","ليجرّب مهارته في الصيد"], correct:3},
+  {cat:"reading", passage:P_TAALAB, text:"لماذا تظاهر الثعلب الصغير بالموت عندما حضر الأب؟", options:["لأنه قويّ","بسبب جوعه الشديد","بسبب خوفه منه","بسبب العطش الشديد"], correct:2},
+  {cat:"reading", passage:P_TAALAB, text:"لماذا اختار الثعلب الصغير أصغر الأرانب في رأيك؟", options:["لأنه بطيء","لكي يتمكّن منه بسهولة","لأنه كسول","لكي يلعب معه"], correct:1},
+  {cat:"reading", passage:P_TAALAB, text:"لو كان الأرنب الصغير يلعب وحيدًا بعيدًا عن إخوته، ماذا كان سيحدث في رأيك؟", options:["سينجو لأنه شجاع","سيلعب كثيرًا","سيصبح صيدًا سهلًا للثعلب","سيكرهه إخوته"], correct:2},
+  {cat:"reading", passage:P_NAML, text:"لماذا يحتاج النمل للماء والغذاء بحسب النص؟", options:["ليلعب بهما","للتسلية","ليبقى على قيد الحياة","جميع ما سبق"], correct:2},
+  {cat:"reading", passage:P_NAML, text:"ممّ يتألّف جسم النملة من الخارج بحسب النص؟", options:["اليد والرأس","العينين والقدمين","الرأس فقط","الرأس والصدر والبطن"], correct:3},
+  {cat:"reading", passage:P_NAML, text:"ماذا تدلّ عبارة (تستطيع حمل قطعة طعام وزنها عشرة أضعاف وزنها)؟", options:["نشاط النمل","قوّة النمل","ضعف النمل","كسل النمل"], correct:1},
+  {cat:"reading", passage:P_HAMAM_SHABAKA, text:"متى وضع الصيّادون الشِّباك بحسب النص؟", options:["في فصل الربيع","في فصل الخريف","في فصل الشتاء","في فصل الصيف"], correct:3},
+  {cat:"reading", passage:P_HAMAM_SHABAKA, text:"ما نوع هذا النص؟", options:["خيالية","واقعية","تاريخية","اجتماعية"], correct:0},
+  {cat:"reading", passage:P_SANJOUB, text:"من هي الشخصيات الواردة في هذا النص؟", options:["شجرة البلوط فقط","سنجوب وأمّه","أوراق الشجر","الأشجار والورود"], correct:1},
+  {cat:"reading", passage:P_SANJOUB, text:"أين يدور مكان حدوث هذه القصة؟", options:["البستان","الحديقة","الشارع","الغابة"], correct:3},
+  {cat:"reading", passage:P_FARASHA, text:"لماذا فُتِن الناس بجمال أجنحة الفراشة بحسب النص؟", options:["لأنها صغيرة","لأنّ ألوانها متعددة وجذابة","بسبب سرعتها","لأنها تعيش على قمم الجبال"], correct:1},
+  {cat:"reading", passage:P_FARASHA, text:"أين تعيش الفراشات بحسب النص؟", options:["أماكن محددة فقط","الغابات فقط","قمم الجبال فقط","كلّ أنحاء العالم"], correct:3},
+  {cat:"reading", passage:P_FARASHA, text:"ما الدافع الرئيس وراء هجرة الفراشات لمسافات طويلة نحو الأماكن الدافئة؟", options:["لقضاء عطلة الصيف","لقضاء فصل الشتاء","لتغيير المكان فقط","لا يوجد سبب واضح"], correct:1},
+  {cat:"reading", passage:P_HAMAM_SULHUFAT, text:"بماذا تختلف الحمامتان عن السلحفاة بحسب النص؟", options:["بأنهما تستطيعان الطيران","بأنهما تحتاجان للمياه","بجمالهما","بإمساكهما للعود"], correct:0},
+  {cat:"reading", passage:P_HAMAM_SULHUFAT, text:"لماذا قرّرت الحمامتان أخذ السلحفاة معهما؟", options:["بسبب كرههما لها","بسبب حزنها وتوسّلها لهما","لأنها تعطش وتموت","بسبب الغيرة منها"], correct:1},
+  {cat:"reading", passage:P_ASAD_FAAR, text:"بماذا يختلف الأسد عن الفأر بحسب النص؟", options:["الأسد لا يشرب الماء","الأسد أقوى وأضخم من الفأر","الأسد أضعف من الفأر","الأسد يأكل العشب"], correct:1},
+  {cat:"reading", passage:P_ASAD_FAAR, text:"ما سبب بكاء الفأر أمام الأسد؟", options:["أنه جوعان","لأنّ الأسد سوف يقتله","خوفه من الظلام","جميع ما سبق"], correct:1},
+  {cat:"reading", passage:P_ASAD_FAAR, text:"ما نتيجة عفو الأسد عن الفأر؟", options:["موت الفأر","موت الأسد","هروب الفأر","نجاة الأسد من الشَّرَك"], correct:3},
+  {cat:"reading", passage:P_ASAD_FAAR, text:"ماذا فعل الفأر عندما سمع زئير الأسد وهو واقع في الشَّرَك؟", options:["لم يفعل شيئًا","هرب بعيدًا","جاء لمساعدة الأسد","فرح وضحك على الأسد"], correct:2},
+  {cat:"reading", passage:P_HATIF, text:"ما الهدف العام من هذا النص؟", options:["تقديم تاريخ الهواتف المحمولة","شرح كيفية استخدام الهواتف المحمولة","تسليط الضوء على أهمية مراعاة أماكن استخدام الهاتف المحمول","تقديم قائمة بأنواع الهواتف المتاحة في السوق"], correct:2},
+  {cat:"reading", passage:P_HATIF, text:"ما السبب في منع استخدام الهاتف المحمول في المستشفى بحسب النص؟", options:["تأثيره على بعض الأجهزة الطبية","ارتفاع تكلفة المكالمات","ضعف تغطية الشبكة","إزعاج الزوّار فقط"], correct:0},
+
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"متى ذهبت عائلة محمد إلى الحديقة العامة بحسب النص؟", options:["ليلًا","عصرًا","ظهرًا","مساءً"], correct:2},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"البيئة هي:", options:["كلّ ما يحيط بنا","النباتات","البشر","النُّفايات"], correct:0},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"«ثمّ بعد صلاة العصر» علام تدلّ هذه الجملة؟", options:["زمان","مكان","شخصية","مشكلة"], correct:0},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"«سمع الوالدان صراخ ابنتهما فركضا نحوها» ما شعور الوالدين في هذا الموقف؟", options:["فرح","خوف","تعجّب","اطمئنان"], correct:1},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"ما التوقيت المستخدم في القصة؟", options:["ساعة","صلاة","شروق","غروب"], correct:1},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"من المتسبب في حادثة سلمى بحسب النص؟", options:["إبراهيم","محمد","سلمى نفسها","عائلة محمد"], correct:3},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"في حال خروجك للنزهة ورؤيتك للزجاج المكسور، ماذا ستفعل؟", options:["تطلب المساعدة من الكبار","تُخفي الزجاج تحت التراب","تتركه كما هو","تصرخ بصوت عالٍ"], correct:0},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"يُصنَّف سلوك عائلة محمد على أنه:", options:["غير مبالٍ","مسؤول","عاقل","مجرم"], correct:0},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"من خلال قراءتك للنص، ما العنوان الأنسب لهذه القصة؟", options:["حديقتنا الحزينة","يوم في المشفى","عائلة إبراهيم","لتكن بيئتي نظيفة"], correct:3},
+  {cat:"reading", passage:P_BEEA_NAZEEFA, text:"إنّ الهدف من هذه القصة هو:", options:["التنزّه في الحدائق","مساعدة الآخرين","المحافظة على البيئة","التعرّف على عائلة إبراهيم"], correct:2},
+
+  // ---------- الفكرة العامة والعنوان ----------
+  {cat:"mainidea", passage:P_GHIZA, text:"ما الهدف العام لهذه الفقرة؟", options:["تناول الحليب","أهمية الأسماك","ممارسة الرياضة","الغذاء الصحي"], correct:3},
+  {cat:"mainidea", passage:P_MUHAMMAD_BILAL, text:"ما الفكرة الرئيسة لهذه الفقرة؟", options:["مساعدة الجيران","أهمية الصديق","العطف على الفقراء","صلة الرحم"], correct:1},
+  {cat:"mainidea", passage:P_AYAH, text:"ما الفكرة الرئيسة لهذه الآية الكريمة؟", options:["صوم رمضان","المحافظة على الصلاة","الإحسان إلى الوالدين","حلّ الواجبات"], correct:2},
+  {cat:"mainidea", passage:P_GHURAB, text:"ما أنسب عنوان لهذه القصة؟", options:["الغراب والثعلب","أنواع الحجارة","الغراب الذكي","الغراب الكسول"], correct:2},
+  {cat:"mainidea", passage:P_DEEK, text:"ما أنسب عنوان لهذه القصة؟", options:["الديك المغرور","الديك السريع","الديك الحذر","الديك الكسول"], correct:2},
+
+  // ---------- الأساليب اللغوية ----------
+  {cat:"style", passage:"أَلَمْ تَتْعَبْ يَا عَمَاهُ مِنْ هَذَا الْعَمَلِ؟!", text:"يدلّ قول خالد السابق على:", options:["الدهشة والاستغراب","الفرح والسرور","الحزن والغضب","الخوف"], correct:0},
+  {cat:"style", passage:"أَتُقَارِنُ الْعُصْفُورَةَ بِالشَّجَرَةِ؟", text:"نوع الأسلوب في كلمة (أَتُقَارِنُ) الواردة في العبارة:", options:["استفهام","نداء","دعاء","نفي"], correct:0},
+  {cat:"style", passage:"تَأَمَّلْ هَذِهِ الشَّجَرَةَ.", text:"هذا الأسلوب يدلّ على:", options:["الأمر","النهي","الدعاء","التمنّي"], correct:0},
+  {cat:"style", passage:"فَوَائِدُ التَّمْرِ لَا تُحْصَى.", text:"نوع الأسلوب في (لَا تُحْصَى):", options:["استفهام","دعاء","نفي","نداء"], correct:2},
+  {cat:"style", passage:"قَالَ الثَّعْلَبُ لِلدِّيكِ: لَا تَخَفْ مِنِّي يَا صَدِيقِي، فَأَنَا لَا أَخَافُ مِنَ الْكِلَابِ.", text:"الأسلوب الذي عبّر به الثعلب في قوله (يَا صَدِيقِي):", options:["استفهام","نداء","دعاء","نفي"], correct:1},
+
+  // ---------- إبداء الرأي ----------
+  {cat:"opinion", passage:"اشْتَرَتِ الأُمُّ لابْنَتِهَا خُلُودَ دَفْتَرَ رَسْمٍ وَأَلْوَانًا لِتُنَمِّيَ مَوْهِبَتَهَا فِي الرَّسْمِ.", text:"ما رأيك في تصرّف الأمّ في هذا الموقف؟", options:["تصرّف خاطئ","تصرّف سيّئ","تصرّف جميل","تصرّف مزعج"], correct:2},
+  {cat:"opinion", passage:"خَرَجَ أَحْمَدُ مِنَ الْمَدْرَسَةِ فَرَأَى بَعْضَ قِطَعِ الزُّجَاجِ الْمَكْسُورِ عَلَى الْأَرْضِ، فَأَخْرَجَ كِيسًا مِنْ حَقِيبَتِهِ وَجَمَعَ الزُّجَاجَ الْمَكْسُورَ وَوَضَعَهُ بِحَذَرٍ فِي صُنْدُوقِ الْقُمَامَةِ.", text:"تصرّف أحمد في هذا الموقف يدلّ على:", options:["التواضع","حبّ الخير","الصدق","التكبّر"], correct:1},
+
+  // ---------- نصوص تدريبية شاملة ----------
+  {cat:"stories", passage:P_JABER, text:"مرادف كلمة (تُعْزَل) الواردة في النص:", options:["تُحْجَب","تَكْثُر","تَقِلّ","تَتَجَلَّى"], correct:0},
+  {cat:"stories", passage:P_JABER, text:"ضدّ كلمة (تَطْوِير) لو وردت في سياق النص:", options:["تجانس","تأخير","تقدّم","إخراج"], correct:1},
+  {cat:"stories", passage:P_JABER, text:"معنى كلمة (اخْتَرَعَ) الواردة في النص:", options:["استخدام","ابتكر","إخراج","افتعال"], correct:1},
+  {cat:"stories", passage:P_JABER, text:"لماذا فاجأ جابر بن حيان الحاضرين بإلقاء نسخة من كتابه في موقد النار؟", options:["لأنها سقطت من يده بدون قصد","لأنه أراد التخلّص منها","ليثبت لهم أنه اخترع ورقًا لا تؤثر فيه النار","بسبب التدفئة"], correct:2},
+  {cat:"stories", passage:P_JABER, text:"متى اعترف علماء الشرق والغرب بفضل جابر بن حيان بحسب النص؟", options:["عندما صنع ماء الذهب فقط","عندما طوّر لهم علمًا موجودًا","عندما برع في علمٍ لم يسبق إليه أحد","كلّ الإجابات صحيحة"], correct:2},
+  {cat:"stories", passage:P_JABER, text:"من الذي دفع جابر بن حيان إلى حبّ علم الكيمياء بحسب النص؟", options:["الأستاذ","الأب (كان صيدليًّا)","الناس","الجار"], correct:1},
+  {cat:"stories", passage:P_JABER, text:"ما جمع مفردة (وَرَقَة) بحسب ما ورد في النص؟", options:["وَرَقَتَانِ","أَوْرَاق","وَرَقَتَيْنِ","جميع ما سبق"], correct:1},
+  {cat:"stories", passage:P_ASAFEER, text:"مرادف كلمة (الضَّعِيفَة) الوارد وصفها للشجرة في النص هو عكس كلمة:", options:["المتزعزعة","الراسخة القوية","المتخلخلة","المهتزّة"], correct:1},
+  {cat:"stories", passage:P_ASAFEER, text:"لماذا انطلق العصفوران مذعورَينِ في نهاية القصة؟", options:["للالتحاق بسرب العصافير","بسبب اقتراب السحابة السوداء","بسبب شجرة الزيتون الضخمة","للبحث عن منزل دائم"], correct:1},
+  {cat:"stories", passage:P_ASAFEER, text:"ما نوع هذا النص؟", options:["مقال","قصة","رواية","قصيدة"], correct:1},
+  {cat:"stories", passage:P_ASAFEER, text:"لماذا شعر العصفور الأول بالملل بحسب النص؟", options:["بسبب طعامه القليل","بسبب كثرة الانتقال من مكان إلى آخر","بسبب حرارة الجو","بسبب ضعف بصره"], correct:1},
+  {cat:"stories", passage:P_ASAFEER, text:"بم وصف العصفور الثاني حياة معشر الطيور؟", options:["بأنها هادئة ومستقرة","بأنها خُلقت للارتحال الدائم","بأنها محفوفة بالمخاطر فقط","بأنها قصيرة العمر"], correct:1},
+  {cat:"stories", passage:P_ASAFEER, text:"أيّ الأحداث الواردة في هذا النص أكثر وقوعًا في الحقيقة؟", options:["تحاور العصفورين بلغة الإنسان","ضعف الشجرة وعدم مقاومتها للريح","اقتراب سحابة ماطرة في الشتاء","انطلاق العصفورين مثل السهم حرفيًّا"], correct:2},
+
+  // ---------- أسئلة إضافية على نص العصفورين الصغيرين ----------
+  {cat:"stories", passage:P_ASAFEER, text:"الشجرة التي وقف عليها العصفوران:", options:["التِّين","الزَّيتون","العِنَب","اللَّيمون"], correct:1},
+  {cat:"stories", passage:P_ASAFEER, text:"شعر العصفوران بالخوف الشديد بسبب:", options:["الفضاء","العواصف والأمطار","الطيران","الشجرة الضخمة"], correct:1},
+  {cat:"stories", passage:P_ASAFEER, text:"انطلاقة العصفورين بعد شعورهما بالخوف تشبه:", options:["الجبل","المطر","السَّهم","البحر"], correct:2},
+  {cat:"style", passage:P_ASAFEER, text:"تدلّ علامة الترقيم في عبارة (أَتُقَارِنُ العُصْفُورَ بِالشَّجَرَةِ؟) على:", options:["الاستفهام","التعجب","التوقف","التعداد"], correct:0},
+  {cat:"stories", passage:P_ASAFEER, text:"أيّ الأحداث حصل أوّلًا؟", options:["شجار العصفورين","تحاور العصفورين","خوف العصفورين","التقاء العصفورين"], correct:3},
+  {cat:"stories", passage:P_ASAFEER, text:"جملة (لقد مللتُ الانتقال...) بِمَ يشعر العصفور؟", options:["تذمّر","سخرية","قهر","ذنب"], correct:0},
+  {cat:"stories", passage:P_ASAFEER, text:"قدّر العصفور أنّ عمر الشجرة يقارب:", options:["100 عام","50 عامًا","70 عامًا","30 عامًا"], correct:0},
+  {cat:"vocab", passage:P_ASAFEER, text:"(جذورها راسخة) كلمة (راسخة) تعني أنّها:", options:["متنقّلة ومتغيّرة","سطحيّة ومنتشرة","صغيرة وضعيفة","ثابتة وعميقة"], correct:3},
+  {cat:"stories", passage:P_ASAFEER, text:"تعجّب العصفور من صديقه لأنّه قارن:", options:["الغيوم بالمطر","الجبال بالشجر","العصفور بالشجرة","نفسه بصديقه"], correct:2},
+
+  // ---------- نص الفهد ----------
+  {cat:"vocab", passage:P_FAHD, text:"(الفهد ذكيّ ومخادع) ضدّ كلمة (مخادع):", options:["مخلص","محتال","مفترس","معطاء"], correct:0},
+  {cat:"grammar", passage:P_FAHD, text:"نوع كلمة (الفهود):", options:["مفرد","مثنّى","جمع","فعل"], correct:2},
+  {cat:"reading", passage:P_FAHD, text:"الجملة الصحيحة من الجمل الآتية:", options:["الفهد يعيش في أفريقيا فقط","الفهد لا يتواجد في المناطق القطبية","الفهد لا يتواجد في آسيا","الفهد لا يتواجد في أستراليا"], correct:1},
+  {cat:"reading", passage:P_FAHD, text:"يتّصف الفهد بجسم قويّ ورشيق، على ماذا يساعده ذلك؟", options:["المطاردة","الهروب","السباق","الطيران"], correct:0},
+  {cat:"reading", passage:P_FAHD, text:"(للفهود أساليبُ خاصّة في الصيد) كيف ذلك؟", options:["هناك طريقتان تصطاد بهما الفهود","لها طريقة واحدة في الصيد","تختلف طريقتها حسب البيئة التي تعيش فيها","لها أيام محدّدة تصطاد فيها"], correct:2},
+  {cat:"reading", passage:P_FAHD, text:"تدلّ هذه التسمية على المكان الذي يعيش فيه الفهد:", options:["الفهود السريعة","الفهود الأفريقية","الفهود المفترسة","الفهود السوداء"], correct:1},
+  {cat:"reading", passage:P_FAHD, text:"تحمل أنثى الفهد مرّة واحدة في العام، ومدّة حملها:", options:["ثلاثة أشهر","أربعة أشهر","خمسة أشهر","ستة أشهر"], correct:2},
+  {cat:"reading", passage:P_FAHD, text:"ماذا يكسو جسم الفهد؟", options:["الفَرْو","الرِّيش","الصُّوف","الحراشف"], correct:0},
+
+  // ---------- نص الزرافة ----------
+  {cat:"reading", passage:P_ZARAFA, text:"يبلغ طول ذكر الزرافة:", options:["ستة أمتار","خمسة أمتار","سبعة أمتار","أربعة أمتار"], correct:0},
+  {cat:"reading", passage:P_ZARAFA, text:"حسب النص، فإنّ الزرافة من الحيوانات:", options:["آكلة اللحوم","آكلة الأعشاب","آكلة كل شيء","آكلة الحشرات"], correct:1},
+  {cat:"reading", passage:P_ZARAFA, text:"جاء في النص أنّ الزراف يعيش بدون ماء، الحيوان الآخر الذي يستطيع ذلك هو:", options:["البقرة","الجَمَل","الأغنام","الأسماك"], correct:1},
+  {cat:"reading", passage:P_ZARAFA, text:"لا تسكن الزرافة الغابة لأنّ النباتات الكثيفة تمنعها من الهرب، فالمكان الأكثر ملاءمة لحياتها هو:", options:["الجبال العالية","السهول الواسعة المفتوحة","الأنهار والوديان","الغابات الكثيفة"], correct:1},
+  {cat:"reading", passage:P_ZARAFA, text:"تبلغ مدّة حمل الزرافة:", options:["سنة","9 أشهر","15 شهرًا","سنتان"], correct:2},
+  {cat:"vocab", passage:P_ZARAFA, text:"(تضع الزرافة جنينًا جديدًا) معنى كلمة (تضع):", options:["تلد","تمشي","ترحل","تحمل"], correct:0},
+  {cat:"vocab", passage:P_ZARAFA, text:"ضدّ كلمة (الكثيفة):", options:["الكثيرة","الغزيرة","القليلة","السميكة"], correct:2},
+  {cat:"reading", passage:P_ZARAFA, text:"تحمي الزرافة نفسها:", options:["بسرعتها ولونها","بمخالبها","بأنيابها","بطولها"], correct:0},
+  {cat:"vocab", passage:P_ZARAFA, text:"(الإنسان والأسد خصمان رئيسان للزرافة) مرادف كلمة (خصمان):", options:["صديقان","عدوّان","زميلان","أخوان"], correct:1},
+  {cat:"mainidea", passage:P_ZARAFA, text:"من خلال قراءتك للنص، ما العنوان الأنسب للقصة؟", options:["الحياة في البراري","الحياة في الغابات","حياة الزرافة","الحياة في السهول الواسعة"], correct:2},
+
+  // ---------- نص الأسماك الحمقاء ----------
+  {cat:"vocab", passage:P_ASMAK_HAMQA, text:"الصفة الذميمة التي اتّصفت بها الأسماك هي:", options:["البُخل","الغُرور","الكَذِب","الخِداع"], correct:1},
+  {cat:"reading", passage:P_ASMAK_HAMQA, text:"كانت السلحفاة خارج البركة لكي:", options:["تستريح من حرارة الشمس","تدفئ نفسها من البرودة","تتجسّس على الصيادين","تخدع الأسماك الملوّنة"], correct:0},
+  {cat:"reading", passage:P_ASMAK_HAMQA, text:"يحتاج الصيادون إلى شباك ......... للتمكّن من الصيد:", options:["قوية وصغيرة","قوية وكبيرة","طويلة وكبيرة","قصيرة وحادة"], correct:1},
+  {cat:"grammar", passage:P_ASMAK_HAMQA, text:"نوع كلمة (السلحفاة):", options:["اسم","فعل","حرف","صفة"], correct:0},
+  {cat:"mainidea", passage:P_ASMAK_HAMQA, text:"من الأفكار الأساسية الواردة في النص أهمية:", options:["الاهتمام بالجمال","تجنّب البرد","سماع النصيحة","طيبة القلب"], correct:2},
+  {cat:"reading", passage:P_ASMAK_HAMQA, text:"زمن حدوث القصة:", options:["بعد الشروق","بعد الظهيرة","بعد الغروب","بعد السَّحَر"], correct:1},
+  {cat:"reading", passage:P_ASMAK_HAMQA, text:"يدلّ إصرار الأسماك على البقاء في البركة وعدم تركها على:", options:["ذكاء الأسماك","قوّة الأسماك","حماقة الأسماك","خبرة الأسماك"], correct:2},
+  {cat:"vocab", passage:P_ASMAK_HAMQA, text:"ضدّ كلمة (التباهي):", options:["التعالي","التفاخر","التسامح","التواضع"], correct:3},
+];
+
+const CATEGORY_META = {
+  all:      {label:"🌟 اختبار شامل", color:"#7c6ff0"},
+  grammar:  {label:"🧩 قواعد نحوية", color:"#1a8f8a"},
+  vocab:    {label:"📚 معاني ومفردات", color:"#e0a736"},
+  reading:  {label:"🔍 فهم قرائي", color:"#ef6f6c"},
+  mainidea: {label:"🎯 الفكرة والعنوان", color:"#5b4fd6"},
+  style:    {label:"✨ أساليب لغوية", color:"#0f5257"},
+  opinion:  {label:"💡 إبداء الرأي", color:"#c8871f"},
+  stories:  {label:"📖 نصوص تدريبية", color:"#146b6e"},
+};
+
+/* ========================= الحالة العامة ========================= */
+let state = {
+  player:"", category:"all", countWanted:15,
+  pool:[], index:0, score:0, wrong:[],
+  seconds:0, timerId:null
+};
+
+document.getElementById('qcountNum').textContent = QUESTIONS.length;
+
+/* ========================= بناء شاشة البداية ========================= */
+const categoryGrid = document.getElementById('categoryGrid');
+Object.keys(CATEGORY_META).forEach((key,i)=>{
+  const btn = document.createElement('button');
+  btn.className = 'choice-btn' + (i===0 ? ' selected' : '');
+  btn.textContent = CATEGORY_META[key].label;
+  btn.dataset.cat = key;
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#categoryGrid .choice-btn').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+    state.category = key;
+  });
+  categoryGrid.appendChild(btn);
+});
+
+document.querySelectorAll('#countGrid .choice-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#countGrid .choice-btn').forEach(b=>b.classList.remove('selected'));
+    btn.classList.add('selected');
+    state.countWanted = parseInt(btn.dataset.count, 10);
+  });
+});
+
+document.getElementById('startBtn').addEventListener('click', startQuiz);
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+function startQuiz(){
+  const nameInput = document.getElementById('playerName');
+  state.player = nameInput.value.trim() || "بطل نافس";
+
+  let source = state.category === 'all' ? QUESTIONS : QUESTIONS.filter(q=>q.cat===state.category);
+  source = shuffle(source);
+  state.pool = source.slice(0, Math.min(state.countWanted, source.length));
+
+  if(state.pool.length === 0){
+    alert('لا توجد أسئلة كافية في هذا المجال، جرّب مجالًا آخر.');
+    return;
+  }
+
+  state.index = 0;
+  state.score = 0;
+  state.wrong = [];
+  state.seconds = 0;
+
+  document.getElementById('quizPlayer').textContent = state.player;
+  document.getElementById('quizScore').textContent = '0';
+  switchScreen('screen-quiz');
+  startTimer();
+  renderQuestion();
+}
+
+function startTimer(){
+  clearInterval(state.timerId);
+  state.timerId = setInterval(()=>{
+    state.seconds++;
+    document.getElementById('quizTimer').textContent = formatTime(state.seconds);
+  }, 1000);
+}
+
+function formatTime(total){
+  const m = Math.floor(total/60).toString().padStart(2,'0');
+  const s = (total%60).toString().padStart(2,'0');
+  return m+':'+s;
+}
+
+function switchScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const homeBtn = document.getElementById('floatingHomeBtn');
+  if(id === 'screen-start' || id === 'screen-result'){
+    homeBtn.classList.remove('show');
+  } else {
+    homeBtn.classList.add('show');
+  }
+}
+
+document.getElementById('floatingHomeBtn').addEventListener('click', ()=>{
+  const inQuiz = document.getElementById('screen-quiz').classList.contains('active');
+  if(inQuiz){
+    const ok = confirm('هل تريد الخروج من المسابقة والرجوع للصفحة الرئيسية؟ سيتم فقدان تقدّمك الحالي.');
+    if(!ok) return;
+  }
+  clearInterval(state.timerId);
+  document.getElementById('toast').classList.remove('show');
+  switchScreen('screen-start');
+});
+
+/* ========================= عرض الأسئلة ========================= */
+function renderQuestion(){
+  const q = state.pool[state.index];
+  const total = state.pool.length;
+
+  document.getElementById('progressBar').style.width = ((state.index)/total*100) + '%';
+  document.getElementById('qCategory').textContent = (CATEGORY_META[q.cat] ? CATEGORY_META[q.cat].label : '') + ' · سؤال ' + (state.index+1) + ' من ' + total;
+
+  const passageBox = document.getElementById('passageBox');
+  if(q.passage){
+    document.getElementById('passageText').textContent = q.passage;
+    passageBox.classList.add('show');
+  } else {
+    passageBox.classList.remove('show');
+  }
+
+  document.getElementById('qText').textContent = q.text;
+
+  const optsWrap = document.getElementById('qOptions');
+  optsWrap.innerHTML = '';
+  const letters = ['أ','ب','ج','د'];
+
+  q.options.forEach((opt, idx)=>{
+    const b = document.createElement('button');
+    b.className = 'option';
+    b.innerHTML = '<span class="letter">'+letters[idx]+'</span><span>'+opt+'</span>';
+    b.addEventListener('click', ()=> selectAnswer(idx, b));
+    optsWrap.appendChild(b);
+  });
+
+  document.getElementById('toast').classList.remove('show','good','bad');
+  document.getElementById('nextBtn').classList.remove('show');
+}
+
+const GOOD_MESSAGES = [
+  {emoji:'🎉', text:'أحسنت! إجابة صحيحة'},
+  {emoji:'🌟', text:'رائع! أنت متميّز'},
+  {emoji:'👏', text:'ممتاز! استمر بهذا التألق'},
+  {emoji:'🥳', text:'عبقري! إجابة موفّقة'},
+  {emoji:'💚', text:'أحسنت صنعًا! واثق من إجابتك'},
+  {emoji:'🚀', text:'انطلقت نحو القمة! أحسنت'}
+];
+const BAD_MESSAGES = [
+  {emoji:'💪', text:'لا بأس، حاول في السؤال القادم'},
+  {emoji:'🤗', text:'أنت تتعلّم! المرة القادمة أفضل'},
+  {emoji:'📚', text:'قريب من الصواب، واصل التقدّم'},
+  {emoji:'🌱', text:'الخطأ خطوة في طريق التعلّم'},
+  {emoji:'✨', text:'لا تستسلم! أنت قادر على التميّز'}
+];
+
+function showToast(kind, mainText, subText){
+  const toast = document.getElementById('toast');
+  const emojiEl = document.getElementById('toastEmoji');
+  const textEl = document.getElementById('toastText');
+
+  toast.classList.remove('show','good','bad');
+  const pick = (kind === 'good' ? GOOD_MESSAGES : BAD_MESSAGES)[Math.floor(Math.random()* (kind==='good'?GOOD_MESSAGES.length:BAD_MESSAGES.length))];
+  emojiEl.textContent = pick.emoji;
+  textEl.innerHTML = pick.text + (subText ? '<span class="toast-sub">'+subText+'</span>' : '');
+
+  // إعادة تشغيل الأنيميشن
+  void toast.offsetWidth;
+  toast.classList.add(kind, 'show');
+
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(()=>{
+    toast.classList.remove('show');
+  }, 2600);
+
+  if(kind === 'good'){ burstConfetti(); }
+}
+
+function burstConfetti(){
+  const pieces = ['🎉','⭐','✨','🌟','🎊'];
+  for(let i=0; i<16; i++){
+    const el = document.createElement('span');
+    el.className = 'confetti-piece';
+    el.textContent = pieces[Math.floor(Math.random()*pieces.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.animationDuration = (1.4 + Math.random()*1.2) + 's';
+    el.style.fontSize = (14 + Math.random()*14) + 'px';
+    document.body.appendChild(el);
+    setTimeout(()=> el.remove(), 2800);
+  }
+}
+
+function selectAnswer(idx, btnEl){
+  const q = state.pool[state.index];
+  const allOpts = document.querySelectorAll('#qOptions .option');
+  allOpts.forEach(o=>o.classList.add('disabled'));
+
+  if(idx === q.correct){
+    btnEl.classList.add('correct');
+    state.score += 10;
+    document.getElementById('quizScore').textContent = state.score;
+    showToast('good');
+  } else {
+    btnEl.classList.add('wrong');
+    allOpts[q.correct].classList.add('correct');
+    showToast('bad', null, 'الإجابة الصحيحة: ' + q.options[q.correct]);
+    state.wrong.push({text:q.text, chosen:q.options[idx], correct:q.options[q.correct]});
+  }
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.classList.add('show');
+  setTimeout(()=> nextBtn.scrollIntoView({behavior:'smooth', block:'nearest'}), 150);
+}
+
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  state.index++;
+  if(state.index >= state.pool.length){
+    finishQuiz();
+  } else {
+    renderQuestion();
+  }
+});
+
+/* ========================= شاشة النتائج ========================= */
+function finishQuiz(){
+  clearInterval(state.timerId);
+  document.getElementById('progressBar').style.width = '100%';
+
+  const total = state.pool.length;
+  const correctCount = total - state.wrong.length;
+  const percent = Math.round((correctCount/total)*100);
+  window.SafaProgress?.recordResult({correct:correctCount,total:total,percent:percent});
+
+  let emoji, title, sub;
+  if(percent >= 90){ emoji='🏆'; title='بطل نافس الذهبي!'; sub='مستوى ممتاز جدًا، أنت جاهز تمامًا لاختبار نافس!'; }
+  else if(percent >= 75){ emoji='🌟'; title='نجم القراءة والفهم!'; sub='أداء رائع، استمر في المراجعة لتصل للقمة.'; }
+  else if(percent >= 60){ emoji='📘'; title='متأهّل لنافس'; sub='مستوى جيد، بحاجة لمزيد من التدريب على بعض المهارات.'; }
+  else { emoji='💪'; title='حاول مرة أخرى!'; sub='لا بأس، راجع الإجابات الخاطئة وأعد المسابقة لتتحسّن.'; }
+
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultSub').textContent = state.player + '، ' + sub;
+  document.getElementById('resCorrect').textContent = correctCount + '/' + total;
+  document.getElementById('resPercent').textContent = percent + '%';
+  document.getElementById('resTime').textContent = formatTime(state.seconds);
+
+  const reviewList = document.getElementById('reviewList');
+  reviewList.innerHTML = '';
+  if(state.wrong.length === 0){
+    reviewList.innerHTML = '<div class="review-item">🎉 لم تخطئ في أي سؤال، أداء مثالي!</div>';
+  } else {
+    state.wrong.forEach(w=>{
+      const div = document.createElement('div');
+      div.className = 'review-item';
+      div.innerHTML = '<div class="qline">'+w.text+'</div>' +
+        '<div>إجابتك: <span class="ans-wrong">'+w.chosen+'</span></div>' +
+        '<div>الإجابة الصحيحة: <span class="ans-right">'+w.correct+'</span></div>';
+      reviewList.appendChild(div);
+    });
+  }
+  document.getElementById('reviewList').style.display = 'none';
+  document.getElementById('toggleReview').textContent = '👀 عرض الأسئلة التي أخطأت فيها ('+state.wrong.length+')';
+
+  saveScore(state.player, percent, correctCount, total, state.seconds);
+  switchScreen('screen-result');
+}
+
+document.getElementById('toggleReview').addEventListener('click', ()=>{
+  const el = document.getElementById('reviewList');
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+});
+
+document.getElementById('retryBtn').addEventListener('click', startQuiz);
+document.getElementById('homeBtn').addEventListener('click', ()=>{
+  switchScreen('screen-start');
+  renderLeaderboard();
+});
+
+/* ========================= لوحة الصدارة (محلية على الجهاز) ========================= */
+const LB_KEY = 'nafas_lugha_leaderboard_v1';
+
+function saveScore(name, percent, correct, total, seconds){
+  try{
+    const list = JSON.parse(localStorage.getItem(LB_KEY) || '[]');
+    list.push({name, percent, correct, total, seconds, date:Date.now()});
+    list.sort((a,b)=> b.percent - a.percent || a.seconds - b.seconds);
+    localStorage.setItem(LB_KEY, JSON.stringify(list.slice(0,5)));
+  }catch(e){ /* تجاهل إن كانت الميزة غير متاحة */ }
+}
+
+function renderLeaderboard(){
+  let list = [];
+  try{ list = JSON.parse(localStorage.getItem(LB_KEY) || '[]'); }catch(e){}
+  const wrap = document.getElementById('leaderList');
+  const title = document.getElementById('leaderTitle');
+  wrap.innerHTML = '';
+  if(list.length === 0){ title.style.display='none'; return; }
+  title.style.display='block';
+  list.forEach((item, i)=>{
+    const row = document.createElement('div');
+    row.className = 'leader-row';
+    const medals = ['🥇','🥈','🥉','🏅','🏅'];
+    row.innerHTML = '<span>'+medals[i]+' '+item.name+'</span><span>'+item.percent+'% · '+formatTime(item.seconds)+'</span>';
+    wrap.appendChild(row);
+  });
+}
+renderLeaderboard();
+</script>
+<div class="site-footer no-print">مدرسة الصفا المتوسطة بجازان · من إعداد الأستاذ عمر صالح علان</div>
+
+<script>window.NAFS_TEST_CONFIG={"id":"grade3-primary-arabic","title":"لغتي الجميلة","grade":"الصف الثالث الابتدائي"};</script>
+<script src="../assets/student-bridge.js"></script>
+</body>
+</html>

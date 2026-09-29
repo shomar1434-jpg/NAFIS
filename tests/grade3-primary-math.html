@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تدريبات نافس | الرياضيات | مدرسة الصفا المتوسطة بجازان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef1fb;--bg2:#dfe5f7;--stage:#1d2152;--stage2:#2b3070;
+  --card:#ffffff;--ink:#1c2140;--muted:#5b6285;--line:#d9def0;
+  --sun:#ffc43d;--coral:#ff6b6b;--mint:#1fb8a6;--violet:#6e4bd8;
+  --ok:#1f9d63;--okbg:#e3f7ec;--no:#e04848;--nobg:#fde8e8;
+  --opt:#f6f7fd;--optb:#dfe3f5;
+  --fh:'Baloo Bhaijaan 2','Tajawal',system-ui,sans-serif;
+  --fb:'Tajawal','Segoe UI',Tahoma,system-ui,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12142e;--bg2:#1a1d40;--stage:#0c0e24;--stage2:#1f2354;
+    --card:#1e2248;--ink:#eef0ff;--muted:#a8aed3;--line:#343a6e;
+    --opt:#262b5a;--optb:#3a4180;--okbg:#153b2e;--nobg:#45202a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12142e;--bg2:#1a1d40;--stage:#0c0e24;--stage2:#1f2354;
+  --card:#1e2248;--ink:#eef0ff;--muted:#a8aed3;--line:#343a6e;
+  --opt:#262b5a;--optb:#3a4180;--okbg:#153b2e;--nobg:#45202a;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--fb);color:var(--ink);background:var(--bg);
+  background-image:radial-gradient(circle at 12% 8%,var(--bg2) 0 120px,transparent 121px),radial-gradient(circle at 92% 30%,var(--bg2) 0 80px,transparent 81px);
+  min-height:100%;line-height:1.7;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+
+/* Stage header */
+.stage{background:var(--stage);color:#fff;position:relative;overflow:hidden}
+.stage::after{content:"";position:absolute;inset:auto 0 0 0;height:10px;
+  background:repeating-linear-gradient(90deg,var(--sun) 0 22px,var(--coral) 22px 44px,var(--mint) 44px 66px,var(--violet) 66px 88px)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0 22px}
+.brand{display:flex;align-items:center;gap:12px}
+.badge{width:52px;height:52px;border-radius:16px;background:var(--sun);color:var(--stage);display:grid;place-items:center;
+  font-family:var(--fh);font-weight:800;font-size:1.05rem;transform:rotate(-6deg);box-shadow:0 4px 0 #c79212}
+.brand h1{font-family:var(--fh);font-size:1.5rem;margin:0;line-height:1.1}
+.brand p{margin:2px 0 0;font-size:.9rem;opacity:.8}
+.iconbtn{background:var(--stage2);color:#fff;border:0;border-radius:12px;width:44px;height:44px;font-size:1.2rem}
+
+.screen{display:none;padding:22px 0 30px}
+.screen.on{display:block}
+
+/* Home */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;margin-bottom:18px}
+.hero h2{font-family:var(--fh);font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.15;margin:0 0 8px}
+.hero p{margin:0;color:var(--muted);max-width:44ch}
+.namebox{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px}
+.namebox label{font-weight:700;display:block;margin-bottom:6px}
+.namebox input{width:100%;font:inherit;font-size:1.1rem;padding:12px 14px;border-radius:14px;border:2px solid var(--optb);background:var(--opt);color:var(--ink)}
+.bankcount{margin-top:10px;font-size:.92rem;color:var(--muted)}
+.bankcount b{color:var(--ink);font-family:var(--fh);font-size:1.3rem}
+
+.block{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px 18px;margin-bottom:14px}
+.block h3{font-family:var(--fh);font-size:1.15rem;margin:0 0 10px}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mode{border:2px solid var(--optb);background:var(--opt);color:var(--ink);border-radius:18px;padding:14px 12px;text-align:right;position:relative}
+.mode .mi{font-size:1.7rem;display:block}
+.mode b{font-family:var(--fh);font-size:1.1rem;display:block}
+.mode small{color:var(--muted);font-size:.85rem;line-height:1.5;display:block}
+.mode[aria-pressed="true"]{border-color:var(--violet);background:color-mix(in srgb,var(--violet) 12%,var(--opt));box-shadow:0 4px 0 var(--violet)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--optb);background:var(--opt);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.93rem}
+.chip[aria-pressed="true"]{background:var(--stage);color:#fff;border-color:var(--stage)}
+.chip small{opacity:.7;font-weight:500}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.go{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:6px 0 16px}
+.btn{font-family:var(--fh);font-weight:800;font-size:1.3rem;border:0;border-radius:18px;padding:12px 30px;background:var(--sun);color:var(--stage);box-shadow:0 5px 0 #c79212;transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c79212}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.alt{background:var(--mint);color:#fff;box-shadow:0 5px 0 #138676}
+.ghost{background:transparent;border:2px solid var(--optb);color:var(--ink);border-radius:14px;padding:9px 16px;font-weight:700}
+.pooltxt{color:var(--muted);font-weight:700}
+.lb{width:100%;border-collapse:collapse;font-size:.95rem}
+.lb td{padding:7px 6px;border-bottom:1px dashed var(--line)}
+.lb td:first-child{width:36px;font-family:var(--fh);font-weight:800;color:var(--violet)}
+.lb td:last-child{text-align:left;font-weight:800}
+.empty{color:var(--muted);margin:0}
+details.notes summary{cursor:pointer;font-family:var(--fh);font-weight:700;font-size:1.05rem}
+details.notes ul{margin:8px 0 0;padding-inline-start:20px;color:var(--muted);font-size:.93rem}
+
+/* Quiz HUD */
+.hud{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:5px 12px;font-weight:800;font-size:.95rem;white-space:nowrap}
+.ring{position:relative;width:62px;height:62px;flex:0 0 auto}
+.ring svg{width:62px;height:62px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:5}
+.ring .rb{stroke:var(--line)}
+.ring .rf{stroke:var(--mint);stroke-linecap:round;stroke-dasharray:119.38;transition:stroke-dashoffset 1s linear,stroke .3s}
+.ring.hot .rf{stroke:var(--coral)}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--fh);font-weight:800;font-size:1.25rem}
+.track{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:12px}
+.track div{height:100%;width:0;background:linear-gradient(90deg,var(--mint),var(--violet));transition:width .4s}
+.lifes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.lifes button{border:2px dashed var(--optb);background:var(--card);color:var(--ink);border-radius:12px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.lifes button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.lifes.off button{pointer-events:none;opacity:.35}
+
+.qcard{background:var(--card);border-radius:26px;padding:20px 20px 18px;border:2px solid var(--line);box-shadow:0 8px 0 var(--bg2);position:relative}
+.qtags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.tag{font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--opt);border:1px solid var(--optb);color:var(--muted)}
+.skill{font-size:.88rem;color:var(--muted);margin:2px 0 8px}
+.qtext{font-family:var(--fb);font-size:clamp(1.15rem,3.2vw,1.45rem);font-weight:800;line-height:1.8;margin:0 0 12px}
+.qtext u{text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--coral)}
+.fig{background:#fff;color:#1c2140;border:2px solid #e3e7f5;border-radius:18px;padding:12px;margin:0 0 14px;overflow-x:auto;text-align:center}
+.fig svg{max-width:100%;height:auto;vertical-align:middle}
+.fig .cap{font-weight:800;margin-bottom:4px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:right;border:2px solid var(--optb);background:var(--opt);color:var(--ink);
+  border-radius:16px;padding:10px 12px;font-size:1.12rem;font-weight:700;min-height:60px;transition:transform .08s,border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--violet)}
+.opt:active:not(:disabled){transform:scale(.98)}
+.opt .lt{flex:0 0 36px;height:36px;border-radius:12px;background:var(--stage);color:#fff;display:grid;place-items:center;font-family:var(--fh);font-weight:800}
+.opt .ot{flex:1;min-width:0}
+.opt .ot svg{background:#fff;border-radius:10px;padding:2px;max-width:100%;height:auto}
+.opt .ot table{background:#fff;color:#1c2140}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.ok .lt{background:var(--ok)}
+.opt.no{border-color:var(--no);background:var(--nobg)}
+.opt.no .lt{background:var(--no)}
+.opt.gone{visibility:hidden}
+.opt:disabled{cursor:default}
+.fb{margin-top:14px;border-radius:16px;padding:0;overflow:hidden;max-height:0;transition:max-height .35s}
+.fb.show{max-height:600px;padding:12px 14px}
+.fb.good{background:var(--okbg);border:2px solid var(--ok)}
+.fb.bad{background:var(--nobg);border:2px solid var(--no)}
+.fb b{font-family:var(--fh);font-size:1.15rem}
+.fb p{margin:4px 0 0}
+.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.shake{animation:shake .4s}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.float{position:fixed;font-family:var(--fh);font-weight:800;font-size:1.6rem;color:var(--ok);pointer-events:none;animation:up 1s forwards;z-index:9}
+@keyframes up{to{transform:translateY(-60px);opacity:0}}
+
+/* math bits */
+.eq{direction:ltr;unicode-bidi:isolate;display:inline-block;white-space:nowrap}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em;font-weight:800}
+.fr>span:first-child{border-bottom:2.5px solid currentColor;padding:0 .25em}
+.dt{border-collapse:collapse;margin:0 auto;font-size:.98rem}
+.dt th,.dt td{border:1.5px solid #9aa3c7;padding:5px 12px;text-align:center}
+.dt th{background:#e8ecfa}
+.pt{border-collapse:collapse;margin:0 auto;min-width:240px}
+.pt caption{font-weight:800;padding-bottom:6px}
+.pt th,.pt td{border:1.5px solid #9aa3c7;padding:4px 10px;text-align:right}
+.pt th{background:#fff4d6;white-space:nowrap}
+.pt tr.key th,.pt tr.key td{background:#f1f3fb;font-size:.92rem}
+.ic{font-size:1.45rem;line-height:1.2;display:inline-block}
+.hf{width:.62em;overflow:hidden;vertical-align:bottom;white-space:nowrap}
+.rowf{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.pricetag{border:2px dashed #1c2140;border-radius:10px;padding:4px 12px;font-weight:800}
+.stk{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.stk div{width:44px;border:2px solid #9aa3c7;border-radius:8px;background:#f7f9ff;text-align:center}
+.stk div span{display:block;font-size:1.5rem;line-height:1.5}
+.stk div small{display:block;border-top:1px solid #9aa3c7;font-weight:800}
+.big{font-size:2.3rem;line-height:1.2}
+.grp{text-align:center;padding:4px 14px}
+.grp small{font-weight:800}
+
+/* Result */
+.res{text-align:center}
+.stars{font-size:3rem;letter-spacing:6px;color:var(--line)}
+.stars .on{color:var(--sun);text-shadow:0 3px 0 #c79212}
+.res h2{font-family:var(--fh);font-size:clamp(1.8rem,5vw,2.6rem);margin:4px 0}
+.score{font-family:var(--fh);font-size:clamp(3rem,10vw,4.6rem);font-weight:800;color:var(--violet);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.stat{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:10px}
+.stat b{display:block;font-family:var(--fh);font-size:1.6rem}
+.stat span{color:var(--muted);font-size:.88rem}
+.acts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.rv{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:12px 14px;margin-bottom:10px;text-align:right}
+.rv .rq{font-weight:800}
+.rv .ra{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.rv .ra span{border-radius:10px;padding:3px 10px;font-weight:700}
+.rv .x{background:var(--nobg);color:var(--no)}
+.rv .c{background:var(--okbg);color:var(--ok)}
+.rv .fig{padding:8px;margin:8px 0}
+.rv p{margin:0;color:var(--muted)}
+
+footer{text-align:center;color:var(--muted);font-size:1rem;font-weight:700;padding:14px 0 26px}
+footer a{color:var(--violet);font-weight:800;text-decoration:underline;text-underline-offset:4px}
+#cf{position:fixed;inset:0;pointer-events:none;z-index:8}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--stage);color:#fff;padding:10px 18px;border-radius:14px;font-weight:700;z-index:10}
+
+@media (max-width:640px){
+  .hero,.row2{grid-template-columns:1fr}
+  .modes{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .qcard{padding:16px 14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wrap topbar">
+    <div class="brand">
+      <div class="badge">نافس</div>
+      <div><h1>تدريبات نافس</h1><p>رياضيات الصف الثالث الابتدائي</p></div>
+    </div>
+    <div style="display:flex;gap:8px"><button class="iconbtn" id="homeBtn" aria-label="الرجوع للصفحة الرئيسية" title="الصفحة الرئيسية">🏠</button><button class="iconbtn" id="snd" aria-label="تشغيل الصوت أو إيقافه">🔊</button></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <!-- HOME -->
+  <section id="home" class="screen on">
+    <div class="hero">
+      <div>
+        <h2>جاهز تتحدّى نفسك يا بطل؟</h2>
+        <p>أسئلة نافس للرياضيات من الأنشطة الأسبوعية وبنك نافس والاختبارات المحاكية. أجب بسرعة لتجمع نقاطاً أكثر، وحافظ على سلسلة الإجابات الصحيحة.</p>
+      </div>
+      <div class="namebox">
+        <label for="nm">اسم المتسابق</label>
+        <input id="nm" maxlength="30" placeholder="اكتب اسمك هنا" autocomplete="off">
+        <div class="bankcount">في بنك الأسئلة <b id="bankN">0</b> سؤالاً مدققاً</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>اختر طريقة اللعب</h3>
+      <div class="modes" id="modes">
+        <button class="mode" data-m="challenge" aria-pressed="true"><span class="mi">⚡</span><b>التحدّي</b><small>45 ثانية لكل سؤال، 3 قلوب، ووسائل مساعدة.</small></button>
+        <button class="mode" data-m="practice" aria-pressed="false"><span class="mi">📝</span><b>اختبار ذاتي</b><small>بلا وقت، مع شرح الحل بعد كل سؤال.</small></button>
+        <button class="mode" data-m="review" aria-pressed="false"><span class="mi">🔁</span><b>مراجعة أخطائي</b><small>الأسئلة التي أخطأت فيها سابقاً فقط.</small></button>
+      </div>
+    </div>
+
+    <div class="row2">
+      <div class="block"><h3>المجال</h3><div class="chips" id="cats"></div></div>
+      <div class="block"><h3>المصدر</h3><div class="chips" id="srcs"></div></div>
+    </div>
+    <div class="block"><h3>عدد الأسئلة</h3><div class="chips" id="cnts"></div></div>
+
+    <div class="go">
+      <button class="btn" id="start">ابدأ التحدّي</button>
+      <span class="pooltxt" id="pool"></span>
+    </div>
+
+    <div class="block">
+      <h3>لوحة الأبطال على هذا الجهاز</h3>
+      <div id="lb"></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="screen">
+    <div class="hud">
+      <div class="pills">
+        <span class="pill" id="hQ">1 / 10</span>
+        <span class="pill" id="hS">⭐ 0</span>
+        <span class="pill" id="hK">🔥 0</span>
+        <span class="pill" id="hL">❤️❤️❤️</span>
+      </div>
+      <div class="ring" id="ring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" class="rb"/><circle cx="22" cy="22" r="19" class="rf" id="rf"/></svg><span id="tt">45</span></div>
+    </div>
+    <div class="track"><div id="prog"></div></div>
+    <div class="lifes" id="life">
+      <button data-l="half">✂️ احذف إجابتين</button>
+      <button data-l="time">⏱️ أضف 15 ثانية</button>
+      <button data-l="skip">⏭️ تخطَّ السؤال</button>
+    </div>
+    <div id="qbox"></div>
+    <div class="qnav">
+      <button class="ghost" id="quit">إنهاء الجولة</button>
+      <button class="btn alt" id="next" hidden>السؤال التالي</button>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="screen"></section>
+</main>
+<footer>مدرسة الصفا المتوسطة بجازان &nbsp;·&nbsp; من إعداد الأستاذ عمر صالح علان</footer>
+<canvas id="cf"></canvas>
+
+<script>
+/* ============ helpers ============ */
+const AR='٠١٢٣٤٥٦٧٨٩';
+function ar(s){return String(s).replace(/(<[^>]*>)|(&[a-zA-Z#0-9]+;)|(\d)/g,(m,t,en,d)=>t||en||AR[d]);}
+const E=s=>`<span class="eq">${s}</span>`;
+const F=(a,b)=>`<span class="fr"><span>${a}</span><span>${b}</span></span>`;
+const INK='#1c2140';
+function svg(w,h,inner,dw){return `<svg viewBox="0 0 ${w} ${h}" width="${dw||w}" xmlns="http://www.w3.org/2000/svg" font-family="Tajawal,Arial,sans-serif">${inner}</svg>`}
+const fx=n=>+n.toFixed(2);
+
+function clock(h,m,lbl){
+  let s=`<circle cx="60" cy="60" r="54" fill="#fff" stroke="${INK}" stroke-width="4"/>`;
+  for(let i=0;i<60;i++){const a=i*6*Math.PI/180,r1=i%5?47:43;
+    s+=`<line x1="${fx(60+r1*Math.sin(a))}" y1="${fx(60-r1*Math.cos(a))}" x2="${fx(60+49*Math.sin(a))}" y2="${fx(60-49*Math.cos(a))}" stroke="#6b7194" stroke-width="${i%5?1:2.2}"/>`}
+  for(let i=1;i<=12;i++){const a=i*30*Math.PI/180;
+    s+=`<text x="${fx(60+35*Math.sin(a))}" y="${fx(60-35*Math.cos(a)+4.5)}" text-anchor="middle" font-size="12.5" font-weight="700" fill="${INK}">${i}</text>`}
+  const hand=(a,l,w,c)=>`<line x1="60" y1="60" x2="${fx(60+l*Math.sin(a))}" y2="${fx(60-l*Math.cos(a))}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
+  const ha=((h%12)*30+m*.5)*Math.PI/180, ma=m*6*Math.PI/180;
+  s+=hand(ha,24,5.5,INK)+hand(ma,40,3,'#e04848')+`<circle cx="60" cy="60" r="4.5" fill="${INK}"/>`;
+  if(lbl)s+=`<text x="60" y="132" text-anchor="middle" font-size="14" font-weight="800" fill="#6e4bd8">${lbl}</text>`;
+  return svg(120,lbl?138:120,s,lbl?112:150);
+}
+function pie(n,k,col='#2aa7e0',size=96){
+  const c=size/2,r=c-4;let s='';
+  for(let i=0;i<n;i++){const a0=i*2*Math.PI/n-Math.PI/2,a1=(i+1)*2*Math.PI/n-Math.PI/2;
+    s+=`<path d="M${c},${c} L${fx(c+r*Math.cos(a0))},${fx(c+r*Math.sin(a0))} A${r},${r} 0 ${(a1-a0)>Math.PI?1:0} 1 ${fx(c+r*Math.cos(a1))},${fx(c+r*Math.sin(a1))} Z" fill="${i<k?col:'#fff'}" stroke="${INK}" stroke-width="2"/>`}
+  return svg(size,size,s);
+}
+function gridShape(cells,rows,cols,u=28){
+  let s='';
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)s+=`<rect x="${1+c*u}" y="${1+r*u}" width="${u}" height="${u}" fill="#eef6ff" stroke="#9cc3e6"/>`;
+  cells.forEach(([r,c])=>s+=`<rect x="${1+c*u}" y="${1+r*u}" width="${u}" height="${u}" fill="#ffd66b" stroke="#8a5a00" stroke-width="2"/>`);
+  return svg(cols*u+2,rows*u+2,s);
+}
+function bars(o){
+  const W=340,H=o.xl?236:216,x0=40,y0=12,pw=W-x0-10,ph=160,n=o.labels.length,st=o.step||1,le=o.le||1;
+  let s='';
+  for(let v=0;v<=o.max;v+=st){const y=fx(y0+ph-v/o.max*ph);
+    s+=`<line x1="${x0}" y1="${y}" x2="${x0+pw}" y2="${y}" stroke="${v%le===0?'#b3bbd6':'#e4e8f4'}"/>`;
+    if(v%le===0)s+=`<text x="${x0-6}" y="${y+4}" text-anchor="end" font-size="11" fill="${INK}">${v}</text>`}
+  const bw=pw/n*.5;
+  o.labels.forEach((l,i)=>{const cx=x0+pw/n*(i+.5),h=o.vals[i]/o.max*ph;
+    s+=`<rect x="${fx(cx-bw/2)}" y="${fx(y0+ph-h)}" width="${fx(bw)}" height="${fx(h)}" fill="${o.col||'#f08a24'}" rx="3"/><text x="${fx(cx)}" y="${y0+ph+18}" text-anchor="middle" font-size="12.5" font-weight="700" fill="${INK}">${l}</text>`});
+  s+=`<line x1="${x0}" y1="${y0}" x2="${x0}" y2="${y0+ph}" stroke="${INK}" stroke-width="2"/><line x1="${x0}" y1="${y0+ph}" x2="${x0+pw}" y2="${y0+ph}" stroke="${INK}" stroke-width="2"/>`;
+  if(o.xl)s+=`<text x="${x0+pw/2}" y="${H-4}" text-anchor="middle" font-size="12" font-weight="800" fill="#6e4bd8">${o.xl}</text>`;
+  return (o.title?`<div class="cap">${o.title}</div>`:'')+(o.yl?`<div style="font-size:.85rem;font-weight:700;color:#6e4bd8">المحور الرأسي: ${o.yl}</div>`:'')+svg(W,H,s,340);
+}
+function icons(ic,n){let s='';for(let i=0;i<Math.floor(n);i++)s+=`<span class="ic">${ic}</span>`;if(n%1)s+=`<span class="ic hf">${ic}</span>`;return s}
+function picto(rows,ic,key,title){
+  let h=`<table class="pt">${title?`<caption>${title}</caption>`:''}`;
+  rows.forEach(([l,n])=>h+=`<tr><th>${l}</th><td>${icons(ic,n)}</td></tr>`);
+  return h+`<tr class="key"><th>المفتاح</th><td><span class="ic">${ic}</span> = ${key}</td></tr></table>`;
+}
+function tbl(head,rows){return `<table class="dt"><tr>${head.map(x=>`<th>${x}</th>`).join('')}</tr>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</table>`}
+function tally(n){
+  let s='',x=6;const g=Math.floor(n/5),r=n%5;
+  for(let i=0;i<g;i++){for(let j=0;j<4;j++)s+=`<line x1="${x+j*6}" y1="4" x2="${x+j*6}" y2="24" stroke="${INK}" stroke-width="2"/>`;
+    s+=`<line x1="${x-4}" y1="21" x2="${x+22}" y2="7" stroke="${INK}" stroke-width="2"/>`;x+=34}
+  for(let j=0;j<r;j++)s+=`<line x1="${x+j*6}" y1="4" x2="${x+j*6}" y2="24" stroke="${INK}" stroke-width="2"/>`;
+  x+=r*6;return svg(x+4,28,s);
+}
+function nline(min,max,step,lbls,pts){
+  const X=v=>fx(24+(v-min)/(max-min)*292);
+  let s=`<line x1="6" y1="54" x2="334" y2="54" stroke="${INK}" stroke-width="2"/><polygon points="0,54 10,49 10,59" fill="${INK}"/><polygon points="340,54 330,49 330,59" fill="${INK}"/>`;
+  for(let v=min;v<=max;v+=step)s+=`<line x1="${X(v)}" y1="47" x2="${X(v)}" y2="61" stroke="${INK}" stroke-width="2"/>`;
+  lbls.forEach(v=>s+=`<text x="${X(v)}" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="${INK}">${v}</text>`);
+  pts.forEach(p=>s+=`<circle cx="${X(p.v)}" cy="54" r="6" fill="#6e4bd8"/><text x="${X(p.v)}" y="34" text-anchor="middle" font-size="14" font-weight="800" fill="${INK}">${p.l}</text>`);
+  return svg(340,88,s);
+}
+const SH={
+  circle:'<circle cx="22" cy="22" r="15" fill="none" stroke="#1c2140" stroke-width="2.6"/>',
+  rect:'<rect x="3" y="12" width="38" height="20" fill="none" stroke="#1c2140" stroke-width="2.6"/>',
+  tri:'<polygon points="22,6 38,36 6,36" fill="none" stroke="#1c2140" stroke-width="2.6"/>',
+  arrow:'<polygon points="14,4 30,4 30,20 38,20 22,40 6,20 14,20" fill="none" stroke="#1c2140" stroke-width="2.6"/>',
+  blank:'<rect x="3" y="3" width="38" height="38" rx="6" fill="#fff4d6" stroke="#e04848" stroke-width="2" stroke-dasharray="4 3"/><text x="22" y="30" text-anchor="middle" font-size="20" font-weight="800" fill="#e04848">؟</text>'
+};
+const shp=t=>svg(44,44,SH[t]);
+const NC={1:'#5f8f3e',5:'#7b5ea7',10:'#8a6440',20:'#b0485c',50:'#2e7d57',100:'#c46a2a',500:'#2f6fb5'};
+function note(v){return svg(100,50,`<rect x="1" y="1" width="98" height="48" rx="6" fill="${NC[v]}"/><rect x="6" y="6" width="88" height="38" rx="4" fill="none" stroke="#ffffff99" stroke-dasharray="3 2"/><circle cx="20" cy="25" r="9" fill="#ffffff33"/><text x="56" y="30" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">${v}</text><text x="56" y="43" text-anchor="middle" font-size="9" fill="#fff">ريال</text>`,96)}
+function coin(){return svg(50,50,`<circle cx="25" cy="25" r="23" fill="#e9c46a" stroke="#a97f1a" stroke-width="3"/><circle cx="25" cy="25" r="16" fill="#f4d98b" stroke="#a97f1a"/><text x="25" y="30" text-anchor="middle" font-size="16" font-weight="800" fill="#6b4d06">1</text>`,44)}
+function bt(h,t,o){
+  let s='',x=4;
+  for(let i=0;i<h;i++){s+=`<rect x="${x}" y="4" width="44" height="44" fill="#ffd66b" stroke="#8a5a00" stroke-width="1.5"/>`;
+    for(let k=1;k<10;k++)s+=`<line x1="${fx(x+k*4.4)}" y1="4" x2="${fx(x+k*4.4)}" y2="48" stroke="#8a5a00" stroke-width=".5"/><line x1="${x}" y1="${fx(4+k*4.4)}" x2="${x+44}" y2="${fx(4+k*4.4)}" stroke="#8a5a00" stroke-width=".5"/>`;
+    x+=49}
+  x+=6;
+  for(let i=0;i<t;i++){s+=`<rect x="${x}" y="4" width="7" height="44" fill="#7cc4ff" stroke="#1d5f9c" stroke-width="1.2"/>`;
+    for(let k=1;k<10;k++)s+=`<line x1="${x}" y1="${fx(4+k*4.4)}" x2="${x+7}" y2="${fx(4+k*4.4)}" stroke="#1d5f9c" stroke-width=".5"/>`;x+=10}
+  x+=6;
+  for(let i=0;i<o;i++){const c=Math.floor(i/5),r=i%5;s+=`<rect x="${x+c*10}" y="${4+r*9}" width="7" height="7" fill="#ff8a8a" stroke="#a02b2b" stroke-width="1"/>`}
+  x+=o>5?20:10;
+  return svg(x+2,52,s,Math.min(300,(x+2)*1.3));
+}
+function solid(t){
+  const k=`stroke="${INK}" stroke-width="2"`;
+  const S={
+    cube:`<polygon points="8,22 22,8 58,8 44,22" fill="#bfdbfe" ${k}/><polygon points="44,22 58,8 58,44 44,58" fill="#93c5fd" ${k}/><rect x="8" y="22" width="36" height="36" fill="#dbeafe" ${k}/>`,
+    cyl:`<ellipse cx="32" cy="54" rx="20" ry="7" fill="#fcd34d" ${k}/><rect x="12" y="14" width="40" height="40" fill="#fde68a"/><line x1="12" y1="14" x2="12" y2="54" ${k}/><line x1="52" y1="14" x2="52" y2="54" ${k}/><ellipse cx="32" cy="14" rx="20" ry="7" fill="#fef3c7" ${k}/>`,
+    cone:`<ellipse cx="32" cy="52" rx="22" ry="7" fill="#bbf7d0" ${k}/><polygon points="32,6 10,52 54,52" fill="#86efac" stroke="none"/><line x1="32" y1="6" x2="10" y2="52" ${k}/><line x1="32" y1="6" x2="54" y2="52" ${k}/>`,
+    trap:`<polygon points="18,20 46,20 60,48 4,48" fill="#fecaca" ${k}/>`
+  };
+  return svg(66,66,S[t],70);
+}
+function symOpt(t){
+  const d=`stroke="#e04848" stroke-width="2.5" stroke-dasharray="5 4"`,k=`fill="#e8f1ff" stroke="${INK}" stroke-width="2.5"`;
+  const hex=()=>{let p=[];for(let i=0;i<6;i++){const a=(-90+i*60)*Math.PI/180;p.push(fx(45+30*Math.cos(a))+','+fx(45+30*Math.sin(a)))}return p.join(' ')};
+  const pen=()=>{let p=[];for(let i=0;i<5;i++){const a=(-90+i*72)*Math.PI/180;p.push(fx(45+30*Math.cos(a))+','+fx(47+30*Math.sin(a)))}return p.join(' ')};
+  const S={
+    hex:`<polygon points="${hex()}" ${k}/><line x1="45" y1="4" x2="45" y2="86" ${d}/>`,
+    rectd:`<rect x="10" y="22" width="70" height="46" ${k}/><line x1="10" y1="22" x2="80" y2="68" ${d}/>`,
+    rects:`<rect x="18" y="16" width="54" height="58" ${k}/><line x1="30" y1="6" x2="62" y2="84" ${d}/>`,
+    pen:`<polygon points="${pen()}" ${k}/><line x1="6" y1="36" x2="84" y2="66" ${d}/>`
+  };
+  return svg(90,90,S[t],84);
+}
+function freq(v){return tbl(['الفاكهة','التكرار'],[['التفاح',v[0]],['الكيوي',v[1]],['الفراولة',v[2]],['الموز',v[3]]])}
+function ttab(v){const n=['شطيرة اللحم','المعكرونة','البيتزا','شطيرة الدجاج'];return `<table class="dt">${n.map((x,i)=>`<tr><th>${x}</th><td>${tally(v[i])}</td></tr>`).join('')}</table>`}
+function ovals(r,c){let s='';for(let i=0;i<r;i++)for(let j=0;j<c;j++)s+=`<ellipse cx="${18+j*28}" cy="${12+i*20}" rx="11" ry="7" fill="#fff" stroke="${INK}" stroke-width="1.8"/>`;return svg(c*28+8,r*20+4,s)}
+function triGrid(r,c){let s='';for(let i=0;i<r;i++)for(let j=0;j<c;j++){const x=8+j*40,y=8+i*38;s+=`<polygon points="${x+16},${y} ${x+32},${y+28} ${x},${y+28}" fill="#43a047" stroke="#1b5e20" stroke-width="1.5"/>`}return svg(c*40+10,r*38+8,s)}
+function plus(){return svg(90,90,`<polygon points="30,8 60,8 60,30 82,30 82,60 60,60 60,82 30,82 30,60 8,60 8,30 30,30" fill="#fff" stroke="${INK}" stroke-width="2.6"/>`,110)}
+function trapTri(){let s='',x=6;for(let i=0;i<8;i++){if(i%2===0){s+=`<polygon points="${x},10 ${x+50},10 ${x+38},44 ${x+12},44" fill="#f59e0b" stroke="#92400e" stroke-width="1.5"/>`;x+=54}else{s+=`<polygon points="${x},10 ${x+36},10 ${x+18},44" fill="#f59e0b" stroke="#92400e" stroke-width="1.5"/>`;x+=40}}
+  s+=`<text x="${x+10}" y="34" font-size="22" font-weight="800" fill="${INK}">…</text>`;return svg(x+36,54,s,360)}
+function heights(){
+  const hs=[17,12,8,5];let s='',xr=380,base=100;
+  hs.forEach(h=>{const H=h*5,B=H*.85;s+=`<polygon points="${xr},${base} ${xr},${base-H} ${fx(xr-B)},${base}" fill="#cfe8ff" stroke="${INK}" stroke-width="2"/><rect x="${xr-7}" y="${base-7}" width="7" height="7" fill="none" stroke="${INK}"/><text x="${fx(xr-B/2)}" y="${base+18}" text-anchor="middle" font-size="13" font-weight="800" fill="${INK}">${h} سم</text>`;xr-=B+26});
+  s+=`<text x="${xr-6}" y="${base-4}" text-anchor="middle" font-size="26" font-weight="800" fill="#e04848">؟</text>`;
+  return svg(390,124,s,380);
+}
+function stickers(){const e=['😊','⭕','💥','⭐'];let h='<div class="stk">';for(let i=0;i<8;i++)h+=`<div><span>${e[i%4]}</span><small>${i+1}</small></div>`;return h+`<div><span>…</span><small>…</small></div><div style="border-color:#e04848"><span style="color:#e04848;font-weight:800">؟</span><small>18</small></div></div>`}
+function shapeSeq(){return `<div class="rowf">${['circle','rect','tri','arrow','circle','blank'].map(shp).join('')}</div>`}
+
+
+function rect(r0,c0,rows,cols){const a=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)a.push([r0+r,c0+c]);return a}
+function strip(n,k,col='#9aa3b8'){const w=256/n;let s='';for(let i=0;i<n;i++)s+=`<rect x="${fx(2+i*w)}" y="2" width="${fx(w)}" height="32" fill="${i<k?col:'#fff'}" stroke="${INK}" stroke-width="2"/>`;return svg(260,36,s)}
+function fracBars(rows){return `<table class="dt">${rows.map(([n,k])=>`<tr><td>${F(k,n)}</td><td>${strip(n,k,'#43a047')}</td></tr>`).join('')}</table>`}
+function apples(n,k){let s='';for(let i=0;i<n;i++){const x=26+i*48;s+=`<circle cx="${x}" cy="30" r="18" fill="${i<k?'#e5484d':'#fff'}" stroke="#7a1f1f" stroke-width="2.2"/><line x1="${x}" y1="12" x2="${x+4}" y2="4" stroke="#5b3a1a" stroke-width="2.5"/><ellipse cx="${x+10}" cy="8" rx="6" ry="3" fill="#43a047"/>`}return svg(n*48+6,52,s)}
+function windows(seq){let s='';[...seq].forEach((t,i)=>{const x=4+i*52;s+=`<rect x="${x}" y="4" width="44" height="56" fill="#e9c98f" stroke="#8a5a00" stroke-width="2"/>`+(t==='c'?`<rect x="${x+5}" y="9" width="34" height="46" fill="#5aa9e6" stroke="#1d5f9c"/><line x1="${x+22}" y1="9" x2="${x+22}" y2="55" stroke="#1d5f9c" stroke-width="2"/><line x1="${x+5}" y1="32" x2="${x+39}" y2="32" stroke="#1d5f9c" stroke-width="2"/>`:`<rect x="${x+5}" y="9" width="34" height="46" fill="#fff" stroke="#8a5a00"/>`)});return svg(seq.length*52+4,64,s,340)}
+function fracLine(den,marks){const X=i=>fx(24+i*292/den);let s=`<line x1="10" y1="60" x2="330" y2="60" stroke="#2e7d57" stroke-width="3"/><polygon points="4,60 14,55 14,65" fill="#2e7d57"/><polygon points="336,60 326,55 326,65" fill="#2e7d57"/>`;
+ for(let i=0;i<=den;i++){s+=`<line x1="${X(i)}" y1="52" x2="${X(i)}" y2="68" stroke="#6e4bd8" stroke-width="2.5"/>`;
+  if(i===0||i===den)s+=`<text x="${X(i)}" y="90" text-anchor="middle" font-size="15" font-weight="800" fill="${INK}">${i/den}</text>`;
+  else s+=`<text x="${X(i)}" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="${INK}">${i}</text><line x1="${X(i)-6}" y1="87" x2="${X(i)+6}" y2="87" stroke="${INK}" stroke-width="1.5"/><text x="${X(i)}" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="${INK}">${den}</text>`}
+ marks.forEach(m=>{const big=m.l.length>1;s+=`<text x="${X(m.i)}" y="${big?44:40}" text-anchor="middle" font-size="${big?28:16}" font-weight="800" fill="${INK}">${m.l}</text>`+(big?'':`<circle cx="${X(m.i)}" cy="60" r="5" fill="${INK}"/>`)});
+ return svg(340,106,s)}
+function gridRC(r,c){return gridShape([],r,c,24)}
+function stairs(n){let s='';const u=32,H=n*u+10;for(let j=0;j<n;j++)for(let h=0;h<=j;h++){const x=8+j*u,y=H-(h+1)*u;s+=`<rect x="${x}" y="${y}" width="${u}" height="${u}" fill="#4caf50" stroke="#1b5e20" stroke-width="2"/><polygon points="${x},${y} ${x+8},${y-7} ${x+u+8},${y-7} ${x+u},${y}" fill="#81c784" stroke="#1b5e20"/><polygon points="${x+u},${y} ${x+u+8},${y-7} ${x+u+8},${y+u-7} ${x+u},${y+u}" fill="#2e7d32" stroke="#1b5e20"/>`}return svg(n*u+26,H+4,s,150)}
+function pyr(){const k=`stroke="${INK}" stroke-width="2"`;return svg(66,66,`<polygon points="32,6 6,52 38,60" fill="#fcd34d" ${k}/><polygon points="32,6 38,60 60,48" fill="#f59e0b" ${k}/><line x1="6" y1="52" x2="28" y2="42" stroke="${INK}" stroke-dasharray="3 2"/><line x1="28" y1="42" x2="60" y2="48" stroke="${INK}" stroke-dasharray="3 2"/><line x1="32" y1="6" x2="28" y2="42" stroke="${INK}" stroke-dasharray="3 2"/>`,70)}
+function hexagonSVG(w=90){let p=[];for(let i=0;i<6;i++){const a=(i*60)*Math.PI/180;p.push(fx(45+36*Math.cos(a))+','+fx(40+32*Math.sin(a)))}return svg(90,80,`<polygon points="${p.join(' ')}" fill="#e8f1ff" stroke="${INK}" stroke-width="2.5"/>`,w)}
+function shape2(t){const k=`stroke="${INK}" stroke-width="2.5"`;const S={
+ box:`<rect x="8" y="22" width="44" height="30" fill="#dbeafe" ${k}/><polygon points="8,22 20,10 64,10 52,22" fill="#bfdbfe" ${k}/><polygon points="52,22 64,10 64,40 52,52" fill="#93c5fd" ${k}/>`,
+ tri:`<polygon points="35,6 64,54 6,54" fill="#e8f1ff" ${k}/>`,
+ rect:`<rect x="6" y="16" width="58" height="32" fill="#e8f1ff" ${k}/>`,
+ sq:`<rect x="14" y="8" width="44" height="44" fill="#e8f1ff" ${k}/>`,
+ circ:`<circle cx="35" cy="30" r="24" fill="#e8f1ff" ${k}/>`,
+ eight:`<path d="M35,30 C20,6 2,18 10,34 C18,52 30,40 35,30 C40,20 52,8 60,26 C68,44 50,54 35,30 Z" fill="none" stroke="${INK}" stroke-width="5"/>`,
+ para:`<polygon points="20,12 66,12 50,50 4,50" fill="#e8f1ff" ${k}/>`,
+ star:`<polygon points="35,4 41,24 64,30 41,36 35,56 29,36 6,30 29,24" fill="#e8f1ff" ${k}/>`,
+ heart:`<path d="M35,54 C8,34 6,14 22,10 C30,8 35,16 35,20 C35,16 40,8 48,10 C64,14 62,34 35,54 Z" fill="#fde2e7" ${k}/>`,
+ arc:`<path d="M12,44 A23,23 0 0 1 58,44" fill="none" ${k}/>`};return svg(70,60,S[t],70)}
+function butterfly(){const L=`stroke="#333" stroke-width="1.6"`,T=(x,y,t)=>`<rect x="${x-10}" y="${y-13}" width="20" height="18" fill="#fff" stroke="#333"/><text x="${x}" y="${y+1}" text-anchor="middle" font-size="13" font-weight="800" fill="${INK}">${t}</text>`;
+ return svg(210,180,`<ellipse cx="68" cy="62" rx="38" ry="30" fill="#f7a8c8" stroke="#b83f73" stroke-width="2"/><ellipse cx="132" cy="62" rx="38" ry="30" fill="#f7a8c8" stroke="#b83f73" stroke-width="2"/><ellipse cx="78" cy="114" rx="26" ry="24" fill="#f48fb1" stroke="#b83f73" stroke-width="2"/><ellipse cx="122" cy="114" rx="26" ry="24" fill="#f48fb1" stroke="#b83f73" stroke-width="2"/><ellipse cx="100" cy="88" rx="6" ry="42" fill="#5b2a3a"/>
+ <line x1="100" y1="22" x2="100" y2="172" ${L}/><line x1="18" y1="88" x2="186" y2="88" ${L}/><line x1="38" y1="164" x2="170" y2="26" ${L}/><line x1="36" y1="30" x2="170" y2="160" ${L}/>${T(100,18,'س')}${T(178,26,'ص')}${T(196,92,'ف')}${T(180,170,'ع')}`,210)}
+function sqDiag(){return svg(110,110,`<rect x="10" y="10" width="90" height="90" fill="#f5b942" stroke="${INK}" stroke-width="2.5"/><line x1="10" y1="10" x2="100" y2="100" stroke="${INK}" stroke-width="2"/><line x1="100" y1="10" x2="10" y2="100" stroke="${INK}" stroke-width="2"/>`,120)}
+function cubePyr(){const k=`stroke="${INK}" stroke-width="2"`;return svg(100,118,`<rect x="18" y="62" width="50" height="50" fill="#dbeafe" ${k}/><polygon points="18,62 36,46 86,46 68,62" fill="#bfdbfe" ${k}/><polygon points="68,62 86,46 86,96 68,112" fill="#93c5fd" ${k}/><polygon points="52,4 18,62 68,62" fill="#fde68a" ${k}/><polygon points="52,4 68,62 86,46" fill="#fcd34d" ${k}/><line x1="52" y1="4" x2="36" y2="46" stroke="${INK}" stroke-dasharray="3 2"/>`,120)}
+function pieces(){const k=`fill="#e8f1ff" stroke="${INK}" stroke-width="2"`,N=(x,n)=>`<text x="${x}" y="100" text-anchor="middle" font-size="15" font-weight="800" fill="#e04848">${n}</text>`;
+ return svg(380,108,`<rect x="318" y="30" width="46" height="46" ${k}/>${N(341,1)}<polygon points="276,26 300,78 252,78" ${k}/>${N(276,2)}<polygon points="196,40 226,40 242,76 180,76" ${k}/>${N(211,3)}<polygon points="104,40 166,40 150,76 120,76" ${k}/>${N(135,4)}<polygon points="14,30 14,78 70,78" ${k}/>${N(34,5)}`,380)}
+function tables(){const k=`fill="#e8f1ff" stroke="${INK}" stroke-width="2"`,c=(x,y)=>`<rect x="${x}" y="${y}" width="14" height="14" fill="#fff" stroke="${INK}" stroke-width="1.6"/>`;
+ return svg(300,124,`<rect x="16" y="36" width="52" height="52" ${k}/><rect x="68" y="36" width="52" height="52" ${k}/><rect x="200" y="36" width="52" height="52" ${k}/>${c(219,14)}${c(219,96)}${c(178,55)}${c(260,55)}`,300)}
+function notch(){const L=(x,y,t,a)=>`<text x="${x}" y="${y}" text-anchor="${a||'middle'}" font-size="13" font-weight="800" fill="${INK}">${t}</text>`;
+ return svg(260,130,`<polygon points="60,100 190,100 190,25 125,62 60,25" fill="#eaf4ff" stroke="${INK}" stroke-width="2.5"/>${L(52,66,'3 سم','end')}${L(198,66,'3 سم','start')}${L(125,120,'3 سم')}${L(84,34,'2 سم')}${L(168,34,'2 سم')}`,260)+'<div style="font-size:.8rem;color:#6b7194">الشكل ليس بمقياس رسم</div>'}
+function digital(t){return `<div style="display:inline-block;background:#1c2140;color:#7CFFB2;font-size:2.2rem;font-weight:800;padding:6px 22px;border-radius:14px;direction:ltr;letter-spacing:3px">${t}</div>`}
+function jumps(){const X=v=>20+v*30;let s=`<line x1="8" y1="54" x2="332" y2="54" stroke="${INK}" stroke-width="2"/><polygon points="0,54 10,49 10,59" fill="${INK}"/><polygon points="340,54 330,49 330,59" fill="${INK}"/>`;
+ for(let v=0;v<=10;v++)s+=`<line x1="${X(v)}" y1="47" x2="${X(v)}" y2="61" stroke="${INK}" stroke-width="2"/><text x="${X(v)}" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="${INK}">${v}</text>`;
+ s+=`<path d="M${X(4)},46 Q${X(3)},14 ${X(2)},46" fill="none" stroke="#e04848" stroke-width="2.5"/><path d="M${X(2)},46 Q${X(1)},14 ${X(0)},46" fill="none" stroke="#e04848" stroke-width="2.5"/><polygon points="${X(2)},47 ${X(2)-3},38 ${X(2)+5},40" fill="#e04848"/><polygon points="${X(0)},47 ${X(0)-3},38 ${X(0)+5},40" fill="#e04848"/>`;
+ return svg(340,84,s)}
+function hexTri(){let s='',x=6;for(let i=0;i<7;i++){if(i%2===0){let p=[];for(let j=0;j<6;j++){const a=j*60*Math.PI/180;p.push(fx(x+22+21*Math.cos(a))+','+fx(30+19*Math.sin(a)))}s+=`<polygon points="${p.join(' ')}" fill="#bfdbfe" stroke="${INK}" stroke-width="2"/>`;x+=48}else{s+=`<polygon points="${x+14},10 ${x+28},48 ${x},48" fill="#1c2140"/>`;x+=34}}s+=`<text x="${x+6}" y="38" font-size="22" font-weight="800" fill="${INK}">…</text>`;return svg(x+34,60,s,360)}
+function trapFaith(){let s='',x=6;const k=`fill="none" stroke="${INK}" stroke-width="2.5"`;for(let r=0;r<2;r++){s+=`<polygon points="${x},10 ${x+54},10 ${x+42},46 ${x+12},46" ${k}/>`;x+=60;s+=`<polygon points="${x+12},10 ${x+54},10 ${x+42},46 ${x},46" ${k}/>`;x+=60;s+=`<polygon points="${x},10 ${x+30},10 ${x+15},46" ${k}/>`;x+=36;s+=`<polygon points="${x+15},10 ${x+30},46 ${x},46" ${k}/>`;x+=40}return svg(x,56,s,380)}
+function halala(){return svg(50,50,`<circle cx="25" cy="25" r="21" fill="#d9dde6" stroke="#7b8494" stroke-width="3"/><text x="25" y="27" text-anchor="middle" font-size="15" font-weight="800" fill="#3b4150">25</text><text x="25" y="39" text-anchor="middle" font-size="8" fill="#3b4150">هللة</text>`,44)}
+
+
+function cube1000(){let s='';const k=`stroke="#8a5a00" stroke-width="1.2"`;s+=`<polygon points="6,20 20,6 64,6 50,20" fill="#ffc46b" ${k}/><polygon points="50,20 64,6 64,50 50,64" fill="#e59a2e" ${k}/><rect x="6" y="20" width="44" height="44" fill="#ffb347" ${k}/>`;for(let i=1;i<10;i++){s+=`<line x1="${fx(6+i*4.4)}" y1="20" x2="${fx(6+i*4.4)}" y2="64" stroke="#8a5a00" stroke-width=".4"/><line x1="6" y1="${fx(20+i*4.4)}" x2="50" y2="${fx(20+i*4.4)}" stroke="#8a5a00" stroke-width=".4"/>`}return svg(70,70,s,70)}
+function tank(){const k=`stroke="#1d5f9c" stroke-width="1.5"`;let s=`<rect x="10" y="40" width="96" height="72" fill="#ffb347" ${k}/><polygon points="10,40 106,40 136,16 40,16" fill="#ffd08a" ${k}/><polygon points="106,40 136,16 136,88 106,112" fill="#e59a2e" ${k}/>`;
+ for(let i=1;i<4;i++)s+=`<line x1="${10+24*i}" y1="40" x2="${10+24*i}" y2="112" ${k}/><line x1="${10+24*i}" y1="40" x2="${40+24*i}" y2="16" ${k}/>`;
+ for(let j=1;j<3;j++)s+=`<line x1="10" y1="${40+24*j}" x2="106" y2="${40+24*j}" ${k}/><line x1="${10+10*j}" y1="${40-8*j}" x2="${106+10*j}" y2="${40-8*j}" ${k}/><line x1="106" y1="${40+24*j}" x2="136" y2="${16+24*j}" ${k}/><line x1="${106+10*j}" y1="${40-8*j}" x2="${106+10*j}" y2="${112-8*j}" ${k}/>`;
+ return svg(146,120,s,170)}
+function notch2(){const L=(x,y,t)=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="13" font-weight="800" fill="${INK}">${t}</text>`;
+ return svg(230,160,`<polygon points="60,20 60,120 160,140 185,40 125,80" fill="#eaf4ff" stroke="${INK}" stroke-width="2.5"/>${L(38,74,'3 سم')}${L(108,146,'3 سم')}${L(196,96,'2 سم')}${L(166,52,'2 سم')}${L(84,42,'1 سم')}`,230)+'<div style="font-size:.8rem;color:#6b7194">الشكل ليس بمقياس رسم</div>'}
+
+/* ============ question bank ============ */
+const QS=[];
+function q(c,s,k,t,o,e,v){QS.push({id:QS.length,c,s,k,t,o,e,v:v||''})}
+const CAT={num:['🔢','الأعداد والعمليات'],frac:['🍕','الكسور'],alg:['🧩','الأنماط والجبر'],geo:['📐','الهندسة والقياس'],stat:['📊','الإحصاء والاحتمال']};
+const SRC={w:'الأنشطة والمهام الأدائية',b:'بنك نافس',g:'المرشد التدريبي',k:'مذكرة نافس',t:'الاختبار المحاكي',m:'اختبارات مهاراتي'};
+// NOTE: the first option is always the correct one; options are shuffled at runtime.
+
+/* --- الأنشطة والمهام الأدائية (1) و (2) --- */
+q('alg','w','يميّز الأنماط العددية','ما العدد المناسب في النمط: 150، 145، 140، .......؟',['135','155','160','120'],'النمط يتناقص 5 كل مرة: 140 − 5 = 135.');
+q('alg','w','يميّز الأنماط العددية','رسمت وفاء 3 زهرات في اليوم الأول، و5 زهرات في اليوم الثاني، واستمرت على النمط نفسه. كم زهرة سترسم في اليوم الخامس؟',['11','7','9','13'],'تزيد زهرتين كل يوم: 3، 5، 7، 9، 11.');
+q('alg','w','يميّز الأنماط العددية','ما العددان المفقودان في النمط: 20، ▢، 60، 80، ▢ ؟',['40 ، 100','30 ، 50','25 ، 45','10 ، 90'],'النمط يزيد 20 كل مرة: 20، 40، 60، 80، 100.');
+q('num','w','يميّز القيمة المنزلية لرقم ضمن 4 منازل','ما اسم منزلة الرقم الذي تحته خط في العدد 11<u>4</u>0 ؟',['العشرات','الآحاد','المئات','آحاد الألوف'],'في 1140: الآحاد 0، العشرات 4، المئات 1، آحاد الألوف 1.');
+q('num','w','يميّز القيمة المنزلية لرقم ضمن 4 منازل','القيمة المنزلية للرقم الذي تحته خط في العدد 1<u>2</u>83 هي:',['200','2','20','2000'],'الرقم 2 في منزلة المئات، فقيمته 2 × 100 = 200.');
+q('num','w','يميّز القيمة المنزلية لرقم','ما الرقم الذي يقع في منزلة آحاد الألوف في العدد 32541؟',['2','4','5','3'],'من اليمين: آحاد 1، عشرات 4، مئات 5، آحاد ألوف 2، عشرات ألوف 3.');
+q('num','w','يميّز القيمة المنزلية لرقم ضمن 4 منازل','القيمة المنزلية للرقم 7 في العدد 4753 تساوي:',['700','70','7','7000'],'الرقم 7 في منزلة المئات، فقيمته 700.');
+q('num','w','يقرأ الأعداد ويكتبها بالصيغة القياسية','العدد (ألف وستمئة وسبعة وثلاثون) بالصيغة القياسية هو:',['1637','1673','16307','160037'],'ألف = 1000، ستمئة = 600، سبعة وثلاثون = 37 ← 1637.');
+q('num','w','يكتب الأعداد بالصيغة التحليلية','الصيغة التحليلية للعدد 38452 هي:',[E('30000 + 8000 + 400 + 50 + 2'),E('30000 + 4000 + 800 + 50 + 2'),E('30000 + 8000 + 4000 + 50'),E('30000 + 4000 + 800 + 20 + 5')],'نفكّ كل رقم حسب منزلته: 3 عشرات ألوف، 8 آحاد ألوف، 4 مئات، 5 عشرات، 2 آحاد.');
+q('num','w','يكتب الأعداد بالصيغة اللفظية','الشيك أمرٌ بدفع مبلغ يُكتب بالأرقام والكلمات. إذا كانت قيمة شيك '+E('20000 + 9000 + 50 + 3')+' فما الصيغة اللفظية لقيمته؟',['تسعة وعشرون ألفاً وثلاثة وخمسون','عشرون ألفاً وتسعمئة','تسعة وعشرون ألفاً وخمسة','تسعة عشر ألفاً وثلاثة وخمسون'],'المجموع 29053 ويُقرأ: تسعة وعشرون ألفاً وثلاثة وخمسون.');
+q('num','w','يميّز القيمة المنزلية','في محفظة زياد مبلغ من 3 أرقام، وهو أكبر عدد يمكن تكوينه بشرط: رقم العشرات 5، والرقمان الآخران ليسا 5 ولا 9. فكم مع زياد؟',['858','599','588','955'],'أكبر رقم مسموح في المئات والآحاد هو 8، والعشرات 5 ← 858.');
+q('num','w','يقارن الأعداد ضمن 4 منازل','أيّ الأعداد الآتية أصغر؟',['1330','3 ألوف و5 مئات و7 عشرات',E('3000 + 100 + 30'),'30132'],'الأعداد: 1330، 3570، 3130، 30132 ← أصغرها 1330.');
+q('num','w','يقارن الأعداد ضمن 4 منازل','أراد محمد شراء جهاز جوال ومعه 2000 ريال. أيّ الأجهزة يستطيع شراءه؟',['جهاز سعره 1950 ريالاً','جهاز سعره 2200 ريال','جهاز سعره 2050 ريالاً','جهاز سعره 2100 ريال'],'الجهاز الوحيد الذي سعره أقل من 2000 هو 1950.');
+/* الأسبوع الأول */
+q('geo','w','يقدّر الأطوال ويختار الوحدة المناسبة','اختر أفضل تقدير لطول قلم السبورة:',['10 سم','10 ملم','10 كلم','10 م'],'قلم السبورة بطول الكفّ تقريباً أي 10 سنتمترات.');
+q('geo','w','يقارن الأطوال','قارن مستعملاً ( &gt; أو &lt; أو = ):  '+E('2 م ◯ 3 ملم'),[E('&gt;'),E('&lt;'),E('='),E('+')],'2 م = 2000 ملم، وهي أكبر من 3 ملم.');
+q('geo','w','يختار الوحدة المترية المناسبة','الوحدة الأنسب لقياس طول الكتاب المدرسي:',['السنتمتر','الكيلومتر','المتر','الملمتر'],'طول الكتاب بضعة عشرات من السنتمترات.');
+q('num','w','حل المسائل','أصبح مع ليلى اليوم 36 قلماً، وكان معها بالأمس نصف هذا العدد زائداً اثنين. فكم قلماً كان معها بالأمس؟',['20','18','36','38'],'نصف 36 = 18، ثم 18 + 2 = 20.');
+/* الأسبوع الثاني */
+q('geo','w','يقيس محيط مضلع','ساعة حائط لها ستة أضلاع متساوية، طول كلٍّ منها 3 سم. ما محيطها؟',['18 سم','9 سم','6 سم','3 سم'],'6 أضلاع × 3 سم = 18 سم.');
+q('geo','w','يجد مساحة شكل باستخدام شبكة المربعات','ما مساحة الشكل المظلل بالوحدات المربعة؟',['7 وحدات مربعة','9 وحدات مربعة','12 وحدة مربعة','8 وحدات مربعة'],'نعدّ المربعات المظللة فنجدها 7.',gridShape([[0,2],[0,3],[1,2],[1,3],[2,1],[2,2],[3,1]],5,6));
+q('geo','w','يوجد مساحة مستطيل','قاعة أرضيتها مستطيلة، عرضها 6 أمتار وطولها 12 متراً. ما مساحتها؟',['72 متراً مربعاً','18 متراً مربعاً','6 أمتار مربعة','12 متراً مربعاً'],'المساحة = الطول × العرض = 12 × 6 = 72.');
+q('geo','w','يقدّر السعات','ما التقدير الأنسب لسعة ملعقة صغيرة؟',['5 مل','50 مل','2 لتر','4 لتر'],'الملعقة الصغيرة تتسع لنحو 5 ملّيلترات.');
+q('geo','w','يختار وحدة السعة المناسبة','الوحدة الأنسب لقياس سعة مسبح أطفال صغير:',['اللتر','الملّيلتر','الجرام','الكيلوجرام'],'السعات الكبيرة تُقاس باللتر، والجرام والكيلوجرام للكتل.');
+/* الأسبوع الثالث */
+q('geo','w','يقارن الكتل','في الكيلوجرام الواحد 1000 جم، فما عدد الجرامات في 7 كيلوجرامات؟',['7000 جم','70 جم','700 جم','1000 جم'],'7 × 1000 = 7000 جم.');
+q('geo','w','يختار وحدة الكتلة المناسبة','الوحدة الأنسب لقياس كتلة سيارة:',['الكيلوجرام','الكيلومتر','الجرام','اللتر'],'الكتل الكبيرة تُقاس بالكيلوجرام.');
+q('geo','w','يقرأ الوقت','إذا كان عقرب الدقائق يشير إلى الرقم 11 فكم دقيقة يشير إليها؟',['55','11','45','20'],'كل رقم = 5 دقائق، و 11 × 5 = 55.');
+q('geo','w','يقدّر الزمن اللازم للحدث','ساعدت مريم أمها: نظّفت غرفتها في 16 دقيقة، وكنست السجاد في 18 دقيقة، وغسلت الأواني في 15 دقيقة. كم دقيقة استمرت في العمل؟',['49 دقيقة','31 دقيقة','50 دقيقة','34 دقيقة'],'16 + 18 + 15 = 49 دقيقة.');
+q('geo','w','يقرأ الوقت لأقرب خمس دقائق','ما الوقت الذي تشير إليه الساعة؟',[E('1:20'),E('1:04'),E('4:05'),E('1:07')],'عقرب الساعات بعد 1 بقليل، وعقرب الدقائق على 4 أي 20 دقيقة.',clock(1,20));
+/* الأسبوع الخامس */
+q('alg','w','يصف الأنماط غير العددية ويكملها','اتبع النمط: ما الشكل المناسب في الفراغ؟',[shp('rect'),shp('circle'),shp('tri'),shp('arrow')],'النمط يتكرر كل 4 أشكال: دائرة، مستطيل، مثلث، سهم، ثم دائرة فمستطيل.',shapeSeq());
+q('alg','w','يصف الأنماط غير العددية','نظّمت نورة عقداً من الخرز بالترتيب (أحمر، أصفر، أزرق، أصفر) وكررت النمط 3 مرات. كم خرزة صفراء في العقد؟',['6','12','2','4'],'في كل تكرار خرزتان صفراوان، و 2 × 3 = 6.');
+q('alg','w','يوسّع الأنماط غير العددية','تتكرر الملصقات نفسها كل 4 صور على التوالي كما في الشكل. أيّ صورة تكون في الملصق رقم 18؟',['<span class="big">⭕</span>','<span class="big">⭐</span>','<span class="big">💥</span>','<span class="big">😊</span>'],'18 = 4 × 4 + 2، فالملصق 18 مثل الملصق رقم 2.',stickers());
+/* الأسبوع السادس */
+q('geo','w','يحدّد محاور التماثل','كم عدد محاور التماثل للشكل؟',['4','1','2','3'],'أذرع الشكل متساوية: محور رأسي، ومحور أفقي، ومحوران قطريان.',plus());
+q('geo','w','يحدّد خط التماثل','في أيّ شكل يكون الخط المنقّط محور تماثل؟',[symOpt('hex'),symOpt('rectd'),symOpt('rects'),symOpt('pen')],'الخط الرأسي يقسم السداسي المنتظم إلى نصفين متطابقين؛ القطر لا يقسم المستطيل تماثلياً.');
+q('stat','w','ينظّم البيانات في جداول تكرارية','سأل أحمد أصدقاءه عن الفاكهة المفضلة: تفاح، تفاح، فراولة، كيوي، موز، فراولة، تفاح، كيوي، تفاح. أيّ جدول يصنّف الإجابات بشكل صحيح؟',[freq([4,2,2,1]),freq([3,3,2,2]),freq([4,3,2,2]),freq([5,2,0,2])],'التفاح 4، الكيوي 2، الفراولة 2، الموز 1.');
+q('stat','w','يقرأ التمثيل بالرموز','مفتاح تمثيل بالرموز يبين أن كل رمز يمثل 4 قصص. كم رمزاً يمثل 12 قصة؟',['3','16','8','4'],'12 ÷ 4 = 3 رموز.');
+/* الأسبوع السابع */
+q('stat','w','يقرأ التمثيل بالرموز','في تمثيل بالرموز كل ☀️ تمثل 10 أيام. أيّ مما يلي يمثل 25 يوماً؟',[icons('☀️',2.5),icons('☀️',3),icons('☀️',2),icons('☀️',1)],'25 = 10 + 10 + 5، أي شمسان ونصف شمس.');
+q('stat','w','يقرأ التمثيل بالرموز','تمثيل بالرموز فيه 4 رموز، كل رمز يمثل 5 مسائل حلّها طلاب الفصل. ما عدد المسائل التي حلّها الطلاب جميعاً؟',['20','9','5','4'],'4 × 5 = 20 مسألة.');
+q('stat','w','يقرأ التمثيل بالرموز','يبين التمثيل الحيوانات الأليفة التي يملكها بعض الأشخاص. كم يزيد عدد الذين يملكون الطيور على الذين يملكون الأسماك؟',['8','3','4','6'],'الطيور 3 رموز = 12، الأسماك رمز = 4، والفرق 8.',picto([['القطط',2],['الأسماك',1],['الطيور',3]],'🐾','4 أشخاص','الحيوانات الأليفة التي يملكها بعض الأشخاص'));
+/* الأسبوع الثامن */
+q('stat','w','يقرأ الأعمدة البيانية','في التمثيل الآتي، أيّ نوع من الفواكه هو الأكثر تفضيلاً؟',['التفاح','الموز','الفراولة','الكيوي'],'عمود التفاح هو الأطول (10).',bars({labels:['تفاح','فراولة','كيوي','موز'],vals:[10,4,7,3],max:12,step:1,le:2,title:'الفاكهة المفضلة',yl:'عدد الطلاب'}));
+q('stat','w','يقرأ الأعمدة البيانية','ما عدد الأشخاص الذين يشجعون الفريق (أ)؟',['7','10','6','4'],'عمود الفريق (أ) يصل إلى 7.',bars({labels:['أ','ب','ج'],vals:[7,4,10],max:12,step:1,le:2,col:'#3b8fe0',title:'الفريق المفضّل',yl:'عدد الطلاب'}));
+q('stat','w','يقرأ التمثيل بالنقاط','استعمل التمثيل لإيجاد عدد الطلاب الذين لديهم أكثر من 4 كتب.',['6','4','8','12'],'خمسة كتب: ✖ = 2، ستة كتب: ✖✖ = 4، المجموع 6.',picto([['كتاب واحد',2],['كتابان',3],['ثلاثة كتب',3],['أربعة كتب',6],['خمسة كتب',1],['ستة كتب',2]],'✖','طالبان','الكتب التي يملكها عدد من الأشخاص'));
+q('stat','w','التشكيلات الممكنة','كم تشكيلة من قميص وبنطال يمكن الحصول عليها مما يأتي؟',['6','2','4','8'],'لكل قميص 3 بناطيل: 2 × 3 = 6 تشكيلات.',`<div class="rowf"><div class="grp"><div class="big">👕<span style="filter:hue-rotate(120deg)">👕</span></div><small>قميصان</small></div><div class="grp"><div class="big">👖<span style="filter:hue-rotate(170deg)">👖</span><span style="filter:grayscale(1)">👖</span></div><small>3 بناطيل</small></div></div>`);
+q('stat','w','يحدّد الحوادث (أكيد، مستحيل، …)','صندوق فيه 10 كرات، واحدة منها فقط زرقاء. صف احتمال اختيار كرة زرقاء.',['أقل احتمالاً','أكثر احتمالاً','مستحيل','أكيد'],'كرة زرقاء واحدة من 10 ← احتمال قليل لكنه ممكن.');
+/* الأسبوع التاسع */
+q('frac','w','يقرأ كسور الوحدة ويمثلها','أيّ شكل يمثل الجزء المظلل فيه '+F(1,2)+' ؟',[pie(8,4,'#3fb68b'),pie(4,1,'#3fb68b'),pie(8,2,'#3fb68b'),pie(8,3,'#3fb68b')],'4 أجزاء مظللة من 8 = نصف الشكل.');
+q('frac','w','يقرأ الكسور','وزّعت سارة 5 سكاكر على 5 من صديقاتها المفضلات من مجموع 9 صديقات. اقرأ الكسر الذي يمثل عدد الصديقات اللاتي أخذن سكاكر.',['خمسة أتساع','تسعة أخماس','أربعة أخماس','أربعة أتساع'],'5 من 9 تُقرأ خمسة أتساع.');
+q('frac','w','يصف الكسور المتكافئة','ثلاثة من الكسور الآتية متكافئة. حدّد الكسر المختلف.',[F(3,5),F(4,8),F(1,2),F(5,10)],'4 من 8 و 5 من 10 كلٌّ منهما يساوي النصف، أما 3 من 5 فأكبر من النصف.');
+q('frac','w','يصف الكسور كأجزاء من الكل','إذا أُكل '+F(3,5)+' علبة جبنة، فما الكسر الذي يمثل الجزء المتبقي؟',[F(2,5),F(1,4),F(3,8),F(2,4)],'5 أخماس − 3 أخماس = 2 من 5.');
+/* الأسبوع العاشر */
+q('frac','w','يصف كسور الوحدة','أيّ الكسور الآتية يمثل الجزء الملوّن؟',[F(1,7),F(5,7),F(2,5),F(1,2)],'الدائرة مقسومة 7 أجزاء متساوية، ولُوّن جزء واحد.',pie(7,1));
+q('frac','w','يصف الكسور كأجزاء من مجموعة','لدى تركي 7 مجموعات من الأوراق اللاصقة: 5 وردية، وواحدة خضراء، وواحدة زرقاء. ما الكسر الذي يبين المجموعات غير الوردية؟',[F(2,7),F(5,7),F(1,7),F(6,7)],'غير الوردية: خضراء + زرقاء = 2 من 7.');
+q('frac','w','يصف الكسور كأجزاء من الكل','قُسمت فطيرة 8 أقسام متساوية، فأكلت ريم 6 أجزاء منها. ما الكسر الذي يمثل ما أكلت؟',[F(6,8),F(2,3),F(2,8),F(8,6)],'6 أجزاء من 8 ← 6 من 8.');
+q('frac','w','يصف الكسور كأجزاء من الكل','أكل محمد نصف برتقالة، وبعد فترة أكل نصف الباقي. ما الكسر الذي يمثل ما أكله؟',[F(3,4),F(1,4),F(1,2),F(4,5)],'النصف = 2 من 4، ونصف الباقي = 1 من 4، فالمجموع 3 من 4.');
+
+/* --- بنك نافس --- */
+q('num','b','وصف الأعداد ضمن أربع منازل','اسم منزلة الرقم الذي تحته خط في العدد 43<u>9</u>0 هو:',['العشرات','الآحاد','المئات','الألوف'],'في 4390: الآحاد 0، العشرات 9.');
+q('num','b','وصف الأعداد ضمن أربع منازل','يُكتب العدد '+E('30000 + 7000 + 300 + 30 + 3')+' بالصيغة القياسية:',['37333','33373','73333','37300'],'3 عشرات ألوف، 7 ألوف، 3 مئات، 3 عشرات، 3 آحاد ← 37333.');
+q('num','b','تمثيل الأعداد','النموذج الذي يمثل العدد 358 هو:',[bt(3,5,8),bt(3,8,5),bt(5,3,8),bt(3,5,6)],'3 لوحات مئات، 5 أعمدة عشرات، 8 مكعبات آحاد.');
+q('num','b','كتابة الأعداد بالصيغة القياسية','عدد المقاعد في ملعب لكرة القدم «اثنا عشر ألفاً وخمسمئة وأربعة». يُكتب بالصيغة القياسية:',['12504','5041','40125','50421'],'اثنا عشر ألفاً = 12000، خمسمئة = 500، أربعة = 4 ← 12504.');
+q('num','b','التقريب والتقدير','يحل سمير 22 مسألة في 15 دقيقة، ويحل علي 26 مسألة في 15 دقيقة. كم مسألة يحلّان معاً في 15 دقيقة تقريباً؟',['50','70','60','30'],'22 + 26 = 48 ≈ 50.');
+q('num','b','ترتيب الأعداد','أيّ الأعداد الآتية مرتبة من الأكبر إلى الأصغر؟',['1430، 1230، 1200، 234','1700، 706، 710، 807','560، 650، 1500، 1600','1540، 5410، 1450، 410'],'1430 > 1230 > 1200 > 234.');
+q('frac','b','وصف كسور الوحدة','الكسر الذي يمثل الجزء المظلل هو:',[F(1,3),F(2,3),F(3,4),F(4,3)],'الدائرة 3 أجزاء متساوية، ظُلّل منها جزء واحد.',pie(3,1,'#9aa3b8'));
+q('frac','b','الكسور المتكافئة','الكسر الذي يكافئ '+F(2,3)+' هو:',[F(4,6),F(3,7),F(4,5),F(6,8)],'نضرب البسط والمقام في 2: 2 × 2 = 4، 3 × 2 = 6.');
+q('frac','b','المقارنة بين الكسور','أيّ الكسور الآتية أكبر من '+F(3,5)+' ؟',[F(4,5),F(3,5),F(2,5),F(1,5)],'المقامات متساوية، فالأكبر بسطاً هو الأكبر: 4 > 3.');
+q('frac','b','الكسور المتكافئة','العدد المناسب في المربع لنحصل على كسرين متكافئين: '+E(F(2,5)+' = '+F('▢',15)),['6','7','8','9'],'5 × 3 = 15، إذن 2 × 3 = 6.');
+q('frac','b','ترتيب الكسور','اشترى خالد وسعد وعلي فطائر متساوية. أكل خالد '+F(1,4)+' فطيرته، وسعد '+F(5,8)+'، وعلي '+F(3,8)+'. ترتيبهم تصاعدياً حسب ما أكلوا:',['خالد، علي، سعد','خالد، سعد، علي','علي، خالد، سعد','سعد، خالد، علي'],'1 من 4 = 2 من 8، و 2 من 8 < 3 من 8 < 5 من 8.');
+q('frac','b','الكسر من مجموعة','قصّت فدوى ورقة إلى 10 مستطيلات متطابقة، ولوّنت '+F(1,2)+' هذه المستطيلات. كم مستطيلاً لوّنت؟',['5','2','3','4'],'نصف 10 = 5.');
+q('num','b','جمع الأعداد وطرحها','أوجد الناتج: '+E('658 − 139 = ▢'),['519','541','797','529'],'658 − 139 = 519 (مع إعادة التجميع).');
+q('num','b','جمع الأعداد','أوجد الناتج: '+E('79 + 13 = ▢'),['92','96','93','90'],'79 + 13 = 92.');
+q('num','b','طرح الأعداد','لدى محمد 900 ريال، تصدّق منها بـ 90 ريالاً. كم بقي معه؟',['810','890','190','110'],'900 − 90 = 810.');
+q('num','b','الجمع والطرح','ما العدد المناسب في المربع؟ '+E('▢ + 125 = 206'),['81','91','92','300'],'206 − 125 = 81.');
+q('num','b','استخدام الجمع في حل المسائل','أراد جميل جمع 750 و 170 بالآلة الحاسبة، لكنه أدخل 550 بدلاً من 750. ماذا يفعل لتصحيح الناتج؟',['يضيف 200','يضيف 20','يطرح 20','يطرح 200'],'750 − 550 = 200 نقصت من الناتج، فيضيفها.');
+q('num','b','حل المسائل بالطرح','طبق فيه 203 حبات توت، أكل سلمان 51 حبة وأكل حسام 29 حبة. كم حبة بقيت؟',['123','120','111','100'],'51 + 29 = 80، ثم 203 − 80 = 123.');
+q('num','b','تمثيل الضرب بالشبكات','جملة الضرب التي تعبر عن الشبكة هي:',[E('5 × 6'),E('3 × 6'),E('2 × 6'),E('4 × 5')],'5 صفوف في كل صف 6.',ovals(5,6));
+q('num','b','حقائق القسمة','أوجد الناتج: '+E('15 ÷ 3 = ▢'),['5','15','4','3'],'3 × 5 = 15، إذن 15 ÷ 3 = 5.');
+q('num','b','الضرب في حل المسائل','تحتوي علبة أقلام التلوين على 8 أقلام. ما عدد الأقلام في 6 علب؟',['48','36','49','56'],'6 × 8 = 48.');
+q('num','b','القسمة في حل المسائل','باع تاجر قوارير عصير بـ 35 ريالاً، وثمن القارورة 5 ريالات. كم قارورة باع؟',['7','8','9','10'],'35 ÷ 5 = 7.');
+q('num','b','معنى الضرب','في أيّ الحالات الآتية يكون ناتج الضرب 9؟',['3 سمكات لكل منها 3 زعانف','4 قطط لكل منها أنف واحد','6 أفيال لكل منها أذنان','4 خراف لكل منها عينان'],'3 × 3 = 9، أما البقية: 4، 12، 8.');
+q('num','b','القسمة في حل المسائل','باع فؤاد وأخوه عماد كميات متساوية من ورق التغليف، ومجموع ما باعاه 40 رزمة. كم رزمة باع كل منهما؟',['20','13','15','80'],'40 ÷ 2 = 20.');
+q('num','b','تقدير نواتج الجمع','قدّر ناتج '+E('64 + 128')+' بالتقريب إلى أقرب عشرة:',['190','200','180','150'],'64 ≈ 60، 128 ≈ 130، و 60 + 130 = 190.');
+q('num','b','تقدير نواتج الطرح','في مزرعة عثمان 92 رأساً من الغنم و 38 رأساً من البقر. قدّر الفرق بينهما.',['50','40','44','60'],'92 ≈ 90، 38 ≈ 40، و 90 − 40 = 50.');
+q('num','b','تقدير نواتج الطرح','زار المتحف 423 زائراً يوم الأحد و 572 زائراً يوم الخميس. ما التقدير المعقول للفرق؟',['200','700','600','300'],'572 ≈ 600، 423 ≈ 400، و 600 − 400 = 200.');
+q('num','b','خصائص الضرب','حدّد الجملة غير الصحيحة:',[E('(4 × 4) × 2 = (4 × 4) × 5'),E('(2 × 3) × 3 = 2 × (3 × 3)'),E('3 × (1 × 5) = (3 × 1) × 5'),E('6 × (4 × 2) = (6 × 4) × 2')],'الطرف الأيسر 32 والأيمن 80، أما البقية فخاصية التجميع صحيحة.');
+q('num','b','الضرب في حل المسائل','في عربة قطار 9 صفوف من المقاعد، في كل صف 5 مقاعد، ويُسمح لكل مسافر بحقيبتين على الأكثر. ما أكبر عدد من الحقائب تحمله العربة؟',['90','45','64','100'],'9 × 5 = 45 مسافراً، و 45 × 2 = 90 حقيبة.');
+q('num','b','التقدير والتقريب لأقرب مئة','كان عدد موظفي صندوق الاستثمارات العامة 70 موظفاً عام 2016م، ثم أصبح 1000 عام 2021م. الزيادة في العدد لأقرب مئة هي:',['900','1000','800','700'],'1000 − 70 = 930 ≈ 900.');
+q('alg','b','الأنماط العددية','ما العدد المفقود في النمط: 18، 24، 30، ....، 42؟',['36','32','43','48'],'النمط يزيد 6: 30 + 6 = 36.');
+q('alg','b','الأنماط العددية','في النمط: 63، 60، ....، 54، 51 العدد المفقود هو:',['57','55','56','58'],'النمط ينقص 3: 60 − 3 = 57.');
+q('alg','b','الأنماط المتكررة','تحوي راية نمطاً يتكرر فيه ثلاثة مربعات ومثلثان. إذا تكرر النمط 3 مرات فكم مضلعاً فيها؟',['15','6','9','21'],'في كل تكرار 5 مضلعات، و 5 × 3 = 15.');
+q('alg','b','توسيع الأنماط الهندسية','يتكرر في النمط شبه منحرف ثم مثلث. إذا وُسِّع النمط حتى أصبح 30 مضلعاً، فكم مثلثاً فيه؟',['15','14','16','18'],'نصف المضلعات مثلثات: 30 ÷ 2 = 15.',trapTri());
+q('alg','b','توسيع الأنماط الهندسية','تتناقص ارتفاعات المثلثات من اليمين إلى اليسار وفق نمط. ما ارتفاع المثلث التالي؟',['3 سم','4 سم','2 سم','1 سم'],'الفروق: 5، 4، 3، ثم 2، إذن 5 − 2 = 3 سم.',heights());
+q('alg','b','الأنماط العددية','اكتب الحدين التاليين في النمط: 2، 6، 5، 9، 8، ....، ....',['12 ، 11','13 ، 12','14 ، 13','15 ، 14'],'القاعدة: أضف 4 ثم اطرح 1 ← 8 + 4 = 12، ثم 12 − 1 = 11.');
+q('alg','b','خصائص العمليات','حدّد العدد الذي يجعل الجملة صحيحة: '+E('5 + 2 + 8 = 8 + 2 + ▢'),['5','2','8','15'],'خاصية الإبدال: الأعداد نفسها بترتيب مختلف.');
+q('alg','b','خصائص العمليات','العدد الذي إذا ضربته في 925 كان الناتج 925 هو:',['1','0','2','10'],'العنصر المحايد في الضرب هو 1.');
+q('alg','b','خصائص العمليات','لدى سميرة 41 ملصقاً، ولدى حصة 62، ولدى عبير 57. كيف تجد مجموع ما لديهن؟',[E('41 + 62 + 57'),E('41 + 62'),E('41 − 62 − 57'),E('41 + 57 − 62')],'المجموع يعني جمع الأعداد الثلاثة.');
+q('alg','b','خصائص الضرب','كم رِجلاً لثماني حيّات؟',['0','1','2','8'],'للحية 0 أرجل، و 8 × 0 = 0.');
+q('alg','b','القسمة','لدى سعيد وأصدقائه الأربعة 5 أكواب من العصير، وُزّعت بينهم بالتساوي. كم كوباً يأخذ كل واحد؟',['كوب واحد','كوبان','5 أكواب','10 أكواب'],'سعيد + 4 أصدقاء = 5 أشخاص، و 5 ÷ 5 = 1.');
+q('alg','b','استخدام العمليات','قاد علاء سيارته 8 كلم إلى السوق، ثم 5 كلم لزيارة صديق، ثم 3 كلم إلى المنتزه، ثم عاد إلى بيته من الطريق نفسه. ما المسافة الكلية؟',['32 كلم','22 كلم','16 كلم','11 كلم'],'الذهاب 8 + 5 + 3 = 16، والعودة 16، المجموع 32.');
+q('alg','b','العلاقة بين القسمة والطرح','كم مرة تطرح 3 لتجد ناتج '+E('6 ÷ 3')+' ؟',['2','3','4','5'],'6 − 3 = 3، ثم 3 − 3 = 0 ← مرتان.');
+q('alg','b','العلاقة بين الضرب والقسمة','المسألة التي تحلها للتحقق من أن '+E('60 ÷ 10 = 6')+' هي:',[E('10 × 6 = ▢'),E('10 + 6 = ▢'),E('10 − 6 = ▢'),E('10 ÷ 6 = ▢')],'الضرب عكس القسمة: 10 × 6 = 60.');
+q('alg','b','العلاقة بين الضرب والجمع','يمكن كتابة '+E('4 × 3')+' بطريقة أخرى هي:',[E('3 + 3 + 3 + 3'),E('4 + 4 + 4 + 4'),E('4 + 3 + 4 + 3'),E('3 + 3 + 3')],'4 × 3 تعني 4 مجموعات في كل منها 3.');
+q('alg','b','استخدام العمليات','مع كلٍّ من جمال وفوزي وسلمان 4 طوابع. إذا أضاع جمال طابعاً واحداً، فكم يصبح مجموع طوابعهم؟',['11','4','12','13'],'3 × 4 = 12، ثم 12 − 1 = 11.');
+q('alg','b','العلاقة بين الجمع والطرح','تملك نور 235 بطاقة، وزّعت منها 149. الجملة العددية التي تحسب ما بقي معها هي:',[E('235 − 149 = 86'),E('235 + 149 = 384'),E('235 ÷ 5 = 47'),E('149 − 86 = 63')],'ما بقي = الكل − ما وُزّع.');
+q('alg','b','استخدام العمليات','يعمل ناصر بأجرة 6 ريالات في الساعة، مدة 4 ساعات يومياً، 5 أيام في الأسبوع. كم يكسب في الأسبوع؟',['120','100','110','115'],'6 × 4 = 24 ريالاً يومياً، و 24 × 5 = 120.');
+q('alg','b','استخدام العمليات','أخرج خليل 45 عدسة مكبّرة وباع منها 5 فوراً، ثم وضع الباقي في صفّين متساويين. كم عدسة في كل صف؟',['20','9','10','15'],'45 − 5 = 40، و 40 ÷ 2 = 20.');
+q('geo','b','خصائص الأشكال','الشكل الذي يختلف عن الأشكال الثلاثة الأخرى هو:',[solid('trap'),solid('cube'),solid('cyl'),solid('cone')],'شبه المنحرف شكل مستوٍ (ثنائي الأبعاد)، والبقية مجسمات.');
+q('geo','b','خصائص المجسمات','المجسم الذي له وجهان وليس له أحرف هو:',['الأسطوانة','المكعب','الهرم','الكرة'],'للأسطوانة قاعدتان دائريتان مستويتان، ولا أحرف مستقيمة لها.');
+q('geo','b','خصائص المضلعات','المضلع الذي له أربعة أضلاع وجميع أضلاعه متساوية هو:',['المربع','المستطيل','المكعب','متوازي المستطيلات'],'المكعب ومتوازي المستطيلات مجسمات، والمستطيل أضلاعه غير متساوية كلها.');
+q('geo','b','التماثل','عدد محاور التماثل للملعقة:',['1','لا يوجد','2','3'],'محور واحد يمر بطول الملعقة من المنتصف.');
+q('geo','b','التماثل','رسم داود شكلاً مستوياً طوله 4 سم وعرضه 3 سم. ما عدد محاور تماثله؟',['2','1','3','4'],'المستطيل غير المربع له محوران: رأسي وأفقي.');
+q('geo','b','تكوين الأشكال','الأشكال التي نستطيع بها بناء هرم رباعي هي:',['أربعة مثلثات ومربع','ثلاثة مثلثات ومستطيل','أربعة مثلثات ودائرة','ثلاثة مثلثات ومربع'],'قاعدة الهرم الرباعي مربع، وله 4 أوجه جانبية مثلثة.');
+q('geo','b','المساحة','مساحة الشكل المظلل هي:',['5 وحدات مربعة','3 وحدات مربعة','4 وحدات مربعة','6 وحدات مربعة'],'نعدّ المربعات المظللة: 5.',gridShape([[0,1],[1,1],[1,2],[2,2],[2,3]],3,5));
+q('geo','b','المحيط','محيط مثلث أطوال أضلاعه 6 سم و 4 سم و 7 سم هو:',['17 سم','13 سم','15 سم','19 سم'],'6 + 4 + 7 = 17 سم.');
+q('geo','b','المحيط','بيت للطيور واجهته خماسية، أضلاعها متساوية، طول الضلع 20 سم. محيط الواجهة:',['100 سم','20 سم','60 سم','80 سم'],'5 × 20 = 100 سم.');
+q('geo','b','المحيط','شكل رباعي محيطه 16 سم، وأطوال ثلاثة من أضلاعه 5 و 6 و 3 سم. ما طول الضلع الرابع؟',['2 سم','3 سم','4 سم','5 سم'],'5 + 6 + 3 = 14، و 16 − 14 = 2.');
+q('geo','b','المحيط','مربعان طول ضلع كلٍّ منهما 8 سم، أُلصقا جنباً إلى جنب فكوّنا مستطيلاً. محيط المستطيل:',['48 سم','32 سم','16 سم','24 سم'],'المستطيل 16 × 8: 16 + 8 + 16 + 8 = 48 سم.');
+q('geo','b','المساحة','تريد شيماء فرش غرفة طولها 5 أمتار وعرضها 3 أمتار بسجاد سعر المتر المربع منه 20 ريالاً. كم التكلفة؟',['300 ريال','400 ريال','200 ريال','100 ريال'],'المساحة 5 × 3 = 15، و 15 × 20 = 300 ريال.');
+q('geo','b','وحدات الطول','الوحدة الأنسب لقياس طول كتاب الرياضيات:',['السنتمتر','الملمتر','المتر','الكيلومتر'],'طول الكتاب بعشرات السنتمترات.');
+q('geo','b','تقدير الكتل','أفضل تقدير لكتلة حبة برتقال:',['200 جم','30 جم','2 كجم','5 كجم'],'حبة البرتقال المتوسطة نحو 200 جرام.');
+q('geo','b','تقدير السعات','أيّ مما يأتي يتسع لأكثر من لتر واحد؟',['حوض استحمام','قطّارة','كوب ماء','ملعقة'],'حوض الاستحمام يتسع لعشرات اللترات.');
+q('geo','b','تقدير الكتل','أيّ الأشياء الآتية تزيد كتلته على 2 كجم؟',['طاولة الصف','تفاحة','قلم','كتاب'],'الطاولة أثقل بكثير من 2 كجم.');
+q('geo','b','السعات','يحتاج فريد إلى 9 لترات، ولديه قوارير سعة 2 لتر وأخرى سعة 500 مل. كم قارورة يستعمل ليحصل على 9 لترات تماماً؟',['4 قوارير سعة 2 لتر وقارورتان سعة 500 مل','4 قوارير سعة 2 لتر وقارورة سعة 500 مل','قارورتان سعة 2 لتر وقارورتان سعة 500 مل','قارورة سعة 2 لتر وقارورتان سعة 500 مل'],'4 × 2 = 8 لترات، و 500 + 500 مل = 1 لتر، المجموع 9.');
+q('geo','b','النقود','ثمن الدراجة يساوي الأوراق النقدية الظاهرة. كم ثمنها؟',['100 ريال','50 ريالاً','55 ريالاً','150 ريالاً'],'ورقتان من فئة 50: 50 + 50 = 100.',`<div class="rowf"><span class="big">🚲</span><span class="pricetag">؟ ريال</span>${note(50)}${note(50)}</div>`);
+q('geo','b','النقود','القيمة الكلية للنقود:',['42 ريالاً','30 ريالاً','41 ريالاً','44 ريالاً'],'4 أوراق من فئة 10 = 40، وريالان معدنيان = 2، المجموع 42.',`<div class="rowf">${note(10)}${note(10)}${note(10)}${note(10)}${coin()}${coin()}</div>`);
+q('geo','b','النقود','جمعت هدى في حصالتها 38 ريالاً. ما الورقة المفقودة من الصورة لتمثل ما في حصالتها؟',['ورقة من فئة 5 ريالات','4 ورقات من فئة ريال','ورقة من فئة 10 ريالات','ورقتان من فئة 5 ريالات'],'20 + 10 + 3 = 33، والباقي 38 − 33 = 5.',`<div class="rowf">${note(20)}${note(10)}${coin()}${coin()}${coin()}<span class="pricetag">؟</span></div>`);
+q('geo','b','النقود','مع عائشة 3 أوراق نقدية قيمتها معاً 56 ريالاً. ما فئاتها؟',['50 ريالاً و 5 ريالات وريال واحد','50 ريالاً و 10 ريالات وريال واحد','50 ريالاً و 5 ريالات و 5 ريالات','50 ريالاً و 5 ريالات و 10 ريالات'],'50 + 5 + 1 = 56.');
+q('geo','b','النقود','يريد إبراهيم هدية ثمنها 750 ريالاً، ومعه ورقة من فئة 500 وورقتان من فئة 50. كم ريالاً إضافياً يحتاج؟',['150 ريالاً','50 ريالاً','100 ريال','200 ريال'],'معه 500 + 100 = 600، و 750 − 600 = 150.');
+q('geo','b','قراءة الوقت','الوقت الذي تشير إليه الساعة:',[E('1:45'),E('2:45'),E('1:09'),E('2:09')],'عقرب الدقائق على 9 أي 45 دقيقة، وعقرب الساعات لم يصل إلى 2 بعد.',clock(1,45));
+q('geo','b','قراءة الوقت','إذا كان عقرب الدقائق يشير إلى الرقم 3 فعدد الدقائق:',['15 دقيقة','3 دقائق','5 دقائق','30 دقيقة'],'3 × 5 = 15 دقيقة.');
+q('geo','b','حساب المدد الزمنية','لعب بلال ساعة واحدة، ثم نام ساعتين، واستيقظ الساعة 3:00 مساءً. متى بدأ اللعب؟',[E('12:00')+' ظهراً',E('1:00')+' مساءً',E('2:00')+' مساءً',E('3:00')+' مساءً'],'نرجع 3 ساعات من 3:00 ← 12:00 ظهراً.');
+q('geo','b','حساب المدد الزمنية','بدأت نوال واجبها الساعة 5:15 وانتهت بعد 20 دقيقة. كم كانت الساعة عند انتهائها؟',[E('5:35'),E('5:20'),E('5:40'),E('5:55')],'15 + 20 = 35 دقيقة ← 5:35.');
+q('geo','b','حساب المدد الزمنية','أمضى سلمان نصف ساعة في الغداء، وساعة في مشاهدة التلفاز، ثم ساعتين في الواجبات وأنهاها الساعة 5:30 مساءً. متى بدأ الغداء؟',['الساعة الثانية','الساعة الثالثة','الساعة الرابعة','الساعة الواحدة'],'المجموع 3 ساعات ونصف، و 5:30 − 3:30 = 2:00.');
+q('geo','b','حساب المدد الزمنية','غادرت طائرة الكويت الساعة 11:25 مساءً، وهبطت في المنامة بعد 40 دقيقة، وتوقفت نصف ساعة، ثم أقلعت إلى الرياض واستغرقت 50 دقيقة. متى تصل الرياض؟',[clock(1,25,'صباحاً'),clock(1,25,'مساءً'),clock(12,35,'صباحاً'),clock(2,15,'صباحاً')],'11:25 + 40 د = 12:05، + 30 د = 12:35، + 50 د = 1:25 صباحاً (بعد منتصف الليل).');
+q('stat','b','قراءة الأعمدة البيانية','حصل الطلاب في اختبار العلوم على الدرجات (4، 6، 8، 10). ما الدرجة التي حصل عليها أكثر الطلاب؟',['8','4','6','10'],'أطول عمود عند الدرجة 8.',bars({labels:['4','6','8','10'],vals:[5,3,6,4],max:7,step:1,le:1,col:'#3b8fe0',title:'نتائج اختبار العلوم',yl:'عدد الطلاب',xl:'درجات الطلاب'}));
+q('stat','b','قراءة التمثيل بالرموز','من التمثيل بالرموز: كم كتاباً قرأ كنعان؟',['6','2','3','4'],'3 رموز × كتابان = 6 كتب.',picto([['إسماعيل',2],['كنعان',3],['ماهر',4],['عبدالمجيد',1]],'📘','كتابان','عدد الكتب التي قرأها الطلاب في الإجازة'));
+q('stat','b','تمثيل البيانات','أجرى زياد استطلاعاً عن عدد الطلاب الذين يشاهدون التلفاز كل مساء لمدة أسبوع. أيّ تمثيل يناسب نتائجه؟',['تمثيل بالأعمدة محوره الأفقي أيام الأسبوع السبعة','تمثيل بالأعمدة محوره الأفقي الأعداد 0، 20، 40 … 100','تمثيل بالأعمدة محوره الأفقي الأعداد 8، 9، 10، 11، 12','تمثيل بالأعمدة محوره الأفقي شهور السنة'],'الاستطلاع يومي لمدة أسبوع، فيحتاج 7 أعمدة لأيام الأسبوع.');
+q('stat','b','تفسير الأعمدة البيانية','يبين الرسم أعمار 4 أشخاص. بكم سنة يزيد عمر حسين على عمر مروى؟',['15','5','10','20'],'حسين 25 ومروى 10، والفرق 15.',bars({labels:['كمال','مريم','حسين','مروى'],vals:[15,20,25,10],max:40,step:5,le:5,col:'#9aa3b8',yl:'العمر (سنوات)'}));
+q('stat','b','تنظيم البيانات','ما جدول الإشارات الذي يمثل التمثيل بالأعمدة؟',[ttab([10,7,12,4]),ttab([10,7,12,3]),ttab([10,5,12,4]),ttab([5,5,12,4])],'من الأعمدة: اللحم 10، المعكرونة 7، البيتزا 12، الدجاج 4.',bars({labels:['شطيرة اللحم','المعكرونة','البيتزا','شطيرة الدجاج'],vals:[10,7,12,4],max:14,step:1,le:2,col:'#9aa3b8',title:'الأطعمة المفضلة',yl:'عدد الطلاب'}));
+q('stat','b','قراءة التمثيل بالرموز','من التمثيل: العدد الكلي للساعات التي أمضاها حمزة في ركوب الدراجة هو:',['ست ساعات وربع','ست ساعات ونصف','اثنتا عشرة ساعة وربع','ثلاث ساعات وربع'],'عدد الرموز 12 ونصف، كل رمز نصف ساعة: 12 × ½ = 6 ساعات، ونصف الرمز ربع ساعة.',picto([['اليوم الأول',1.5],['اليوم الثاني',4.5],['اليوم الثالث',2.5],['اليوم الرابع',4]],'🚲','نصف ساعة (نصف الرمز = ربع ساعة)','الوقت الذي يمضيه حمزة في ركوب الدراجة'));
+
+/* --- الاختبار المحاكي الرابع --- */
+q('num','t','تقدير نواتج الجمع','باع خليل 23 قارورة من شراب الليمون و 39 قارورة ماء. ما عدد القوارير التي باعها تقريباً؟',['60 تقريباً','40 تقريباً','50 تقريباً','70 تقريباً'],'23 ≈ 20، 39 ≈ 40، و 20 + 40 = 60.');
+q('num','t','خصائص الجمع',E('32 + 0 = ▢')+' ما العدد المفقود وما الخاصية المستعملة؟',['32 ، العنصر المحايد','0 ، خاصية الإبدال','40 ، خاصية التجميع','32 ، خاصية الإبدال'],'جمع الصفر لا يغيّر العدد: الصفر عنصر محايد في الجمع.');
+q('num','t','تقدير نواتج الجمع','قدّر ناتج '+E('27 + 69'),[E('30 + 70 = 100'),E('20 + 60 = 80'),E('20 + 50 = 70'),E('30 + 60 = 90')],'نقرّب لأقرب عشرة: 27 ≈ 30، 69 ≈ 70.');
+q('num','t','تقدير نواتج الطرح','ادّخر عبدالله 399 ريالاً، وادّخر شقيقه نواف 104 ريالات. قدّر كم يزيد ادخار عبدالله على ادخار نواف.',['300 تقريباً','200 تقريباً','100 تقريباً','500 تقريباً'],'399 ≈ 400، 104 ≈ 100، و 400 − 100 = 300.');
+q('num','t','خصائص الجمع',E('5 + (9 + 1) = (5 + ▢) + 1')+' ما العدد المفقود وما الخاصية المستعملة؟',['9 ، خاصية التجميع','9 ، خاصية الإبدال','1 ، العنصر المحايد','5 ، خاصية التجميع'],'تغيير الأقواس مع بقاء الأعداد: خاصية التجميع.');
+q('num','t','التقدير بالأعداد المتناغمة','قدّر '+E('26 + 54')+' باستعمال الأعداد المتناغمة:',[E('25 + 55'),E('20 + 50'),E('30 + 40'),E('20 + 60')],'25 و 55 عددان قريبان متناغمان يسهل جمعهما (80).');
+q('num','t','تقدير نواتج الضرب','لدى مروان 3 أحواض، يزرع في كل منها 12 وردة. قدّر عدد الورود التي يشتريها.',['30','10','20','40'],'12 ≈ 10، و 3 × 10 = 30.');
+q('num','t','خصائص الجمع','حدّد العدد المناسب في المربع: '+E('(31 + 5) + 2 = ▢ + (5 + 2)'),['31','5','2','0'],'خاصية التجميع: الأعداد نفسها 31 و 5 و 2.');
+
+/* --- اختبارات مهاراتي --- */
+q('num','m','إيجاد ناتج الضرب في 9','شارك في الحفل 3 فصول من المرحلة الابتدائية و 4 فصول من المتوسطة، ومن كل فصل 9 طلاب. كم طالباً شارك؟',['63','16','54','72'],'3 + 4 = 7 فصول، و 7 × 9 = 63.');
+q('num','m','الجمع مع إعادة التجميع','ناتج '+E('27 + 46')+' يساوي:',['73','62','63','72'],'7 + 6 = 13 (نكتب 3 ونحمل 1)، 2 + 4 + 1 = 7 ← 73.');
+q('num','m','استعمال الشبكات لإيجاد ناتج الضرب','اختر جملة الضرب المناسبة للشبكة:',[E('3 × 5 = 15'),E('3 × 4 = 12'),E('4 × 5 = 20'),E('4 × 4 = 16')],'3 صفوف في كل صف 5 مثلثات.',triGrid(3,5));
+q('num','m','تحديد العملية المناسبة','يزيد ارتفاع برج العرب 19 متراً على ارتفاع برج المملكة، وارتفاع برج المملكة 302 متر. حدّد العملية المناسبة ثم الناتج:',['الجمع، 321','الطرح، 321','الجمع، 283','الطرح، 283'],'«يزيد على» تعني نجمع: 302 + 19 = 321.');
+q('num','m','ترتيب الأعداد على خط الأعداد','مُثّلت أسعار ثلاثة أجهزة على خط الأعداد. رتّبها من الأعلى ثمناً إلى الأقل:',['غسالة، مكيف، شاشة','شاشة، مكيف، غسالة','شاشة، غسالة، مكيف','مكيف، غسالة، شاشة'],'كلما اتجهنا يميناً على خط الأعداد كبرت القيمة: الغسالة أبعدها يميناً.',nline(1000,1600,100,[1000,1600],[{v:1100,l:'شاشة'},{v:1350,l:'مكيف'},{v:1450,l:'غسالة'}]));
+q('num','m','الضرب في الواحد','عند ضرب العدد 9 في العدد 1 يكون الناتج:',['9','0','1','10'],'أي عدد × 1 = العدد نفسه.');
+q('num','m','القيمة المنزلية ضمن الألوف','الرقم الذي تحته خط في العدد <u>7</u>580 في منزلة:',['الألوف','الآحاد','العشرات','المئات'],'العدد من 4 أرقام، والرقم الأول من اليسار في منزلة الألوف.');
+q('num','m','الضرب في 8','في أيّ الحالات الآتية يكون ناتج الضرب 40؟',['8 أيدٍ، في كل يد 5 أصابع','8 أشخاص، لكل شخص عينان','8 سيارات، لكل سيارة 4 عجلات','8 قطط، لكل قطة أذنان'],'8 × 5 = 40، والبقية: 16، 32، 16.');
+q('num','m','الصيغة القياسية ضمن الألوف','يُكتب العدد '+E('4000 + 600 + 70 + 8')+' بالصيغة القياسية:',['4678','8764','40678','46708'],'4 ألوف، 6 مئات، 7 عشرات، 8 آحاد ← 4678.');
+q('num','m','القسمة على 2','يبين الجدول المعدل التقريبي لكمية الأمطار في بعض مدن المملكة. ما المدينة التي معدل أمطارها نصف معدل أمطار حائل؟',['جازان','جدة','الرياض','الطائف'],'أمطار حائل 16، ونصفها 8 وهي جازان.',tbl(['المدينة','كمية الأمطار'],[['جدة',5],['جازان',8],['حائل',16],['الرياض',12],['الطائف',25]]));
+q('num','m','القسمة على 5','اشترى رياض 5 نماذج طائرات متساوية الثمن، ودفع 30 ريالاً. ما ثمن النموذج الواحد؟',['6','5','25','30'],'30 ÷ 5 = 6 ريالات.');
+q('num','m','حل مسألة باستعمال الطرح','أيّ سورة تقل عدد آياتها عن سورة النجم بـ 33 آية؟',['الحديد','القمر','الرحمن','الطور'],'النجم 62 آية، و 62 − 33 = 29 وهي سورة الحديد.',tbl(['السورة','الطور','النجم','القمر','الرحمن','الحديد'],[['عدد الآيات',49,62,55,78,29]]));
+q('num','m','الضرب في 2','خمسة صناديق، في كل صندوق قلمان. جملة الضرب التي تعبر عن عدد الأقلام:',[E('5 × 2 = 10'),E('6 × 2 = 12'),E('6 × 1 = 6'),E('5 × 1 = 5')],'5 صناديق × 2 قلم = 10.');
+q('num','m','مفهوم إعادة التجميع في الطرح','أيّ عمليات الطرح الآتية لا تحتاج إعادة تجميع؟',[E('53 − 42'),E('42 − 15'),E('67 − 49'),E('98 − 59')],'في 53 − 42: رقم الآحاد 3 أكبر من 2، فلا نحتاج إعادة التجميع.');
+q('num','m','مقارنة الأعداد على خط الأعداد','أنفق سعد 240 ريالاً، وأنفق خالد مبلغاً أقل من ذلك. أيّ نقطة تمثل ما أنفقه خالد؟',['ك','ن','م','ل'],'النقطة ل عند 240 تماماً، وك هي الوحيدة قبلها (أقل من 240).',nline(200,290,10,[200,240,290],[{v:220,l:'ك'},{v:240,l:'ل'},{v:250,l:'م'},{v:280,l:'ن'}]));
+q('num','m','القسمة على 9','لدى نادية 36 ملصقاً، تضع كل 9 ملصقات في علبة. كم علبة تحتاج؟',['4','5','7','8'],'36 ÷ 9 = 4.');
+q('num','m','الطرح مع إعادة التجميع','أوجد الناتج: '+E('418 − 259 = ▢'),['159','240','241','677'],'418 − 259 = 159 (نعيد التجميع في الآحاد والعشرات).');
+q('num','m','القسمة على 10','اشترى عمر علبة عصير واحدة وعلبة حليب حسب الأسعار الآتية. كم دفع؟',['7','4','14','34'],'ثمن علبة العصير 30 ÷ 10 = 3، و 3 + 4 = 7 ريالات.',tbl(['الصنف','السعر'],[['علبة حليب','4 ريالات'],['كرتون عصير','10 علب بـ 30 ريالاً']]));
+q('num','m','الضرب في 7','وقف الطلاب في 7 صفوف، في كل صف 3 طلاب. إذا غادر واحد منهم، فكم طالباً بقي؟',['20','13','14','21'],'7 × 3 = 21، و 21 − 1 = 20.');
+q('num','m','كتابة جملة الضرب المناسبة','حفظت سلمى 7 قصائد، في كل قصيدة 5 أبيات. أيّ جملة تعبر عن المسألة؟',[E('7 × 5 = 35'),E('7 + 5 = 12'),E('7 × 7 = 49'),E('5 × 6 = 30')],'7 مجموعات في كل منها 5.');
+
+/* --- الأنشطة والمهام الأدائية (3) --- */
+q('num','w','يقارن الأعداد ضمن 4 منازل','أيّ الأعداد الآتية ليس أكبر من 4259؟',['4209','4300','4260','4295'],'نقارن العشرات: 0 أصغر من 5، إذن 4209 أصغر من 4259.');
+q('num','w','يقارن الأعداد باستخدام الرموز','ما العلامة المناسبة لتصبح المقارنة صحيحة؟ '+E('62 + 3 ◯ 65'),[E('='),E('&gt;'),E('&lt;'),E('+')],'62 + 3 = 65، فالطرفان متساويان.');
+q('num','w','يقارن الأعداد باستخدام الرموز','اختر العدد المناسب في المربع لتكون الجملة صحيحة: '+E('1426 &gt; ▢'),['1425','1452','1426','1524'],'العدد الوحيد الأصغر من 1426 هو 1425.');
+q('num','w','يرتّب الأعداد','الترتيب الصحيح للأعداد 38، 31، 67 من الأصغر إلى الأكبر:',['31، 38، 67','67، 38، 31','38، 67، 31','67، 31، 38'],'31 أصغر من 38، و 38 أصغر من 67.');
+q('num','w','يرتّب الأعداد','العدد الأصغر من بين الأعداد (450، 405، 540، 504) هو:',['405','450','540','504'],'في 450 و 405 المئات 4، والعشرات 0 أصغر من 5 ← 405.');
+q('num','w','يقارن الأعداد','لدى أيّ الطالبات أطول سلسلة؟',['سمراء','شذا','عبير','مروة'],'36 هو العدد الأكبر في الجدول.',tbl(['الطالبة','شذا','سمراء','مروة','عبير'],[['طول السلسلة',24,36,28,30]]));
+q('num','w','يقرّب الأعداد','مع هند 1379 ريالاً، فإذا قالت إن معها تقريباً 1400 ريال فقد قرّبت المبلغ إلى أقرب:',['مئة','عدد صحيح','عشرة','ألف'],'لأقرب مئة 1400، أما لأقرب عشرة فـ 1380، ولأقرب ألف فـ 1000.');
+q('num','w','يقرّب الأعداد','ما تقريب العدد 549 إلى أقرب عشرة؟',['550','500','600','540'],'رقم الآحاد 9 أكبر من 5، فنقرّب إلى 550.');
+
+/* --- المرشد التدريبي: الأعداد --- */
+q('num','g','يميّز القيمة المنزلية','القيمة المنزلية للرقم الذي تحته خط في العدد <u>1</u>1406 هي:',['10000','10','100','1000'],'الرقم في منزلة عشرات الألوف، فقيمته 10000.');
+q('num','g','يقرّب الأعداد','قرّب العدد 65312 إلى أقرب ألف:',['65000','66000','65300','65310'],'رقم المئات 3 أقل من 5، فتبقى الألوف 65000.');
+q('num','g','يميّز القيمة المنزلية','ما الرقم الذي في منزلة آحاد الألوف في العدد 92567؟',['2','6','5','9'],'من اليمين: 7 آحاد، 6 عشرات، 5 مئات، 2 آحاد ألوف.');
+q('num','g','يكوّن الأعداد','كوّن من الأرقام 3، 9، 7، 8 عدداً يكون فيه الرقم 7 في منزلة المئات:',['9783','7893','9873','3987'],'في 9783 الرقم 7 في منزلة المئات.');
+q('num','g','يقرّب الأعداد','عند ناصر 37 كتاباً. كم كتاباً عنده مقرباً إلى أقرب 10؟',['40','37','45','30'],'رقم الآحاد 7 أكبر من 5، فنقرّب إلى 40.');
+q('num','g','يميّز القيمة المنزلية','عدد سكان مدينة خالد 931526. اسم منزلة الرقم 3 في هذا العدد:',['عشرات الألوف','آحاد الألوف','الآحاد','العشرات'],'من اليمين: آحاد، عشرات، مئات، آحاد ألوف، ثم عشرات الألوف (3).');
+q('num','g','يمثل الأعداد بالنماذج','ما العدد الذي يمثله النموذج؟',['129','128','140','130'],'مئة واحدة + عشرتان + 9 آحاد = 129.',bt(1,2,9));
+q('num','g','تقدير النواتج','قدّر ناتج '+E('329 + 503')+' بالتقريب إلى أقرب مئة:',['800','900','832','830'],'329 ≈ 300، و 503 ≈ 500، و 300 + 500 = 800.');
+q('num','g','يقرّب الأعداد','عدد إذا قرّبناه إلى أقرب مئة يصبح 400. هذا العدد هو:',['369','321','301','317'],'369 ≈ 400، أما 321 و 301 و 317 فتقرّب إلى 300.');
+q('num','g','يقرّب الأعداد','اشترى خالد سيارة بـ 23550 ريالاً. كم ثمنها مقرباً إلى أقرب ألف؟',['24000','23000','20000','30000'],'رقم المئات 5، فنقرّب الألوف إلى 24000.');
+q('num','g','الصيغة التحليلية','مع هند 2425 ريالاً. أيّ مما يلي يساوي ما معها؟',[E('2000 + 400 + 20 + 5'),E('2000 + 400 + 200 + 5'),E('2000 + 4000 + 20 + 5'),E('2000 + 200 + 50 + 4')],'2 ألوف، 4 مئات، 2 عشرات، 5 آحاد.');
+q('num','g','الصيغة القياسية','مع محمد بطاقة مكتوب عليها «اثنا عشر ألفاً وخمسمئة». يُكتب العدد بالصيغة القياسية:',['12500','1250','10025','12050'],'12000 + 500 = 12500.');
+q('num','g','الصيغة القياسية','كتب المعلم العدد '+E('4000 + 40 + 7')+' على السبورة. ما صيغته القياسية؟',['4047','7440','4407','7404'],'4 ألوف، 0 مئات، 4 عشرات، 7 آحاد ← 4047.');
+q('num','g','الصيغة اللفظية','بلغ عدد السياح في محافظة الطائف 55011 سائحاً. ما العدد بالصيغة اللفظية؟',['خمسة وخمسون ألفاً وأحد عشر','خمسة آلاف وأحد عشر','خمسمئة وأحد عشر','خمسة وخمسون ألفاً وعشرة'],'55011 = 55000 + 11.');
+q('num','g','الصيغة القياسية','يُكتب العدد «سبعة وتسعون ألفاً وخمسمئة واثنان وأربعون» بالصيغة القياسية:',['97542','97042','97500','97540'],'97000 + 500 + 42 = 97542.');
+q('num','g','الصيغة التحليلية','العدد 701 يُكتب بصيغة أخرى:',[E('700 + 1'),E('700 + 1 + 1'),E('700 + 10 + 1'),E('7000 + 10 + 1')],'7 مئات، 0 عشرات، 1 آحاد.');
+q('num','g','القيمة المنزلية','في صندوق بطاقات مرقمة، إحداها تحمل عدداً من رقمين متساويين. إذا أضفنا 1 إلى هذا العدد صار لدينا 1 في منزلة المئات. ما العدد؟',['99','66','77','88'],'99 + 1 = 100.');
+q('num','g','الصيغة اللفظية','إذا كانت قيمة شيك '+E('7000 + 60 + 1')+' فما الصيغة اللفظية لقيمته؟',['سبعة آلاف وواحد وستون','سبعة آلاف وستمئة وعشرة','سبعة آلاف وستة عشر','سبعة آلاف ومئة وستون'],'7000 + 61 = 7061.');
+q('alg','g','العدّ القفزي','العدد التالي في النمط: 2، 4، 6، 8، ....',['10','7','9','12'],'نعدّ اثنينات: 8 + 2 = 10.');
+q('alg','g','العدّ القفزي','يجمع سعد كل يوم 4 ملصقات أكثر من اليوم السابق. إذا استمر النمط فكم ملصقاً يجمع يوم الثلاثاء؟',['18','12','16','20'],'14 + 4 = 18.',tbl(['اليوم','السبت','الأحد','الإثنين','الثلاثاء'],[['الملصقات',6,10,14,'؟']]));
+q('alg','g','العدّ القفزي','لإيجاد عدد الأقلام في 3 علب، في كل منها 5 أقلام، باستعمال الجمع المتكرر أستعمل العدّ القفزي بـ:',['الخمسات','الاثنينات','العشرات','المئات'],'5، 10، 15.');
+q('alg','g','العدّ القفزي','لدى كلٍّ من علي وأحمد ومحمد 5 ريالات. ما مجموع ما لديهم؟',['15','35','30','25'],'نعدّ خمسات: 5، 10، 15.');
+q('alg','g','الأنماط العددية','العددان التاليان في النمط: 2، 5، 8، 11، ....، ....',['14 ، 17','14 ، 18','15 ، 19','17 ، 20'],'النمط يزيد 3: 11 + 3 = 14، 14 + 3 = 17.');
+q('num','g','حل المسائل','معك اليوم 20 ريالاً، وكان معك بالأمس ربع هذا العدد زائداً اثنين. فكم كان معك بالأمس؟',['7','5','9','10'],'ربع 20 = 5، و 5 + 2 = 7.');
+q('num','g','يقارن الأعداد','أيّ الأعداد الآتية ليس أكبر من 3148؟',['3108','3200','3250','3184'],'في 3108 العشرات 0 أصغر من 4.');
+q('num','g','يقارن الأعداد','اختر العدد المناسب في المربع لتكون الجملة صحيحة: '+E('1324 &gt; ▢'),['1124','1342','1324','1426'],'1124 هو الوحيد الأصغر من 1324.');
+q('num','g','حل المسائل','التقط سالم 47 صورة في رحلة مدرسية، والتقط صالح أكثر من سالم بعشر صور. كم صورة التقط صالح؟',['57','27','37','67'],'47 + 10 = 57.');
+q('num','g','يرتّب الأعداد','اشترى محمود خزانة بـ 319 ريالاً، وحقيبة بـ 99 ريالاً، ومكتباً بـ 255 ريالاً. رتّب الأسعار من الأقل إلى الأكثر:',['99، 255، 319','319، 255، 99','255، 319، 99','255، 99، 319'],'99 أقل من 255، و 255 أقل من 319.');
+q('num','g','يرتّب الأعداد','رتّب الأعداد 1882، 1304، 8771 من الأكبر إلى الأصغر:',['8771، 1882، 1304','1304، 1882، 8771','1882، 1304، 8771','8771، 1304، 1882'],'نقارن الألوف: 8 ثم 1882 ثم 1304.');
+q('num','g','يرتّب الأعداد','إذا رتّبنا الأعداد (721، 812، 920، 415) من الأكبر إلى الأصغر، فبين أيّ عددين نضع العدد 561؟',['بين 721 و 415','بين 920 و 721','بين 920 و 415','بين 920 و 812'],'الترتيب: 920، 812، 721، 561، 415.');
+q('num','g','يرتّب الأعداد','رتّب 4 أصدقاء الأعداد (822، 687، 734، 654) من الأصغر إلى الأكبر. أيّ ترتيب صحيح؟',['654، 687، 734، 822','822، 734، 687، 654','687، 654، 734، 822','654، 734، 687، 822'],'654 ثم 687 ثم 734 ثم 822.');
+
+/* --- المرشد: الكسور --- */
+q('frac','g','يصف كسور الوحدة','الكسر الذي يمثل الجزء المظلل هو:',[F(1,8),F(2,8),F(3,9),F(4,7)],'الشريط 8 أجزاء متساوية، ظُلّل منها جزء واحد.',strip(8,1));
+q('frac','g','الكسر من مجموعة','الكسر الذي يمثل عدد التفاحات الملوّنة:',[F(1,2),F(1,4),F(3,5),F(1,3)],'تفاحتان ملونتان من 4 = نصف.',apples(4,2));
+q('frac','g','الكسر من مجموعة','أعدّت أمي سبع كعكات، 4 منها بنكهة البرتقال والباقي بنكهة التوت. ما الكسر الذي يمثل كعكات التوت؟',[F(3,7),F(3,4),F(4,3),F(7,3)],'7 − 4 = 3 كعكات من 7.');
+q('frac','g','يمثل الكسور على خط الأعداد','الكسر الذي يمثل موقع الأرنب:',[F(2,5),F(1,5),F(3,5),F(4,5)],'خط الأعداد مقسوم أخماساً، والأرنب عند العلامة الثانية.',fracLine(5,[{i:2,l:'🐰'}]));
+q('frac','g','الكسر من مجموعة','في حديقة المنزل ثلاث دجاجات بيضاء وواحدة حمراء. ما الكسر الذي يمثل الدجاجة الحمراء؟',[F(1,4),F(1,2),F(2,3),F(3,4)],'واحدة من 4 دجاجات.');
+q('frac','g','الكسر من مجموعة','ما الكسر الذي يمثل عدد النوافذ المفتوحة؟ (النافذة البيضاء مفتوحة، والزرقاء مغلقة)',[F(4,7),F(1,3),F(3,7),F(3,4)],'عدد النوافذ 7، المفتوحة منها 4.',windows('oococco'));
+q('frac','g','الكسر من مجموعة','في ساحة المدرسة يلعب 18 طفلاً، 6 منهم يلعبون كرة القدم. الكسر الذي يمثل لاعبي كرة القدم:',[F(1,3),F(1,8),F(1,5),F(1,2)],'18 = 3 مجموعات من 6، فالستة ثلث العدد.');
+q('frac','g','الكسر من مجموعة','قسم المعلم الصف إلى مجموعات، في كل مجموعة '+F(1,4)+' طلاب الصف. إلى كم مجموعة قسمهم؟',['4 مجموعات','مجموعتين','3 مجموعات','مجموعة واحدة'],'كل مجموعة ربع الصف، والصف كاملاً 4 أرباع.');
+q('frac','g','يقرأ الكسور','الكسر الدال على الجزء الملوّن:',[F(1,3),F(1,6),F(1,4),F(1,5)],'2 من 6 أجزاء = 1 من 3.',pie(6,2));
+q('frac','g','يقرأ الكسور','أكل فهد 4 قطع من بيتزا مقسمة إلى 5 قطع متطابقة. الكسر الذي يمثل القطع المتبقية يُسمّى:',['خُمس','نصف','ثلث','ربع'],'بقيت قطعة واحدة من 5.');
+q('frac','g','يقرأ الكسور','اشترى زياد 7 علب حليب تناول منها 5. ما الكسر الذي يمثل العلب التي تناولها؟',[F(5,7),F(7,5),F(2,7),F(2,5)],'5 من 7.');
+q('frac','g','يمثل الكسور على خط الأعداد','ما النقطة التي تمثل الكسر '+F(4,5)+' ؟',['النقطة ج','النقطة ب','النقطة أ','النقطة د'],'النقطة ج عند العلامة الرابعة من خمس.',fracLine(5,[{i:0,l:'أ'},{i:2,l:'ب'},{i:4,l:'ج'}]));
+q('frac','g','يقرأ الكسور','الكسر الدال على الجزء الملوّن:',[F(1,2),F(1,4),F(4,4),F(1,3)],'الدائرة نصفان متساويان، لُوّن أحدهما.',pie(2,1,'#f28ca6'));
+q('frac','g','الكسر من مجموعة','رسمت أشواق 30 مكعباً ولوّنت 10 منها. ما الكسر الذي يمثل المكعبات الملونة؟',[F(1,3),F(1,4),F(5,10),F(20,10)],'30 = 3 مجموعات من 10، فالعشرة ثلث العدد.');
+q('frac','g','يقارن الكسور','ما العدد الذي يجعل العلاقة صحيحة؟ '+E(F(3,10)+' &gt; '+F('▢',10)),['2','4','8','9'],'المقامان متساويان، فنحتاج بسطاً أصغر من 3.');
+q('frac','g','يقارن الكسور','من خلال الرسم قارن بين الكسرين: '+E(F(1,4)+' ◯ '+F(3,4)),[E('&lt;'),E('&gt;'),E('='),E('÷')],'جزء واحد أقل من 3 أجزاء من الحجم نفسه.',fracBars([[4,1],[4,3]]));
+q('frac','g','الكسر من مجموعة','لدى أحمد 6 حيوانات: ثلثها أبقار، وواحد من الأغنام، والباقي خيول. ما الكسر الذي يمثل الخيول؟',[F(1,2),F(1,3),F(1,4),F(3,4)],'ثلث 6 = 2 أبقار، وخروف واحد، فالخيول 3 من 6 = نصف.');
+q('frac','g','يرتّب الكسور','من خلال الرسم رتّب الكسور من الأصغر إلى الأكبر:',[E(F(1,8)+' ، '+F(1,4)+' ، '+F(3,8)),E(F(1,4)+' ، '+F(1,8)+' ، '+F(3,8)),E(F(3,8)+' ، '+F(1,4)+' ، '+F(1,8)),E(F(1,4)+' ، '+F(3,8)+' ، '+F(1,8))],'الربع يساوي 2 من 8، فالترتيب: 1 من 8، ثم الربع، ثم 3 من 8.',fracBars([[4,1],[8,1],[8,3]]));
+
+/* --- المرشد: الجمع والطرح --- */
+q('num','g','الجمع ضمن ثلاث منازل','في مزرعة 174 شجرة نخيل و 87 شجرة رمان. عدد الأشجار:',['261','162','621','211'],'174 + 87 = 261.');
+q('num','g','الجمع','لدى محمد 425 ريالاً، أعطاه أخوه 129 ريالاً. كم أصبح لديه؟',['554','271','374','484'],'425 + 129 = 554.');
+q('num','g','الجمع','أوجد الناتج: '+E('421 + 321'),['742','744','756','765'],'421 + 321 = 742.');
+q('num','g','الجمع','أنتج معمل 158 سجادة كبيرة و 296 سجادة صغيرة. كم سجادة أنتج؟',['454','567','138','400'],'158 + 296 = 454.');
+q('num','g','الجمع مع إعادة التجميع','أوجد ناتج الجمع: '+E('275 + 507'),['782','750','278','833'],'5 + 7 = 12 (نحمل 1)، 7 + 0 + 1 = 8، 2 + 5 = 7 ← 782.');
+q('num','g','الطرح','في الكرتون 130 علبة عصير، 80 منها بطعم الليمون. كم علبة بالنكهات الأخرى؟',['50','40','70','80'],'130 − 80 = 50.');
+q('num','g','الطرح','مع هند 198 ريالاً، وأرادت شراء الساعة المبينة. كم يتبقى معها؟',['120','170','150','100'],'198 − 78 = 120.',`<div class="rowf"><span class="big">⌚</span><span class="pricetag">78 ريالاً</span></div>`);
+q('num','g','الطرح مع إعادة التجميع','وفّر أسامة 844 ريالاً هذا العام، و 387 ريالاً العام الماضي. كم زاد توفيره هذا العام؟',['457','754','900','1231'],'844 − 387 = 457.');
+q('num','g','الطرح','لدى أحمد 255 ريالاً، تبرّع بـ 140 ريالاً لجمعية الأيتام. كم بقي معه؟',['115 ريالاً','151 ريالاً','105 ريالات','395 ريالاً'],'255 − 140 = 115.');
+q('num','g','الطرح مع إعادة التجميع','أوجد ناتج: '+E('391 − 178'),['213','210','221','231'],'391 − 178 = 213.');
+q('num','g','الطرح','قرأت هند 97 صفحة من كتاب عدد صفحاته 240. كم صفحة بقيت؟',['143','314','413','341'],'240 − 97 = 143.');
+q('num','g','الطرح','ما العدد الذي أطرحه من 627 ليكون الناتج 215؟',['412','214','421','442'],'627 − 215 = 412.');
+q('num','g','مفهوم إعادة التجميع','أيّ عمليات الطرح الآتية لا تحتاج إلى إعادة تجميع؟',[E('73 − 42'),E('42 − 36'),E('67 − 49'),E('98 − 59')],'في 73 − 42: 3 أكبر من 2 و 7 أكبر من 4.');
+q('num','g','حل المسائل','باعت مدرسة في معرض القرطاسية 229 قلماً و 112 ملفاً. كم قلماً وملفاً باعت؟',['341','413','331','143'],'229 + 112 = 341.');
+q('num','g','حل المسائل','تحتوي مكتبة نايف على 45 كتاباً علمياً و 12 كتاباً ثقافياً. كم كتاباً فيها؟',['57','72','75','27'],'45 + 12 = 57.');
+q('num','g','حل المسائل','طول شجرة الصنوبر 43 متراً، وهي أطول من شجرة العرعر بـ 27 متراً. كم طول شجرة العرعر؟',['16','7','10','18'],'43 − 27 = 16 متراً.');
+q('num','g','حل المسائل','لدى علي بطاقات، أعطاه سعد 6 بطاقات فأصبح لديه 15. كم بطاقة كانت لديه؟',['9','13','15','21'],'15 − 6 = 9.');
+q('num','g','حل المسائل','اشترى محمد 3 علب أقلام ثمن كل منها 10 ريالات، ومعه بطاقة خصم 15 ريالاً. كم قيمة مشترياته بعد الخصم؟',['15','13','14','16'],'3 × 10 = 30، و 30 − 15 = 15.');
+q('num','g','حل المسائل','يحتاج عامل 20 لتراً من الدهان، والعلبة الواحدة 5 لترات. كم علبة يحتاج؟',['4','5','6','7'],'20 ÷ 5 = 4.');
+q('num','g','حل المسائل','طلب صديقان 4 أصناف من البيتزا، وقُطّعت كل واحدة إلى 4 شرائح. إذا حصل كل منهما على العدد نفسه، فكم شريحة يحصل عليها كل واحد؟',['8','9','7','6'],'4 × 4 = 16 شريحة، و 16 ÷ 2 = 8.');
+
+/* --- المرشد: الضرب والقسمة --- */
+q('num','g','يمثل الضرب','جملة الضرب المناسبة للشكل:',[E('5 × 2 = 10'),E('4 × 2 = 8'),E('5 × 5 = 25'),E('4 × 3 = 12')],'صفّان في كل صف 5 كعكات.',`<div class="big" style="font-size:1.9rem">🧁🧁🧁🧁🧁<br>🧁🧁🧁🧁🧁</div>`);
+q('num','g','حقائق الضرب','ناتج '+E('4 × 7'),['28','36','40','24'],'4 × 7 = 28.');
+q('num','g','حقائق الضرب','ما العدد الذي يجعل الجملة صحيحة؟ '+E('7 × 5 &lt; 4 × ▢'),['10','3','5','7'],'7 × 5 = 35، و 4 × 10 = 40 أكبر من 35.');
+q('num','g','حقائق الضرب','حدّد جملة الضرب الخطأ:',[E('10 × 1 = 5 × 1'),E('1 × 10 = 2 × 5'),E('3 × 4 = 6 × 2'),E('5 × 4 = 10 × 2')],'10 × 1 = 10 بينما 5 × 1 = 5.');
+q('num','g','حقائق الضرب','عدد ما ناتج ضربه في نفسه أقل من 10 وأكبر من 5. ما هذا العدد؟',['3','5','4','2'],'3 × 3 = 9.');
+q('num','g','الضرب والجمع المتكرر','اكتب '+E('3 × 9')+' بطريقة أخرى:',[E('9 + 9 + 9'),E('3 + 3 + 3'),E('9 + 9 + 9 + 9'),E('3 + 3 + 3 + 3')],'3 × 9 تعني 3 مجموعات في كل منها 9.');
+q('num','g','الضرب في حل المسائل','يتقاضى عامل 8 ريالات في الساعة. كم يتقاضى إذا عمل 7 ساعات؟',['56','35','63','42'],'8 × 7 = 56.');
+q('num','g','جملة الضرب المناسبة','لكل خروف قرنان. جملة الضرب المناسبة لعدد قرون 10 خراف:',[E('10 × 2'),E('10 × 10'),E('10 × 4'),E('10 × 3')],'10 خراف × 2 قرن.',`<div class="rowf"><span class="big">🐏</span><b>عدد قرون 10 خراف</b></div>`);
+q('num','g','خاصية الإبدال','العدد المناسب لخاصية الإبدال: '+E('4 × 7 = 28 ، 7 × ▢ = 28'),['4','7','5','1'],'تبديل ترتيب العاملين لا يغيّر الناتج.');
+q('num','g','تمثيل الضرب بالشبكة','الجملة العددية التي تمثلها الشبكة:',[E('2 × 8 = 16'),E('8 × 3 = 24'),E('2 × 2 = 4'),E('6 × 3 = 18')],'صفّان في كل صف 8 مربعات.',gridRC(2,8));
+q('num','g','الضرب في 1','ما العدد الذي إذا ضربته في 8 كان الناتج 8؟',['1','0','2','3'],'أي عدد × 1 = العدد نفسه.');
+q('num','g','حقائق الضرب','حدّد جملة الضرب الصحيحة:',[E('6 × 1 = 6'),E('8 × 0 = 8'),E('5 × 4 = 10'),E('8 × 2 = 13')],'6 × 1 = 6، والنواتج الصحيحة للبقية: 0، 20، 16.');
+q('num','g','حقائق الضرب','ناتج '+E('7 × 3'),['21','10','15','20'],'7 × 3 = 21.');
+q('num','g','القسمة','أرادت جنى قراءة كتاب من 40 صفحة خلال 10 أيام بالتساوي. كم صفحة تقرأ في اليوم؟',['4','2','3','5'],'40 ÷ 10 = 4.');
+q('num','g','القسمة','لدى خالد 48 ضيفاً، وكل طاولة تستوعب 6 ضيوف. كم طاولة يحتاج؟',['8','12','11','10'],'48 ÷ 6 = 8.');
+q('num','g','القسمة','يغرس مزارع 100 وردة خلال 10 أيام بالتساوي. كم وردة يغرس كل يوم؟',['10','4','13','14'],'100 ÷ 10 = 10.');
+q('num','g','القسمة','شارك 6 طلاب بالتساوي في وضع 54 كتاباً على الرفوف. كم كتاباً وضع كل طالب؟',['9','10','8','7'],'54 ÷ 6 = 9.');
+q('num','g','التحقق من القسمة','المسألة التي أحلها لأتحقق من أن '+E('70 ÷ 10 = 7')+' هي:',[E('7 × 10 = ▢'),E('10 − 7 = ▢'),E('10 + 7 = ▢'),E('70 × 7 = ▢')],'الضرب عكس القسمة: 7 × 10 = 70.');
+q('num','g','التحقق من القسمة','حلّ علي المسألة '+E('21 ÷ 3 = 7')+'. أيّ المسائل يتحقق بها من إجابته؟',[E('7 × 3 = ▢'),E('7 + 3 = ▢'),E('7 − 3 = ▢'),E('7 ÷ 3 = ▢')],'7 × 3 = 21.');
+q('num','g','القسمة','ما العدد الذي إذا قُسم على 7 كان الناتج 2؟',['14','5','9','10'],'7 × 2 = 14.');
+q('num','g','القسمة','أكل بلال وثمانية من أصدقائه 18 فطيرة بالتساوي. كم فطيرة أكل كل واحد؟',['2','4','3','6'],'بلال + 8 = 9 أشخاص، و 18 ÷ 9 = 2.');
+q('num','g','الضرب في حل المسائل','تركّب سارة 9 قطع يومياً. كم قطعة تركّب في 6 أيام؟',['54','15','52','73'],'9 × 6 = 54.');
+q('num','g','حقائق الضرب','أوجد العدد المفقود: '+E('3 × ▢ = 12'),['4','6','5','3'],'3 × 4 = 12.');
+q('num','g','الضرب في حل المسائل','ذهب خالد وأربعة من أصدقائه إلى حديقة الحيوان، وقيمة التذكرة 5 ريالات. كم قيمة التذاكر جميعها؟',['25 ريالاً','30 ريالاً','20 ريالاً','15 ريالاً'],'خالد + 4 = 5 أشخاص، و 5 × 5 = 25.');
+q('num','g','خاصية التوزيع','اشترت حلا 3 هدايا، سعر كل منها 15 ريالاً. كم تدفع؟',['45 ريالاً','50 ريالاً','48 ريالاً','36 ريالاً'],'3 × 15 = 3 × 10 + 3 × 5 = 30 + 15 = 45.');
+q('num','g','الضرب في حل المسائل','في الطابور الصباحي يحمل كل طالب علمين، وفي الطابور 10 طلاب. عدد الأعلام:',['20 علماً','10 أعلام','15 علماً','25 علماً'],'10 × 2 = 20.');
+q('num','g','القسمة','يضع يزيد 9 أقلام في كل علبة، ومعه 54 قلماً. في كم علبة يضعها؟',['6','7','8','9'],'54 ÷ 9 = 6.');
+q('num','g','حل المسائل','اشترت أمي 8 علب عصير تفاح، و 5 علب عصير برتقال، وعلبتين من عصير الأناناس. كم علبة اشترت؟',['15 علبة','12 علبة','18 علبة','20 علبة'],'8 + 5 + 2 = 15.');
+q('num','g','حل المسائل','كان مع ياسر 58 ريالاً، اشترى أدوات مكتبية وعاد ومعه 18 ريالاً. كم دفع؟',['40','10','20','30'],'58 − 18 = 40.');
+q('num','g','حل المسائل','ركب بعض الأشخاص الحافلة في المحطة الأولى، وركب 9 آخرون في المحطة الثانية، فأصبح فيها 21 شخصاً. كم ركب في المحطة الأولى؟',['12','10','11','14'],'21 − 9 = 12.');
+q('num','g','حل المسائل','جمع طلاب الصف الثاني عُلباً يوم الثلاثاء، ثم جمعوا يوم الأربعاء 18 علبة إضافية، فأصبح لديهم 44 علبة. كم علبة جمعوا يوم الثلاثاء؟',['26','46','36','16'],'44 − 18 = 26.');
+
+/* --- المرشد: التقدير وخصائص التجميع --- */
+q('num','g','تقدير نواتج الجمع','ركب القطار 532 رجلاً و 426 امرأة. كم شخصاً ركب تقريباً؟',['900','800','1000','750'],'532 ≈ 500، و 426 ≈ 400، والمجموع 900.');
+q('num','g','تقدير نواتج الجمع','في الصف الثالث 176 طالباً، وفي الصف الثاني 233 طالباً. كم طالباً في الصفين تقريباً؟',['400','407','408','410'],'176 ≈ 200، و 233 ≈ 200، والمجموع 400.');
+q('num','g','تقدير نواتج الطرح','الأنسب لناتج '+E('423 − 198')+' تقريباً:',['200','500','400','300'],'423 ≈ 400، و 198 ≈ 200، و 400 − 200 = 200.');
+q('num','g','التقريب لأقرب مئة','ثمن حاسوب 896 ريالاً. عند تقريبه إلى أقرب مئة يصبح:',['900','295','399','605'],'رقم العشرات 9 أكبر من 5، فنقرّب إلى 900.');
+q('num','g','تقدير نواتج الطرح','قدّر ناتج '+E('564 − 235')+' بالتقريب إلى أقرب مئة:',['400','900','500','600'],'564 ≈ 600، و 235 ≈ 200، و 600 − 200 = 400.');
+q('num','g','تقدير نواتج الطرح','مع ريان 355 ريالاً، أنفق منها 145 ريالاً. قدّر ما بقي معه بالتقريب لأقرب مئة.',['300','600','500','400'],'355 ≈ 400، و 145 ≈ 100، و 400 − 100 = 300.');
+q('num','g','خاصية التجميع','العدد المناسب في المربع: '+E('5 × 2 × ▢ = 80'),['8','7','6','5'],'5 × 2 = 10، و 10 × 8 = 80.');
+q('num','g','خاصية التجميع','ناتج '+E('2 × 7 × 2'),['28','30','35','20'],'2 × 2 = 4، و 4 × 7 = 28.');
+q('num','g','خاصية التجميع','يوجد صندوقان، في كل صندوق 5 قصص، ومع كل قصة 4 أقلام ملونة. ما عدد الأقلام؟',['40','55','50','35'],'2 × 5 × 4 = 40.');
+q('num','g','خاصية التجميع','في الحفل وُضعت قطعة حلوى في كل طبق، وطبقان على كل طاولة، وعدد الطاولات 4. كم قطعة حلوى وُضعت؟',['8','5','6','7'],'1 × 2 × 4 = 8.');
+q('num','g','خاصية التجميع','كم إصبعاً في أيدي 3 تلاميذ؟',[E('3 × 2 × 5 = 30'),E('4 × 2 × 5 = 40'),E('3 × 3 × 5 = 45'),E('4 × 3 × 2 = 24')],'لكل تلميذ يدان، وفي كل يد 5 أصابع.');
+q('num','g','خاصية التجميع','العدد المناسب في الفراغ: '+E('(2 × 3) × 4 = 2 × (3 × ▢)'),['4','2','3','0'],'خاصية التجميع: الأعداد نفسها 2 و 3 و 4.');
+q('num','g','معقولية النواتج','لكي أتحقق من ناتج '+E('137 − 22 = 115')+' أستعمل:',[E('115 + 22'),E('115 − 22'),E('137 − 115'),E('137 + 22')],'الجمع عكس الطرح: 115 + 22 = 137.');
+q('num','g','معقولية النواتج','مع عبدالله 28 قلماً وزّعها بالتساوي على 4 علب، فوضع 7 أقلام في كل علبة. للتحقق من إجابته يستخدم:',[E('4 × 7 = 28'),E('28 + 7 = 4'),E('28 − 4 = 7'),E('28 − 4 = 24')],'الضرب عكس القسمة.');
+q('num','g','معقولية النواتج','للتأكد من معقولية الجمع '+E('135 + 117 = 252'),[E('252 − 117 = 135'),E('135 − 117 = 18'),E('117 + 135 = 252'),E('252 + 117 = 369')],'نطرح أحد العددين من الناتج فنحصل على الآخر.');
+q('num','g','التقدير','اشترت هند 43 زهرة جوري و 22 زهرة قرنفل. قدّر عدد الزهور بالتقريب لأقرب عشرة.',['60','70','80','90'],'43 ≈ 40، و 22 ≈ 20، والمجموع 60.');
+
+/* --- المرشد: الأنماط --- */
+q('alg','g','الأنماط العددية','حدّد النمط ثم اكتب العدد المناسب في الفراغ: 20، ▢، 40، 50، 60، 70',['30','10','25','60'],'النمط يزيد 10.');
+q('alg','g','الأنماط العددية','كوّن نمطاً يبدأ بالعدد 4 وينتهي بالعدد 16 وفق النموذج. ما العدد في المربع؟',['12','6','10','9'],'النمط يزيد 4: 4، 8، 12، 16.',tbl(['4','8','▢','16'],[]));
+q('alg','g','الأنماط العددية','اكتشف الخطأ في النمط: 10، 12، 14، 17',['17','10','12','14'],'النمط يزيد 2، فالصحيح 16 بدل 17.');
+q('alg','g','الأنماط العددية','لدى عمر 5 أبواب رقّمها بنمط: 95، 97، 99، ....، 103. فكم رقم الباب الرابع؟',['101','98','100','102'],'النمط يزيد 2: 99 + 2 = 101.');
+q('alg','g','الأنماط العددية','تصل حافلات إلى المحطة في الأوقات '+E('8:15')+' ، '+E('8:45')+' ، '+E('9:15')+' ، '+E('9:45')+'. متى تصل المرة التالية؟',[E('10:15'),E('10:45'),E('10:10'),E('10:05')],'كل نصف ساعة: 9:45 + 30 دقيقة = 10:15.');
+q('alg','g','الأنماط غير العددية','حدّد الشكل المفقود في النمط:',['<span class="big">■</span>','<span class="big">●</span>','<span class="big">✦</span>','<span class="big">△</span>'],'النمط يتكرر: دائرة، مربع، مثلث.',`<div class="big" style="letter-spacing:4px">● ■ △ &nbsp; ● ■ △ &nbsp; ● <span style="color:#e04848">؟</span> △</div>`);
+q('alg','g','الأنماط غير العددية','حدّد النمط ثم وسّعه: ما الوحدة التالية؟',[E('▼▲▲'),E('▼▼●'),E('▲▲▲'),E('●●▼')],'الوحدة المتكررة: مثلث مقلوب ثم مثلثان.',E('<span class="big">▼▲▲ &nbsp; ▼▲▲ &nbsp; ؟</span>'));
+q('alg','g','الأنماط الهندسية','يبدأ النمط بمضلع سداسي ثم مثلث ويتكرران. إذا وُسِّع النمط حتى 25 مضلعاً، فكم سداسياً فيه؟',['13','12','14','11'],'المضلعات ذات الترتيب الفردي (1، 3، 5 … 25) سداسيات، وعددها 13.',hexTri());
+q('alg','g','الأنماط الهندسية','يبدأ النمط من اليمين بمثلثين ثم شكلين رباعيين ويتكرر. ما عدد المثلثات إذا وُسِّع إلى 30 مضلعاً؟',['16','20','25','30'],'كل 4 أشكال فيها مثلثان: 28 شكلاً فيها 14 مثلثاً، والشكلان 29 و 30 مثلثان ← 16.',trapFaith());
+q('alg','g','الأنماط غير العددية','بدأ الصف الثالث رسم نمط على جدار طويل. كيف أُكمله باتجاه السهم؟',[E('△○'),E('○△'),E('○○'),E('△△')],'الوحدة: مثلث ثم دائرتان، فبعد ○○ يأتي △ ثم ○.',E('<span class="big">△○○△○○ →</span>'));
+q('alg','g','الأنماط العددية','ابحث عن نمط تتضاعف فيه الأعداد: 2، 4، 8، 16، ....',['32','14','20','18'],'كل عدد ضعف الذي قبله: 16 × 2 = 32.');
+q('alg','g','الأنماط غير العددية','زرعت ليلى 34 زهرة وفق النمط: زهرة صفراء يليها وردتا جوري. كم وردة جوري زرعت؟',['22','21','20','19'],'كل 3 زهرات فيها وردتا جوري: 33 زهرة = 11 تكراراً ← 22 جوري، والزهرة 34 صفراء.',`<div class="big">🌼🌹🌹 &nbsp; 🌼🌹🌹 &nbsp; …</div>`);
+q('alg','g','الاستدلال','يقف ثلاثة في صف: سالم خلف أحمد مباشرة، وخليل هو الثالث. ما ترتيبهم؟',['أحمد، سالم، خليل','خليل، سالم، أحمد','أحمد، خليل، سالم','خليل، أحمد، سالم'],'أحمد أولاً، ثم سالم خلفه، وخليل ثالثاً.');
+q('alg','g','الأنماط العددية','العددان التاليان في النمط: 9، 12، ....، ....',['15 ، 18','13 ، 14','11 ، 12','18 ، 15'],'النمط يزيد 3.');
+q('alg','g','الأنماط المتكررة','صُمّم شعار وفق النمط: 4 مثلثات ثم مربعان. كم مضلعاً فيه إذا تكرر النمط 5 مرات؟',['30 مضلعاً','40 مضلعاً','20 مضلعاً','10 مضلعات'],'6 مضلعات × 5 = 30.');
+q('alg','g','الأنماط غير العددية','حدّد النمط ووسّعه:',[E('▬■■'),E('■▬■'),E('■■■'),E('▬▬▬')],'الوحدة المتكررة: خط ثم مربعان.',E('<span class="big">▬■■ &nbsp; ▬■■ &nbsp; ؟</span>'));
+q('alg','g','الأنماط الهندسية','استعمل مروان مكعبات لعمل درج كما في الشكل. كم مكعباً يحتاج لعمل 6 درجات؟',['21','20','22','23'],'1 + 2 + 3 + 4 + 5 + 6 = 21.',stairs(3));
+
+/* --- المرشد: خصائص العمليات والعلاقات بينها --- */
+q('alg','g','الجمع مع الصفر','أيّ الأعداد يجعل الجملة صحيحة؟ '+E('15 + ▢ = 15'),['0','1','2','3'],'الصفر عنصر محايد في الجمع.');
+q('alg','g','الضرب في الصفر','أوجد ناتج '+E('8 × 0'),['0','6','10','12'],'أي عدد × 0 = 0.');
+q('alg','g','الضرب في الواحد','في فصل 9 طاولات، جلس على كل طاولة طالب واحد. كم عدد الطلاب؟',['9','10','11','12'],'9 × 1 = 9.');
+q('alg','g','القسمة','عند ريم 3 لعب، وتريد حفظها في صناديق يتسع كل منها لـ 3 لعب. كم صندوقاً تحتاج؟',['1','4','3','2'],'3 ÷ 3 = 1.');
+q('alg','g','خاصية الإبدال','العدد المناسب لتكون الجملة صحيحة: '+E('5 × 2 = 2 × ▢'),['5','0','1','7'],'خاصية الإبدال في الضرب.');
+q('alg','g','خاصية الإبدال','إذا كان '+E('9 × 4 = 36')+' فإن '+E('4 × 9 = ▢'),['36','28','32','40'],'تبديل العاملين لا يغيّر الناتج.');
+q('alg','g','خاصية الإبدال','اكتب العدد المناسب: '+E('▢ + 4 = 4 + 7'),['7','4','5','6'],'خاصية الإبدال في الجمع.');
+q('alg','g','خصائص الجمع','الخاصية التي تحققها العبارة '+E('3 + (7 + 4) = (3 + 7) + 4')+' هي:',['التجميعية','العنصر المحايد','الإبدال','غير متساوية'],'الأعداد نفسها بالترتيب نفسه مع تغيير الأقواس.');
+q('alg','g','خاصية التجميع','العدد المفقود الذي يجعل الجملة صحيحة: '+E('(22 + 15) + ▢ = 22 + (15 + 7)'),['7','5','2','3'],'خاصية التجميع: الأعداد نفسها في الطرفين.');
+q('alg','g','خاصية التجميع','رسمت سلمى الأشكال الآتية. عبّر باستعمال خاصية التجميع لإيجاد مجموعها:',[E('3 + (5 + 4) = 12'),E('5 + (3 + 2) = 10'),E('(4 + 3) + 7 = 14'),E('(4 + 5) + 2 = 11')],'3 دوائر، و 5 نجوم، و 4 مثلثات.',`<div class="big">○○○ &nbsp; ☆☆☆☆☆ &nbsp; △△△△</div>`);
+q('alg','g','خاصية التجميع','اختر العدد الذي يجعل الجملة صحيحة: '+E('5 × (2 × 4) = ▢'),['40','60','50','30'],'2 × 4 = 8، و 5 × 8 = 40.');
+q('alg','g','خاصية التجميع','قرأ حامد 3 قصص، كل منها 6 صفحات، وفي كل صفحة صورتان. ما عدد الصور؟',[E('3 × 6 × 2'),E('(3 × 2) + 6'),E('(3 × 6) + 2'),E('(6 − 3) × 2')],'3 × 6 × 2 = 36 صورة.');
+q('alg','g','خاصية التوزيع','اختار محمد 3 سيارات، وخالد سيارتين، وثمن السيارة 10 ريالات. كم التكلفة؟',['50','60','70','80'],'(3 + 2) × 10 = 50.');
+q('alg','g','خاصية التوزيع','عدد التفاحات يساوي:',[E('2 × 4'),E('2 × 2'),E('2 × 6'),E('2 × 8')],'4 مجموعات في كل منها تفاحتان = 8.',`<div class="big">🍎🍎 &nbsp; 🍎🍎 &nbsp; 🍎🍎 &nbsp; 🍎🍎</div>`);
+q('alg','g','الجملة العددية','الجملة الصحيحة التي تبين قيمة 6 أوراق نقدية من فئة 5 ريالات:',[E('5 × 6 = 30'),E('6 + 3 = 9'),E('6 − 5 = 1'),E('6 ÷ 6 = 1')],'6 × 5 = 30 ريالاً.');
+q('alg','g','العلاقة بين الجمع والطرح','لكي أتحقق من عملية الجمع أستخدم:',['الطرح','الجمع','الضرب','القسمة'],'الطرح عملية عكسية للجمع.');
+q('alg','g','الجمع والطرح','كان في محفظة علي 200 ريال، أنفق منها 50 ريالاً، وأعطاه أخوه 30 ريالاً. كم لديه؟',['180','100','150','200'],'200 − 50 + 30 = 180.');
+q('alg','g','الجمع والطرح','مع أحمد 20 مجلة، أعار صديقه 5 مجلات، ثم حصل على مجلتين. كم مجلة لديه؟',['17','15','18','20'],'20 − 5 + 2 = 17.');
+q('alg','g','الجمع والطرح','أيّ العبارات الآتية غير صحيحة؟',[E('9 + 4 = 9 − 4'),E('3 + 5 = 5 + 3'),E('9 − 6 = 2 + 1'),E('3 + 5 = 8 − 0')],'9 + 4 = 13 بينما 9 − 4 = 5.');
+q('alg','g','الجمع والطرح','أيّ الجمل مرتبطة بالجملة '+E('16 + 11 = 27')+' ؟',[E('27 − 11 = 16'),E('11 + 27 = 38'),E('16 − 11 = 5'),E('11 − 2 = 9')],'حقائق مترابطة: 27 − 11 = 16.');
+q('alg','g','الضرب والجمع','في الرزمة 12 دفتراً تُباع بـ 9 ريالات. إذا أراد خالد 24 دفتراً فكم يدفع؟',['18','10','24','27'],'24 دفتراً = رزمتان، و 2 × 9 = 18.');
+q('alg','g','الضرب والجمع','أيّ العمليات يمثلها '+E('2 + 2 + 2')+' ؟',[E('3 × 2'),E('2 × 2'),E('1 × 2'),E('4 × 2')],'ثلاث مجموعات في كل منها 2.');
+q('alg','g','الضرب','عمر مهند 4 سنوات، وعمر محمد ضعف عمره. كم عمر محمد؟',['8','2','6','12'],'4 × 2 = 8.');
+q('alg','g','الضرب والطرح','اشترت خلود قلماً ودفعت للبائع 9 ورقات من فئة 5 ريالات، فأعاد إليها 3 ريالات. كم ريالاً دفعت للبائع؟',['45','42','48','50'],'9 × 5 = 45 ريالاً (وثمن القلم 42).');
+q('alg','g','القسمة والطرح','لدى خالد 10 علب هدايا، احتفظ بعلبتين ووزّع الباقي على أصدقائه الأربعة بالتساوي. كم علبة أخذ كل واحد؟',['2','4','5','6'],'10 − 2 = 8، و 8 ÷ 4 = 2.');
+q('alg','g','القسمة','في غرفة الصف 40 مقعداً مرتبة في صفوف متساوية، في كل صف 8 مقاعد. كم صفاً؟',['5','2','3','6'],'40 ÷ 8 = 5.');
+q('alg','g','القسمة والطرح المتكرر','أيّ العمليات يمثلها خط الأعداد؟',[E('4 ÷ 2 = 2'),E('8 ÷ 4 = 2'),E('4 ÷ 1 = 4'),E('12 ÷ 3 = 4')],'قفزتان كل منهما 2 من 4 إلى 0.',jumps());
+q('alg','g','القسمة والطرح المتكرر','العمليات '+E('6 − 2 = 4')+' ، '+E('4 − 2 = 2')+' ، '+E('2 − 2 = 0')+' تعبّر عن:',[E('6 ÷ 2'),E('6 ÷ 3'),E('6 ÷ 1'),E('6 ÷ 6')],'طرحنا 2 من 6 ثلاث مرات حتى الصفر، وهذا يعني 6 ÷ 2 = 3.');
+q('alg','g','القسمة والطرح المتكرر','كم مرة أطرح لأجد ناتج '+E('10 ÷ 5')+' ؟',['2','5','4','3'],'10 − 5 = 5، ثم 5 − 5 = 0 ← مرتان.');
+q('alg','g','الضرب والقسمة','يمثل الشكل الجملة '+E('4 × 6 = 24')+'. أيّ الجمل تمثل القسمة المرتبطة بها؟',[E('24 ÷ 4 = 6'),E('12 ÷ 4 = 3'),E('24 ÷ 3 = 8'),E('12 ÷ 6 = 2')],'حقائق مترابطة: 24 ÷ 4 = 6.',gridRC(4,6));
+q('alg','g','الضرب والقسمة','أيّ الجمل العددية يمثلها النموذج؟',[E('15 ÷ 3 = 5'),E('3 + 5 = 8'),E('3 + 3 + 3 + 3 = 12'),E('5 × 5 = 25')],'15 دائرة في 5 صفوف، في كل صف 3.',ovals(5,3));
+q('alg','g','خصائص العمليات','مجموع نواتج هذه العمليات: '+E('5 × 0')+' ، '+E('5 + 1')+' ، '+E('5 − 1')+' ، '+E('5 ÷ 5'),['11','8','9','10'],'0 + 6 + 4 + 1 = 11.');
+q('alg','g','الجملة العددية','تتكون بناية من 9 طوابق، ارتفاع كل طابق 3 أمتار. الجملة التي تمثل ارتفاعها:',[E('9 × 3'),E('9 + 3'),E('9 − 3'),E('9 ÷ 3')],'9 طوابق × 3 أمتار = 27 متراً.');
+q('alg','g','الجملة العددية','في مخيم كشفي 3 خيام، في كل منها 5 أفراد. كم عدد الأفراد؟',[E('5 + 5 + 5 = 15'),E('5 + 3 + 3 = 11'),E('3 + 3 + 3 = 9'),E('5 + 5 + 3 = 13')],'3 مجموعات من 5.');
+q('alg','g','الجملة العددية','اشترت هند 3 مزهريات، في كل منها 6 ورود. كم عدد الورود؟',[E('3 × 6 = 18'),E('3 × 2 = 6'),E('3 × 4 = 12'),E('6 × 4 = 24')],'3 × 6 = 18.');
+q('alg','g','الجملة العددية','حصل محمد على 5 شهادات تفوق و 6 دروع. ما عدد جوائزه؟',[E('5 + 6 = 11'),E('5 + 5 = 10'),E('6 − 5 = 1'),E('6 × 5 = 30')],'نجمع الشهادات والدروع.');
+q('alg','g','الجملة العددية','لدى نوف 5 أوراق نقدية من فئة 10 ريالات. العملية المناسبة لمعرفة ما لديها:',['الضرب: '+E('5 × 10 = 50'),'الجمع: '+E('5 + 10 = 15'),'الطرح: '+E('10 − 5 = 5'),'القسمة: '+E('10 ÷ 5 = 2')],'5 مجموعات من 10.');
+q('alg','g','الجملة العددية','أيّ مما يأتي ليس جملة عددية؟',[E('41 + 66'),E('17 + 3 = 20'),E('28 − 9 = 19'),E('12 + 2 = 14')],'الجملة العددية تحتوي على إشارة المساواة.');
+q('alg','g','الجملة العددية','أيّ الجمل مترابطة مع '+E('40 ÷ 5 = 8')+' ؟',[E('8 × 5 = 40'),E('5 + 8 = 13'),E('40 − 5 = 35'),E('8 − 5 = 3')],'الضرب والقسمة عمليتان متعاكستان.');
+
+/* --- المرشد: الهندسة --- */
+q('geo','g','الأشكال ثنائية الأبعاد','اسم الشكل:',['سداسي','سباعي','خماسي','رباعي'],'للشكل 6 أضلاع.',hexagonSVG());
+q('geo','g','الأشكال ثنائية وثلاثية الأبعاد','الشكل المختلف عن بقية الأشكال:',[shape2('box'),shape2('tri'),shape2('rect'),shape2('circ')],'متوازي المستطيلات مجسم، والبقية أشكال مستوية.');
+q('geo','g','المضلعات','الشكل الذي ليس مضلعاً:',[shape2('eight'),shape2('rect'),shape2('sq'),shape2('tri')],'المضلع شكل مغلق أضلاعه قطع مستقيمة، والشكل المنحني ليس مضلعاً.');
+q('geo','g','المضلعات','الشكل الذي له ثلاثة أضلاع وثلاثة رؤوس:',['المثلث','شبه المنحرف','المستطيل','المربع'],'المثلث له 3 أضلاع و 3 رؤوس.');
+q('geo','g','التماثل','أيّ الخطوط يمثل خط التماثل للفراشة؟',['س','ص','ع','ف'],'الخط الرأسي س يقسم الفراشة إلى نصفين متطابقين.',butterfly());
+q('geo','g','التماثل','أيّ الأشكال الآتية ليس له محور تماثل؟',[shape2('para'),shape2('star'),shape2('heart'),shape2('arc')],'متوازي الأضلاع المائل لا يمكن طيّه إلى نصفين متطابقين.');
+q('geo','g','التماثل','عدد محاور التماثل في الدائرة:',['عدد لا نهائي','1','2','3'],'كل قطر في الدائرة محور تماثل.');
+q('geo','g','المجسمات','حدّد الشكل المختلف:',['<span class="big">⚽</span>',shape2('tri'),shape2('sq'),hexagonSVG(64)],'الكرة مجسم، والبقية أشكال مستوية.');
+q('geo','g','المجسمات','مجسم له رأس واحد ووجه واحد:',[solid('cone'),solid('cyl'),pyr(),solid('cube')],'المخروط له رأس واحد وقاعدة دائرية واحدة.');
+q('geo','g','المجسمات','عدد أوجه المكعب:',['6 أوجه','8 أوجه','4 أوجه','12 وجهاً'],'للمكعب 6 أوجه مربعة.');
+q('geo','g','المجسمات','مجسم ليس له أحرف ولا أوجه ولا رؤوس:',['الكرة','المخروط','المكعب','الهرم'],'الكرة سطح منحنٍ واحد.');
+q('geo','g','المجسمات','للمقارنة بين المجسمين اختر الجملة المناسبة:',['للمكعب أحرف أكثر من الهرم الرباعي','للهرم الرباعي أحرف أكثر من المكعب','لهما عدد الأوجه نفسه','لهما عدد الرؤوس نفسه'],'للمكعب 12 حرفاً و 6 أوجه و 8 رؤوس، وللهرم الرباعي 8 أحرف و 5 أوجه و 5 رؤوس.',`<div class="rowf">${solid('cube')}${pyr()}</div>`);
+q('geo','g','تكوين الأشكال','كم مثلثاً في الشكل؟',['8 مثلثات','مثلثان','4 مثلثات','6 مثلثات'],'4 مثلثات صغيرة، و 4 كبيرة يكوّن كل منها قطر مع ضلعين.',sqDiag());
+q('geo','g','المجسمات','عدد الدوائر في المجسم:',['دائرتان','3 دوائر','4 دوائر','دائرة واحدة'],'للأسطوانة قاعدتان دائريتان.',solid('cyl'));
+q('geo','g','تكوين المجسمات','الشكل مكوّن من مجسمين هما:',['مكعب وهرم رباعي','مكعب ومخروط','أسطوانة ومخروط','أسطوانة وهرم رباعي'],'قاعدة مكعبة يعلوها هرم رباعي.',cubePyr());
+q('geo','g','تكوين الأشكال','لكي أكوّن شكلاً سداسياً أستخدم الشكلين:',['3 و 4','2 و 5','1 و 4','1 و 2'],'شبها المنحرف 3 و 4 إذا وُضع أحدهما فوق الآخر كوّنا سداسياً.',pieces());
+q('geo','g','تكوين الأشكال','يحيط بالطاولة الواحدة 4 كراسي. كم كرسياً يمكن وضعه حول طاولتين وُضعتا جنباً إلى جنب؟',['6 كراسي','9 كراسي','8 كراسي','7 كراسي'],'يختفي الكرسيان عند الضلعين الملتصقين: 8 − 2 = 6.',tables());
+q('geo','g','المحيط','الإطار الخارجي للشكل هو:',['المحيط','المساحة','الحجم','الطول'],'المحيط مجموع أطوال الحدود الخارجية.');
+q('geo','g','المحيط','محيط مستطيل طوله 4 سم وعرضه 2 سم:',['12 سم','7 سم','15 سم','20 سم'],'4 + 2 + 4 + 2 = 12.');
+q('geo','g','المحيط','مربع محيطه 16 سم. طول ضلعه:',['4 سم','3 سم','5 سم','6 سم'],'16 ÷ 4 = 4.');
+q('geo','g','المحيط','محيط مثلث متطابق الأضلاع طول ضلعه 2 سم:',['6 سم','4 سم','12 سم','6 م'],'2 × 3 = 6 سم.');
+q('geo','g','المحيط','يريد بدر وضع سياج حول حديقة خماسية أضلاعها متساوية، واشترى 50 متراً. كم متراً على كل جانب؟',['10 أمتار','15 متراً','25 متراً','45 متراً'],'50 ÷ 5 = 10.');
+q('geo','g','المحيط','محيط الشكل:',['13 سم','11 سم','9 م','12 م'],'3 + 3 + 3 + 2 + 2 = 13 سم.',notch());
+q('geo','g','المساحة','عدد الوحدات المربعة اللازمة لتغطية أرضية ملعب هو:',['المساحة','المحيط','الحجم','الطول'],'المساحة عدد الوحدات المربعة التي تغطي الشكل.');
+q('geo','g','المساحة','مساحة الشكل الملوّن:',['4 وحدات مربعة','10 وحدات مربعة','3 وحدات مربعة','6 وحدات مربعة'],'نعدّ المربعات الملونة: 4.',gridShape([[2,1],[2,2],[2,3],[1,3]],4,5));
+q('geo','g','المساحة','أرضية قاعة مستطيلة طولها 5 وحدات وعرضها 3 وحدات. مساحتها:',['15 وحدة مربعة','16 وحدة مربعة','17 وحدة مربعة','20 وحدة مربعة'],'5 × 3 = 15.');
+q('geo','g','المساحة','أرضية غرفة مربعة طول ضلعها 4 وحدات. مساحتها:',['16 وحدة مربعة','4 وحدات مربعة','10 وحدات مربعة','8 وحدات مربعة'],'4 × 4 = 16.');
+q('geo','g','المساحة','يخطط وليد لتغطية جزء من منزله ببلاط الرخام كما في الشكل. ما مساحة الجزء الملوّن؟',['15 وحدة مربعة','12 وحدة مربعة','16 وحدة مربعة','14 وحدة مربعة'],'3 صفوف في كل صف 5 مربعات = 15.',gridShape(rect(1,2,3,5),6,8,24));
+q('geo','g','المساحة','مساحة المستطيل المظلل:',['6 وحدات مربعة','5 وحدات مربعة','7 وحدات مربعة','8 وحدات مربعة'],'صفّان في كل صف 3 = 6.',gridShape(rect(1,1,2,3),4,5));
+q('geo','g','المساحة','أيّ الأشكال المظللة مساحته 3 وحدات مربعة؟',[gridShape(rect(1,1,1,3),3,5,18),gridShape(rect(1,2,1,2),3,5,18),gridShape(rect(1,1,2,3),3,5,18),gridShape(rect(1,1,2,4),4,6,18)],'نعدّ المربعات المظللة: 3 فقط في الشكل الصحيح.');
+
+/* --- المرشد: القياس --- */
+q('geo','g','وحدات الطول','اختر الوحدة المناسبة لقياس طول نملة:',['الملّيمتر','الكيلومتر','السنتيمتر','المتر'],'النملة صغيرة جداً، طولها بضعة ملّيمترات.');
+q('geo','g','تقدير الأطوال','التقدير الأنسب لطول ميدان سباق:',['10 كلم','10 م','10 ملم','10 سم'],'مسافات السباق الطويلة تُقاس بالكيلومترات.');
+q('geo','g','تحويل وحدات الطول','نبتة طولها 100 سنتيمتر. كيف نصف طولها بوحدة مترية أخرى؟',['1 م','100 م','10 كلم','10 ملم'],'100 سم = 1 متر.');
+q('geo','g','وحدات الطول','وحدة القياس المناسبة للمسافة من السبورة إلى آخر غرفة الصف:',['المتر','الملّيمتر','السنتيمتر','الكيلومتر'],'طول الغرفة بضعة أمتار.');
+q('geo','g','الأطوال','لدى رشا 50 قطعة زجاجية طول كل منها 4 سنتيمترات، رتّبتها جنباً إلى جنب. كم متراً يبلغ طول صفّها؟',['2 م','20 سم','200 م','20 م'],'50 × 4 = 200 سم = 2 متر.');
+q('geo','g','الكتل','كتلة مشبك الورق جرام واحد، وكتلة علبة المشابك كيلوجرام واحد. كم مشبكاً في العلبة؟',['1000','10','100','10000'],'1 كجم = 1000 جم.');
+q('geo','g','وحدات الكتلة','اختر الوحدة الأنسب لقياس كتلة برتقالة:',['الجرام','الملّيمتر','المتر','الكيلوجرام'],'البرتقالة خفيفة، تقاس بالجرامات.');
+q('geo','g','تقدير الكتل','التقدير الأنسب لكتلة طاولة الطعام:',['7 كجم','5 ملم','3 جم','5 لتر'],'الطاولة ثقيلة نسبياً، والملّيمتر واللتر ليسا وحدتي كتلة.');
+q('geo','g','الكتل','اصطاد محمد سمكة كتلتها 2 كجم. ما كتلتها بالجرام؟',['2000 جم','20 جم','200 جم','200 كجم'],'2 × 1000 = 2000.');
+q('geo','g','تقدير السعات','التقدير الأنسب لسعة كوب ماء:',['100 مل','5 لتر','2 لتر','10 مل'],'الكوب يتسع لأقل من لتر بكثير، و 10 مل قليلة جداً.',`<span class="big">🥛</span>`);
+q('geo','g','وحدات السعة','الوحدة المناسبة لقياس سعة إبريق شاي:',['اللتر','الجرام','الكيلومتر','المتر'],'السعة تقاس باللتر أو الملّيلتر، والجرام للكتلة والكيلومتر والمتر للطول.');
+q('geo','g','تقدير السعات','يستعمل محمد ملعقة لقياس العسل. سعة ملعقة العسل تساوي تقريباً:',['5 مل','5 ملم','5 م','5 ل'],'الملعقة تتسع لنحو 5 ملّيلترات.',`<span class="big">🥄🍯</span>`);
+q('geo','g','تحويل وحدات السعة','اشترى سعيد عبوة طلاء سعتها 2000 ملّيلتر. كم لتراً سعتها؟',['2 لتر','2 مل','2 م','5 مل'],'1000 مل = 1 لتر.');
+q('geo','g','النقود','كم ورقة نقدية من فئة 100 ريال تكوّن 1000 ريال؟',['10','50','5','1000'],'10 × 100 = 1000.');
+q('geo','g','النقود','دفع فيصل النقود الآتية لشراء شاشة. ما ثمنها؟',['660 ريالاً','600 ريال','650 ريالاً','700 ريال'],'500 + 100 + 50 + 10 = 660.',`<div class="rowf">${note(500)}${note(100)}${note(50)}${note(10)}</div>`);
+q('geo','g','النقود','قدّر فئة النقود المناسبة لشراء قلم رصاص:',[`<div class="rowf">${coin()}${coin()}</div>`,note(50),note(100),halala()],'قلم الرصاص رخيص، يكفيه ريالان.');
+q('geo','g','النقود','أراد سالم شراء هدية لأمه بسعر 217 ريالاً. أيّ المبالغ يساوي ثمنها تماماً؟',[`<div class="rowf">${note(100)}${note(100)}${note(10)}${note(5)}${coin()}${coin()}</div>`,`<div class="rowf">${note(100)}${note(50)}${note(5)}</div>`,`<div class="rowf">${note(100)}${note(100)}${note(5)}${coin()}</div>`,`<div class="rowf">${halala()}${coin()}</div>`],'100 + 100 + 10 + 5 + 1 + 1 = 217.');
+q('geo','g','النقود','خمس ورقات من فئة 50 ريالاً تساوي:',['250 ريالاً','300 ريال','350 ريالاً','400 ريال'],'5 × 50 = 250.');
+q('geo','g','النقود','مع خالد 5 ورقات من فئة 10 ريالات، وأراد شراء لعبة بـ 30 ريالاً. كم ورقة يحتاج؟',['3 ورقات','5 ورقات','4 ورقات','6 ورقات'],'30 ÷ 10 = 3.');
+q('geo','g','النقود','مع محمد 32 ريالاً ويريد لعبة ثمنها 80 ريالاً. إذا وفّر كل أسبوع 8 ريالات، فبعد كم أسبوع يستطيع شراءها؟',['6 أسابيع','4 أسابيع','5 أسابيع','10 أسابيع'],'يحتاج 80 − 32 = 48، و 48 ÷ 8 = 6.');
+q('geo','g','النقود','ذهبت أمل وهند لشراء ملابس سعرها 480 ريالاً ومعهما المبلغ المبين. كم ينقصهما؟',['60','280','170','48'],'معهما 4 × 100 + 2 × 10 = 420، و 480 − 420 = 60.',`<div class="rowf">${note(100)}${note(100)}${note(100)}${note(100)}${note(10)}${note(10)}</div>`);
+q('geo','g','مقارنة المبالغ','حدّد المبلغ الأكبر:',[note(100),`<div class="rowf">${note(10)}${note(10)}${note(10)}</div>`,`<div class="rowf">${note(10)}${coin()}${coin()}${coin()}${coin()}${coin()}</div>`,`<div class="rowf">${note(5)}${coin()}${coin()}${coin()}${coin()}</div>`],'المبالغ: 100، 30، 15، 9.');
+q('geo','g','النقود','مع سعاد 50 ريالاً، وسعر علبة الحلوى 5 ريالات. كم علبة تستطيع شراءها؟',['10 علب','8 علب','9 علب','11 علبة'],'50 ÷ 5 = 10.');
+q('geo','g','النقود','دفع محمد 20 ريالاً لتذكرة دخول مدينة الألعاب، وتناول وجبة بالأصناف في القائمة. كم دفع للوجبة والتذكرة معاً؟',['50','20','30','25'],'20 + 15 + 8 + 7 = 50.',tbl(['الصنف','السعر'],[['شطائر','15 ريالاً'],['بطاطس','8 ريالات'],['عصير','7 ريالات']]));
+q('geo','g','النقود','وفّر محمد 852 ريالاً هذا العام، و 755 ريالاً العام الماضي. كم زاد توفيره؟',['97','65','85','100'],'852 − 755 = 97.');
+q('geo','g','النقود','تبرع ثلاثة أصدقاء بالمبالغ المبينة. أيّ مما يلي يمثل مجموع ما دفعوا؟',['930','901','915','940'],'أحمد 700، وعلي 150، وفيصل 80، والمجموع 930.',tbl(['أحمد','علي','فيصل'],[[`<div class="rowf">${note(500)}${note(100)}${note(100)}</div>`,`<div class="rowf">${note(100)}${note(50)}</div>`,`<div class="rowf">${note(50)}${note(10)}${note(10)}${note(10)}</div>`]]));
+q('geo','g','ساعة العقارب','في ساعة العقارب يكون العقرب الأقصر هو عقرب:',['الساعات','الدقائق','الثواني','الأجزاء'],'عقرب الساعات أقصر العقارب.');
+q('geo','g','تقدير الزمن','تقدير الزمن اللازم لغسل اليدين:',['دقيقة واحدة','ثانية واحدة','ساعة واحدة','يوم كامل'],'غسل اليدين يستغرق نحو دقيقة.');
+q('geo','g','قراءة الوقت','عندما يشير عقرب الدقائق إلى الرقم 7 فإن عدد الدقائق:',['35 دقيقة','30 دقيقة','40 دقيقة','45 دقيقة'],'7 × 5 = 35.');
+q('geo','g','تقدير الزمن','تستغرق الحصة الدراسية:',['45 دقيقة','5 ثوانٍ','10 دقائق','3 ساعات'],'الحصة نحو 45 دقيقة.');
+q('geo','g','أنواع الساعات','الساعة التي تُظهر الزمن بالأرقام تسمى:',['ساعة رقمية','ساعة عقارب','ساعة رملية','ساعة مائية'],'الساعة الرقمية تعرض الوقت أرقاماً.');
+q('geo','g','قراءة الوقت','الوقت الذي تشير إليه الساعة:',['الواحدة تماماً','الثانية عشرة وخمس دقائق','الثانية عشرة وخمس وعشرون دقيقة','الواحدة وخمس دقائق'],'عقرب الساعات على 1، وعقرب الدقائق على 12.',clock(1,0));
+q('geo','g','صباحاً ومساءً','أعود من المدرسة وقت:',['الظهر','الصباح','المساء','الفجر'],'ينتهي الدوام المدرسي وقت الظهر.');
+q('geo','g','حساب الزمن','إذا كانت ساعة الحائط تشير إلى '+E('8:45')+' فكم يكون الوقت بعد 7 دقائق؟',[E('8:52'),E('8:50'),E('8:53'),E('8:54')],'45 + 7 = 52.');
+q('geo','g','قراءة الساعة الرقمية','كيف أقرأ الوقت؟',['التاسعة وثلاثون دقيقة','التاسعة تماماً','التاسعة وخمسون دقيقة','الثالثة وتسع دقائق'],'9 ساعات و 30 دقيقة.',digital('9:30'));
+q('geo','g','قراءة الوقت','الزمن الذي تشير إليه الساعة:',[E('10:10'),E('10:30'),E('10:05'),E('10:00')],'عقرب الساعات بعد 10 بقليل، وعقرب الدقائق على 2 (10 دقائق).',clock(10,10));
+q('geo','g','المدد الزمنية','إذا كان أمس يوم الأحد، فإن غداً يوم:',['الثلاثاء','السبت','الأحد','الإثنين'],'أمس الأحد، فاليوم الإثنين، وغداً الثلاثاء.');
+q('geo','g','حساب الزمن','بدأت حصة التربية الفنية الساعة '+E('11:45')+' وانتهت بعد 45 دقيقة. متى انتهت؟',[E('12:30'),E('11:30'),E('1:15'),E('1:45')],'11:45 + 15 دقيقة = 12:00، ثم + 30 دقيقة = 12:30.');
+q('geo','g','حساب الزمن','دخل محمد المسجد الساعة '+E('6:35')+' مساءً وخرج الساعة '+E('6:56')+' مساءً. كم دقيقة بقي في المسجد؟',['21 دقيقة','40 دقيقة','30 دقيقة','31 دقيقة'],'56 − 35 = 21.');
+q('geo','g','حساب الزمن','يقطع صالح كيلومتراً كل ربع ساعة مشياً. إذا بدأ الساعة السادسة، فكم تكون الساعة بعد أن يقطع 3 كلم؟',[E('6:45'),E('5:45'),E('5:05'),E('6:15')],'3 × 15 = 45 دقيقة.');
+q('geo','g','حساب الزمن','دخل حامد الغرفة الساعة '+E('8:33')+' وخرج بعد 30 دقيقة. متى خرج؟',[E('9:03'),E('9:11'),E('9:15'),E('10:00')],'33 + 30 = 63 دقيقة = ساعة و 3 دقائق.');
+q('geo','g','تقدير الزمن','قدّر الزمن الذي يستغرقه محمد ماشياً من بيته إلى حديقة الحي القريبة:',['5 دقائق','5 أيام','5 ثوانٍ','5 ساعات'],'المسافة قصيرة، تُقطع في دقائق.',`<div class="rowf"><span class="big">🏠</span><span>〰〰〰</span><span class="big">🌳</span></div>`);
+
+/* --- المرشد: الإحصاء --- */
+q('stat','g','الجداول التكرارية','أرادت هند شراء فطائر حسب الجدول. أيّ العبارات صحيحة؟',['4 دجاج','7 بيض','8 زعتر','5 جبن'],'الإشارات: جبن 3، زعتر 6، دجاج 4، بيض 5.',`<table class="dt"><tr><th>نوع الفطائر</th><th>الإشارات</th></tr>${[['جبن',3],['زعتر',6],['دجاج',4],['بيض',5]].map(([a,n])=>`<tr><td>${a}</td><td>${tally(n)}</td></tr>`).join('')}</table>`);
+q('stat','g','تنظيم البيانات','لدى عبدالرحمن 4 أقلام زرقاء و 3 حمراء، ولدى خالد 5 زرقاء و 3 سوداء. كم قلماً أزرق لديهما؟',['9 أقلام','3 أقلام','5 أقلام','4 أقلام'],'4 + 5 = 9.');
+q('stat','g','جمع البيانات','طريقة جمع البيانات عن طريق طرح الأسئلة تسمى:',['المسح','لوحة الإشارات','التمثيل بالأعمدة','التمثيل بالرموز'],'المسح: سؤال الناس وجمع إجاباتهم.');
+q('stat','g','الأعمدة البيانية','يوضح التمثيل عدد الطلاب المتفوقين الذين كتبوا تقارير عن بعض الحيوانات. كم عدد الطلاب؟',['18','1','7','20'],'4 + 6 + 2 + 4 + 2 = 18.',bars({labels:['الأسد','النمر','الفهد','الفيل','الزرافة'],vals:[4,6,2,4,2],max:8,step:1,le:2,col:'#3b8fe0',title:'الطلاب المتفوقون',yl:'عدد الطلاب'}));
+q('stat','g','التمثيل بالرموز','كم يزيد عدد من يفضلون البرامج الرياضية على من يفضلون البرامج الثقافية؟',['6','2','4','18'],'الفرق رمزان، وكل رمز 3 أشخاص: 2 × 3 = 6.',picto([['الإخبارية',3],['الرياضية',4],['الثقافية',2]],'⬛','3 أشخاص','البرامج التلفزيونية المفضلة'));
+q('stat','g','التمثيل بالرموز','يبين التمثيل القلائد التي بيعت في أحد المتاجر. أيّ المعلومات تحتاجها لإكماله؟',['نوع القلائد التي بيع منها اثنتان','مكان المتجر','عدد قلائد الألماس المبيعة','عدد القلائد جميعها'],'الصف الثاني بلا اسم، وفيه قلادتان.',picto([['الخرز',4],['؟',2],['الألماس',5]],'💧','قلادة واحدة','القلائد التي بيعت'));
+q('stat','g','التمثيل بالرموز','سجّل محمد 10 أهداف في مباراة كرة السلة. كم كرة يجب رسمها مقابل اسمه؟',['5','3','4','6'],'كل كرة = هدفان، و 10 ÷ 2 = 5.',picto([['محمود',2],['خالد',3],['محمد',0]],'🏀','هدفان','الأهداف المسجلة'));
+q('stat','g','قراءة الأعمدة البيانية','يمثل التمثيل إنتاج القمح في بعض الدول المجاورة. اختر جملة تصف إنتاج المملكة العربية السعودية:',['السعودية أكثر الدول إنتاجاً','السعودية أقل الدول إنتاجاً','السعودية أقل من اليمن في الإنتاج','السعودية تأتي في الترتيب الثاني'],'عمود السعودية هو الأطول.',bars({labels:['عمان','مصر','السعودية','السودان','اليمن'],vals:[5,6,12,10,4],max:14,step:1,le:2,col:'#2e7d57',title:'إنتاج القمح',yl:'الإنتاج'}));
+q('stat','g','قراءة الأعمدة البيانية','كم يزيد عدد الأوراق اللاصقة على عدد أقلام الرصاص؟',['يزيد بـ 15','يزيد بـ 6','يزيد بـ 3','يزيد بـ 14'],'20 − 5 = 15.',bars({labels:['قلم رصاص','دفتر','أوراق لاصقة','قلم حبر'],vals:[5,10,20,5],max:30,step:5,le:10,title:'اللوازم المدرسية',yl:'العدد'}));
+q('stat','g','التمثيل بالرموز','ماذا يمثل التمثيل بالرموز الآتي؟',['ألوان الأزهار','الألوان المفضلة','الأزهار المفضلة','أنواع الأزهار'],'الصفوف أسماء ألوان، والرموز أزهار.',picto([['أحمر',5],['أصفر',4],['أبيض',2],['بنفسجي',3]],'🌸','زهرتان'));
+
+/* --- مذكرة التدريب على نافس (الأحساء - الهفوف) --- */
+q('num','k','قراءة الأعداد وتكوينها','أحرز خالد في لعبة رمي السهام عدداً من ثلاث منازل، رقم عشراته صفر، وهو أصغر عدد يمكن تكوينه بشرط: رقم المئات أصغر من 5 وأكبر من 1، ورقم الآحاد ليس صفراً. كم نقطة أحرز؟',['201','210','502','127'],'أصغر رقم للمئات هو 2، والعشرات 0، وأصغر آحاد غير الصفر 1 ← 201.');
+q('num','k','القيمة المنزلية','جلست نورة في المقعد رقم 1024، وجلست حنين في مقعد له رقما العشرات والألوف نفسهما، ورقم مئاته أكبر باثنين، ورقم آحاده أقل بثلاثة. ما رقم مقعد حنين؟',['1221','1224','1021','2120'],'الألوف 1، المئات 0 + 2 = 2، العشرات 2، الآحاد 4 − 3 = 1 ← 1221.');
+q('num','k','تمثيل الأعداد بالنماذج','اكتب بالصيغة القياسية العدد الذي يمثله النموذج:',['1304','1403','1034','1340'],'مكعب ألف واحد، و 3 لوحات مئات، ولا عشرات، و 4 آحاد ← 1304.',`<div class="rowf">${cube1000()}${bt(3,0,4)}</div>`);
+q('num','k','تكوين الأعداد','ما أكبر مبلغ يمكن تكوينه من الأرقام 3، 2، 9، 7 دون تكرار؟',['9732','7932','2739','7329'],'نرتب الأرقام من الأكبر إلى الأصغر: 9، 7، 3، 2.');
+q('num','k','القيمة المنزلية','يفكر عمر في عدد رقم آحاده 2، ورقم مئاته ثلاثة أمثال رقم آحاده، ورقم عشراته صفر. ما العدد؟',['602','902','206','209'],'المئات 3 × 2 = 6، العشرات 0، الآحاد 2 ← 602.');
+q('num','k','تكوين الأعداد','استعمل الأرقام 6، 2، 8، 1، 4 لتكتب أكبر عدد من خمس منازل دون تكرار:',['86421','62814','81427','12468'],'نرتب الأرقام تنازلياً: 8، 6، 4، 2، 1.');
+q('num','k','تكوين الأعداد','استعمل الأرقام 6، 2، 8، 1، 4 لتكتب أصغر عدد من خمس منازل دون تكرار:',['12468','62814','86421','81427'],'نرتب الأرقام تصاعدياً: 1، 2، 4، 6، 8.');
+q('num','k','القيمة المنزلية','حدّد العدد المختلف فيما يلي:',['10 مئات','10000','عشرة آلاف','100 مئة'],'10 مئات = 1000، أما البقية فكلها تساوي 10000.');
+q('num','k','الصيغة التحليلية','حدّد الرقم المفقود: '+E('3 + 90 + 5000 + 800000 = 8▢5093'),['0','5','3','9'],'لا توجد عشرات ألوف في المجموع، فرقمها 0 ← 805093.');
+q('num','k','الصيغة القياسية','كتب أحمد العدد «عشرة آلاف وأربعة» بالصيغة القياسية بطريقة صحيحة. أيّها كانت إجابته؟',['10004','40001','400001','100004'],'10000 + 4 = 10004.');
+q('num','k','الصيغة التحليلية','في مزرعة حمد 1372 نخلة. أيّ مما يلي يساوي 1372؟',[E('1000 + 300 + 70 + 2'),E('1 + 3 + 7 + 2'),E('100 + 300 + 70 + 2'),E('2000 + 70 + 30 + 1')],'1 ألف، 3 مئات، 7 عشرات، 2 آحاد.');
+q('num','k','الدورات في الأعداد','أيّ الأعداد الآتية مجموع أرقام دورة الآحاد فيه يساوي مجموع أرقام دورة الألوف؟',['20011','11111','20202','40011'],'في 20011: دورة الآحاد 011 مجموعها 2، ودورة الألوف 20 مجموعها 2.');
+q('num','k','مقارنة الأعداد','قطع صالح بدراجته 10384 كلم، وسالم 10438 كلم، وحسن 10348 كلم، وعبدالله 1384 كلم. أيّهم قطع مسافة أطول؟',['سالم','صالح','عبدالله','حسن'],'نقارن المئات في الأعداد الخماسية: 4 في 10438 هي الأكبر.');
+q('num','k','ترتيب الأعداد','أيّ مجموعات الأعداد الآتية مرتبة من الأكبر إلى الأصغر؟',['6541، 5641، 5614','14308، 80341، 14038','358، 301، 491','6814، 1468، 8146'],'6541 أكبر من 5641، و 5641 أكبر من 5614.');
+q('num','k','ترتيب الأعداد','أحرز جاسم 6921 نقطة، وسعيد 6038، وعلي 6215. ما ترتيبهم من الأصغر إلى الأكبر؟',['سعيد، علي، جاسم','جاسم، سعيد، علي','سعيد، جاسم، علي','علي، سعيد، جاسم'],'6038 < 6215 < 6921.');
+q('num','k','مقارنة الأعداد','أيّ الأعداد الآتية أصغر؟',['1770','7 ألوف و 1 مئات و 7 آحاد',E('7000 + 100 + 70'),'7017'],'الأعداد: 1770، 7107، 7170، 7017، وأصغرها 1770.');
+q('num','k','مقارنة الأعداد','اختر العدد المناسب: '+E('▢ &gt; 21305'),['200001','21035','3928','4978'],'200001 عدد من ست منازل، فهو أكبر من 21305.');
+q('num','k','مقارنة الأعداد','يحتاج الفوز في لعبة إلى 435 نقطة على الأقل. سجّل علاء 367، ومهند 455، وحمد 437. من اللاعب الذي لن يفوز؟',['علاء','مهند','حمد','لا أحد'],'367 أقل من 435.');
+q('num','k','مقارنة الأعداد','ادّخر حامد 61980 ريالاً، ورياض 61890 ريالاً، ونوح 3000 ريال أكثر من حامد. من ادّخر أقل مبلغ؟',['رياض','نوح','حامد','حامد ورياض'],'61890 أقل من 61980، ونوح أكثر من حامد.');
+q('num','k','مقارنة الأعداد','ما الرقم الذي يجعل الجملة صحيحة؟ '+E('263▢4 &gt; 26357'),['6','3','4','5'],'26364 أكبر من 26357، أما 26354 فأصغر.');
+q('num','k','تكوين الأعداد','استعمل الأرقام 4، 9، 3، 8، 1 لكتابة أكبر عدد دون تكرار:',['98431','49381','13489','18394'],'نرتب الأرقام تنازلياً.');
+q('num','k','تكوين الأعداد','استعمل الأرقام 4، 9، 3، 8، 1 لكتابة أصغر عدد دون تكرار:',['13489','49381','98431','18394'],'نرتب الأرقام تصاعدياً.');
+q('num','k','ترتيب الأعداد','يبين الجدول سنوات بعض الأحداث التاريخية. أيّ الأحداث أقدم؟',['استرداد الرياض','توحيد المملكة العربية السعودية','وفاة الملك عبدالعزيز','ضم الحجاز'],'أصغر سنة هي 1319هـ.',tbl(['الحدث','السنة'],[['استرداد الرياض','1319هـ'],['ضم الحجاز','1344هـ'],['توحيد المملكة','1351هـ'],['وفاة الملك عبدالعزيز رحمه الله','1373هـ']]));
+q('num','k','مقارنة الأعداد','أيّ المحيطات أعمق وفق الجدول؟',['المحيط الهادي','المحيط الأطلسي','المحيط الهندي','المحيط المتجمد الشمالي'],'4282 هو العدد الأكبر.',tbl(['المحيط','متوسط العمق'],[['الهادي','4282 متراً'],['الأطلسي','3868 متراً'],['الهندي','3963 متراً'],['المتجمد الشمالي','1526 متراً']]));
+q('num','k','ترتيب الأعداد','رتّب أنواع السيارات من الأقل ثمناً إلى الأكثر ثمناً:',['المتوسطة، العائلية، الرياضية','الرياضية، المتوسطة، العائلية','المتوسطة، الرياضية، العائلية','الرياضية، العائلية، المتوسطة'],'21988 < 33499 < 45039.',tbl(['نوع السيارة','الثمن','عدد المبيعات'],[['رياضية','45039 ريالاً',1309],['عائلية','33499 ريالاً',3980],['متوسطة','21988 ريالاً',2881]]));
+const ELE=tbl(['الفيل','الارتفاع','الوزن'],[['ذكر الفيل الإفريقي','350 سم','5500 كجم'],['أنثى الفيل الإفريقي','280 سم','3500 كجم'],['ذكر الفيل الهندي','320 سم','3900 كجم'],['أنثى الفيل الهندي','250 سم','3000 كجم']]);
+q('num','k','مقارنة الأعداد','أيّ الفيلة أثقل وزناً؟',['ذكر الفيل الإفريقي','أنثى الفيل الإفريقي','أنثى الفيل الهندي','ذكر الفيل الهندي'],'5500 كجم هو الأكبر.',ELE);
+q('num','k','مقارنة الأعداد','أيّ الفيلة أقصر طولاً؟',['أنثى الفيل الهندي','أنثى الفيل الإفريقي','ذكر الفيل الإفريقي','ذكر الفيل الهندي'],'250 سم هو الأصغر.',ELE);
+q('num','k','ترتيب الأعداد','رتّب الفيلة من أقلها وزناً إلى أكثرها وزناً:',['أنثى الهندي، أنثى الإفريقي، ذكر الهندي، ذكر الإفريقي','ذكر الإفريقي، ذكر الهندي، أنثى الهندي، أنثى الإفريقي','أنثى الإفريقي، ذكر الإفريقي، ذكر الهندي، أنثى الهندي','ذكر الهندي، أنثى الهندي، أنثى الإفريقي، ذكر الإفريقي'],'3000 < 3500 < 3900 < 5500.',ELE);
+q('num','k','ترتيب الأعداد','رتّب الفيلة من الأطول إلى الأقصر:',['ذكر الإفريقي، ذكر الهندي، أنثى الإفريقي، أنثى الهندي','أنثى الهندي، أنثى الإفريقي، ذكر الإفريقي، ذكر الهندي','ذكر الهندي، أنثى الهندي، أنثى الإفريقي، ذكر الإفريقي','أنثى الإفريقي، ذكر الإفريقي، ذكر الهندي، أنثى الهندي'],'350 > 320 > 280 > 250.',ELE);
+q('num','k','مقارنة الأعداد','لدى إيمان وحنان ومنال وليلى الرواية نفسها. قرأت إيمان 320 صفحة، وحنان 289، ومنال 327، وليلى 372. أيّهن بقي لها عدد صفحات أكثر؟',['حنان','إيمان','منال','ليلى'],'من قرأت أقل عدد من الصفحات يبقى لها أكثر: 289 هو الأقل.');
+q('num','k','مقارنة الأعداد','اشترى محمد حاسوباً ثمنه 5438 ريالاً، ووجده في متاجر أخرى بأسعار مختلفة. أيّ الأثمان أقل من الثمن الذي دفعه؟',['5348','5483','5843','5438'],'في 5348 المئات 3 أقل من 4.');
+q('num','k','مقارنة النواتج','حدّد الناتج الأكبر:',[E('8491 − 8447'),E('63 ÷ 7'),E('17 + 26'),E('7 × 6')],'النواتج: 44، 9، 43، 42.');
+q('num','k','مقارنة النواتج','اختر العلامة المناسبة: '+E('65 − 37 ◯ 7 × 4'),[E('='),E('&lt;'),E('&gt;'),E('+')],'65 − 37 = 28، و 7 × 4 = 28.');
+q('num','k','القيمة المنزلية','أيّ الأعداد الآتية رقم منزلة المئات فيه أكبر؟',['18694','49381','98431','13589'],'أرقام المئات: 6، 3، 4، 5.');
+q('num','k','مقارنة الأعداد','اختر العلامة المناسبة: '+E('3057 ◯ 3000 + 500 + 7'),[E('&lt;'),E('&gt;'),E('='),E('−')],'3000 + 500 + 7 = 3507، و 3057 أصغر منه.');
+q('num','k','مقارنة الأعداد','العدد 50740 مقارنةً بالعدد «خمسون ألفاً وسبعمئة وأربعة» هو:',['أكبر منه','أصغر منه','يساويه','لا يمكن المقارنة'],'خمسون ألفاً وسبعمئة وأربعة = 50704، والعشرات 4 في 50740 أكبر من 0.');
+q('num','k','حقائق العمليات','اختر العملية المناسبة لتصبح الجملة صحيحة: '+E('60 + 4 = 8 ◯ 8'),[E('×'),E('+'),E('−'),E('÷')],'60 + 4 = 64، و 8 × 8 = 64.');
+q('num','k','حقائق العمليات','اختر العملية المناسبة لتصبح الجملة صحيحة: '+E('58 ◯ 4 = 9 × 6'),[E('−'),E('+'),E('×'),E('÷')],'9 × 6 = 54، و 58 − 4 = 54.');
+q('alg','k','الأنماط العددية','ما العدد التالي في النمط: 6، 12، 24، 48، ....',['96','30','36','60'],'كل عدد ضعف الذي قبله: 48 × 2 = 96.');
+q('num','k','حل المسائل','عمر سمر 8 سنوات، وتكبرها أختها نعيمة بسنتين. كم كان عمر نعيمة عندما كان عمر سمر سنتين؟',['4','10','8','6'],'الفرق بينهما سنتان دائماً: 2 + 2 = 4.');
+q('num','k','حل المسائل','يدّخر أحمد لشراء دراجة ثمنها 525 ريالاً، وادّخر حتى الآن 175 ريالاً. إذا ادّخر 50 ريالاً كل أسبوع، فبعد كم أسبوع يشتريها؟',['7 أسابيع','5 أسابيع','9 أسابيع','8 أسابيع'],'525 − 175 = 350، و 350 ÷ 50 = 7.');
+q('num','k','حل المسائل','ثمن علبة البسكويت 3 ريالات، وعلبة العصير ريالان. اشترت سلوى علبتي بسكويت وعلبتي عصير. كم دفعت؟',['10','6','4','5'],'2 × 3 + 2 × 2 = 6 + 4 = 10.');
+q('num','k','حل المسائل','زرع سعيد 50 نبتة طماطم و 40 نبتة قرع في صفوف، في كل صف 10 نبتات. كم صفاً زرع؟',['9','90','10','100'],'50 + 40 = 90، و 90 ÷ 10 = 9.');
+q('alg','k','خصائص الجمع','أوجد الناتج وحدّد الخاصية: '+E('0 + 125'),['125 ؛ العنصر المحايد','125 ؛ التجميع','130 ؛ الإبدال','135 ؛ العنصر المحايد'],'جمع الصفر لا يغيّر العدد.');
+q('alg','k','خصائص الجمع','أوجد الناتج وحدّد الخاصية: '+E('6 + (4 + 9)'),['19 ؛ التجميع','34 ؛ التجميع','29 ؛ الإبدال','19 ؛ الإبدال'],'4 + 9 = 13، و 6 + 13 = 19، والأقواس تدل على التجميع.');
+q('alg','k','خاصية الإبدال','ما العدد الذي يجعل الجملة صحيحة؟ '+E('3 + 4 + 7 = 3 + 7 + ▢'),['4','3','14','7'],'الأعداد نفسها بترتيب مختلف.');
+q('num','k','الطرح','في حديقتنا نبتتان طولاهما 47 سم و 63 سم. ما الفرق بين طوليهما؟',['16 سم','24 سم','36 سم','14 سم'],'63 − 47 = 16.');
+q('num','k','معقولية الإجابة','اشترى جاسم قصة بـ 6 ريالات وقلماً بريالين، ودفع للبائع 3 أوراق من فئة 5 ريالات. يقول إن الباقي يكفي لشراء قصة أخرى. فهل هذا معقول؟',['نعم، لأن '+E('5 + 5 + 5 &gt; 6 + 2 + 6'),'لا، لأن '+E('6 + 2 + 2 &gt; 5'),'لا، لأن '+E('6 + 2 + 6 &gt; 5 + 5 + 5'),'لا، لأن '+E('6 + 2 &gt; 5 + 5 + 5')],'دفع 15 ريالاً، وثمن القصتين والقلم 14 ريالاً فقط.');
+q('num','k','الطرح','تحمل شاحنة 425 كيساً من السكر و 176 كيساً من الأرز. كم تزيد أكياس السكر؟',['249','601','850','73'],'425 − 176 = 249.');
+q('num','k','القسمة','باع فؤاد وإخوته الثلاثة كميات متساوية من ورق التغليف، ومجموع ما باعوه 28 رزمة. كم رزمة باع كل واحد؟',['7','8','9','10'],'فؤاد + 3 إخوة = 4، و 28 ÷ 4 = 7.');
+q('num','k','النقود','مع سعود 21 ورقة من فئة 10 ريالات، و 9 ورقات من فئة 5 ريالات، و 20 ورقة من فئة الريال. ما مجموع نقوده؟',['275 ريالاً','65 ريالاً','300 ريال','265 ريالاً'],'210 + 45 + 20 = 275.');
+q('alg','k','الأنماط العددية','ما العدد التالي في النمط: 5، 6، 8، 11، 15، 20، ....',['26','21','25','30'],'الزيادة تكبر 1 في كل مرة: +1، +2، +3، +4، +5، ثم +6.');
+q('num','k','النقود','وضع سالم في حصالته 6 أوراق نقدية بعضها من فئة 5 ريالات وبعضها من فئة 10، وقيمتها معاً 40 ريالاً. كم ورقة من كل فئة؟',['4 من فئة 5 وورقتان من فئة 10','ورقتان من فئة 5 وورقتان من فئة 10','ورقتان من فئة 5 و 4 من فئة 10','ورقة من فئة 5 و 5 من فئة 10'],'4 × 5 + 2 × 10 = 20 + 20 = 40، وعدد الأوراق 6.');
+q('alg','k','الأنماط العددية','كتب محمد على السبورة الأعداد بالترتيب: 80، 40، 20، 10، 5. أيّ قاعدة تصف هذه الأعداد؟',['أقسم على 2','أطرح 20','أضيف 20','أقسم على 4'],'كل عدد نصف الذي قبله.');
+q('num','k','القسمة','ما العدد الذي يجعل الجملة صحيحة؟ '+E('24 ÷ ▢ = 8'),['3','2','4','5'],'8 × 3 = 24.');
+q('num','k','حل المسائل','استعمل قائمة الأسعار لإيجاد ثمن 3 كيلوجرامات من التفاح و 10 كيلوجرامات من العنب.',['81 ريالاً','88 ريالاً','75 ريالاً','80 ريالاً'],'3 × 7 = 21، و 10 × 6 = 60، والمجموع 81.',tbl(['الفاكهة','السعر لكل كيلوجرام'],[['الموز','5 ريالات'],['التفاح','7 ريالات'],['العنب','6 ريالات']]));
+q('num','k','الأعداد الزوجية','عدد زوجي أصغر من 5 وأكبر من 1، ويساوي الفرق بين 5 و 3. ما العدد؟',['2','4','3','0'],'5 − 3 = 2، وهو زوجي.');
+q('alg','k','القسمة والطرح المتكرر','كم مرة أطرح حتى أصل إلى الصفر لأجد ناتج '+E('8 ÷ 2')+' ؟',['4 مرات','3 مرات','8 مرات','6 مرات'],'8 − 2 − 2 − 2 − 2 = 0 ← 4 مرات.');
+q('num','k','الطرح','يبين الجدول عدد طوابع جابر وخالد وبلال. كم يزيد عدد طوابع خالد على عدد طوابع بلال؟',['249 طابعاً','251 طابعاً','259 طابعاً','200 طابع'],'496 − 247 = 249.',tbl(['الاسم','عدد الطوابع'],[['جابر',352],['خالد',496],['بلال',247]]));
+q('geo','k','حساب الزمن','ساعدت سلمى أمها: نظّفت غرفتها في 16 دقيقة، وكنست السجاد في 18 دقيقة، وغسلت الأواني في 21 دقيقة. كم دقيقة عملت؟',['55 دقيقة','65 دقيقة','100 دقيقة','56 دقيقة'],'16 + 18 + 21 = 55.');
+q('geo','k','المحيط','حوض على شكل مثلث محيطه 120 سم، طول أحد أضلاعه 40 سم والآخر 50 سم. طول الضلع الثالث:',['30 سم','40 سم','50 سم','60 سم'],'120 − 40 − 50 = 30.');
+q('geo','k','المحيط','محيط الشكل المظلل يساوي:',['18 وحدة','11 وحدة','12 وحدة','20 وحدة'],'المستطيل 5 × 4: 5 + 4 + 5 + 4 = 18.',gridShape(rect(1,1,4,5),6,7,24));
+q('geo','k','وحدات الطول','الوحدة الأنسب لقياس المسافة بين مدينتي الرياض وحائل:',['الكيلومتر','اللتر','المتر','السنتيمتر'],'المسافات بين المدن كبيرة وتقاس بالكيلومترات.');
+q('geo','k','حساب الزمن','بدأت حصة الرياضيات الساعة '+E('9:45')+' وانتهت بعد 45 دقيقة. متى انتهت؟',[E('10:30'),E('11:15'),E('11:30'),E('10:45')],'9:45 + 15 دقيقة = 10:00، ثم + 30 دقيقة = 10:30.');
+q('geo','k','المحيط','محيط الشكل يساوي:',['11 سم','9 م','12 سم','11 م'],'3 + 3 + 2 + 2 + 1 = 11 سم.',notch2());
+q('geo','k','الحجم','حوض سمك على شكل مكعبات: طوله 4 وحدات، وعرضه 3، وارتفاعه 3. كم وحدة ماء مكعبة يحويها؟',['36 وحدة','12 وحدة','24 وحدة','42 وحدة'],'الوجه الأمامي 4 × 3 = 12، وفي العمق 3 طبقات: 12 × 3 = 36.',tank());
+q('geo','k','حساب الزمن','لعب علي كرة القدم ساعة واحدة، ثم ذاكر 3 ساعات، وانتهى الساعة السابعة مساءً. متى بدأ؟',['الساعة الثالثة','الساعة السادسة','الساعة الثانية','الساعة الرابعة'],'المجموع 4 ساعات، و 7 − 4 = 3.',tbl(['النشاط','المدة'],[['لعب كرة القدم','ساعة واحدة'],['المذاكرة','3 ساعات']]));
+q('geo','k','المساحة','ما مساحة الشكل المظلل؟',['6 وحدات مربعة','2 وحدة مربعة','4 وحدات مربعة','8 وحدات مربعة'],'4 مربعات في الأعلى + 2 في الأسفل = 6.',gridShape([[0,0],[0,1],[0,2],[0,3],[1,2],[1,3]],3,5,30));
+q('alg','k','الأنماط العددية','العددان التاليان في النمط: 2، 5، 8، 11، 14، ....، ....',['17 ، 20','16 ، 18','16 ، 19','17 ، 19'],'النمط يزيد 3.');
+q('num','k','مقارنة الأعداد','العدد الأكبر من الأعداد (450، 405، 540، 504) هو:',['540','450','405','504'],'المئات 5 في 540 و 504، والعشرات 4 أكبر من 0.');
+q('geo','k','مقارنة الكتل','1 كجم من الورق ........ 1 كجم من الحديد',[E('='),E('&gt;'),E('&lt;'),'ليس مما سبق'],'الكتلتان متساويتان: كلٌّ منهما كيلوجرام واحد.');
+q('frac','k','يقرأ الكسور','الكسر الذي يمثله الجزء المظلل:',[F(5,8),F(2,9),F(1,5),F(1,8)],'الشكل 8 أجزاء متساوية، ظُلّل منها 5.',pie(8,5,'#5b8fd6'));
+q('alg','k','خاصية الإبدال','إذا كان '+E('7 × 5 = 35')+' فإن '+E('5 × 7 = ▢'),['35','2','12','22'],'تبديل العاملين لا يغيّر الناتج.');
+q('num','k','مقارنة الأعداد','في مدينة الألعاب بيعت 544 تذكرة في اليوم الأول، و 455 تذكرة في اليوم الثاني. في أيّ يوم بيع عدد أكبر؟',['اليوم الأول','اليوم الثاني','متساويان','لا شيء مما ذُكر'],'المئات 5 أكبر من 4.');
+q('num','k','تمثيل الضرب بالشبكة','جملة الضرب التي تعبر عن الشبكة:',[E('4 × 6 = 24'),E('5 × 7 = 35'),E('6 × 6 = 36'),E('8 × 3 = 24')],'الشبكة 4 صفوف في كل صف 6 مربعات.',gridRC(4,6));
+q('num','k','استراتيجيات الضرب','جميع الطرق الآتية تساعد على إيجاد '+E('5 × 6')+' ما عدا:',['التقريب','العدّ القفزي','عمل شبكة','رسم صورة'],'التقريب يعطي ناتجاً تقريبياً لا دقيقاً.');
+
+/* ============ app ============ */
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const L=['أ','ب','ج','د'];
+const T=45;
+let S={mode:'challenge',cat:'all',src:'all',count:'10'};
+let G=null,sound=store.get('nf3_snd',true);
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));window.scrollTo(0,0)}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
+
+/* sound */
+let AC=null;
+function tone(f,d,type='sine',when=0,vol=.12){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(vol,AC.currentTime+when);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+when+d);o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+when);o.stop(AC.currentTime+when+d)}catch(e){}}
+function snd(k){if(!sound)return;if(k==='ok'){tone(660,.12);tone(880,.18,'sine',.1)}else if(k==='no'){tone(200,.3,'square',0,.06)}else if(k==='tick'){tone(1200,.05,'triangle',0,.05)}else if(k==='win'){[523,659,784,1046].forEach((f,i)=>tone(f,.22,'sine',i*.12))}}
+function setSnd(){$('#snd').textContent=sound?'🔊':'🔇'}
+$('#homeBtn').onclick=()=>{if(G&&G.tm)stopT();if(G)G.done=true;renderLB();upd();show('home')};
+$('#snd').onclick=()=>{sound=!sound;store.set('nf3_snd',sound);setSnd()};
+
+/* home */
+function chips(el,items,key){
+  el.innerHTML=items.map(it=>`<button class="chip" data-v="${it.v}" aria-pressed="${S[key]===it.v}">${it.l}</button>`).join('');
+  el.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;S[key]=b.dataset.v;el.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));upd()};
+}
+function pool(){let p=QS.filter(x=>(S.cat==='all'||x.c===S.cat)&&(S.src==='all'||x.s===S.src));if(S.mode==='review'){const w=store.get('nf3_wrong',[]);p=p.filter(x=>w.includes(x.id))}return p}
+function upd(){
+  const p=pool(),n=p.length;
+  $('#pool').textContent=ar(n?`${n} سؤالاً متاحاً بهذه الاختيارات`:(S.mode==='review'?'لا توجد أخطاء محفوظة بهذه الاختيارات — العب جولة أولاً':'لا توجد أسئلة بهذه الاختيارات'));
+  $('#start').disabled=!n;
+  $('#start').textContent=S.mode==='challenge'?'ابدأ التحدّي':S.mode==='practice'?'ابدأ الاختبار':'ابدأ المراجعة';
+}
+function countBy(k,v){return QS.filter(x=>x[k]===v).length}
+function initHome(){
+  $('#bankN').textContent=ar(QS.length);
+  chips($('#cats'),[{v:'all',l:'الكل'},...Object.keys(CAT).map(k=>({v:k,l:`${CAT[k][0]} ${CAT[k][1]} <small>${ar(countBy('c',k))}</small>`}))],'cat');
+  chips($('#srcs'),[{v:'all',l:'الكل'},...Object.keys(SRC).map(k=>({v:k,l:`${SRC[k]} <small>${ar(countBy('s',k))}</small>`}))],'src');
+  chips($('#cnts'),[{v:'10',l:ar('10 أسئلة')},{v:'20',l:ar('20 سؤالاً')},{v:'30',l:ar('30 سؤالاً')},{v:'all',l:'كل الأسئلة'}],'count');
+  $('#modes').onclick=e=>{const b=e.target.closest('.mode');if(!b)return;S.mode=b.dataset.m;document.querySelectorAll('.mode').forEach(m=>m.setAttribute('aria-pressed',m===b));upd()};
+  $('#nm').value=store.get('nf3_name','');
+  renderLB();upd();setSnd();
+}
+function renderLB(){
+  const lb=store.get('nf3_lb',[]);
+  $('#lb').innerHTML=lb.length?`<table class="lb">${lb.slice(0,8).map((r,i)=>`<tr><td>${ar(i+1)}</td><td>${esc(r.n)} <small style="color:var(--muted)">${ar(r.p)}٪ من ${ar(r.q)} سؤالاً</small></td><td>⭐ ${ar(r.s)}</td></tr>`).join('')}</table>`:'<p class="empty">لم يسجّل أحد نتيجة بعد. العب جولة تحدٍّ لتكون أول الأبطال.</p>';
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+/* game */
+$('#start').onclick=()=>{
+  const p=pool();if(!p.length)return;
+  const name=$('#nm').value.trim();store.set('nf3_name',name);
+  const n=S.count==='all'?p.length:Math.min(+S.count,p.length);
+  G={qs:shuffle(p).slice(0,n).map(x=>({...x,ord:shuffle([0,1,2,3])})),i:0,score:0,streak:0,best:0,lives:3,ok:0,okIds:[],bad:[],skip:0,ll:{half:false,time:false,skip:false},done:false,t:T,tm:null,name:name||'بطل نافس'};
+  const ch=S.mode==='challenge';
+  $('#hL').hidden=!ch;$('#ring').style.visibility=ch?'visible':'hidden';$('#life').hidden=!ch;
+  document.querySelectorAll('#life button').forEach(b=>b.disabled=false);
+  show('quiz');render();
+};
+function hud(){
+  $('#hQ').textContent=ar(`${G.i+1} / ${G.qs.length}`);
+  $('#hS').textContent='⭐ '+ar(G.score);
+  $('#hK').textContent='🔥 '+ar(G.streak);
+  $('#hL').textContent='❤️'.repeat(Math.max(G.lives,0))+'🤍'.repeat(3-Math.max(G.lives,0));
+  $('#prog').style.width=(G.i/G.qs.length*100)+'%';
+}
+function ring(){const r=$('#rf');r.style.strokeDashoffset=119.38*(1-G.t/T);$('#tt').textContent=ar(Math.max(G.t,0));$('#ring').classList.toggle('hot',G.t<=10)}
+function stopT(){clearInterval(G.tm);G.tm=null}
+function render(){
+  const q=G.qs[G.i];G.done=false;
+  hud();
+  $('#qbox').innerHTML=`<article class="qcard" id="qc">
+    <div class="qtags"><span class="tag">${CAT[q.c][0]} ${CAT[q.c][1]}</span><span class="tag">${SRC[q.s]}</span></div>
+    <div class="skill">المهارة: ${ar(q.k)}</div>
+    <h2 class="qtext">${ar(q.t)}</h2>
+    ${q.v?`<div class="fig">${ar(q.v)}</div>`:''}
+    <div class="opts">${q.ord.map((oi,j)=>`<button class="opt" data-j="${j}"><span class="lt">${L[j]}</span><span class="ot">${ar(q.o[oi])}</span></button>`).join('')}</div>
+    <div class="fb" id="fb" aria-live="polite"></div>
+  </article>`;
+  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.j));
+  $('#next').hidden=true;$('#life').classList.remove('off');
+  if(S.mode==='challenge'){G.t=T;ring();stopT();G.tm=setInterval(()=>{G.t--;ring();if(G.t<=5&&G.t>0)snd('tick');if(G.t<=0){stopT();answer(-1)}},1000)}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+const PRAISE=['ممتاز! 🌟','أحسنت! 👏','رائع يا بطل! 🏆','إجابة ذكية! 🧠','استمر هكذا! 🚀'];
+function answer(pos){
+  if(G.done)return;G.done=true;stopT();
+  const q=G.qs[G.i],cp=q.ord.indexOf(0),ok=pos===cp;
+  document.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===cp)b.classList.add('ok');else if(j===pos)b.classList.add('no')});
+  if(ok){G.ok++;G.okIds.push(q.id);G.streak++;G.best=Math.max(G.best,G.streak);
+    const p=S.mode==='challenge'?Math.round((100+G.t*3)*(1+Math.min(G.streak-1,5)*.2)):10;
+    G.score+=p;floatPts('+'+p);snd('ok');}
+  else{G.streak=0;G.bad.push({q,pos});if(S.mode==='challenge')G.lives--;snd('no');$('#qc').classList.add('shake')}
+  hud();$('#prog').style.width=((G.i+1)/G.qs.length*100)+'%';
+  const fb=$('#fb');
+  fb.className='fb show '+(ok?'good':'bad');
+  const head=ok?PRAISE[Math.floor(Math.random()*PRAISE.length)]:(pos<0?'انتهى الوقت ⏰':'ليست هذه الإجابة');
+  fb.innerHTML=`<b>${head}</b>${ok?'':` <span>الإجابة الصحيحة: (${L[cp]})</span>`}<p>💡 ${ar(q.e)}</p>`;
+  const last=G.i>=G.qs.length-1||(S.mode==='challenge'&&G.lives<=0);
+  $('#next').textContent=last?'اعرض النتيجة 🏁':'السؤال التالي';$('#next').hidden=false;
+  $('#life').classList.add('off');
+  $('#next').focus({preventScroll:true});
+}
+function floatPts(t){const d=document.createElement('div');d.className='float';d.textContent=ar(t);const r=$('#hS').getBoundingClientRect();d.style.left=r.left+'px';d.style.top=(r.top)+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),1000)}
+$('#next').onclick=()=>{if(!G.done)return;if(G.i>=G.qs.length-1||(S.mode==='challenge'&&G.lives<=0))finish();else{G.i++;render()}};
+$('#quit').onclick=()=>{if(!G)return;stopT();if(G.ok+G.bad.length===0){show('home');return}finish()};
+document.querySelectorAll('#life button').forEach(b=>b.onclick=()=>{
+  if(!G||G.done||G.ll[b.dataset.l])return;G.ll[b.dataset.l]=true;b.disabled=true;const q=G.qs[G.i];
+  if(b.dataset.l==='half'){const cp=q.ord.indexOf(0);shuffle([0,1,2,3].filter(j=>j!==cp)).slice(0,2).forEach(j=>document.querySelectorAll('.opt')[j].classList.add('gone'))}
+  else if(b.dataset.l==='time'){G.t+=15;ring()}
+  else{stopT();G.skip++;G.done=true;if(G.i>=G.qs.length-1)finish();else{G.i++;render()}}
+});
+document.addEventListener('keydown',e=>{
+  if(!$('#quiz').classList.contains('on')||!G)return;
+  const m={'1':0,'2':1,'3':2,'4':3,'١':0,'٢':1,'٣':2,'٤':3}[e.key];
+  if(m!==undefined&&!G.done){answer(m)}
+  else if(e.key==='Enter'&&G.done&&!$('#next').hidden){e.preventDefault();$('#next').click()}
+});
+
+function finish(){
+  stopT();
+  const answered=G.ok+G.bad.length,pct=answered?Math.round(G.ok/answered*100):0;
+  window.SafaProgress?.recordResult({correct:G.ok,total:answered,percent:pct});
+  let w=store.get('nf3_wrong',[]);w=w.filter(id=>!G.okIds.includes(id));G.bad.forEach(b=>{if(!w.includes(b.q.id))w.push(b.q.id)});store.set('nf3_wrong',w);
+  if(S.mode==='challenge'&&answered){const lb=store.get('nf3_lb',[]);lb.push({n:G.name,s:G.score,p:pct,q:answered,d:Date.now()});lb.sort((a,b)=>b.s-a.s);store.set('nf3_lb',lb.slice(0,20))}
+  const st=pct>=90?3:pct>=70?2:pct>=50?1:0;
+  const msg=st===3?'أداء بطل حقيقي!':st===2?'عمل رائع، اقتربت من القمة!':st===1?'بداية جيدة، واصل التدريب':'لا بأس، التدريب يصنع الأبطال';
+  const out=S.mode==='challenge'&&G.lives<=0?'<p style="color:var(--no);font-weight:800">نفدت القلوب! جرّب مرة أخرى.</p>':'';
+  $('#result').innerHTML=`<div class="res">
+    <div class="stars">${[0,1,2].map(i=>`<span class="${i<st?'on':''}">★</span>`).join('')}</div>
+    <h2>${msg}</h2><p style="margin:0;color:var(--muted)">${esc(G.name)}</p>${out}
+    <div class="score">${ar(G.score)}</div><div style="color:var(--muted);font-weight:700">${S.mode==='challenge'?'نقطة':'درجة'}</div>
+    <div class="stats">
+      <div class="stat"><b style="color:var(--ok)">${ar(G.ok)}</b><span>إجابة صحيحة</span></div>
+      <div class="stat"><b style="color:var(--no)">${ar(G.bad.length)}</b><span>إجابة خاطئة</span></div>
+      <div class="stat"><b>${ar(pct)}٪</b><span>نسبة الإتقان</span></div>
+      <div class="stat"><b>🔥 ${ar(G.best)}</b><span>أطول سلسلة</span></div>
+    </div>
+    <div class="acts"><button class="btn" id="again">العب مرة أخرى</button>${G.bad.length?'<button class="btn alt" id="rev">راجع أخطائي الآن</button>':''}<button class="ghost" id="home">الصفحة الرئيسية</button></div>
+  </div>
+  ${G.bad.length?`<h3 style="font-family:var(--fh)">مراجعة الأسئلة التي أخطأت فيها</h3>`+G.bad.map(({q,pos})=>`<div class="rv"><div class="rq">${ar(q.t)}</div>${q.v?`<div class="fig">${ar(q.v)}</div>`:''}<div class="ra"><span class="x">${pos<0?'انتهى الوقت دون إجابة':'إجابتك: '+ar(q.o[q.ord[pos]])}</span><span class="c">الصحيحة: ${ar(q.o[0])}</span></div><p>💡 ${ar(q.e)}</p></div>`).join(''):''}`;
+  show('result');
+  if(st>=2){snd('win');confetti()}
+  $('#again').onclick=()=>$('#start').click();
+  $('#home').onclick=()=>{renderLB();upd();show('home')};
+  if($('#rev'))$('#rev').onclick=()=>{S.mode='review';S.cat='all';S.src='all';document.querySelectorAll('.mode').forEach(m=>m.setAttribute('aria-pressed',m.dataset.m==='review'));initHome();$('#start').click()};
+}
+
+/* confetti */
+function confetti(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const c=$('#cf'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+  const cols=['#ffc43d','#ff6b6b','#1fb8a6','#6e4bd8','#3b8fe0'];
+  let P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*3,vy:2+Math.random()*3,r:Math.random()*6.28,s:5+Math.random()*6,c:cols[Math.floor(Math.random()*5)]}));
+  let f=0;(function loop(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});if(++f<220)requestAnimationFrame(loop);else x.clearRect(0,0,c.width,c.height)})();
+}
+
+initHome();
+</script>
+<script>window.NAFS_TEST_CONFIG={"id":"grade3-primary-math","title":"الرياضيات","grade":"الصف الثالث الابتدائي"};</script>
+<script src="../assets/student-bridge.js"></script>
+</body>
+</html>

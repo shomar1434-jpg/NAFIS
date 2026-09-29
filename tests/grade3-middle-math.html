@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تدريبات نافس | الرياضيات | مدرسة الصفا المتوسطة بجازان</title>
+<style>
+:root{
+  --navy:#16324f;
+  --navy-2:#0e2338;
+  --teal:#0f7a72;
+  --teal-light:#e4f4f2;
+  --gold:#c9972e;
+  --gold-light:#faf1dd;
+  --bg:#f5f7f9;
+  --card:#ffffff;
+  --ink:#1c2b3a;
+  --sub:#6b7c8c;
+  --line:#e6ebef;
+  --good:#1e8a5f;
+  --good-bg:#e8f7ef;
+  --bad:#c8433f;
+  --bad-bg:#fdeceb;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(22,50,79,.08);
+  --shadow-sm:0 4px 14px rgba(22,50,79,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:'Tajawal','Cairo',system-ui,-apple-system,'Segoe UI',sans-serif;direction:rtl}
+body{min-height:100vh;display:flex;flex-direction:column}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:980px;margin:0 auto;width:100%;padding:0 18px;flex:1;display:flex;flex-direction:column}
+
+/* ---------- Header ---------- */
+header.app-head{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);padding:18px 0 26px}
+.head-inner{max-width:980px;margin:0 auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:46px;height:46px;border-radius:13px;background:radial-gradient(circle at 30% 30%,#1f4a72,#0f7a72);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.brand-logo svg{width:26px;height:26px}
+.brand-text h1{color:#fff;font-size:19px;font-weight:800;letter-spacing:0}
+.brand-text p{color:#9fb4c7;font-size:12px;margin-top:2px}
+.head-actions{display:flex;gap:8px}
+.icon-btn{width:38px;height:38px;border-radius:11px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.15s}
+.icon-btn:hover{background:rgba(255,255,255,.16)}
+.q-total-badge{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:6px 14px 6px 10px;flex-shrink:0}
+.q-total-badge .qtb-icon{font-size:15px;line-height:1}
+.q-total-badge .qtb-num{color:#fff;font-weight:800;font-size:14px}
+.q-total-badge .qtb-label{color:#9fb4c7;font-size:11px;margin-right:3px}
+@media(max-width:640px){.q-total-badge .qtb-label{display:none}.q-total-badge{padding:6px 10px}}
+
+/* ---------- Screens ---------- */
+.screen{display:none;padding:26px 0 50px;flex:1}
+.screen.active{display:flex;flex-direction:column;gap:22px}
+
+/* ---------- Home ---------- */
+.intro-card{background:var(--card);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.intro-card h2{font-size:18px;margin-bottom:6px;color:var(--navy)}
+.intro-card p{font-size:14px;color:var(--sub);line-height:1.9}
+.intro-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:12px;background:var(--teal-light);color:var(--teal);padding:5px 12px;border-radius:20px;font-weight:700}
+
+.section-title{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:2px;display:flex;align-items:center;gap:8px}
+.section-title .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:640px){.domain-grid{grid-template-columns:1fr}}
+
+.domain-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px;transition:.18s;cursor:pointer}
+.domain-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.domain-card .d-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.domain-card h3{font-size:15.5px;color:var(--ink)}
+.domain-card .d-meta{font-size:12.5px;color:var(--sub)}
+.domain-card .d-start{margin-top:4px;align-self:flex-start;font-size:12.5px;font-weight:800;color:var(--teal);display:flex;align-items:center;gap:5px}
+
+.featured{grid-column:1 / -1;background:linear-gradient(120deg,var(--gold-light) 0%,#fff 60%);border:1px solid #ecd9ab;position:relative;overflow:hidden}
+.featured::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--gold),#e0b354)}
+.featured .d-icon{background:var(--gold);color:#fff}
+.featured h3{font-size:17px}
+
+.d-icon.c1{background:#e7eefc;color:#2455a3}
+.d-icon.c2{background:#eafaf1;color:#1e8a5f}
+.d-icon.c3{background:#fdeeea;color:#c85a3a}
+.d-icon.c4{background:#f3ecfb;color:#7a4fc4}
+
+.history-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+.history-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.history-row:last-child{border-bottom:none}
+.history-row .h-domain{font-weight:700;color:var(--ink)}
+.history-row .h-date{color:var(--sub);font-size:12px}
+.history-score{font-weight:800;padding:4px 12px;border-radius:20px;font-size:12.5px}
+.hs-good{background:var(--good-bg);color:var(--good)}
+.hs-mid{background:var(--gold-light);color:#a3771a}
+.hs-bad{background:var(--bad-bg);color:var(--bad)}
+.empty-hint{color:var(--sub);font-size:13px;text-align:center;padding:14px 0}
+
+/* ---------- Quiz ---------- */
+.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.quiz-meta{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--sub);font-weight:700}
+.quiz-meta .q-count{color:var(--navy)}
+.exit-btn{background:none;border:none;color:var(--sub);font-size:20px;line-height:1;padding:4px 8px;border-radius:8px}
+.exit-btn:hover{background:var(--bad-bg);color:var(--bad)}
+.progress-track{height:8px;background:var(--line);border-radius:20px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),#17a396);border-radius:20px;transition:width .3s}
+
+.q-card{background:var(--card);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.q-domain-badge{display:inline-block;font-size:11.5px;font-weight:800;color:var(--teal);background:var(--teal-light);padding:4px 11px;border-radius:20px;margin-bottom:14px}
+.q-text{font-size:16.5px;line-height:1.9;color:var(--ink);font-weight:700}
+
+.choices{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.choice{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(--line);border-radius:13px;background:#fff;font-size:14.5px;text-align:right;transition:.15s}
+.choice:hover:not(.locked){border-color:var(--teal);background:var(--teal-light)}
+.choice .c-letter{width:26px;height:26px;border-radius:50%;background:var(--bg);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;color:var(--sub);flex-shrink:0}
+.choice.correct{border-color:var(--good);background:var(--good-bg)}
+.choice.correct .c-letter{background:var(--good);border-color:var(--good);color:#fff}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .c-letter{background:var(--bad);border-color:var(--bad);color:#fff}
+.choice.dim{opacity:.5}
+
+.frac{display:inline-flex;flex-direction:column;text-align:center;line-height:1.15;vertical-align:middle;margin:0 3px;font-size:.92em;font-weight:800}
+.frac .fn{border-bottom:1.6px solid currentColor;padding:0 4px}
+.frac .fd{padding:0 4px}
+
+.explain-box{margin-top:16px;padding:13px 15px;border-radius:12px;font-size:13.5px;line-height:1.8;display:none}
+.explain-box.show{display:block}
+.explain-box.good{background:var(--good-bg);color:#186b4a}
+.explain-box.bad{background:var(--bad-bg);color:#a5322e}
+
+.q-actions{display:flex;justify-content:flex-end;margin-top:20px}
+.btn{border:none;border-radius:12px;padding:13px 26px;font-size:14.5px;font-weight:800;transition:.15s}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-2)}
+.btn-primary:disabled{background:#c7d0d9;cursor:not-allowed}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#b6851f}
+
+/* ---------- Results ---------- */
+.result-hero{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:var(--radius);padding:32px 24px;text-align:center;color:#fff;box-shadow:var(--shadow)}
+.score-ring{width:130px;height:130px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;position:relative}
+.score-ring .ring-num{font-size:30px;font-weight:900}
+.score-ring .ring-sub{font-size:11px;color:#c8d6e3}
+.result-msg{font-size:16px;font-weight:800;margin-bottom:4px}
+.result-sub{font-size:13px;color:#9fb4c7}
+
+.domain-breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.db-item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px;box-shadow:var(--shadow-sm)}
+.db-item .db-top{display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:8px;color:var(--sub)}
+.db-bar{height:7px;background:var(--line);border-radius:10px;overflow:hidden}
+.db-fill{height:100%;border-radius:10px;background:var(--teal)}
+
+.review-list{display:flex;flex-direction:column;gap:10px}
+.review-item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+.review-head{display:flex;align-items:flex-start;gap:10px}
+.review-icon{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;margin-top:2px}
+.review-icon.ok{background:var(--good)}
+.review-icon.no{background:var(--bad)}
+.review-text{font-size:13.5px;line-height:1.8}
+.review-answer{font-size:12.5px;margin-top:6px;color:var(--sub)}
+.review-answer b{color:var(--ink)}
+
+.result-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ---------- Modal ---------- */
+.modal-bg{position:fixed;inset:0;background:rgba(14,25,38,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:18px;max-width:420px;width:100%;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal h3{font-size:16px;color:var(--navy);margin-bottom:14px}
+.modal .m-row{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.modal .m-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;background:#fff;font-size:13.5px;font-weight:700;text-align:right}
+.modal .m-btn:hover{border-color:var(--teal)}
+.modal .m-btn.danger:hover{border-color:var(--bad);color:var(--bad)}
+.modal-close{margin-top:6px;width:100%}
+input[type=file]{display:none}
+
+/* ---------- Footer ---------- */
+footer.app-foot{text-align:center;padding:18px 12px;font-size:11.5px;color:var(--sub)}
+footer.app-foot a{color:var(--teal);text-decoration:none;font-weight:700}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:11px 20px;border-radius:11px;font-size:13px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
+</style>
+</head>
+<body>
+
+<header class="app-head">
+  <div class="head-inner">
+    <div class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 3 4 6v12l5 3 5-3V6L9 3Z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M14 6l6 3v9l-6 3" stroke="#f6c453" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 9v9M4 6l5 3 5-3" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="brand-text">
+        <h1>تدريبات نافس</h1>
+        <p>رياضيات · الصف الثالث متوسط</p>
+      </div>
+    </div>
+    <div class="q-total-badge" title="إجمالي عدد الأسئلة في المنصة">
+      <span class="qtb-icon">📚</span>
+      <span class="qtb-num" id="qTotalBadgeNum">0</span>
+      <span class="qtb-label">سؤال</span>
+    </div>
+    <div class="head-actions">
+      <button class="icon-btn" id="btnBack" title="العودة">↩️</button>
+      <button class="icon-btn" id="btnHomeIcon" title="الرئيسية">🏠</button>
+      <button class="icon-btn" id="btnSettings" title="الإعدادات">⚙️</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- HOME SCREEN -->
+  <section class="screen active" id="screenHome">
+    <div class="intro-card">
+      <h2>اختبر نفسك ذاتيًا قبل اختبار نافس</h2>
+      <p>مجموعة أسئلة تدريبية من نوع الاختيار من متعدد، مبنية على محتوى مبادرة "تمكين" لرفع المستويات التحصيلية في الرياضيات، لتساعدك على قياس استعدادك قبل الاختبارات الوطنية نافس.</p>
+      <div class="intro-tags">
+        <span class="tag">اختيار من متعدد</span>
+        <span class="tag">تصحيح فوري</span>
+        <span class="tag">مراجعة الإجابات</span>
+        <span class="tag">تتبع تقدمك</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>اختر نطاقك</div>
+    </div>
+
+    <div class="domain-grid">
+      <div class="domain-card featured" data-domain="all">
+        <div class="d-icon">🏆</div>
+        <h3>الاختبار الشامل</h3>
+        <div class="d-meta">أسئلة متنوعة من جميع النطاقات الأربعة — <span id="countAll"></span></div>
+        <div class="d-start">ابدأ الاختبار ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="numbers">
+        <div class="d-icon c1">🔢</div>
+        <h3>الأعداد والعمليات عليها</h3>
+        <div class="d-meta"><span id="countnumbers"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="algebra">
+        <div class="d-icon c2">📐</div>
+        <h3>الجبر والتحليل</h3>
+        <div class="d-meta"><span id="countalgebra"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="geometry">
+        <div class="d-icon c3">📏</div>
+        <h3>الهندسة والقياس</h3>
+        <div class="d-meta"><span id="countgeometry"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="stats">
+        <div class="d-icon c4">📊</div>
+        <h3>الإحصاء والاحتمالات</h3>
+        <div class="d-meta"><span id="countstats"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>سجل محاولاتك</div>
+    </div>
+    <div class="history-card" id="historyCard">
+      <div class="empty-hint">لم تُجرِ أي محاولة بعد — ابدأ اختبارًا لتظهر نتائجك هنا.</div>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section class="screen" id="screenQuiz">
+    <div class="quiz-top">
+      <button class="exit-btn" id="btnExitQuiz" title="إنهاء">✕</button>
+      <div class="quiz-meta">
+        <span>⏱️ <span id="quizTimer">00:00</span></span>
+        <span class="q-count"><span id="qIndex">1</span> / <span id="qTotal">16</span></span>
+      </div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:6%"></div></div>
+
+    <div class="q-card">
+      <span class="q-domain-badge" id="qBadge">الأعداد والعمليات عليها</span>
+      <div class="q-text" id="qText"></div>
+      <div class="choices" id="qChoices"></div>
+      <div class="explain-box" id="qExplain"></div>
+      <div class="q-actions">
+        <button class="btn btn-primary" id="btnNext" disabled>التالي</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section class="screen" id="screenResults">
+    <div class="result-hero">
+      <div class="score-ring" id="scoreRing">
+        <div>
+          <div class="ring-num" id="resultPercent">0%</div>
+          <div class="ring-sub" id="resultFraction">0 / 0</div>
+        </div>
+      </div>
+      <div class="result-msg" id="resultMsg">أحسنت!</div>
+      <div class="result-sub" id="resultSub">النطاق: الاختبار الشامل</div>
+    </div>
+
+    <div class="domain-breakdown" id="domainBreakdown"></div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>مراجعة الإجابات</div>
+    </div>
+    <div class="review-list" id="reviewList"></div>
+
+    <div class="result-actions">
+      <button class="btn btn-primary" id="btnRetry">إعادة المحاولة</button>
+      <button class="btn btn-ghost" id="btnHome">الرئيسية</button>
+    </div>
+  </section>
+
+</div>
+
+<footer class="app-foot">
+  من إعداد الأستاذ عمر صالح علان — مدرسة الصفا المتوسطة بجازان
+</footer>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-bg" id="modalSettings">
+  <div class="modal">
+    <h3>الإعدادات والنسخ الاحتياطي</h3>
+    <div class="m-row">
+      <button class="m-btn" id="btnExport">⬇️ تنزيل نسخة احتياطية من سجل محاولاتك (JSON)</button>
+      <button class="m-btn" id="btnImportTrigger">⬆️ استعادة سجل محاولات من ملف</button>
+      <input type="file" id="fileImport" accept=".json">
+      <button class="m-btn danger" id="btnReset">🗑️ مسح سجل المحاولات بالكامل</button>
+    </div>
+    <button class="btn btn-ghost modal-close" id="btnCloseSettings">إغلاق</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= DATA ================= */
+function F(n,d){ return `<span class="frac"><span class="fn">${n}</span><span class="fd">${d}</span></span>`; }
+
+const DOMAINS = {
+  numbers:  { label:'الأعداد والعمليات عليها', icon:'🔢' },
+  algebra:  { label:'الجبر والتحليل',           icon:'📐' },
+  geometry: { label:'الهندسة والقياس',          icon:'📏' },
+  stats:    { label:'الإحصاء والاحتمالات',      icon:'📊' }
+};
+
+const QUESTIONS = [
+  {
+    domain:'numbers', topic:'الأعداد الصحيحة',
+    text:'أيّ من المواقف الحياتية الآتية ليس صحيحًا في التعبير عنه بعدد صحيح؟',
+    choices:[
+      'التعبير عن إيداع 100 ريال في البنك بالعدد ‎+100',
+      'التعبير عن خسارة 15 نقطة في مسابقة بالعدد ‎-15',
+      'التعبير عن وصول غواصة إلى عمق 300 قدم تحت سطح الماء بالعدد ‎+300',
+      'التعبير عن درجة حرارة 20° تحت الصفر بالعدد ‎-20'
+    ],
+    correct:2,
+    explain:'العمق تحت سطح الماء يُعبَّر عنه بعدد سالب، فالصواب أن يكون ‎-300 وليس ‎+300.'
+  },
+  {
+    domain:'numbers', topic:'العمليات على الأعداد الصحيحة',
+    text:'كانت درجة الحرارة في مدينة القريات 2° تحت الصفر عند الساعة الخامسة صباحًا، ثم ارتفعت 9° عند الساعة العاشرة صباحًا، ثم ارتفعت 6° أخرى عند الساعة الثالثة بعد الظهر. كم أصبحت درجة الحرارة في تمام الساعة الثالثة بعد الظهر؟',
+    choices:['13° فوق الصفر','17° فوق الصفر','13° تحت الصفر','17° تحت الصفر'],
+    correct:0,
+    explain:'‎-2 + 9 + 6 = 13، أي 13° فوق الصفر.'
+  },
+  {
+    domain:'numbers', topic:'الأعداد النسبية',
+    text:'يبلغ طول قطار في مدينة الألعاب 6 أمتار. إذا رُكِّب قطار جديد طوله 2 3/5 من طول القطار القديم، فما طول القطار الجديد؟',
+    choices:['15.6 م','13.5 م','16 م','12 م'],
+    correct:0,
+    explain:'2 3/5 = 2.6، وبضرب 2.6 × 6 نحصل على 15.6 م.'
+  },
+  {
+    domain:'numbers', topic:'قوى الأعداد النسبية',
+    text:`ناتج تبسيط ${'(3/4)³'.replace('3/4', F(3,4))} يساوي:`,
+    choices:[F(9,12),F(9,64),F(9,16),F(27,64)],
+    correct:3,
+    explain:`(3/4)³ = 27/64.`
+  },
+  {
+    domain:'numbers', topic:'قوانين الأسس',
+    text:`ناتج ${F(2,3)}² ÷ ${F(2,3)}³ يساوي:`,
+    choices:[F(3,2),F(2,3),F(3,4),F(32,243)],
+    correct:0,
+    explain:'بطرح الأسس (لأن القاعدة واحدة): (2/3)^(2-3) = (2/3)⁻¹ = 3/2.'
+  },
+  {
+    domain:'algebra', topic:'كتابة المعادلات الخطية',
+    text:'يتقاضى أيمن راتبًا شهريًا قدره 6000 ريال، بالإضافة إلى عمولة 500 ريال عن كل سيارة يبيعها. أيّ المعادلات الآتية تمثل دخله الشهري (ص) إذا باع (س) سيارة؟',
+    choices:['ص = 6000 + 500س','ص = 500 + 6000س','ص = 6000 - 500س','ص = 500 - 6000س'],
+    correct:0,
+    explain:'الدخل الثابت 6000 يُضاف إليه 500 عن كل سيارة، أي ص = 6000 + 500س.'
+  },
+  {
+    domain:'algebra', topic:'حل المعادلات الخطية',
+    text:'لدى محمود 14 ريالًا ويوفر 10 ريالات أسبوعيًا لشراء ساعة يدوية، ولدى راند 26 ريالًا ويوفر 7 ريالات أسبوعيًا. بعد كم أسبوعًا يصبح المبلغان متساويين؟',
+    choices:['بعد 3 أسابيع','بعد 4 أسابيع','بعد 6 أسابيع','بعد 10 أسابيع'],
+    correct:1,
+    explain:'14 + 10س = 26 + 7س ⇐ 3س = 12 ⇐ س = 4 أسابيع.'
+  },
+  {
+    domain:'algebra', topic:'تحليل كثيرات الحدود',
+    text:'أوجد العامل المشترك الأكبر لتحليل كثيرة الحدود 27ص² + 18ص:',
+    choices:['9ص(3ص + 2)','9ص²(3ص + 2)','6ص²(3ص + 2)','6ص(3ص + 2)'],
+    correct:0,
+    explain:'العامل المشترك بين 27ص² و18ص هو 9ص، وبإخراجه نحصل على 9ص(3ص + 2).'
+  },
+  {
+    domain:'algebra', topic:'المعادلات التربيعية وتطبيقاتها',
+    text:'أُطلق صاروخ إلى أعلى، ويمثَّل ارتفاعه فوق سطح الأرض بعد (ن) ثانية بالمعادلة ع = 42ن - 5ن². ما ارتفاع الصاروخ لحظة عودته إلى سطح الأرض؟',
+    choices:['42 م','صفر','8 م','-8 م'],
+    correct:1,
+    explain:'لحظة عودة الصاروخ إلى سطح الأرض يكون ارتفاعه عن الأرض = صفر بالتعريف.'
+  },
+  {
+    domain:'algebra', topic:'ميل المستقيم',
+    text:'ميل المستقيم المار بالنقطتين (0، -3) و(2، 2) يساوي:',
+    choices:[F('-5','2'),F(5,2),F('-2','5'),F(2,5)],
+    correct:1,
+    explain:'الميل = (2 - (-3)) ÷ (2 - 0) = 5/2.'
+  },
+  {
+    domain:'geometry', topic:'زوايا المثلث',
+    text:'في المثلث أ ب جـ، إذا كان قياس الزاوية أ = 25° وقياس الزاوية ب = 108°، فإن قياس الزاوية جـ يساوي:',
+    choices:['25°','47°','60°','75°'],
+    correct:1,
+    explain:'مجموع قياسات زوايا المثلث = 180°، فـ 180 - 25 - 108 = 47°.'
+  },
+  {
+    domain:'geometry', topic:'تطابق المثلثات',
+    text:'إذا كان المثلث أ ب جـ يطابق المثلث س ص ع بحيث (أ ↔ س، ب ↔ ص، جـ ↔ ع)، فأيّ العبارات الآتية يجب أن تكون صحيحة؟',
+    choices:['أب ≅ ص ع','ب جـ ≅ س ع','الزاوية أ ≅ الزاوية س','الزاوية جـ ≅ الزاوية ص'],
+    correct:2,
+    explain:'بما أن التطابق بالترتيب أ↔س، ب↔ص، جـ↔ع، فإن الزاوية أ مطابقة للزاوية س.'
+  },
+  {
+    domain:'stats', topic:'الاحتمالات',
+    text:'إذا كان احتمال تساقط الأمطار يوم السبت المقبل 37%، فإن احتمال عدم تساقطها يساوي:',
+    choices:['10%','80%','50%','63%'],
+    correct:3,
+    explain:'مجموع احتمالي وقوع الحادثة وعدم وقوعها = 100%، فـ 100 - 37 = 63%.'
+  },
+  {
+    domain:'stats', topic:'الاحتمالات المستقلة',
+    text:'عند إلقاء قطعة نقود متزنة مرتين متتاليتين، فإن احتمال ظهور الكتابة في المرة الثانية يساوي:',
+    choices:[F(1,2),F(1,8),F(1,4),F(3,4)],
+    correct:0,
+    explain:'حادثتا إلقاء القطعة مستقلتان، فاحتمال ظهور الكتابة يبقى 1/2 في كل مرة بصرف النظر عن نتيجة المرة الأولى.'
+  },
+  {
+    domain:'stats', topic:'مقاييس النزعة المركزية',
+    text:'كان معدل عدد الأفراد في الأسرة الواحدة في إحدى الدول 2.59 فردًا. هذه القيمة تمثل:',
+    choices:['المنوال','المتوسط','الوسيط','المدى'],
+    correct:1,
+    explain:'المتوسط الحسابي هو المقياس الذي غالبًا ما ينتج قيمة عشرية غير صحيحة كهذه.'
+  },
+  {
+    domain:'stats', topic:'الوسيط',
+    text:'أطوال أعلى 7 أشجار في حديقة (بالأقدام) هي: 19، 24، 17، 26، 20، 24، 18. فإن وسيط هذه الأطوال يساوي:',
+    choices:['17','20','21','24'],
+    correct:1,
+    explain:'بعد الترتيب تصاعديًا: 17، 18، 19، 20، 24، 24، 26 — والقيمة الوسطى (الرابعة من 7) = 20.'
+  },
+
+  /* ---- إضافات: كثيرات الحدود وتحليلها ---- */
+  { domain:'algebra', topic:'ضرب الحدود الوحيدة', text:'بسّط العبارة: (2ك²)(9ك⁴)', choices:['18ك⁶','2ك¹⁸','18ك¹⁸','4ك¹⁸'], correct:0, explain:'نضرب المعاملات (2×9=18) ونجمع أسس المتغير المتماثل: ك²⁺⁴=ك⁶.' },
+  { domain:'algebra', topic:'ضرب الحدود الوحيدة', text:'بسّط العبارة: (5م⁴)(7م⁴ف³)', choices:['35م⁸ف³','35م⁴ف⁴','35م⁴ف','35م⁴ف³'], correct:0, explain:'5×7=35، وم⁴×م⁴=م⁸، وف³ تبقى كما هي.' },
+  { domain:'algebra', topic:'ضرب الحدود الوحيدة', text:'بسّط العبارة: (3س)(س³)', choices:['3س⁴','4س³','3س³','س²'], correct:0, explain:'3×1=3، وس¹⁺³=س⁴.' },
+  { domain:'algebra', topic:'ضرب الحدود الوحيدة', text:'بسّط العبارة: (5ص³)(6ن²ص⁵ب³)', choices:['30ص⁸ن²ب³','30ص³ن²ب³','30ص³ن²ب','30ص³نب³'], correct:0, explain:'5×6=30، وص³⁺⁵=ص⁸، وبقية المتغيرات تبقى كما هي.' },
+  { domain:'algebra', topic:'الصورة القياسية لكثيرة الحدود', text:'ما الصورة القياسية لكثيرة الحدود: 4س³ + 5 - 7س + 2س²؟', choices:['4س³ + 2س² - 7س + 5','4س³ - 2س² + 7س + 5','4س³ + 2س² + 7س - 5','-4س³ + 2س² + 7س + 5'], correct:0, explain:'الصورة القياسية تُرتَّب حسب أسس س تنازليًا.' },
+  { domain:'algebra', topic:'ضرب الحدود الوحيدة', text:'بسّط العبارة: (5س²ص)(6ن²ص)(2عص⁶هـ)', choices:['60س²ص⁸ن²ع','60ص³ن²ع','60ص⁸ن²ع','60ص⁸ن²'], correct:0, explain:'نضرب المعاملات 5×6×2=60، ونجمع أسس ص: 1+1+6=8، وتبقى بقية المتغيرات كما هي.' },
+
+  { domain:'algebra', topic:'القاسم المشترك الأكبر', text:'ما القاسم المشترك الأكبر (ق.م.أ) للحدود الوحيدة: 12س²ص و18سص؟', choices:['6سص','6س²ص','3سص','12سص'], correct:0, explain:'القاسم المشترك للمعاملين 12 و18 هو 6، وأصغر أس مشترك من س هو س¹، ومن ص هو ص¹.' },
+  { domain:'algebra', topic:'خاصية التوزيع', text:'هل العبارة التالية صحيحة: 6(4ص + س) = 24ص + 6س ؟', choices:['صحيحة','خاطئة','أحياناً صحيحة','لا يمكن الجزم'], correct:0, explain:'بتوزيع 6 على الحدين: 6×4ص=24ص و6×س=6س، فالعبارة صحيحة.' },
+  { domain:'algebra', topic:'حل المعادلات التربيعية', text:'حل المعادلة التربيعية: س² + 2س + 1 = 0', choices:['س = -1','س = 1','س = 0','س = 2'], correct:0, explain:'العبارة مربع كامل (س+1)²=0، إذن س = -1 (جذر مضاعف).' },
+  { domain:'algebra', topic:'الفرق بين مربعين', text:'حلّل بخاصية الفرق بين مربعين: 4س² - 9', choices:['(2س+3)(2س-3)','(2س-3)²','(2س+3)²','(4س+9)(4س-9)'], correct:0, explain:'4س²-9 = (2س)²-(3)² = (2س+3)(2س-3).' },
+  { domain:'algebra', topic:'المربع الكامل', text:'حلّل العبارة بصفتها مربعًا كاملًا: س² + 6س + 9', choices:['(س+3)²','(س-3)²','(س+9)²','(س+6)²'], correct:0, explain:'س²+6س+9 = (س)²+2(س)(3)+(3)² = (س+3)².' },
+  { domain:'algebra', topic:'إخراج العامل المشترك', text:'حلّل العبارة: 2س² + 8س', choices:['2س(س+4)','2(س²+4س)','س(2س+8)','كل ما سبق صحيح'], correct:3, explain:'الصيغ الثلاث كلها تساوي 2س²+8س عند فكّها، فتكون كلها صحيحة.' },
+  { domain:'algebra', topic:'حل المعادلات', text:'حل المعادلة: (7س⁵ص³ف⁶هـ)(4ن+1) = 0', choices:['ن = -1/4','ن = 1/4','ن = 4','ن = -4'], correct:0, explain:'بما أن الحد الأول لا يلزم أن يساوي صفرًا، نحل 4ن+1=0 ⇐ ن=-1/4.' },
+  { domain:'algebra', topic:'إخراج العامل المشترك', text:'أوجد العامل المشترك الأكبر لكثيرة الحدود: 8س⁴ - 5س⁷', choices:['س⁴(8 - 5س³)','س⁷(8س⁻³ - 5)','س(8س³ - 5س⁶)','لا عامل مشترك'], correct:0, explain:'أصغر أس مشترك لـس هو س⁴، وإخراجه يعطي س⁴(8-5س³) بأسس موجبة.' },
+  { domain:'algebra', topic:'المميز', text:'للمعادلة التربيعية س² + 5س + 3 = 0، يساوي المميز (ب²-4أج):', choices:['13','25','-7','1'], correct:0, explain:'المميز = 5²-4(1)(3) = 25-12 = 13.' },
+  { domain:'algebra', topic:'عدد حلول المعادلة التربيعية', text:'في المعادلة أس² + بس + ج = 0 حيث أ ≠ 0، إذا كان المميز أكبر من صفر، فعدد حلولها الحقيقية:', choices:['2','1','0','لا نهاية'], correct:0, explain:'إذا كان المميز موجبًا فللمعادلة حلّان حقيقيان مختلفان.' },
+
+  /* ---- إضافات: الدالة التربيعية ---- */
+  { domain:'algebra', topic:'الدالة التربيعية', text:'ما الصورة العامة للدالة التربيعية؟', choices:['د(س) = أس² + بس + ج','د(س) = أس + ب','د(س) = أس³','د(س) = أ/س'], correct:0 },
+  { domain:'algebra', topic:'اتجاه فتحة المنحنى', text:'إذا كان أ > 0 في الدالة التربيعية، فإن منحناها يكون:', choices:['مفتوحًا للأعلى','مفتوحًا للأسفل','خطًا مستقيمًا','دائرة'], correct:0 },
+  { domain:'algebra', topic:'محور التماثل', text:'محور التماثل للدالة التربيعية د(س) = أس² + بس + ج هو:', choices:['س = -ب/(2أ)','س = ب/(2أ)','س = -ج/أ','س = أ/ب'], correct:0 },
+  { domain:'algebra', topic:'رأس المنحنى', text:'أوجد رأس منحنى الدالة د(س) = س² - 4س + 3', choices:['(2, -1)','(-2, 1)','(2, 1)','(-2, -1)'], correct:0, explain:'محور التماثل س=4/2=2، وبالتعويض د(2)=4-8+3=-1، فالرأس (2,-1).' },
+  { domain:'algebra', topic:'المقطع الصادي', text:'المقطع الصادي (عند س=0) للدالة د(س) = 2س² + 3س - 5 هو:', choices:['-5','3','2','5'], correct:0 },
+  { domain:'algebra', topic:'حل المعادلات التربيعية', text:'حل المعادلة التربيعية: س² - 5س + 6 = 0', choices:['س = 2 أو س = 3','س = -2 أو س = -3','س = 1 أو س = 6','س = -1 أو س = -6'], correct:0, explain:'بالتحليل: (س-2)(س-3)=0.' },
+  { domain:'algebra', topic:'المميز', text:'المميز للمعادلة: 2س² - 7س + 5 = 0 يساوي:', choices:['9','-9','49','-40'], correct:0, explain:'المميز = (-7)²-4(2)(5) = 49-40 = 9.' },
+  { domain:'algebra', topic:'عدد حلول المعادلة التربيعية', text:'إذا كان المميز = 0، فإن عدد الحلول الحقيقية للمعادلة التربيعية هو:', choices:['1','2','0','لا نهاية'], correct:0 },
+  { domain:'algebra', topic:'إكمال المربع', text:'حل المعادلة: س² + 10س + 25 = 0 بإكمال المربع', choices:['س = -5','س = 5','س = -5 أو 5','لا حل'], correct:0 },
+  { domain:'algebra', topic:'القانون العام', text:'القانون العام لحل المعادلة التربيعية أس² + بس + ج = 0 هو:', choices:['س = (-ب ± √(ب²-4أج)) / (2أ)','س = (ب ± √(ب²+4أج)) / (2أ)','س = (-ب ± √(ب²-4أج)) / أ','س = -ب/2أ'], correct:0 },
+
+  { domain:'algebra', topic:'الحدود الوحيدة', text:'أيّ مما يلي لا يُعتبر حدًا وحيدًا؟', choices:['ص + س','ص²س','هـ²','6'], correct:0, explain:'"ص+س" عبارة عن حدين (ثنائي حد)، بينما بقية الخيارات حدود وحيدة.' },
+  { domain:'algebra', topic:'صياغة تعبيرات جبرية', text:'ناتج ضرب عدد صحيح س مع العدد الصحيح الذي يليه مباشرة يُكتب:', choices:['س(س+1)','س² + 1','2س + 1','س + 2'], correct:0 },
+  { domain:'algebra', topic:'الصورة القياسية لكثيرة الحدود', text:'ما الصورة القياسية لكثيرة الحدود: 4س³ + 9 + 7س - 2س²؟', choices:['4س³ - 2س² + 7س + 9','4س³ + 2س² - 7س + 9','4س³ + 2س² + 7س - 9','-4س³ + 2س² + 7س + 9'], correct:0 },
+  { domain:'algebra', topic:'المميز', text:'المميز للمعادلة: س² + 10س + 25 = 0 يساوي:', choices:['0','25','-25','100'], correct:0, explain:'المميز = 10²-4(1)(25) = 100-100 = 0.' },
+  { domain:'algebra', topic:'حل المعادلات التربيعية', text:'حل المعادلة: 9س² = 25', choices:['س = ±5/3','س = 5/3','س = -5/3','س = ±3/5'], correct:0, explain:'س² = 25/9 ⇐ س = ±√(25/9) = ±5/3.' },
+
+  /* ---- إضافات: الجذور والمثلثات ---- */
+  { domain:'geometry', topic:'نظرية فيثاغورس', text:'نظرية فيثاغورس: في المثلث القائم الزاوية، مجموع مربعي الضلعين القائمين يساوي:', choices:['مربع الوتر','الوتر','ضعف الوتر','نصف مربع الوتر'], correct:0 },
+  { domain:'geometry', topic:'نظرية فيثاغورس', text:'في مثلث قائم الزاوية، طول الوتر = 13 وطول أحد الضلعين = 5، فإن طول الضلع الآخر يساوي:', choices:['12','8','10','11'], correct:0, explain:'الضلع = √(13²-5²) = √(169-25) = √144 = 12.' },
+  { domain:'geometry', topic:'المسافة بين نقطتين', text:'المسافة بين النقطتين (0,0) و(3,4) تساوي:', choices:['5','7','3','4'], correct:0, explain:'المسافة = √(3²+4²) = √25 = 5.' },
+  { domain:'geometry', topic:'تبسيط الجذور', text:'بسّط التعبير الجذري: √75', choices:['5√3','3√5','25√3','15√3'], correct:0, explain:'75 = 25×3، و√25=5، فتصبح 5√3.' },
+  { domain:'geometry', topic:'حل المعادلات الجذرية', text:'حل المعادلة الجذرية: √س = 5', choices:['س = 25','س = 10','س = 5','س = √5'], correct:0, explain:'بتربيع الطرفين: س = 5² = 25.' },
+  { domain:'geometry', topic:'المثلثات المتشابهة', text:'في المثلثات المتشابهة، تكون نسبة الأضلاع المتناظرة:', choices:['متساوية','متضاعفة','متناسبة','متعامدة'], correct:2, explain:'التشابه يعني تناسب الأضلاع المتناظرة، وليس بالضرورة تساويها (التساوي خاص بالتطابق).' },
+  { domain:'geometry', topic:'النسب المثلثية', text:'جيب الزاوية (جا) في المثلث القائم الزاوية يساوي:', choices:['الضلع المقابل / الوتر','الضلع المجاور / الوتر','الضلع المقابل / الضلع المجاور','الوتر / الضلع المقابل'], correct:0 },
+  { domain:'geometry', topic:'النسب المثلثية', text:'جتا 60° تساوي:', choices:['1/2','√3/2','√3','1/√2'], correct:0 },
+  { domain:'geometry', topic:'تبسيط الجذور', text:'بسّط: √(4س²)', choices:['2|س|','2س','4س','√4 × س'], correct:0, explain:'الجذر التربيعي دائمًا غير سالب، لذا يلزم القيمة المطلقة: √(4س²)=2|س|.' },
+  { domain:'geometry', topic:'المسافة بين نقطتين', text:'المسافة بين النقطتين (1,2) و(4,6) تساوي:', choices:['5','3','4','7'], correct:0, explain:'المسافة = √((4-1)²+(6-2)²) = √(9+16) = √25 = 5.' },
+  { domain:'geometry', topic:'نظرية فيثاغورس', text:'في مثلث قائم الزاوية، طول الوتر = 25 وطول أحد الضلعين = 7، فإن طول الضلع الآخر يساوي:', choices:['24','20','18','22'], correct:0, explain:'الضلع = √(25²-7²) = √(625-49) = √576 = 24.' },
+  { domain:'geometry', topic:'تبسيط الجذور', text:'بسّط التعبير الجذري: √50', choices:['5√2','25√2','10√5','2√5'], correct:0, explain:'50 = 25×2، و√25=5، فتصبح 5√2.' },
+
+  /* ---- إضافات: الإحصاء والاحتمال ---- */
+  { domain:'stats', topic:'مقاييس التشتت', text:'الفرق بين أكبر قيمة وأصغر قيمة في مجموعة بيانات يُسمى:', choices:['المدى','الوسيط','المنوال','المتوسط'], correct:0 },
+  { domain:'stats', topic:'الاحتمالات', text:'احتمال الحصول على عدد زوجي عند رمي حجر نرد مرة واحدة:', choices:['1/2','1/3','1/6','2/3'], correct:0 },
+  { domain:'stats', topic:'الاحتمالات', text:'صندوق فيه 5 كرات حمراء و3 كرات زرقاء، احتمال سحب كرة حمراء:', choices:['5/8','3/8','5/3','1/2'], correct:0 },
+  { domain:'stats', topic:'أنواع الحوادث', text:'الحوادث التي لا يمكن وقوعها معًا في آنٍ واحد تُسمى:', choices:['متنافية','مستقلة','مكملة','متقاطعة'], correct:0 },
+  { domain:'stats', topic:'مفاهيم إحصائية', text:'في الدراسة المسحية، يُقصد بـ"المجتمع":', choices:['جميع الأفراد موضع الدراسة','جزء من الأفراد','المتوسط الحسابي','الانحراف المعياري'], correct:0 },
+  { domain:'stats', topic:'مقاييس النزعة المركزية', text:'المتوسط الحسابي للأعداد: 2، 4، 6، 8، 10 يساوي:', choices:['6','5','7','8'], correct:0 },
+  { domain:'stats', topic:'الوسيط', text:'الوسيط للبيانات: 3، 5، 7، 9، 11 يساوي:', choices:['7','5','9','6'], correct:0 },
+  { domain:'stats', topic:'الاحتمالات', text:'احتمال الحصول على العدد (2 أو 4) عند رمي حجر نرد:', choices:['2/6','1/6','3/6','4/6'], correct:0 },
+  { domain:'stats', topic:'الحادثة المكملة', text:'إذا كان احتمال وقوع حادثة = 0.3، فإن احتمال عدم وقوعها:', choices:['0.7','0.3','1.3','0'], correct:0 },
+  { domain:'stats', topic:'مقاييس التشتت', text:'الانحراف المعياري يقيس:', choices:['مدى تشتت البيانات','مجموع البيانات','أكبر قيمة','أصغر قيمة'], correct:0 },
+  { domain:'stats', topic:'التوافيق', text:'عدد طرق اختيار 4 خيول من أصل 6 للمشاركة في السباق:', choices:['15','24','30','12'], correct:0, explain:'عدد التوافيق ت(6,4) = 6!/(4!×2!) = 15.' }
+,
+
+  /* ==================== أسئلة إضافية: من الاختبارات الوطنية واختبارات محاكية (نافس - الأعداد والعمليات) ==================== */
+  { domain:'numbers', topic:'مقارنة الأعداد الصحيحة', text:'أي القيم التالية هي الأكبر؟', choices:['-(-5)', '|-7|', '|-6|', '4'], correct:1, explain:'-(-5) = 5، و|-7| = 7، و|-6| = 6، فأكبر قيمة هي |-7| = 7.' },
+  { domain:'numbers', topic:'ترتيب الأعداد الصحيحة', text:'ترتيب الأعداد -5، 4، 0، -1، -3 تصاعديًا هو:', choices:['-1، -3، 0، 4، -5', '-5، -3، -1، 0، 4', '-5، 4، 0، -1، -3', '-3، -5، 0، 4، 1'], correct:1, explain:'الترتيب التصاعدي (من الأصغر إلى الأكبر) هو: -5 ، -3 ، -1 ، 0 ، 4.' },
+  { domain:'numbers', topic:'مقارنة الأعداد الحقيقية', text:'الإشارة المناسبة في المربع لتصبح الجملة |-36| ▢ -40 صحيحة:', choices:['>', '≥', '<', '='], correct:0, explain:'|-36| = 36، وهو أكبر من -40، فالإشارة الصحيحة (>).' },
+  { domain:'numbers', topic:'تحويل الأعداد الكسرية', text:`كتابة العدد الكسري 1${F(5,8)} على صورة كسر عشري`, choices:['13/8', '0.625', '1.625', '5/8'], correct:2, explain:'1 + 5/8 = 1 + 0.625 = 1.625' },
+  { domain:'numbers', topic:'تبسيط الكسور', text:'اكتب 0.45 على صورة كسر اعتيادي في أبسط صورة', choices:['45/10', '45', '9/20', '4.5'], correct:2, explain:'0.45 = 45/100، وبقسمة البسط والمقام على 5 نحصل على 9/20.' },
+  { domain:'numbers', topic:'مقارنة الكسور', text:`الإشارة المناسبة لتصبح الجملة ${F(7,12)} ▢ ${F(3,4)} صحيحة:`, choices:['>', '≥', '<', '='], correct:2, explain:'7/12 ≈ 0.583 وهو أصغر من 3/4 = 0.75، فالإشارة الصحيحة (<).' },
+  { domain:'numbers', topic:'مقارنة الكسور والعشريات', text:`الإشارة المناسبة لتصبح الجملة ${F(11,50)} ▢ 0.22 صحيحة:`, choices:['>', '≥', '<', '='], correct:3, explain:'11/50 = 0.22 تمامًا، فالإشارة الصحيحة (=).' },
+  { domain:'numbers', topic:'الجذور والأعداد النسبية', text:`ناتج ‎-√${F(9,49)} يساوي:`, choices:['3/7', '-3/7', '7/3', '1'], correct:1, explain:'√(9/49) = 3/7، وبإضافة الإشارة السالبة: -3/7.' },
+  { domain:'numbers', topic:'محيط المربع', text:'مربع مساحته 25 سم²، أوجد محيطه', choices:['5 سم', '10 سم', '100 سم', '20 سم'], correct:3, explain:'طول الضلع = √25 = 5 سم، والمحيط = 4×5 = 20 سم.' },
+  { domain:'numbers', topic:'خصائص الجذور', text:'قيمة (√س)² تساوي:', choices:['س²', '2س', 'س', '2'], correct:2, explain:'مربع الجذر التربيعي للعدد يساوي العدد نفسه (لِـ س ≥ 0): (√س)² = س.' },
+  { domain:'numbers', topic:'تقدير الجذور', text:'تقدير √83 إلى أقرب عدد كلي', choices:['9', '10', '81', '100'], correct:0, explain:'9² = 81 و10² = 100، و83 أقرب إلى 81، فتقدير √83 ≈ 9.' },
+  { domain:'numbers', topic:'تمثيل الجذور على خط الأعداد', text:'أي الجذور التربيعية التالية يبين أفضل تمثيل للنقطة ن على خط الأعداد (بين 4 و5)؟', choices:['√25', '√18', '√4', '√5'], correct:1, explain:'√18 ≈ 4.24 وهو العدد الوحيد بين الاختيارات الواقع بين 4 و5.' },
+  { domain:'numbers', topic:'مقارنة الجذور والعشريات الدورية', text:'الإشارة المناسبة لتصبح الجملة 1.5 (بتكرار الرقم 5) ▢ √2.25 صحيحة:', choices:['>', '≥', '<', '='], correct:0, explain:'1.5 بتكرار الخمسة = 1.5555...، و√2.25 = 1.5، وبما أن 1.5555 > 1.5 فالإشارة الصحيحة (>).' },
+  { domain:'numbers', topic:'القيمة المطلقة وتطبيقاتها', text:'أي الحالات التالية تكون لها القيمة المطلقة أكبر؟', choices:['ارتفاع 6 م فوق سطح البحر', 'نزول 7 متر تحت سطح البحر', 'ربح 5 ريال', 'خسارة 3 ريال'], correct:1, explain:'القيم المطلقة: |6|=6، |-7|=7، |5|=5، |-3|=3. أكبرها هي حالة نزول 7 متر تحت سطح البحر.' },
+  { domain:'numbers', topic:'الأعداد الصحيحة في مواقف حياتية', text:'العدد الصحيح الذي يعبر عن خسارة 47 ريالًا هو:', choices:['|-47|', '-47', '47', '3-'], correct:1, explain:'الخسارة تُمثَّل بعدد صحيح سالب، فالإجابة -47.' },
+  { domain:'numbers', topic:'تحويل الكسور إلى عشريات', text:`أي الكسور العشرية التالية تكافئ ${F(13,5)}؟`, choices:['2.4', '2.55', '2.45', '2.6'], correct:3, explain:'13 ÷ 5 = 2.6' },
+  { domain:'numbers', topic:'تصنيف الأعداد', text:'مجموعة الأعداد التي ينتمي لها العدد 0.7̄ (0.7777...) هي:', choices:['النسبية', 'الصحيحة', 'الكلية', 'غير النسبية'], correct:0, explain:'العدد العشري الدوري 0.7̄ يمكن كتابته على صورة كسر (7/9)، لذا فهو ينتمي لمجموعة الأعداد النسبية.' },
+  { domain:'numbers', topic:'مقارنة الكسور السالبة', text:`أي الكسور التالية محصور بين ‎-${F(3,4)} و ‎-${F(2,3)}؟`, choices:['-1/3', '-5/7', '-3/5', '-7/8'], correct:1, explain:'-3/4 = -0.75 و-2/3 ≈ -0.667، والكسر الواقع بينهما هو -5/7 ≈ -0.714.' },
+  { domain:'numbers', topic:'تصنيف الأعداد', text:'مجموعة الأعداد التي ينتمي لها العدد 0.7̄ (0.7777...) هي:', choices:['النسبية', 'الصحيحة', 'الكلية', 'غير النسبية'], correct:0, explain:'العدد العشري الدوري 0.7̄ يمكن كتابته على صورة كسر (7/9)، لذا فهو ينتمي لمجموعة الأعداد النسبية.' },
+  { domain:'numbers', topic:'تصنيف الأعداد', text:'مجموعة الأعداد التي ينتمي لها العدد 0.7̄ (0.7777...) هي: (تكرار)', choices:['النسبية', 'الصحيحة', 'الكلية', 'غير النسبية'], correct:0, explain:'العدد العشري الدوري 0.7̄ يمكن كتابته على صورة كسر (7/9)، لذا فهو ينتمي لمجموعة الأعداد النسبية.' },
+  { domain:'numbers', topic:'قوى الأعداد النسبية', text:`احسب قيمة ${F(2,3)}⁻⁴`, choices:['8/81', '-8/81', '81/16', '8/9'], correct:2, explain:'(2/3)⁻⁴ = (3/2)⁴ = 81/16.' },
+  { domain:'numbers', topic:'الصيغة القياسية', text:'اكتب العدد 5.34×10⁴ بالصيغة القياسية', choices:['5340', '53400', '0.000534', '534'], correct:1, explain:'5.34 × 10⁴ = 5.34 × 10000 = 53400.' },
+  { domain:'numbers', topic:'الصيغة العلمية', text:'اكتب العدد 0.00876 بالصيغة العلمية', choices:['8.76×10³', '8.76×10⁻³', '8.76×1000', '876'], correct:1, explain:'0.00876 = 8.76 × 10⁻³.' },
+  { domain:'numbers', topic:'جمع الأعداد الصحيحة', text:'أوجد ناتج -5 + (-7)', choices:['12', '2', '-12', '35'], correct:2, explain:'-5 + (-7) = -12' },
+  { domain:'numbers', topic:'جمع الأعداد الصحيحة', text:'أوجد ناتج -15 + 19', choices:['4', '-4', '34', '5'], correct:0, explain:'-15 + 19 = 4' },
+  { domain:'numbers', topic:'طرح الأعداد الصحيحة', text:'أوجد ناتج -20 - 15', choices:['-35', '5', '-5', '35'], correct:0, explain:'-20 - 15 = -35' },
+  { domain:'numbers', topic:'ضرب الأعداد الصحيحة', text:'أوجد ناتج -7 × 4', choices:['11', '-28', '28', '11-'], correct:1, explain:'-7 × 4 = -28' },
+  { domain:'numbers', topic:'قسمة الأعداد الصحيحة', text:'أوجد ناتج -14 ÷ (-7)', choices:['2', '-7', '-2', '21'], correct:0, explain:'-14 ÷ (-7) = 2 (سالب ÷ سالب = موجب)' },
+  { domain:'numbers', topic:'قسمة الأعداد الصحيحة', text:'أوجد ناتج 20 ÷ (-4)', choices:['5', '-5', '16', '24'], correct:1, explain:'20 ÷ (-4) = -5' },
+  { domain:'numbers', topic:'قسمة الأعداد الصحيحة', text:'أوجد ناتج -14 ÷ (-7) (تكرار)', choices:['2', '-2', '-7', '21'], correct:0, explain:'-14 ÷ (-7) = 2 (سالب ÷ سالب = موجب)' },
+  { domain:'numbers', topic:'ضرب الكسور', text:`أوجد ناتج ${F(3,20)} × ${F(5,16)}`, choices:['1/12', '12', '1/16', '16'], correct:2, explain:'(3/20) × (5/16) = 15/320 = 1/16 (بعد التبسيط).' },
+  { domain:'numbers', topic:'المقلوب الضربي', text:'النظير الضربي للعدد -5 2/3 هو:', choices:['17', '-3/17', '3/17', '-3'], correct:1, explain:'-5 2/3 = -17/3، والمقلوب الضربي له هو -3/17.' },
+  { domain:'numbers', topic:'قسمة الكسور', text:`أوجد ناتج ‎-${F(4,6)} ÷ ${F(5,7)}`, choices:['-14/15', '14/15', '14', '24/35'], correct:0, explain:'-4/6 ÷ 5/7 = -4/6 × 7/5 = -28/30 = -14/15.' },
+  { domain:'numbers', topic:'جمع الكسور', text:`أوجد ناتج ${F(5,8)} + (‎-${F(7,8)})`, choices:['4', '1/4', '-1/4', '2-'], correct:2, explain:'5/8 + (-7/8) = -2/8 = -1/4.' },
+  { domain:'numbers', topic:'جمع وطرح الأعداد الكسرية', text:`أوجد ناتج ‎-6 ${F(2,9)} + 4 ${F(5,6)}`, choices:['-1 7/18', '1 7/18', '-7/18', '25/18'], correct:0, explain:'-6 2/9 = -56/9 = -112/18، و4 5/6 = 29/6 = 87/18، والمجموع = -25/18 = -1 7/18.' },
+  { domain:'numbers', topic:'تبسيط الجذور والأسس', text:'بسّط: √(24 س⁶ ص⁴)', choices:['2 س³ ص² √6', '2 |س³| ص √6', '|س³| ص² √6', '2 |س³| ص² √6'], correct:3, explain:'24 = 4×6، و√(س⁶)=|س³| (لضمان عدم السلبية)، و√(ص⁴)=ص². فالناتج: 2|س³|ص²√6.' },
+  { domain:'numbers', topic:'جمع وطرح الجذور', text:'بسّط: 3√20 + 2√45 - 7√5', choices:['5√5', '12√5', '17√5', '5'], correct:0, explain:'3√20=6√5، 2√45=6√5، فمجموعهما 12√5، وبطرح 7√5 نحصل على 5√5.' },
+  { domain:'numbers', topic:'الأس صفر', text:`احسب قيمة ${F(6,7)}⁰`, choices:['0', '1', '6/7', '7/6'], correct:1, explain:'أي عدد غير صفري مرفوع للأس صفر يساوي 1.' },
+  { domain:'numbers', topic:'النسب المتكافئة', text:'أي النسب التالية هي نسب متكافئة؟', choices:['11 ريالاً لكل 16 كجم , 28 ريالاً لكل 40 كجم', '12 ريالاً لكل 10 كجم , 38 ريالاً لكل 15 كجم', '18 ريالاً لكل 4 كجم , 27 ريالاً لكل 6 كجم', '14 ريالاً لكل 26 كجم , 20 ريالاً لكل 30 كجم'], correct:2, explain:'18÷4 = 4.5 و27÷6 = 4.5، فهما نسبتان متكافئتان (متساويتا المعدل).' },
+  { domain:'numbers', topic:'معدل الوحدة', text:'معدل الوحدة لـ 300 ريال لكل 6 ساعات يساوي:', choices:['50 ريالاً / ساعة', '3 ريالاً / 3 ساعات', '60 ريالاً / ساعة', '50 ريالاً / 6 ساعات'], correct:0, explain:'300 ÷ 6 = 50 ريالاً لكل ساعة واحدة.' },
+  { domain:'numbers', topic:'النسبة', text:'صف فيه 32 طالبًا، شارك 6 منهم في المهرجان المدرسي، فما نسبة عدد الطلاب المشاركين إلى غير المشاركين؟', choices:['13:3', '16:3', '3:13', '3:16'], correct:2, explain:'غير المشاركين = 32-6 = 26، فالنسبة = 6:26 = 3:13.' },
+  { domain:'numbers', topic:'النسبة المئوية', text:'أوجد 5% من 300', choices:['20', '15', '5', '30'], correct:1, explain:'5% × 300 = 15.' },
+  { domain:'numbers', topic:'الحساب الذهني للنسبة المئوية', text:'احسب ذهنيًا 10% من 98', choices:['9.8', '98', '980', '0.98'], correct:0, explain:'10% من 98 = 9.8 (بقسمة العدد على 10).' },
+  { domain:'numbers', topic:'حل التناسب', text:`حل التناسب: ${F('س',4)} = ${F(9,10)}`, choices:['36', '3.6', '0.36', '360'], correct:1, explain:'س = 4 × 9 ÷ 10 = 3.6' },
+  { domain:'numbers', topic:'معدل التغير', text:'ارتفعت درجة حرارة الجو خلال ساعتين بمقدار 7°، أوجد عدد الساعات اللازمة حتى ترتفع درجة الحرارة بمقدار 13° وفق المعدل نفسه', choices:['37', '3.7', '26', '7'], correct:1, explain:'المعدل = 7/2 درجة لكل ساعة، والزمن اللازم = 13 ÷ (7/2) = 26/7 ≈ 3.7 ساعة.' },
+  { domain:'numbers', topic:'النسبة المئوية', text:'أوجد 6% من 525', choices:['31.5', '315', '6', '35'], correct:0, explain:'6% × 525 = 31.5' },
+  { domain:'numbers', topic:'النسبة المئوية', text:'ما النسبة المئوية للعدد 420 من 600؟', choices:['70%', '35%', '7%', '0.7%'], correct:0, explain:'420 ÷ 600 = 0.7 = 70%' },
+  { domain:'numbers', topic:'إيجاد العدد الأصلي من نسبته المئوية', text:'ما العدد الذي 52% منه يساوي 65؟', choices:['15', '125', '130', '100'], correct:1, explain:'العدد = 65 ÷ 0.52 = 125' },
+  { domain:'numbers', topic:'الربح والخسارة', text:'يشتري تاجر جهاز تسجيل بمبلغ 244 ريالاً، ويبيعه بربح 6%، فما ثمن بيع الجهاز؟', choices:['244', '258.64', '14.64', '60'], correct:1, explain:'ثمن البيع = 244 × 1.06 = 258.64 ريالاً' },
+  { domain:'numbers', topic:'النسبة المئوية التقديرية', text:'شارك 335 طالبًا في سباق جري، ووصل منهم 150 طالبًا فقط إلى خط النهاية، قدّر النسبة المئوية للطلاب الذين وصلوا إلى خط النهاية', choices:['40%', '45%', '55%', '60%'], correct:1, explain:'150 ÷ 335 ≈ 0.448 ≈ 45%' },
+  { domain:'numbers', topic:'تصنيف الأعداد', text:'أي الأعداد التالية ليس عددًا نسبيًا؟', choices:['1.3', '7/3', '√3', '1 2/5'], correct:2, explain:'√3 عدد غير نسبي لأن 3 ليس مربعًا كاملًا، بينما بقية الأعداد يمكن كتابتها على صورة كسور.' },
+  { domain:'numbers', topic:'مقارنة الأعداد الصحيحة', text:'أي القيم التالية أكبر من (-4)؟', choices:['-|7|', '-3', '-√36', '-4'], correct:1, explain:'-|7|=-7 و-√36=-6، وكلاهما أصغر من -4. القيمة الوحيدة الأكبر من -4 هي -3.' },
+  { domain:'numbers', topic:'تمثيل الجذور على خط الأعداد', text:'مُثلت أربعة أعداد صحيحة بنقاط على المستقيم المجاور، أي النقاط تمثل أقرب قيمة إلى √11؟', choices:['ق', 'ل', 'ن', 'ي'], correct:3, explain:'√11 ≈ 3.32، وأقرب النقاط الموضحة على خط الأعداد لهذه القيمة هي النقطة ي.' },
+  { domain:'numbers', topic:'خصائص الجذور', text:'العبارة الخاطئة فيما يلي:', choices:['-√144 = -12', '√(26)² = 26', '√8 = 4', '∛27 = 3'], correct:2, explain:'√8 ≈ 2.83 وليست 4، فهذه هي العبارة الخاطئة (بقية العبارات صحيحة).' },
+  { domain:'numbers', topic:'تصنيف الأعداد', text:'أي الأعداد التالية يعتبر من الأعداد غير النسبية؟', choices:['√7', '√9', '2.5', '-2.5'], correct:0, explain:'√7 عدد غير نسبي لأن 7 ليس مربعًا كاملًا، بينما √9=3 وبقية الأعداد نسبية.' },
+  { domain:'numbers', topic:'مقارنة الأعداد العشرية', text:'ضع إشارة > أو < أو = لتصبح الجملة -2.7 ▢ -2.77 صحيحة:', choices:['≥', '>', '<', '='], correct:1, explain:'-2.7 = -2.70 وهو أكبر من -2.77 (أقل سالبية)، فالإشارة الصحيحة (>).' },
+  { domain:'numbers', topic:'تقدير الجذور', text:'قدّر √87 إلى أقرب عدد كلي', choices:['9', '8', '10', '11'], correct:0, explain:'9²=81 و10²=100، و87 أقرب إلى 81، فتقدير √87 ≈ 9.' },
+  { domain:'numbers', topic:'تحويل الكسور العشرية', text:'ينتج مصنع ألمنيوم رقيقة يصل سمكها إلى 0.006 مم، ما أبسط صورة للكسر الاعتيادي الذي يمثل هذا العدد؟', choices:['6/100', '3/500', '3/50', '6/10'], correct:1, explain:'0.006 = 6/1000 = 3/500 بعد التبسيط.' },
+  { domain:'numbers', topic:'التقريب العشري للجذور', text:'قيمة √96 بالتقريب إلى أقرب جزء من عشرة يساوي:', choices:['9.8', '9.2', '9.3', '9.5'], correct:0, explain:'√96 ≈ 9.798، وبالتقريب لأقرب عُشر تكون 9.8.' },
+  { domain:'numbers', topic:'ترتيب الأعداد الحقيقية', text:'ترتيب الأعداد -√15، 5، -√24، 10، -2 تصاعديًا هو:', choices:['-2، -√15، 5، -√24، 10', '-√15، -√24، -2، 5، 10', '-√24، -√15، -2، 5، 10', '-√24، -√15، -2، 10، 5'], correct:2, explain:'-√24≈-4.9، -√15≈-3.87، فالترتيب التصاعدي: -√24، -√15، -2، 5، 10.' },
+  { domain:'numbers', topic:'الصيغة القياسية', text:'العدد التالي بالصيغة القياسية: 25.66 × 10⁻⁵', choices:['0.0002566', '25660', '2566', '0.02566'], correct:0, explain:'25.66 × 10⁻⁵ = 25.66 ÷ 100000 = 0.0002566' },
+  { domain:'numbers', topic:'ضرب الجذور', text:'أوجد الناتج في أبسط صورة: √8 × √16', choices:['16√2', '8√2', '16', '12'], correct:1, explain:'√8 × √16 = √128 = √(64×2) = 8√2' },
+  { domain:'numbers', topic:'قسمة قوى العشرة', text:'أوجد ناتج 100000 × 10⁻³', choices:['100', '10', '100000', '13000'], correct:0, explain:'100000 × 10⁻³ = 100000 ÷ 1000 = 100' },
+  { domain:'numbers', topic:'عمليات على الأعداد الكسرية', text:'إذا كان طول حمد 163 1/8 سم، وطول أخته 159 5/8 سم، فكم سنتمترًا يزيد طول حمد على طول أخته؟', choices:['4 1/2 سم', '4 1/4 سم', '3 3/4 سم', '3 1/2 سم'], correct:3, explain:'163 1/8 - 159 5/8 = 163.125 - 159.625 = 3.5 = 3 1/2 سم' },
+  { domain:'numbers', topic:'جمع الأعداد الكسرية', text:'اشترك أربعة من طلاب النشاط الكشفي بالتناوب على إدارة المخيم الكشفي فعملوا 2 1/4 ساعة، 1 5/6 ساعة، 2 7/8 ساعة، 1 ساعة. ما مجموع ساعات عمل الطلاب جميعًا؟', choices:['6 5/12', '11 7/24', '8 7/24', '12 1/4'], correct:2, explain:'بجمع الساعات الأربع (بعد توحيد المقامات) نحصل على مجموع يقارب 8 7/24 ساعة.' },
+  { domain:'numbers', topic:'الصيغة العلمية', text:'اكتب كلا من الأعداد الآتية بالصيغة العلمية: 0.114', choices:['1.14×10⁻¹', '114×10⁻³', '1140×10⁻³', '1.14'], correct:0, explain:'0.114 = 1.14 × 10⁻¹' },
+  { domain:'numbers', topic:'قوانين الأسس', text:'ناتج 8¹²÷(8³×8²) يساوي:', choices:['8²', '8⁴', '8⁶', '8⁷'], correct:3, explain:'8¹² ÷ (8³×8²) = 8¹² ÷ 8⁵ = 8⁽¹²⁻⁵⁾ = 8⁷' },
+  { domain:'numbers', topic:'ترتيب الأعداد ذات الأسس', text:'الأعداد المرتبة تصاعديًا:', choices:['2¹، 4¹، 2³، 4²', '2¹، 4²، 2³، ...', '4²، 2³، 4¹، 2¹', '4¹، 2¹، 4²، 2³'], correct:0, explain:'2¹=2، 4¹=4، 2³=8، 4²=16، وهذا الترتيب تصاعدي بالفعل: 2، 4، 8، 16.' },
+  { domain:'numbers', topic:'خصائص الأعداد الصحيحة', text:'إذا كانت س عددًا صحيحًا سالبًا، فإن ناتج (-6 × س) يكون دائمًا عددًا:', choices:['موجبًا', 'سالبًا', 'فرديًا', 'أوليًا'], correct:0, explain:'سالب × سالب = موجب، فناتج (-6×س) عندما س سالب يكون دائمًا موجبًا.' },
+  { domain:'numbers', topic:'ضرب قوى العشرة', text:'ما قيمة (3.5×10⁵) × (0.00004)؟', choices:['0.0014', '14', '140', '1.4×10³'], correct:1, explain:'3.5×10⁵ = 350000، و0.00004 = 4×10⁻⁵، والناتج = 350000×0.00004 = 14' },
+  { domain:'numbers', topic:'الخصم والنسبة المئوية', text:'في معرض العطور وجد أحمد عطرًا قيمته 300 ريال، وعليه خصم 25%، إذا أراد شراء العطر فكم المبلغ الذي سيدفعه؟', choices:['75', '225', '275', '325'], correct:1, explain:'المبلغ بعد الخصم = 300 × (1-0.25) = 300 × 0.75 = 225 ريالاً' },
+  { domain:'numbers', topic:'النسبة المئوية والمساحات المظللة', text:'مجموع النسبة المئوية للشكلين التاليين؟', choices:['135%', '115%', '95%', '85%'], correct:1, explain:'الشكل الأول مظلل بالكامل (100%)، والشكل الثاني جزء منه مظلل يمثل 15% تقريبًا، فمجموعهما 115%.' },
+  { domain:'numbers', topic:'نسبة الخصم', text:'لعبة ثمنها 60 ريالاً وبعد الخصم أصبحت 40 ريالاً، ما نسبة الخصم؟', choices:['20%', '30%', '33.33%', '22.22%'], correct:2, explain:'مقدار الخصم = 60-40 = 20، ونسبته = 20÷60 ≈ 33.33%' },
+  { domain:'numbers', topic:'إيجاد العدد من نسبته المئوية', text:'أوجد العدد الذي 45% منه تساوي 90', choices:['250', '300', '210', '200'], correct:3, explain:'العدد = 90 ÷ 0.45 = 200' },
+  { domain:'numbers', topic:'طرق حساب النسبة المئوية', text:'حدد الطريقة الصحيحة لحساب 75% من إيجار منزل قيمته 9000 ريال', choices:['900 × 75', '900 × 100', '9000 × 75/100', '9000 × 100/75'], correct:2, explain:'75% من 9000 = 9000 × (75/100)' },
+  { domain:'numbers', topic:'مسائل النسبة المئوية', text:'قام خالد بصرف ما معه من مال، فإذا كان مصروف أحمد 160 ريالاً يمثل 10% من المبلغ الذي كان مع خالد، فما المبلغ الذي كان مع خالد؟', choices:['1400', '1500', '1600', '1700'], correct:2, explain:'إذا كان 10% من مبلغ خالد = 160، فإن مبلغ خالد = 160 ÷ 0.10 = 1600 ريالاً' },
+  { domain:'numbers', topic:'النسبة المئوية التقديرية', text:'مع سعد 80 ريالاً اشترى قلمًا بـ 17 ريالاً، فإن النسبة المئوية التي اشترى بها تساوي تقريبًا:', choices:['10%', '20%', '30%', '40%'], correct:1, explain:'17 ÷ 80 ≈ 0.2125 ≈ 21%، وأقرب نسبة تقريبية هي 20%.' },
+  { domain:'numbers', topic:'النسبة المئوية للباقي', text:'قطع عبدالعزيز في سباق الدراجات 4/5 المسافة الكلية، النسبة المئوية التي تمثل ما تبقى:', choices:['20%', '80%', '40%', '60%'], correct:0, explain:'4/5 = 80% قُطعت، فالباقي = 100% - 80% = 20%' },
+  { domain:'numbers', topic:'قراءة الرسوم البيانية والنسبة المئوية', text:'أوجد النسبة المئوية للزيادة في المبيعات بين العامين 1433هـ و1434هـ (من الرسم البياني)', choices:['45%', '50%', '25%', '33.33%'], correct:1, explain:'مبيعات 1433 ≈ 120 ومبيعات 1434 ≈ 180، والزيادة = 60، ونسبتها = 60÷120 = 50%' },
+  { domain:'numbers', topic:'النسبة المئوية التقديرية', text:'مع سعد 80 ريالاً اشترى قلمًا بـ 17 ريالاً، فإن النسبة المئوية التي اشترى بها تساوي تقريبًا: (تكرار)', choices:['10%', '20%', '30%', '40%'], correct:1, explain:'17 ÷ 80 ≈ 0.2125 ≈ 21%، وأقرب نسبة تقريبية هي 20%.' }
+];
+
+/* ================= STATE ================= */
+let currentSet = [];
+let currentDomainKey = 'all';
+let currentIndex = 0;
+let userAnswers = [];
+let timerInterval = null;
+let elapsedSec = 0;
+
+const HIST_KEY = 'nafsQuizHistory_v1';
+
+/* ================= INIT ================= */
+function countByDomain(key){
+  return QUESTIONS.filter(q=>q.domain===key).length;
+}
+function initCounts(){
+  document.getElementById('countAll').textContent = QUESTIONS.length + ' سؤال متنوع';
+  const badgeEl = document.getElementById('qTotalBadgeNum');
+  if(badgeEl) badgeEl.textContent = QUESTIONS.length;
+  Object.keys(DOMAINS).forEach(k=>{
+    const el = document.getElementById('count'+k);
+    if(el) el.textContent = countByDomain(k) + ' أسئلة';
+  });
+}
+initCounts();
+
+document.querySelectorAll('.domain-card').forEach(card=>{
+  card.addEventListener('click', ()=>startQuiz(card.dataset.domain));
+});
+
+/* ================= QUIZ FLOW ================= */
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function startQuiz(domainKey){
+  currentDomainKey = domainKey;
+  currentSet = domainKey==='all' ? shuffle(QUESTIONS) : shuffle(QUESTIONS.filter(q=>q.domain===domainKey));
+  currentIndex = 0;
+  userAnswers = [];
+  elapsedSec = 0;
+  showScreen('screenQuiz');
+  document.getElementById('qTotal').textContent = currentSet.length;
+  startTimer();
+  renderQuestion();
+}
+
+function startTimer(){
+  clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{
+    elapsedSec++;
+    const m = String(Math.floor(elapsedSec/60)).padStart(2,'0');
+    const s = String(elapsedSec%60).padStart(2,'0');
+    document.getElementById('quizTimer').textContent = `${m}:${s}`;
+  },1000);
+}
+
+function renderQuestion(){
+  const q = currentSet[currentIndex];
+  document.getElementById('qIndex').textContent = currentIndex+1;
+  document.getElementById('progressFill').style.width = ((currentIndex)/currentSet.length*100)+'%';
+  document.getElementById('qBadge').innerHTML = DOMAINS[q.domain].icon + ' ' + DOMAINS[q.domain].label + ' · ' + q.topic;
+  document.getElementById('qText').innerHTML = q.text;
+
+  const lettersAr = ['أ','ب','ج','د'];
+  const box = document.getElementById('qChoices');
+  box.innerHTML = '';
+  q.choices.forEach((choiceHTML, idx)=>{
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.innerHTML = `<span class="c-letter">${lettersAr[idx]}</span><span>${choiceHTML}</span>`;
+    btn.addEventListener('click', ()=>selectChoice(idx));
+    box.appendChild(btn);
+  });
+
+  document.getElementById('qExplain').classList.remove('show');
+  document.getElementById('btnNext').disabled = true;
+  document.getElementById('btnNext').textContent = currentIndex === currentSet.length-1 ? 'عرض النتيجة' : 'التالي';
+}
+
+function selectChoice(idx){
+  const q = currentSet[currentIndex];
+  if(userAnswers[currentIndex] !== undefined) return; // already answered
+
+  userAnswers[currentIndex] = idx;
+  const buttons = document.querySelectorAll('#qChoices .choice');
+  buttons.forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===q.correct) b.classList.add('correct');
+    else if(i===idx) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const exp = document.getElementById('qExplain');
+  const isCorrect = idx===q.correct;
+  exp.className = 'explain-box show ' + (isCorrect?'good':'bad');
+  exp.textContent = (isCorrect ? '✔ إجابة صحيحة — ' : '✘ إجابة غير صحيحة — ') + q.explain;
+
+  document.getElementById('btnNext').disabled = false;
+}
+
+document.getElementById('btnNext').addEventListener('click', ()=>{
+  if(currentIndex < currentSet.length-1){
+    currentIndex++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+});
+
+document.getElementById('btnExitQuiz').addEventListener('click', ()=>{
+  if(confirm('هل تريد إنهاء الاختبار الحالي؟ لن تُحتسب نتيجته.')){
+    clearInterval(timerInterval);
+    renderHistory();
+    showScreen('screenHome');
+  }
+});
+
+/* Header navigation icons: home + back */
+function goHome(){
+  const activeScreen = document.querySelector('.screen.active').id;
+  if(activeScreen === 'screenQuiz'){
+    if(!confirm('هل تريد إنهاء الاختبار الحالي؟ لن تُحتسب نتيجته.')) return;
+    clearInterval(timerInterval);
+  }
+  renderHistory();
+  showScreen('screenHome');
+}
+document.getElementById('btnHomeIcon').addEventListener('click', goHome);
+document.getElementById('btnBack').addEventListener('click', ()=>{
+  const activeScreen = document.querySelector('.screen.active').id;
+  if(activeScreen === 'screenHome') return; // already home, nothing to go back to
+  goHome();
+});
+
+/* ================= RESULTS ================= */
+function finishQuiz(){
+  clearInterval(timerInterval);
+  document.getElementById('progressFill').style.width = '100%';
+
+  const total = currentSet.length;
+  let correctCount = 0;
+  const byDomain = {};
+
+  currentSet.forEach((q,i)=>{
+    const isCorrect = userAnswers[i]===q.correct;
+    if(isCorrect) correctCount++;
+    if(!byDomain[q.domain]) byDomain[q.domain] = {correct:0,total:0};
+    byDomain[q.domain].total++;
+    if(isCorrect) byDomain[q.domain].correct++;
+  });
+
+  const pct = Math.round((correctCount/total)*100);
+  window.SafaProgress?.recordResult({correct:correctCount,total:total,percent:pct});
+
+  saveAttempt({
+    date: new Date().toISOString(),
+    domain: currentDomainKey,
+    domainLabel: currentDomainKey==='all' ? 'الاختبار الشامل' : DOMAINS[currentDomainKey].label,
+    correct: correctCount,
+    total: total,
+    percent: pct,
+    seconds: elapsedSec
+  });
+
+  renderResults(correctCount, total, pct, byDomain);
+  showScreen('screenResults');
+}
+
+function ringColor(pct){
+  if(pct>=80) return 'var(--good)';
+  if(pct>=50) return 'var(--gold)';
+  return 'var(--bad)';
+}
+
+function renderResults(correctCount,total,pct,byDomain){
+  const ring = document.getElementById('scoreRing');
+  const col = ringColor(pct);
+  ring.style.background = `conic-gradient(${col} ${pct*3.6}deg, rgba(255,255,255,.15) 0deg)`;
+  document.getElementById('resultPercent').textContent = pct+'%';
+  document.getElementById('resultFraction').textContent = correctCount+' / '+total;
+
+  let msg;
+  if(pct>=90) msg='ممتاز! إتقان رائع 🎉';
+  else if(pct>=75) msg='أداء جيد جدًا 👏';
+  else if(pct>=50) msg='أداء مقبول، واصل التدريب 💪';
+  else msg='تحتاج لمزيد من المراجعة والتدريب 📚';
+  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('resultSub').textContent = 'النطاق: ' + (currentDomainKey==='all' ? 'الاختبار الشامل' : DOMAINS[currentDomainKey].label);
+
+  const bd = document.getElementById('domainBreakdown');
+  bd.innerHTML = '';
+  Object.keys(byDomain).forEach(dk=>{
+    const d = byDomain[dk];
+    const p = Math.round((d.correct/d.total)*100);
+    const item = document.createElement('div');
+    item.className = 'db-item';
+    item.innerHTML = `<div class="db-top"><span>${DOMAINS[dk].icon} ${DOMAINS[dk].label}</span><span>${d.correct}/${d.total}</span></div>
+      <div class="db-bar"><div class="db-fill" style="width:${p}%"></div></div>`;
+    bd.appendChild(item);
+  });
+
+  const lettersAr = ['أ','ب','ج','د'];
+  const rl = document.getElementById('reviewList');
+  rl.innerHTML = '';
+  currentSet.forEach((q,i)=>{
+    const isCorrect = userAnswers[i]===q.correct;
+    const item = document.createElement('div');
+    item.className = 'review-item';
+    item.innerHTML = `
+      <div class="review-head">
+        <div class="review-icon ${isCorrect?'ok':'no'}">${isCorrect?'✔':'✘'}</div>
+        <div>
+          <div class="review-text">${i+1}. ${q.text}</div>
+          <div class="review-answer">إجابتك: <b>${lettersAr[userAnswers[i]]}</b>${isCorrect?'':' — الإجابة الصحيحة: <b>'+lettersAr[q.correct]+'</b>'}</div>
+        </div>
+      </div>`;
+    rl.appendChild(item);
+  });
+}
+
+document.getElementById('btnRetry').addEventListener('click', ()=>startQuiz(currentDomainKey));
+document.getElementById('btnHome').addEventListener('click', ()=>{ renderHistory(); showScreen('screenHome'); });
+
+/* ================= HISTORY / STORAGE ================= */
+function loadHistory(){
+  try{ return JSON.parse(localStorage.getItem(HIST_KEY)) || []; }
+  catch(e){ return []; }
+}
+function saveAttempt(attempt){
+  const hist = loadHistory();
+  hist.unshift(attempt);
+  localStorage.setItem(HIST_KEY, JSON.stringify(hist.slice(0,50)));
+}
+function renderHistory(){
+  const hist = loadHistory();
+  const card = document.getElementById('historyCard');
+  if(hist.length===0){
+    card.innerHTML = '<div class="empty-hint">لم تُجرِ أي محاولة بعد — ابدأ اختبارًا لتظهر نتائجك هنا.</div>';
+    return;
+  }
+  card.innerHTML = '';
+  hist.slice(0,8).forEach(a=>{
+    const d = new Date(a.date);
+    const dateStr = d.toLocaleDateString('ar-SA', {day:'numeric',month:'short',year:'numeric'});
+    const cls = a.percent>=80 ? 'hs-good' : (a.percent>=50 ? 'hs-mid' : 'hs-bad');
+    const row = document.createElement('div');
+    row.className = 'history-row';
+    row.innerHTML = `<div><div class="h-domain">${a.domainLabel}</div><div class="h-date">${dateStr}</div></div>
+      <div class="history-score ${cls}">${a.correct}/${a.total} — ${a.percent}%</div>`;
+    card.appendChild(row);
+  });
+}
+renderHistory();
+
+/* ================= SETTINGS MODAL ================= */
+const modal = document.getElementById('modalSettings');
+document.getElementById('btnSettings').addEventListener('click', ()=>modal.classList.add('show'));
+document.getElementById('btnCloseSettings').addEventListener('click', ()=>modal.classList.remove('show'));
+modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('show'); });
+
+document.getElementById('btnExport').addEventListener('click', ()=>{
+  const data = JSON.stringify(loadHistory(), null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'نسخة-احتياطية-اختبر-نافس.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('تم تنزيل النسخة الاحتياطية');
+});
+
+document.getElementById('btnImportTrigger').addEventListener('click', ()=>document.getElementById('fileImport').click());
+document.getElementById('fileImport').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(evt){
+    try{
+      const imported = JSON.parse(evt.target.result);
+      if(!Array.isArray(imported)) throw new Error('bad format');
+      const merged = imported.concat(loadHistory()).slice(0,50);
+      localStorage.setItem(HIST_KEY, JSON.stringify(merged));
+      renderHistory();
+      showToast('تم استيراد السجل بنجاح');
+      modal.classList.remove('show');
+    }catch(err){
+      showToast('تعذّر قراءة الملف، تأكد من أنه نسخة احتياطية صحيحة');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+document.getElementById('btnReset').addEventListener('click', ()=>{
+  if(confirm('سيتم حذف كل سجل محاولاتك نهائيًا. متابعة؟')){
+    localStorage.removeItem(HIST_KEY);
+    renderHistory();
+    showToast('تم مسح السجل');
+    modal.classList.remove('show');
+  }
+});
+
+/* ================= HELPERS ================= */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2400);
+}
+</script>
+<script>window.NAFS_TEST_CONFIG={"id":"grade3-middle-math","title":"الرياضيات","grade":"الصف الثالث المتوسط"};</script>
+<script src="../assets/student-bridge.js"></script>
+</body>
+</html>

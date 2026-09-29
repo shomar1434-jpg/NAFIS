@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تدريبات نافس | لغتي الجميلة | مدرسة الصفا المتوسطة بجازان</title>
+<style>
+:root{
+  --navy:#16324f;
+  --navy-2:#0e2338;
+  --teal:#0f7a72;
+  --teal-light:#e4f4f2;
+  --gold:#c9972e;
+  --gold-light:#faf1dd;
+  --bg:#f5f7f9;
+  --card:#ffffff;
+  --ink:#1c2b3a;
+  --sub:#6b7c8c;
+  --line:#e6ebef;
+  --good:#1e8a5f;
+  --good-bg:#e8f7ef;
+  --bad:#c8433f;
+  --bad-bg:#fdeceb;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(22,50,79,.08);
+  --shadow-sm:0 4px 14px rgba(22,50,79,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:'Tajawal','Cairo',system-ui,-apple-system,'Segoe UI',sans-serif;direction:rtl}
+body{min-height:100vh;display:flex;flex-direction:column}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:980px;margin:0 auto;width:100%;padding:0 18px;flex:1;display:flex;flex-direction:column}
+
+/* ---------- Header ---------- */
+header.app-head{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);padding:18px 0 26px}
+.head-inner{max-width:980px;margin:0 auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:46px;height:46px;border-radius:13px;background:radial-gradient(circle at 30% 30%,#1f4a72,#0f7a72);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.brand-logo svg{width:26px;height:26px}
+.brand-text h1{color:#fff;font-size:19px;font-weight:800;letter-spacing:0}
+.brand-text p{color:#9fb4c7;font-size:12px;margin-top:2px}
+.head-actions{display:flex;gap:8px}
+.icon-btn{width:38px;height:38px;border-radius:11px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;transition:.15s}
+.icon-btn:hover{background:rgba(255,255,255,.16)}
+.stat-badge{display:flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:11px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff;font-size:13px;font-weight:800;white-space:nowrap}
+.stat-badge b{color:#f6c453;font-weight:900}
+@media(max-width:480px){.stat-badge{padding:0 10px;font-size:12px}.brand-text p{display:none}}
+
+/* ---------- Screens ---------- */
+.screen{display:none;padding:26px 0 50px;flex:1}
+.screen.active{display:flex;flex-direction:column;gap:22px}
+
+/* ---------- Home ---------- */
+.intro-card{background:var(--card);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.intro-card h2{font-size:18px;margin-bottom:6px;color:var(--navy)}
+.intro-card p{font-size:14px;color:var(--sub);line-height:1.9}
+.intro-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:12px;background:var(--teal-light);color:var(--teal);padding:5px 12px;border-radius:20px;font-weight:700}
+
+.section-title{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:2px;display:flex;align-items:center;gap:8px}
+.section-title .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+.domain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:640px){.domain-grid{grid-template-columns:1fr}}
+
+.domain-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px;transition:.18s;cursor:pointer}
+.domain-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.domain-card .d-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.domain-card h3{font-size:15.5px;color:var(--ink)}
+.domain-card .d-meta{font-size:12.5px;color:var(--sub)}
+.domain-card .d-start{margin-top:4px;align-self:flex-start;font-size:12.5px;font-weight:800;color:var(--teal);display:flex;align-items:center;gap:5px}
+
+.featured{grid-column:1 / -1;background:linear-gradient(120deg,var(--gold-light) 0%,#fff 60%);border:1px solid #ecd9ab;position:relative;overflow:hidden}
+.featured::before{content:"";position:absolute;inset-inline-start:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--gold),#e0b354)}
+.featured .d-icon{background:var(--gold);color:#fff}
+.featured h3{font-size:17px}
+
+.d-icon.c1{background:#e7eefc;color:#2455a3}
+.d-icon.c2{background:#eafaf1;color:#1e8a5f}
+.d-icon.c3{background:#fdeeea;color:#c85a3a}
+.d-icon.c4{background:#f3ecfb;color:#7a4fc4}
+
+.history-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow-sm)}
+.history-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.history-row:last-child{border-bottom:none}
+.history-row .h-domain{font-weight:700;color:var(--ink)}
+.history-row .h-date{color:var(--sub);font-size:12px}
+.history-score{font-weight:800;padding:4px 12px;border-radius:20px;font-size:12.5px}
+.hs-good{background:var(--good-bg);color:var(--good)}
+.hs-mid{background:var(--gold-light);color:#a3771a}
+.hs-bad{background:var(--bad-bg);color:var(--bad)}
+.empty-hint{color:var(--sub);font-size:13px;text-align:center;padding:14px 0}
+
+/* ---------- Quiz ---------- */
+.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.quiz-meta{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--sub);font-weight:700}
+.quiz-meta .q-count{color:var(--navy)}
+.exit-btn{background:none;border:none;color:var(--sub);font-size:20px;line-height:1;padding:4px 8px;border-radius:8px}
+.exit-btn:hover{background:var(--bad-bg);color:var(--bad)}
+.progress-track{height:8px;background:var(--line);border-radius:20px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),#17a396);border-radius:20px;transition:width .3s}
+
+.q-card{background:var(--card);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.q-domain-badge{display:inline-block;font-size:11.5px;font-weight:800;color:var(--teal);background:var(--teal-light);padding:4px 11px;border-radius:20px;margin-bottom:14px}
+.q-text{font-size:16.5px;line-height:1.9;color:var(--ink);font-weight:700}
+.passage-box{display:block;background:var(--teal-light);border:1px solid #cfe8e4;border-radius:12px;padding:10px 14px;margin-bottom:14px}
+.passage-box summary{cursor:pointer;font-size:13px;font-weight:800;color:var(--teal);list-style:none;outline:none}
+.passage-box summary::-webkit-details-marker{display:none}
+.passage-box[open] summary{margin-bottom:8px}
+.passage-text{font-size:13.5px;font-weight:400;line-height:2;color:var(--ink);max-height:260px;overflow-y:auto;padding-left:4px}
+.passage-text p{margin-bottom:10px}
+
+.choices{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.choice{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1.5px solid var(--line);border-radius:13px;background:#fff;font-size:14.5px;text-align:right;transition:.15s}
+.choice:hover:not(.locked){border-color:var(--teal);background:var(--teal-light)}
+.choice .c-letter{width:26px;height:26px;border-radius:50%;background:var(--bg);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:800;color:var(--sub);flex-shrink:0}
+.choice.correct{border-color:var(--good);background:var(--good-bg)}
+.choice.correct .c-letter{background:var(--good);border-color:var(--good);color:#fff}
+.choice.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.choice.wrong .c-letter{background:var(--bad);border-color:var(--bad);color:#fff}
+.choice.dim{opacity:.5}
+
+.frac{display:inline-flex;flex-direction:column;text-align:center;line-height:1.15;vertical-align:middle;margin:0 3px;font-size:.92em;font-weight:800}
+.frac .fn{border-bottom:1.6px solid currentColor;padding:0 4px}
+.frac .fd{padding:0 4px}
+
+.explain-box{margin-top:16px;padding:13px 15px;border-radius:12px;font-size:13.5px;line-height:1.8;display:none}
+.explain-box.show{display:block}
+.explain-box.good{background:var(--good-bg);color:#186b4a}
+.explain-box.bad{background:var(--bad-bg);color:#a5322e}
+
+.q-actions{display:flex;justify-content:flex-end;margin-top:20px}
+.btn{border:none;border-radius:12px;padding:13px 26px;font-size:14.5px;font-weight:800;transition:.15s}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-2)}
+.btn-primary:disabled{background:#c7d0d9;cursor:not-allowed}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#b6851f}
+
+/* ---------- Results ---------- */
+.result-hero{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:var(--radius);padding:32px 24px;text-align:center;color:#fff;box-shadow:var(--shadow)}
+.score-ring{width:130px;height:130px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;position:relative}
+.score-ring .ring-num{font-size:30px;font-weight:900}
+.score-ring .ring-sub{font-size:11px;color:#c8d6e3}
+.result-msg{font-size:16px;font-weight:800;margin-bottom:4px}
+.result-sub{font-size:13px;color:#9fb4c7}
+
+.domain-breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.db-item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:13px 15px;box-shadow:var(--shadow-sm)}
+.db-item .db-top{display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;margin-bottom:8px;color:var(--sub)}
+.db-bar{height:7px;background:var(--line);border-radius:10px;overflow:hidden}
+.db-fill{height:100%;border-radius:10px;background:var(--teal)}
+
+.review-list{display:flex;flex-direction:column;gap:10px}
+.review-item{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;box-shadow:var(--shadow-sm)}
+.review-head{display:flex;align-items:flex-start;gap:10px}
+.review-icon{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:900;margin-top:2px}
+.review-icon.ok{background:var(--good)}
+.review-icon.no{background:var(--bad)}
+.review-text{font-size:13.5px;line-height:1.8}
+.review-answer{font-size:12.5px;margin-top:6px;color:var(--sub)}
+.review-answer b{color:var(--ink)}
+
+.result-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ---------- Modal ---------- */
+.modal-bg{position:fixed;inset:0;background:rgba(14,25,38,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:18px;max-width:420px;width:100%;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal h3{font-size:16px;color:var(--navy);margin-bottom:14px}
+.modal .m-row{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.modal .m-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;background:#fff;font-size:13.5px;font-weight:700;text-align:right}
+.modal .m-btn:hover{border-color:var(--teal)}
+.modal .m-btn.danger:hover{border-color:var(--bad);color:var(--bad)}
+.modal-close{margin-top:6px;width:100%}
+input[type=file]{display:none}
+
+/* ---------- Footer ---------- */
+footer.app-foot{text-align:center;padding:18px 12px;font-size:11.5px;color:var(--sub)}
+footer.app-foot a{color:var(--teal);text-decoration:none;font-weight:700}
+footer.app-foot b{color:var(--ink);font-weight:800}
+
+/* ---------- Initiative Banner ---------- */
+.init-banner{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.init-banner .init-text h2{color:#fff;font-size:18px;font-weight:800;margin-bottom:4px}
+.init-banner .init-text p{color:#9fb4c7;font-size:13px}
+.init-banner .init-icon{width:52px;height:52px;border-radius:15px;background:radial-gradient(circle at 30% 30%,#1f4a72,#0f7a72);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.init-banner .init-icon svg{width:28px;height:28px}
+
+/* ---------- Participate Box ---------- */
+.participate-box{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow)}
+.participate-box h3{color:#fff;font-size:15.5px;font-weight:800;text-align:center;line-height:1.9}
+.participate-box h3 span{color:#f6c453}
+.participate-box hr{border:none;border-top:1px solid rgba(255,255,255,.15);margin:16px 0}
+.participate-box .p-school{text-align:center;color:#dfe8ef;font-size:13.5px;margin:10px 0}
+.participate-box .p-school b{color:#4fd1b8}
+.participate-box .p-credit{text-align:center;color:#f6c453;font-weight:800;font-size:13.5px;margin-top:14px}
+
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:11px 20px;border-radius:11px;font-size:13px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
+</style>
+</head>
+<body>
+
+<header class="app-head">
+  <div class="head-inner">
+    <div class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 3 4 6v12l5 3 5-3V6L9 3Z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M14 6l6 3v9l-6 3" stroke="#f6c453" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 9v9M4 6l5 3 5-3" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="brand-text">
+        <h1>تدريبات نافس</h1>
+        <p>لغتي · الصف الثالث متوسط</p>
+      </div>
+    </div>
+    <div class="head-actions">
+      <div class="stat-badge" id="totalQBadge" title="إجمالي عدد أسئلة المنصة">📝 <b id="totalQCount">0</b> سؤال</div>
+      <button class="icon-btn" id="btnBack" title="العودة">↩️</button>
+      <button class="icon-btn" id="btnHomeIcon" title="الرئيسية">🏠</button>
+      <button class="icon-btn" id="btnSettings" title="الإعدادات">⚙️</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- HOME SCREEN -->
+  <section class="screen active" id="screenHome">
+    <div class="init-banner">
+      <div class="init-text">
+        <h2>تدريبات نافس</h2>
+        <p>لغتي · الصف الثالث متوسط</p>
+      </div>
+      <div class="init-icon">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 3 4 6v12l5 3 5-3V6L9 3Z" stroke="#f6c453" stroke-width="1.4" stroke-linejoin="round"/><path d="M14 6l6 3v9l-6 3" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 9v9M4 6l5 3 5-3" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
+    <div class="participate-box">
+      <h3>مبادرة نافس <span>"اختبر نفسك"</span> — مبادرة لمعلمي المادة أو حصص الانتظار أو الأنشطة الصفية</h3>
+      <hr>
+      <div class="p-school"><b>مدرسة الصفا المتوسطة بجازان</b><br>من إعداد الأستاذ عمر صالح علان</div>
+    </div>
+
+    <div class="intro-card">
+      <h2>اختبر نفسك ذاتيًا في لغتي</h2>
+      <p>مجموعة أسئلة تدريبية من نوع الاختيار من متعدد في مادة لغتي للصف الثالث متوسط، تغطي القراءة الاستيعابية للنصوص المعلوماتية والأدبية والدينية، والقواعد النحوية، والإملاء والصرف، لتساعدك على قياس استعدادك قبل الاختبارات الوطنية نافس.</p>
+      <div class="intro-tags">
+        <span class="tag">اختيار من متعدد</span>
+        <span class="tag">تصحيح فوري</span>
+        <span class="tag">مراجعة الإجابات</span>
+        <span class="tag">تتبع تقدمك</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>اختر نطاقك</div>
+    </div>
+
+    <div class="domain-grid">
+      <div class="domain-card featured" data-domain="all">
+        <div class="d-icon">🏆</div>
+        <h3>الاختبار الشامل</h3>
+        <div class="d-meta">أسئلة متنوعة من جميع النطاقات الأربعة — <span id="countAll"></span></div>
+        <div class="d-start">ابدأ الاختبار ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="info">
+        <div class="d-icon c1">💻</div>
+        <h3>قراءة النصوص المعلوماتية</h3>
+        <div class="d-meta"><span id="countinfo"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="literary">
+        <div class="d-icon c2">📖</div>
+        <h3>قراءة النصوص الأدبية والدينية</h3>
+        <div class="d-meta"><span id="countliterary"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="grammar">
+        <div class="d-icon c3">🔤</div>
+        <h3>القواعد النحوية</h3>
+        <div class="d-meta"><span id="countgrammar"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+
+      <div class="domain-card" data-domain="spelling">
+        <div class="d-icon c4">✍️</div>
+        <h3>الإملاء والصرف</h3>
+        <div class="d-meta"><span id="countspelling"></span></div>
+        <div class="d-start">ابدأ ←</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>سجل محاولاتك</div>
+    </div>
+    <div class="history-card" id="historyCard">
+      <div class="empty-hint">لم تُجرِ أي محاولة بعد — ابدأ اختبارًا لتظهر نتائجك هنا.</div>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section class="screen" id="screenQuiz">
+    <div class="quiz-top">
+      <button class="exit-btn" id="btnExitQuiz" title="إنهاء">✕</button>
+      <div class="quiz-meta">
+        <span>⏱️ <span id="quizTimer">00:00</span></span>
+        <span class="q-count"><span id="qIndex">1</span> / <span id="qTotal">16</span></span>
+      </div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:6%"></div></div>
+
+    <div class="q-card">
+      <span class="q-domain-badge" id="qBadge">الأعداد والعمليات عليها</span>
+      <div class="q-text" id="qText"></div>
+      <div class="choices" id="qChoices"></div>
+      <div class="explain-box" id="qExplain"></div>
+      <div class="q-actions">
+        <button class="btn btn-primary" id="btnNext" disabled>التالي</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section class="screen" id="screenResults">
+    <div class="result-hero">
+      <div class="score-ring" id="scoreRing">
+        <div>
+          <div class="ring-num" id="resultPercent">0%</div>
+          <div class="ring-sub" id="resultFraction">0 / 0</div>
+        </div>
+      </div>
+      <div class="result-msg" id="resultMsg">أحسنت!</div>
+      <div class="result-sub" id="resultSub">النطاق: الاختبار الشامل</div>
+    </div>
+
+    <div class="domain-breakdown" id="domainBreakdown"></div>
+
+    <div>
+      <div class="section-title"><span class="dot"></span>مراجعة الإجابات</div>
+    </div>
+    <div class="review-list" id="reviewList"></div>
+
+    <div class="result-actions">
+      <button class="btn btn-primary" id="btnRetry">إعادة المحاولة</button>
+      <button class="btn btn-ghost" id="btnHome">الرئيسية</button>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- SETTINGS MODAL -->
+<div class="modal-bg" id="modalSettings">
+  <div class="modal">
+    <h3>الإعدادات والنسخ الاحتياطي</h3>
+    <div class="m-row">
+      <button class="m-btn" id="btnExport">⬇️ تنزيل نسخة احتياطية من سجل محاولاتك (JSON)</button>
+      <button class="m-btn" id="btnImportTrigger">⬆️ استعادة سجل محاولات من ملف</button>
+      <input type="file" id="fileImport" accept=".json">
+      <button class="m-btn danger" id="btnReset">🗑️ مسح سجل المحاولات بالكامل</button>
+    </div>
+    <button class="btn btn-ghost modal-close" id="btnCloseSettings">إغلاق</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= DATA ================= */
+function F(n,d){ return `<span class="frac"><span class="fn">${n}</span><span class="fd">${d}</span></span>`; }
+
+const DOMAINS = {
+  info:     { label:'قراءة النصوص المعلوماتية',      icon:'💻' },
+  literary: { label:'قراءة النصوص الأدبية والدينية', icon:'📖' },
+  grammar:  { label:'القواعد النحوية',                icon:'🔤' },
+  spelling: { label:'الإملاء والصرف',                 icon:'✍️' }
+};
+
+const QUESTIONS = [
+  /* ===== قراءة: النصوص المعلوماتية — نص "الأمن المعلوماتي" ===== */
+  { domain:'info', topic:'المفردات والمعاني', text:'ما مرادف كلمة "تعزيز" الواردة في الجملة التالية: "وسيؤدي ذلك إلى تعزيز الاتصال"؟',
+    choices:['تحديد','تقوية','تأكيد','تطور'], correct:1 },
+  { domain:'info', topic:'المفردات والمعاني', text:'ما معنى كلمة "سيحظى" الواردة في النص المقروء؟',
+    choices:['يَنال','يتشرف','يمتلك','يشاهد'], correct:0 },
+  { domain:'info', topic:'الفهم العام', text:'أحدد التعريف الأنسب للشبكة العالمية:',
+    choices:['مجموعة من التعليمات والأوامر المكتوبة بأحدث لغات البرمجة','محاكاة البرامج الحاسوبية للقدرات الذهنية البشرية، وأنماط عملها','الرسائل المتبادلة عبر الشبكة العالمية بين المستخدمين','البرامج الذكية القادرة على كثير من الأعمال'], correct:1 },
+  { domain:'info', topic:'الصرف والتذكير والتأنيث', text:'أي المفردات التالية مؤنث؟',
+    choices:['البريد الإلكتروني','الآلة','منزل','الوطن'], correct:1 },
+  { domain:'info', topic:'أنواع الكلمة', text:'حدد الفعل من بين الكلمات التالية:',
+    choices:['وسائل','سيحظى','فرص','الاستخدامات'], correct:1 },
+  { domain:'info', topic:'أنواع الكلمة', text:'حدد نوع الكلمة: "شبكة":',
+    choices:['مفرد','مثنى','جمع','غير ذلك'], correct:0 },
+  { domain:'info', topic:'الصرف', text:'مفرد كلمة "علوم":',
+    choices:['عِلْم','عَلَم','عامل','عَمَل'], correct:0 },
+  { domain:'info', topic:'المعنى المشابه', text:'ما المعنى المشابه للجملة التالية: "سهّلت وسائل تقنية المعلومات"؟',
+    choices:['بَسَّطت أفكار المعلومات','أفادت التكنولوجيا','بيّنت وسائل البرمجيات','انتشرت الهواتف'], correct:1 },
+  { domain:'info', topic:'الفكرة العامة', text:'علام يتحدث النص بشكل عام؟',
+    choices:['أنواع البرمجيات','الذكاء الاصطناعي','انتشار وسائل التكنولوجيا','إحصاءات أعداد مستخدمي الإنترنت'], correct:2 },
+  { domain:'info', topic:'الفهم الضمني', text:'كيف نستفيد من وسائل تقنية المعلومات حسب ما ورد في النص؟',
+    choices:['من خلال توظيفها في خدمة الوطن','ملء أوقات الفراغ','مواكبة التطور','زيادة وسائل التواصل'], correct:0 },
+  { domain:'info', topic:'الفهم الضمني', text:'أي الأسئلة يعد إجابة للعبارة التالية: "نتيجة نمو الاتصالات والهواتف الذكية"؟',
+    choices:['ماذا سهّلت وسائل تقنية المعلومات؟','لماذا يُتوقّع أن تزداد أعداد الهواتف الذكية؟','لماذا يُتَوَقَّع أن يكون للأجهزة غير الحاسوبية الحصة الكبرى في رفع معدلات حركة مرور البيانات؟','ما الذي سنستفيده إذا واكبنا التطور الحضاري ووسائل الاتصال وتقنية المعلومات؟'], correct:2 },
+  { domain:'info', topic:'الفكرة الرئيسة', text:'ضع عنوانًا مناسبًا للنص.',
+    choices:['شبكة المعلومات','أنواع وسائل التواصل الاجتماعي','التطور في المملكة العربية السعودية','غير ذلك'], correct:0 },
+  { domain:'info', topic:'استخراج المعلومات', text:'توقع الكاتب وصول عدد المستخدمين لشبكة المعلومات في المملكة العربية السعودية إلى 30 مليونًا في عام:',
+    choices:['2022م','2020م','2021م','2023م'], correct:0 },
+  { domain:'info', topic:'الفكرة الرئيسة', text:'ما الهدف من هذا النص؟',
+    choices:['فوائد مواكبة التطور','معرفة إحصاءات مستخدمي الإنترنت','تعلم أنواع وسائل الاتصال','التنبؤ بالذكاء الاصطناعي'], correct:0 },
+  { domain:'info', topic:'الأفكار الضمنية', text:'ما الفكرة الضمنية الموجودة في العبارة: "لكن عليه التنبه إلى تقنين ساعات الاستخدام حفاظًا على صحته"؟',
+    choices:['وسائل تقنية المعلومات سلاح ذو حدين','استخدام التكنولوجيا يضر بالصحة','تقنية المعلومات هي تضييع للوقت','وسائل تقنية المعلومات مليئة بالمخاطر'], correct:0 },
+  { domain:'info', topic:'الأدلة والبراهين', text:'أين ورد في النص دليل على أن التكنولوجيا ذات مخاطر أيضًا؟',
+    choices:['أقرَّت حكومة المملكة العربية السعودية نظام مكافحة الجرائم المعلوماتية','وينبغي أن يواكب المواطن تلك العلوم المتقدمة','نسبة مستخدمي الإنترنت في المملكة سيرتفع','وإيجاد فرص جديدة للذكاء الاصطناعي'], correct:0 },
+  { domain:'info', topic:'الفهم الضمني', text:'حدد مما يلي العمل الذي يُعد جريمة إلكترونية:',
+    choices:['اختراق المواقع الالكترونية','الدخول إلى مواقع محظورة','استخدام أكثر من حساب','التعديل على المواقع'], correct:0 },
+  { domain:'info', topic:'العلاقات والروابط', text:'لماذا ربط الكاتب ازدياد عدد مستخدمي الإنترنت في نفس النص مع حديثه عن الجرائم الإلكترونية؟',
+    choices:['تنويهًا على أن ازدياد المستخدمين سيزيد من عدد الجرائم الالكترونية','دعمًا لأفكار النص وآراء الكاتب','تأكيدًا على ضرورة استخدام الانترنت','جميع الإجابات صحيحة'], correct:0 },
+  { domain:'info', topic:'تحليل النص', text:'ما الذي نوّه إليه الكاتب بعد أن ذكر إقرار حكومة المملكة العربية السعودية نظام مكافحة الجرائم الالكترونية؟',
+    choices:['فوائد وسائل الاتصال التقنية','أنواع الجرائم الالكترونية','توقع أعداد مستخدمي الإنترنت','مخاطر الاستخدام الكثير للتكنولوجيا'], correct:1 },
+  { domain:'info', topic:'تقييم الأهمية', text:'أي الجمل التالية هي الأكثر أهمية برأيك؟',
+    choices:['ولكن عليه التنبه إلى تقنين ساعات الاستخدام حفاظًا على صحته','أقرَّت حكومة المملكة العربية السعودية نظام مكافحة الجرائم المعلوماتية','وينبغي أن يواكب المواطن تلك العلوم المتقدمة','نسبة مستخدمي الإنترنت في المملكة سيرتفع إلى 98.1% من سكانها'], correct:0 },
+  { domain:'info', topic:'الأدلة والبراهين', text:'اختر دليلًا من الأدلة التالية يبين سبب تعزيز وسائل الاتصال:',
+    choices:['نمو الاتصالات والهواتف الذكية','التواصل مع المنظمات الإرهابية وكل ما يمس أمن الدولة وسلامة المجتمع','الاستخدامات التقنية دخلت في معظم جوانب الحياة','سهّلت وسائل تقنية المعلومات الاتصال والتواصل بين البشر'], correct:0 },
+  { domain:'info', topic:'الحقائق والآراء', text:'أي الجمل التالية تعتبر حقيقة؟',
+    choices:['يَسَّرت وسائل تقنية المعلومات العلوم والمعارف المختلفة','يُتَوَقَّع أن يكون للأجهزة غير الحاسوبية الحصة الكبرى في رفع معدلات حركة مرور البيانات','من المتوقع ارتفاع عدد مستخدمي شبكة المعلومات العالمية','عليه التنبه إلى تقنين ساعات الاستخدام حفاظًا على صحته'], correct:0 },
+  { domain:'info', topic:'التعبيرات المباشرة وغير المباشرة', text:'حدد التعبير المباشر في الجمل التالية:',
+    choices:['أقرَّت حكومة المملكة العربية السعودية نظام مكافحة الجرائم المعلوماتية','جعلتها متاحة للأخذ بها بما يسهم في الرقي والتقدم الحضاري للأوطان','ينبغي أن يواكب المواطن تلك العلوم المتقدمة','ويوظفها التوظيف الأمثل لخدمة وطنه'], correct:0 },
+  { domain:'info', topic:'الحقائق والآراء', text:'أي الجمل التالية تعتبر رأيًا وليست حقيقة؟',
+    choices:['يُتَوَقَّع أن يكون للأجهزة غير الحاسوبية الحصة الكبرى في رفع معدلات حركة مرور البيانات','سهّلت وسائل تقنية المعلومات الاتصال والتواصل بين البشر','أقرَّت حكومة المملكة العربية السعودية نظام مكافحة الجرائم المعلوماتية','ومن تلك الجرائم المنصوص عليها في النظام اختراق الأنظمة والمواقع الإلكترونية'], correct:0 },
+  { domain:'info', topic:'مشاعر ودوافع الكاتب', text:'أي الجمل التالية دفعتك للبحث عن وسائل تقنية المعلومات أكثر؟',
+    choices:['الاستخدامات التقنية دخلت في معظم جوانب الحياة','كل فرد في المملكة العربية السعودية سيحظى بما يعادل 5.4 من الأجهزة المرتبطة بالشبكة','من الجرائم المنصوص عليها في النظام اختراق الأنظمة والمواقع الإلكترونية','سهّلت وسائل تقنية المعلومات الاتصال والتواصل بين البشر'], correct:0 },
+  { domain:'info', topic:'مشاعر ودوافع الكاتب', text:'تحدّث الكاتب عن ضرورة الاستخدام الأمثل لوسائل تقنية المعلومات تزامنًا مع حديثه عن:',
+    choices:['أهمية وفوائد وسائل تقنية المعلومات','الجرائم الالكترونية','توقعات انتشار التكنولوجيا','ارتفاع عدد مستخدمي هذه الوسائل'], correct:0 },
+  { domain:'info', topic:'مشاعر ودوافع الكاتب', text:'ما الذي دفع الكاتب للحديث عن أنواع الجرائم الإلكترونية؟',
+    choices:['تنبيهًا على مخاطرها وعواقبها','تعريفًا لهذه الجرائم من باب الاطلاع','جذبًا للقارئ','جميع الإجابات صحيحة'], correct:0 },
+  { domain:'info', topic:'تقييم مصداقية المعلومات', text:'بعد انتشار وسائل تقنية المعلومات بشكل كبير، أي من توقعات الكاتب كانت صائبة؟',
+    choices:['جميع الإجابات صحيحة','نمو الاتصالات والهواتف الذكية','المحاكمة على الجرائم الالكترونية','دخول الاستخدامات التقنية في جميع مجالات الحياة'], correct:0 },
+  { domain:'info', topic:'استنباط الأدلة', text:'استخرج من النص دليلًا على ضرورة استخدام وسائل تقنية المعلومات بحكمة.',
+    choices:['عليه التنبه إلى تقنين ساعات الاستخدام حفاظًا على صحته','أقرَّت حكومة المملكة العربية السعودية نظام مكافحة الجرائم المعلوماتية','وينبغي أن يواكب المواطن تلك العلوم المتقدمة','كل ما يمس أمن الدولة جريمة الكترونية'], correct:0 },
+  { domain:'info', topic:'توظيف معطيات النص', text:'جلس صديقك على حاسوبه لساعات متواصلة بحثًا عن موضوع ما، فأصيب بألم في ظهره وحرقة في عينيه. أي النصائح توظف معطيات النص لحل هذه المشكلة حتى لا تتكرر؟',
+    choices:['أنصح صديقي أن يستخدم الحاسوب بأوقات متقطعة مع استراحات متكررة','أنصح صديقي بالابتعاد عن وسائل تقنية الاتصال','أنصح صديقي بقراءة الكتاب عوضًا عن الحاسوب','غير ذلك'], correct:0 },
+  { domain:'info', topic:'توظيف معطيات النص', text:'كيف وضّح الكاتب أثر اختراق المواقع الالكترونية؟',
+    choices:['بتأكيد العقوبات من الحكومة في المملكة العربية السعودية','بذكر الجرائم الالكترونية','بالحديث عن مواكبة التطور والارتقاء بالوطن','جميع الإجابات صحيحة'], correct:0 },
+  { domain:'info', topic:'ترتيب المعلومات', text:'أي من المعلومات التالية وردت في آخر النص؟',
+    choices:['كل ما يمس أمن الوطن يُعد جريمة','الاستخدام الأمثل لوسائل التقنية','فوائد وسائل تقنية المعلومات','توقعات الانتشارات الضخمة لوسائل الاتصال'], correct:0 },
+
+  /* ===== قراءة: النصوص المعلوماتية — نص "الكتاب الإلكتروني" ===== */
+  { domain:'info', topic:'نوع النص', text:'ما نوع النص السابق (عن الكتاب الإلكتروني والكتاب الورقي)؟',
+    choices:['معلوماتي','حواري','قصصي','إرشادي'], correct:0 },
+  { domain:'info', topic:'المفردات والمعاني', text:'مرادف كلمة (تحديث):',
+    choices:['تجديد','تقليل','تأخير','تعريف'], correct:0 },
+  { domain:'info', topic:'الفهم العام', text:'من ميزات الكتاب الورقي:',
+    choices:['يحتاج إلمام بالقراءة','يسهل نسخه','يحتاج مهارة في الحاسب','يسهل سرقة حقوق المؤلف'], correct:0 },
+  { domain:'info', topic:'المفردات والمعاني', text:'ضد كلمة (تقادمه):',
+    choices:['حداثته','قلته','كثرته','جودته'], correct:0 },
+  { domain:'info', topic:'الضمائر ومرجعها', text:'(ومن سلبياته أيضًا سرعة تقادمه) يعود الضمير في كلمة (تقادمه) على:',
+    choices:['الكتاب الإلكتروني','استخدام الحاسوب','حقوق المؤلف','الكتاب الورقي'], correct:0 },
+  { domain:'info', topic:'الفكرة الرئيسة', text:'الهدف من النص:',
+    choices:['الكتاب الإلكتروني','الكتاب الورقي','استخدام الحاسوب','حقوق المؤلف'], correct:0 },
+  { domain:'info', topic:'أسلوب الكاتب', text:'(هل في نهاية الكتاب الورقي؟) غرض الكاتب من العبارة السابقة:',
+    choices:['الحيرة','التقرير','التعجب','السخرية'], correct:0 },
+  { domain:'info', topic:'المعنى الحقيقي والمجازي', text:'(الكتاب الورقي لا يزال يحافظ على مكانته) استخدم الكاتب معنى:',
+    choices:['حقيقيًا','مجازيًا','ضمنيًا','صريحًا'], correct:0 },
+  { domain:'info', topic:'العلاقات والروابط', text:'العلاقة بين الكتاب الورقي والكتاب الإلكتروني:',
+    choices:['تنافسية','اقتصادية','ربحية','سببية'], correct:0 },
+  { domain:'info', topic:'الحقائق والآراء', text:'أيًا من العبارات التالية تمثل حقيقةً، وليست رأيًا بالنسبة للنص؟',
+    choices:['الكتب الإلكترونية تمثل مكتبة ضخمة سهلة التنقل','الكتب الإلكترونية أفضل من الكتب الورقية','أشار الكاتب إلى أن الكتاب الورقي انتهى بلا رجعة','لم يعد هناك حاجة للكتب الورقية في ظل التكنولوجيا'], correct:0 },
+  /* ===== قراءة: النصوص الأدبية والدينية — نص "الرحمة" ===== */
+  { domain:'literary', topic:'العلاقات بين الكلمات', text:'العلاقة التي تربط بين كلمتي "عاليها" و"سافلها" في النص:',
+    choices:['تضاد','ترادف','تشبيه','تأكيد'], correct:0 },
+  { domain:'literary', topic:'العلاقات بين الكلمات', text:'العلاقة المشابهة للعلاقة بين كلمتي (سويداء ـ القلب) هي:',
+    choices:['(الأمواج ـ البحر)','(جفون ـ مدامع)','(جائع ـ عاري)','(شاعر ـ قافية)'], correct:0 },
+  { domain:'literary', topic:'الفكرة الرئيسة', text:'الفكرة الرئيسة للفقرة التي تبدأ بـ"إذا وجد الحكيم..." وتنتهي بـ"...مداد الظلام":',
+    choices:['الأثر الطيب للرحمة في المجتمع','مفهوم الرحمة','الأثر الطيب للصدق في المجتمع','أثر الرحمة في نفس الراحم'], correct:0 },
+  { domain:'literary', topic:'الحقائق والآراء', text:'أي العبارات الآتية تعتبر رأيًا؟',
+    choices:['المحراث للقلب غير الشعر','ارحموا من في الأرض يرحمكم من في السماء','لا تنقص الصدقة من المال','لا تنبت البذور إلا إذا حرثت الأرض'], correct:0 },
+  { domain:'literary', topic:'الفهم الضمني', text:'أي من المعاني التالية تشير إلى تحقيق مبدأ الرحمة في المجتمع؟',
+    choices:['أيها السعداء أحسنوا إلى البائسين','الشعر سبيل مخاطبة القلوب','السماء تبكي بدموع الغمام','الأرض تئن بحفيف الريح'], correct:0 },
+  { domain:'literary', topic:'الربط بالحياة المعاصرة', text:'في أي المنصات التالية تتجلى معاني الرحمة؟',
+    choices:['منصة إحسان','منصة ناجز','منصة مدرستي','منصة أبشر'], correct:0 },
+  { domain:'literary', topic:'الفهم الضمني', text:'تحقق الرحمة في المجتمع توازنًا:',
+    choices:['اجتماعيًا','سياسيًا','اقتصاديًا','صحيًا'], correct:0 },
+  { domain:'literary', topic:'المفردات في سياقات جديدة', text:'الجملة التي استُعملت فيها كلمة (تُريق) بشكل صحيح هي:',
+    choices:['تريق المعلمة الماء على النباتات','تريق الطالبة كتبها من الحقيبة','الأم تريق الأرز في الصحن','تريق الطفلة التراب على ملابسها'], correct:0 },
+
+  /* ===== قراءة: النصوص الأدبية والدينية — نص "الطب عند العرب" ===== */
+  { domain:'literary', topic:'المفردات والمعاني', text:'كلمة "الرَّمَد" تعني:',
+    choices:['التهابًا يصيب العين ويسبب انتفاخها','عدوى فيروسية مميتة في أغلب الأحيان','مرضًا بكتيريًا ينتشر بسبب الماء الملوث','مرضًا معديًا يسبب احمرار الجلد'], correct:0 },
+  { domain:'literary', topic:'المفردات والمعاني', text:'مرادف كلمة "بغزارة" هي:',
+    choices:['بكثرة','بقلّة','بسرعة','بخفّة'], correct:0 },
+  { domain:'literary', topic:'المفردات والمعاني', text:'معنى كلمتي "الكم والكيف":',
+    choices:['الكم يعني الكثرة والكيف يعني الجودة','كلاهما تعنيان: الكثرة','كلاهما تعنيان: الجودة','الكيف يعني الكثرة والكم يعني الجودة'], correct:0 },
+  { domain:'literary', topic:'تمييز العبارة الخاطئة', text:'ميّز العبارة الخاطئة من بين العبارات التالية:',
+    choices:['قلة الاهتمام بالطب وعلومه عند العرب قديمًا','مؤلفات العرب الطبية استفادت منها أوروبا','نجاح العرب في إيجاد العلاج لكثير من الأمراض','علاج الأمراض في العصر الجاهلي بالحجامة والتجبير'], correct:0 },
+  { domain:'literary', topic:'الفكرة العامة', text:'الفكرة العامة للنص:',
+    choices:['تاريخ الطب العربي','مؤلفات العرب المسلمين','مفهوم الطب الحديث','علاقة الطب بالعلوم الأخرى'], correct:0 },
+  { domain:'literary', topic:'العلاقات والروابط', text:'علاقة جملة (لعلةٍ ألمَّت به) بما قبلها:',
+    choices:['سبب','تعليل','توضيح','نتيجة'], correct:0 },
+  { domain:'literary', topic:'استنتاج الدلالات', text:'نهلت أوروبا من مؤلفات المسلمين، دلّ ذلك على:',
+    choices:['تدريس أوروبا مؤلفات المسلمين بالجامعات الأوروبية','اتصال علماء المسلمين بعلماء أوروبا','اقتصار أوروبا على الأخذ بالنصوص العلمية','نشر أوروبا مؤلفات المسلمين عن طريق الإعلام'], correct:0 },
+  { domain:'literary', topic:'الرأي الشخصي المدعوم بالنص', text:'من وجهة نظرك، ما دليل تطور الطب في عهد الخليفة المنصور؟',
+    choices:['زيادة عدد الأطباء','صناعة الأدوية','انتشار المؤلفات الطبية','العلاج بالأعشاب'], correct:0 },
+
+  /* ===== قراءة: النصوص الأدبية والدينية — نص "الحياء" ===== */
+  { domain:'literary', topic:'المفردات والمعاني', text:'مرادف كلمة "شعبة" في قوله: "الحياء شعبة من الإيمان":',
+    choices:['فرع','طريق','درجة','مجال'], correct:0 },
+  { domain:'literary', topic:'المفردات والمعاني', text:'مضاد كلمة "الحياء":',
+    choices:['الانحلال','الاحتشام','الخجل','العفاف'], correct:0 },
+  { domain:'literary', topic:'الأسلوب اللغوي', text:'(الحياء لا يأتي إلا بخير) ما تحته خط في العبارة السابقة أسلوب:',
+    choices:['نفي','تعجب','نهي','استدراك'], correct:0 },
+  { domain:'literary', topic:'تمييز الفكرة الرئيسة من الفرعية', text:'تتضمن الخيارات التالية أفكارًا فرعية للنص المقروء ماعدا فكرة واحدة تُعد رئيسة، هي:',
+    choices:['الحياء فضيلة وأدب يدعو إليه الإسلام','الحياء فطرة في الإنسان','انعدام الحياء لدى الإنسان دليل على ضعف الإيمان','ملازمة الحياء للإيمان'], correct:0 },
+  { domain:'literary', topic:'العلاقة بين المفاهيم', text:'العلاقة بين الإيمان والحياء هي:',
+    choices:['الحياء شعبة من الإيمان','الحياء أصل الإيمان','الحياء هو احترام الآخرين','الحياء أعلى درجات الإيمان'], correct:0 },
+  { domain:'literary', topic:'نوع النص', text:'نوع النص السابق (عن الحياء):',
+    choices:['مقال','قصة','حكمة','رواية'], correct:0 },
+  { domain:'literary', topic:'تلخيص العبارات', text:'أي الخيارات التالية يلخص العبارة التي تتحدث عن إساءة فهم الناس للحرية وتحدي الآداب والأخلاق مع بقاء الحياء أدبًا عاليًا؟',
+    choices:['إساءة فهم الناس للحرية وتحدي الآداب في بعض الظروف، ويظل الحياء هو الأدب العالي لكل الناس على اختلاف مراتبهم','الدعوة للحرية الشخصية والتعامل مع الثقافات المختلفة','احترام العلاقات وحسن التعامل مع الآخرين','الفئات التي يجب التعامل معها بلا قيود'], correct:0 },
+  { domain:'literary', topic:'الضمائر ومرجعها', text:'(كان رسول الله أشد حياءً من العذراء في خدرها، فإذا رأى شيئًا يكرهه، عرفناه في وجهه) الضمير في (يكرهه) يعود على:',
+    choices:['شيئًا','الرسول','العذراء','حياء'], correct:0 },
+  { domain:'literary', topic:'تمييز الحقائق والآراء', text:'أحد الخيارات التالية يمثل رأيًا:',
+    choices:['إذ كان الحياء في الرجال جميلًا فهو في النساء أجمل','الحياء فطرة في الإنسان','الحياء كله خير','الرسول صلى الله عليه وسلم هو المثل الأعلى في الأخلاق والحياء'], correct:0 },
+  { domain:'literary', topic:'أسلوب الكاتب', text:'أسلوب الكاتب في النص يتسم بـ:',
+    choices:['التسلسل والوضوح وترابط الأفكار','التفكك وعدم الترابط','صعوبة الألفاظ','الغموض في بعض الفقرات'], correct:0 },
+  { domain:'literary', topic:'النتائج المنطقية', text:'إذا ذهب الحياء عن الإنسان ستكون النتيجة:',
+    choices:['سيادة الاجتراء على القبيح وضعف الإيمان','الشجاعة الأدبية','التزام الإنسان بالفضائل والآداب','المفهوم الصحيح للحرية'], correct:0 },
+  { domain:'literary', topic:'استبعاد غير الملائم', text:'الحياء من الناس يحمل العبد المؤمن على قول ما يُستحسن وفعل ما يليق، ويحجزه عن القبيح. جميع العبارات التالية دالة على ذلك المعنى ماعدا:',
+    choices:['إماطة الأذى عن الطريق أدنى شعب الإيمان','والحياء شعبة من الإيمان','إذا لم تستحِ فاصنع ما شئت','دعه فإن الحياء من الإيمان'], correct:0 },
+  { domain:'literary', topic:'استخراج التفاصيل', text:'إذا رأى الرسول صلى الله عليه وسلم شيئًا يكرهه، عُرف ذلك في:',
+    choices:['وجهه','قوله','فعله','صمته'], correct:0 },
+  { domain:'literary', topic:'الفكرة الضمنية للشعر', text:'"وإذا خلوت بريبة في ظلمة *** والنفس داعية إلى العصيان، فاستحِ من نظر الإله وقل لها *** إن الذي خلق الظلام يراني" الفكرة الضمنية التي تدل عليها الأبيات هي:',
+    choices:['النفس أمارة بالسوء','الحث على الخلوة','الريبة سبيل للزلل','الذي خلق الظلام هو الله'], correct:0 },
+  { domain:'literary', topic:'العنوان المناسب', text:'العنوان المناسب لنص "الحياء" هو:',
+    choices:['فضيلة الحياء','الخجل','شعب الإيمان','الجرأة في الإسلام'], correct:0 },
+  { domain:'literary', topic:'سمات الشخصية', text:'من سمات الإنسان الحيي:',
+    choices:['الغيرة على حرمات الإيمان','كثرة التسويف','الشعور بالقصور','التساهل في الحرمات'], correct:0 },
+  { domain:'literary', topic:'هدف النص', text:'يهدف نص "الحياء" إلى:',
+    choices:['التربية','التعليم','التثقيف','الترفيه'], correct:0 },
+  /* ===== القواعد النحوية ===== */
+  { domain:'grammar', topic:'أسلوب الترجي', text:'أي من الأساليب الآتية أسلوب ترجٍّ؟',
+    choices:['لعل الطالب المجتهد ينال جائزة التفوق','ليت العالم يجمع الأمم على الحق','نعم صفة المرء النظافة','لا أكون طالبًا كسولًا'], correct:0 },
+  { domain:'grammar', topic:'الأسماء الخمسة', text:'ما هو الاسم المنصوب من الأسماء الخمسة في الجمل الآتية؟',
+    choices:['يا بُنَيَّ، صُنْ فاك عن النميمة','أبو بكر الصديق أول الخلفاء الراشدين','مررت بطالب ذي خُلق','لا تملأ فمك بالأكل'], correct:0 },
+  { domain:'grammar', topic:'نائب الفاعل', text:'واحد من هذه الأسماء الآتية نائب فاعل مرفوع وعلامة رفعه الألف:',
+    choices:['ذُمَّت عادتان سيئتان في الغني','تُمحى السيئات بالحسنات','يُعرف المتعففون بأحوالهم','أُزعج أبو بكر من لحن الرجل'], correct:0 },
+  { domain:'grammar', topic:'حروف النداء', text:'واحدة من المجموعات الآتية تضم أحرف النداء التي دُرست:',
+    choices:['يا، أي، أيا، هيا','هذا، الذي، يا، أيتها','يا، أيها، هؤلاء، اللذان','أنت، هو، يا، أي'], correct:0 },
+  { domain:'grammar', topic:'الملحق بجمع المذكر السالم', text:'ما الاسم الملحق بجمع المذكر السالم من الأسماء الآتية؟',
+    choices:['الحمد لله رب العالمين','بلادنا قوية وغنية برجالها المخلصين','أنتم مواطنون صالحون','المواطنات الصالحات شمس الهداية'], correct:0 },
+  { domain:'grammar', topic:'الإجابة عن الاستفهام المنفي', text:'إذا أردت الإجابة بالإثبات عن السؤال: "ألستَ تحب اللغة العربية؟" فما تقول؟',
+    choices:['بلى، أحبها','نعم، أحبها','لا، أحبها','لا، ولكني أحبها'], correct:0 },
+  { domain:'grammar', topic:'الحروف الناسخة', text:'عند إدخال حرف ناسخ "إن" على الجملة الاسمية (المدينتان شاهدتان على الارتقاء) تكون الكتابة الصحيحة لها هي:',
+    choices:['إن المدينتين شاهدتان على الارتقاء','إن المدينتان شاهدتان على الارتقاء','إن المدينتين شاهدتين على الارتقاء','إن المدينتان شاهدتين على الارتقاء'], correct:0 },
+  { domain:'grammar', topic:'الأفعال الناسخة', text:'عند إدخال فعل ناسخ "صار" على الجملة الاسمية (المسلمون منتصرون) تكون الكتابة الصحيحة لها هي:',
+    choices:['صار المسلمون منتصرين','صار المسلمون منتصرون','صار المسلمين منتصرون','صار المسلمين منتصرين'], correct:0 },
+  { domain:'grammar', topic:'المضاف إليه', text:'أحدد علامة إعراب المضاف إليه في الجملة: "إن الماء النقي مركب من اتحاد غازين":',
+    choices:['غازين / الياء','الماء / الفتحة','النقي / الفتحة','اتحاد / الكسرة'], correct:0 },
+  { domain:'grammar', topic:'الحال والتمييز', text:'ما إعراب الكلمتين اللتين تحتهما خط: "أقبل العالِمُ متواضعًا – ازداد العالِمُ تواضعًا"؟',
+    choices:['حال، تمييز','تمييز، حال','تمييز، مفعول مطلق','حال، مفعول مطلق'], correct:0 },
+  { domain:'grammar', topic:'نوع النعت', text:'نوع النعت في الجملة: "مرّ بمجلس النبي صلى الله عليه وسلم رجلٌ جسمُهُ قويٌّ":',
+    choices:['جملة اسمية','مفرد','جملة فعلية','شبه جملة'], correct:0 },
+  { domain:'grammar', topic:'أسلوب الاستثناء', text:'أي من الجمل الآتية تحتوي على أسلوب استثناء؟',
+    choices:['أحترم اليد العاملة خلا يدًا متسولة','أقسم بالله لأدافعن عن الوطن','لو أخلصت العبادة لله لبلغت أعلى المراتب','المسجد الحرام أعظم المساجد'], correct:0 },
+  { domain:'grammar', topic:'أنواع البدل', text:'نوع البدل في الجملة: "كان الإمام عليٌّ بليغًا":',
+    choices:['بدل مطابق','بدل بعض من كل','بدل اشتمال','بدل المباين'], correct:0 },
+  { domain:'grammar', topic:'أركان جملة الشرط', text:'أحدد أركان جملة الشرط في: "مَن يفعلِ الخيرَ لا يعدَمْ جوازيَه":',
+    choices:['أداة الشرط: مَن، فعل الشرط: يفعل، جواب الشرط: لا يعدم','أداة الشرط: يفعل، فعل الشرط: لا يعدم، جواب الشرط: مَن','أداة الشرط: لا يعدم، فعل الشرط: مَن، جواب الشرط: يفعل','أداة الشرط: مَن، فعل الشرط: لا يعدم، جواب الشرط: يفعل'], correct:0 },
+
+  /* ===== الإملاء والصرف ===== */
+  { domain:'spelling', topic:'رسم الهمزة المتوسطة والمتطرفة', text:'الرسم الإملائي الصحيح للكلمة التي تتكون حروفها من: (م - ِش - ي - ء) هو:',
+    choices:['مشيئة','مشيأة','مشىأة','مشأية'], correct:0 },
+  { domain:'spelling', topic:'صياغة الجموع', text:'الكتابة الصحيحة لجموع الكلمات: "قضية، مريض، صريع، عطية" هي:',
+    choices:['قضايا، مرضى، صرعى، عطايا','قضايى، مرضى، صرعا، عطايا','قضايا، مرضا، صرعى، عطايى','قضايا، مرضى، صرعا، عطايى'], correct:0 },
+  { domain:'spelling', topic:'صيغة المبالغة', text:'صيغة المبالغة من الأفعال: "شكر، أقدم، ألِف" هي على الترتيب:',
+    choices:['شكور، مقدام، أليف','شاكر، مقدم، أليف','شكري، مقدام، أليف','شكور، مقدام، ألِف'], correct:0 },
+  { domain:'spelling', topic:'رسم الهمزة المتطرفة', text:'واحدة من الكلمات الآتية رسمها الإملائي صحيح:',
+    choices:['تلكؤ','شاطيء','شيئ','تكافئ'], correct:0 },
+
+  /* ================= أسئلة مضافة جديدة (مع تضمين نصوصها) ================= */
+  /* ===== قراءة: نص "صاحب الجنّتين" (مضاف) ===== */
+  { domain:"literary", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>مَنَحَ اللهُ أحدَ الرجالِ مالًا وفيرًا وأرضًا شاسعةً تَجودُ بالخيراتِ، وكان لهذا الرجل ولدان تختلف طباعُهما، فالأول كريمٌ يُحبُّ الفقراءَ والمساكينَ، والثاني متعالٍ يسخر من إقبال أخيه على المساكين والفقراء، شبَّ الولدان وبَلَغَا مَبْلَغَ الرجال، ومرّت الأيام وتقدَّم العمرُ بالأب، ثم مرض ومات مُخلِّفًا لولديه كلَّ ما جناه، فتقاسما الميراث، واستقلَّ كلُّ واحدٍ عن الآخر.</p><p>أخذ الأول نصيبَه من مال أبيه، فراح يبحث عن الفقراء والمساكين يُعين المحتاج، ويُعطي المحروم حتى لم يبقَ له من أمواله إلّا ما يَسدُّ حاجاتِه وحاجاتِ أهلِ بيتِه. أمّا أخوه فكان مُسرفًا في حُبِّ المال والسعي وراء تكديسه، وكانت مُعظمُ أموالِ هذا الأخ وثروتُه تتدفق عليه من بُستانَين عظيمَين.</p><p>وأراد هذا الأخ المتكبِّر أن يسخر من أخيه، فأخذه من يَدِه، وأدخله إلى بستانه الذي ينتصفه النَّهر، ونفسُه تُنكِر أن تَبيدَ جنته لطولِ أَملِه وتمادي غفلته، فاعتقادُه بالله مُزَعزَعٌ غير راسخ، وقال: إنَّ هذه الجنَّة لن تَهلك ولن تَفنَى.</p><p>سمِعَ أخوه هذا الكلام، فقال له: أكفرتَ بالله الذي خلقَك من نُطْفةٍ وعدلَك وكمَّلَك رجلًا، إنَّ الله قادرٌ على أن يُذهِبَ ماءَ جنَّتِك فيفنى بُستَانك.</p><p>فَهَلكتْ جنَّتُه ونَدِمَ وتذكَّر نُصْحَ أخيه وأصبح يُقلِّبُ كفيه وهو ينظر إلى جنَّته وهي خَاويةً على عُروشِها.</p></div></details>القيمة التي حث عليها النص:",
+    choices:["الصبر","الصدقة","الصلاة","بر الوالدين"], correct:1 },
+  { domain:"literary", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>مَنَحَ اللهُ أحدَ الرجالِ مالًا وفيرًا وأرضًا شاسعةً تَجودُ بالخيراتِ، وكان لهذا الرجل ولدان تختلف طباعُهما، فالأول كريمٌ يُحبُّ الفقراءَ والمساكينَ، والثاني متعالٍ يسخر من إقبال أخيه على المساكين والفقراء، شبَّ الولدان وبَلَغَا مَبْلَغَ الرجال، ومرّت الأيام وتقدَّم العمرُ بالأب، ثم مرض ومات مُخلِّفًا لولديه كلَّ ما جناه، فتقاسما الميراث، واستقلَّ كلُّ واحدٍ عن الآخر.</p><p>أخذ الأول نصيبَه من مال أبيه، فراح يبحث عن الفقراء والمساكين يُعين المحتاج، ويُعطي المحروم حتى لم يبقَ له من أمواله إلّا ما يَسدُّ حاجاتِه وحاجاتِ أهلِ بيتِه. أمّا أخوه فكان مُسرفًا في حُبِّ المال والسعي وراء تكديسه، وكانت مُعظمُ أموالِ هذا الأخ وثروتُه تتدفق عليه من بُستانَين عظيمَين.</p><p>وأراد هذا الأخ المتكبِّر أن يسخر من أخيه، فأخذه من يَدِه، وأدخله إلى بستانه الذي ينتصفه النَّهر، ونفسُه تُنكِر أن تَبيدَ جنته لطولِ أَملِه وتمادي غفلته، فاعتقادُه بالله مُزَعزَعٌ غير راسخ، وقال: إنَّ هذه الجنَّة لن تَهلك ولن تَفنَى.</p><p>سمِعَ أخوه هذا الكلام، فقال له: أكفرتَ بالله الذي خلقَك من نُطْفةٍ وعدلَك وكمَّلَك رجلًا، إنَّ الله قادرٌ على أن يُذهِبَ ماءَ جنَّتِك فيفنى بُستَانك.</p><p>فَهَلكتْ جنَّتُه ونَدِمَ وتذكَّر نُصْحَ أخيه وأصبح يُقلِّبُ كفيه وهو ينظر إلى جنَّته وهي خَاويةً على عُروشِها.</p></div></details>مصدر الماء الذي يُسقى به البستانان:",
+    choices:["البحيرة","النهر","البئر","المطر"], correct:1 },
+  { domain:"literary", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>مَنَحَ اللهُ أحدَ الرجالِ مالًا وفيرًا وأرضًا شاسعةً تَجودُ بالخيراتِ، وكان لهذا الرجل ولدان تختلف طباعُهما، فالأول كريمٌ يُحبُّ الفقراءَ والمساكينَ، والثاني متعالٍ يسخر من إقبال أخيه على المساكين والفقراء، شبَّ الولدان وبَلَغَا مَبْلَغَ الرجال، ومرّت الأيام وتقدَّم العمرُ بالأب، ثم مرض ومات مُخلِّفًا لولديه كلَّ ما جناه، فتقاسما الميراث، واستقلَّ كلُّ واحدٍ عن الآخر.</p><p>أخذ الأول نصيبَه من مال أبيه، فراح يبحث عن الفقراء والمساكين يُعين المحتاج، ويُعطي المحروم حتى لم يبقَ له من أمواله إلّا ما يَسدُّ حاجاتِه وحاجاتِ أهلِ بيتِه. أمّا أخوه فكان مُسرفًا في حُبِّ المال والسعي وراء تكديسه، وكانت مُعظمُ أموالِ هذا الأخ وثروتُه تتدفق عليه من بُستانَين عظيمَين.</p><p>وأراد هذا الأخ المتكبِّر أن يسخر من أخيه، فأخذه من يَدِه، وأدخله إلى بستانه الذي ينتصفه النَّهر، ونفسُه تُنكِر أن تَبيدَ جنته لطولِ أَملِه وتمادي غفلته، فاعتقادُه بالله مُزَعزَعٌ غير راسخ، وقال: إنَّ هذه الجنَّة لن تَهلك ولن تَفنَى.</p><p>سمِعَ أخوه هذا الكلام، فقال له: أكفرتَ بالله الذي خلقَك من نُطْفةٍ وعدلَك وكمَّلَك رجلًا، إنَّ الله قادرٌ على أن يُذهِبَ ماءَ جنَّتِك فيفنى بُستَانك.</p><p>فَهَلكتْ جنَّتُه ونَدِمَ وتذكَّر نُصْحَ أخيه وأصبح يُقلِّبُ كفيه وهو ينظر إلى جنَّته وهي خَاويةً على عُروشِها.</p></div></details>عاقب الله الأخ الثاني لأنه:",
+    choices:["أكل مال أخيه","عاق لوالديه","مسرف في ماله","كفر بأنعم الله"], correct:3 },
+  { domain:"literary", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>مَنَحَ اللهُ أحدَ الرجالِ مالًا وفيرًا وأرضًا شاسعةً تَجودُ بالخيراتِ، وكان لهذا الرجل ولدان تختلف طباعُهما، فالأول كريمٌ يُحبُّ الفقراءَ والمساكينَ، والثاني متعالٍ يسخر من إقبال أخيه على المساكين والفقراء، شبَّ الولدان وبَلَغَا مَبْلَغَ الرجال، ومرّت الأيام وتقدَّم العمرُ بالأب، ثم مرض ومات مُخلِّفًا لولديه كلَّ ما جناه، فتقاسما الميراث، واستقلَّ كلُّ واحدٍ عن الآخر.</p><p>أخذ الأول نصيبَه من مال أبيه، فراح يبحث عن الفقراء والمساكين يُعين المحتاج، ويُعطي المحروم حتى لم يبقَ له من أمواله إلّا ما يَسدُّ حاجاتِه وحاجاتِ أهلِ بيتِه. أمّا أخوه فكان مُسرفًا في حُبِّ المال والسعي وراء تكديسه، وكانت مُعظمُ أموالِ هذا الأخ وثروتُه تتدفق عليه من بُستانَين عظيمَين.</p><p>وأراد هذا الأخ المتكبِّر أن يسخر من أخيه، فأخذه من يَدِه، وأدخله إلى بستانه الذي ينتصفه النَّهر، ونفسُه تُنكِر أن تَبيدَ جنته لطولِ أَملِه وتمادي غفلته، فاعتقادُه بالله مُزَعزَعٌ غير راسخ، وقال: إنَّ هذه الجنَّة لن تَهلك ولن تَفنَى.</p><p>سمِعَ أخوه هذا الكلام، فقال له: أكفرتَ بالله الذي خلقَك من نُطْفةٍ وعدلَك وكمَّلَك رجلًا، إنَّ الله قادرٌ على أن يُذهِبَ ماءَ جنَّتِك فيفنى بُستَانك.</p><p>فَهَلكتْ جنَّتُه ونَدِمَ وتذكَّر نُصْحَ أخيه وأصبح يُقلِّبُ كفيه وهو ينظر إلى جنَّته وهي خَاويةً على عُروشِها.</p></div></details>موقف الأخ الأول من أخيه:",
+    choices:["النُّصح","التأييد","التجاهل","القطيعة"], correct:0 },
+  { domain:"literary", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>مَنَحَ اللهُ أحدَ الرجالِ مالًا وفيرًا وأرضًا شاسعةً تَجودُ بالخيراتِ، وكان لهذا الرجل ولدان تختلف طباعُهما، فالأول كريمٌ يُحبُّ الفقراءَ والمساكينَ، والثاني متعالٍ يسخر من إقبال أخيه على المساكين والفقراء، شبَّ الولدان وبَلَغَا مَبْلَغَ الرجال، ومرّت الأيام وتقدَّم العمرُ بالأب، ثم مرض ومات مُخلِّفًا لولديه كلَّ ما جناه، فتقاسما الميراث، واستقلَّ كلُّ واحدٍ عن الآخر.</p><p>أخذ الأول نصيبَه من مال أبيه، فراح يبحث عن الفقراء والمساكين يُعين المحتاج، ويُعطي المحروم حتى لم يبقَ له من أمواله إلّا ما يَسدُّ حاجاتِه وحاجاتِ أهلِ بيتِه. أمّا أخوه فكان مُسرفًا في حُبِّ المال والسعي وراء تكديسه، وكانت مُعظمُ أموالِ هذا الأخ وثروتُه تتدفق عليه من بُستانَين عظيمَين.</p><p>وأراد هذا الأخ المتكبِّر أن يسخر من أخيه، فأخذه من يَدِه، وأدخله إلى بستانه الذي ينتصفه النَّهر، ونفسُه تُنكِر أن تَبيدَ جنته لطولِ أَملِه وتمادي غفلته، فاعتقادُه بالله مُزَعزَعٌ غير راسخ، وقال: إنَّ هذه الجنَّة لن تَهلك ولن تَفنَى.</p><p>سمِعَ أخوه هذا الكلام، فقال له: أكفرتَ بالله الذي خلقَك من نُطْفةٍ وعدلَك وكمَّلَك رجلًا، إنَّ الله قادرٌ على أن يُذهِبَ ماءَ جنَّتِك فيفنى بُستَانك.</p><p>فَهَلكتْ جنَّتُه ونَدِمَ وتذكَّر نُصْحَ أخيه وأصبح يُقلِّبُ كفيه وهو ينظر إلى جنَّته وهي خَاويةً على عُروشِها.</p></div></details>نوع الأسلوب المستخدم بين الأخوين:",
+    choices:["استجوابي","وصفي","سردي","حواري"], correct:3 },
+  { domain:"literary", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>مَنَحَ اللهُ أحدَ الرجالِ مالًا وفيرًا وأرضًا شاسعةً تَجودُ بالخيراتِ، وكان لهذا الرجل ولدان تختلف طباعُهما، فالأول كريمٌ يُحبُّ الفقراءَ والمساكينَ، والثاني متعالٍ يسخر من إقبال أخيه على المساكين والفقراء، شبَّ الولدان وبَلَغَا مَبْلَغَ الرجال، ومرّت الأيام وتقدَّم العمرُ بالأب، ثم مرض ومات مُخلِّفًا لولديه كلَّ ما جناه، فتقاسما الميراث، واستقلَّ كلُّ واحدٍ عن الآخر.</p><p>أخذ الأول نصيبَه من مال أبيه، فراح يبحث عن الفقراء والمساكين يُعين المحتاج، ويُعطي المحروم حتى لم يبقَ له من أمواله إلّا ما يَسدُّ حاجاتِه وحاجاتِ أهلِ بيتِه. أمّا أخوه فكان مُسرفًا في حُبِّ المال والسعي وراء تكديسه، وكانت مُعظمُ أموالِ هذا الأخ وثروتُه تتدفق عليه من بُستانَين عظيمَين.</p><p>وأراد هذا الأخ المتكبِّر أن يسخر من أخيه، فأخذه من يَدِه، وأدخله إلى بستانه الذي ينتصفه النَّهر، ونفسُه تُنكِر أن تَبيدَ جنته لطولِ أَملِه وتمادي غفلته، فاعتقادُه بالله مُزَعزَعٌ غير راسخ، وقال: إنَّ هذه الجنَّة لن تَهلك ولن تَفنَى.</p><p>سمِعَ أخوه هذا الكلام، فقال له: أكفرتَ بالله الذي خلقَك من نُطْفةٍ وعدلَك وكمَّلَك رجلًا، إنَّ الله قادرٌ على أن يُذهِبَ ماءَ جنَّتِك فيفنى بُستَانك.</p><p>فَهَلكتْ جنَّتُه ونَدِمَ وتذكَّر نُصْحَ أخيه وأصبح يُقلِّبُ كفيه وهو ينظر إلى جنَّته وهي خَاويةً على عُروشِها.</p></div></details>\"وأصبح يقلّب كفيه\" تدل على:",
+    choices:["الفرح والسرور","الغضب والانزعاج","الندم والتحسر","الاستبشار والتفاؤل"], correct:2 },
+  { domain:"literary", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>مَنَحَ اللهُ أحدَ الرجالِ مالًا وفيرًا وأرضًا شاسعةً تَجودُ بالخيراتِ، وكان لهذا الرجل ولدان تختلف طباعُهما، فالأول كريمٌ يُحبُّ الفقراءَ والمساكينَ، والثاني متعالٍ يسخر من إقبال أخيه على المساكين والفقراء، شبَّ الولدان وبَلَغَا مَبْلَغَ الرجال، ومرّت الأيام وتقدَّم العمرُ بالأب، ثم مرض ومات مُخلِّفًا لولديه كلَّ ما جناه، فتقاسما الميراث، واستقلَّ كلُّ واحدٍ عن الآخر.</p><p>أخذ الأول نصيبَه من مال أبيه، فراح يبحث عن الفقراء والمساكين يُعين المحتاج، ويُعطي المحروم حتى لم يبقَ له من أمواله إلّا ما يَسدُّ حاجاتِه وحاجاتِ أهلِ بيتِه. أمّا أخوه فكان مُسرفًا في حُبِّ المال والسعي وراء تكديسه، وكانت مُعظمُ أموالِ هذا الأخ وثروتُه تتدفق عليه من بُستانَين عظيمَين.</p><p>وأراد هذا الأخ المتكبِّر أن يسخر من أخيه، فأخذه من يَدِه، وأدخله إلى بستانه الذي ينتصفه النَّهر، ونفسُه تُنكِر أن تَبيدَ جنته لطولِ أَملِه وتمادي غفلته، فاعتقادُه بالله مُزَعزَعٌ غير راسخ، وقال: إنَّ هذه الجنَّة لن تَهلك ولن تَفنَى.</p><p>سمِعَ أخوه هذا الكلام، فقال له: أكفرتَ بالله الذي خلقَك من نُطْفةٍ وعدلَك وكمَّلَك رجلًا، إنَّ الله قادرٌ على أن يُذهِبَ ماءَ جنَّتِك فيفنى بُستَانك.</p><p>فَهَلكتْ جنَّتُه ونَدِمَ وتذكَّر نُصْحَ أخيه وأصبح يُقلِّبُ كفيه وهو ينظر إلى جنَّته وهي خَاويةً على عُروشِها.</p></div></details>\"خاوية على عروشها\" تدل على:",
+    choices:["الاتساع","الخراب","الامتلاء","الإنتاج"], correct:1 },
+  { domain:"literary", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>مَنَحَ اللهُ أحدَ الرجالِ مالًا وفيرًا وأرضًا شاسعةً تَجودُ بالخيراتِ، وكان لهذا الرجل ولدان تختلف طباعُهما، فالأول كريمٌ يُحبُّ الفقراءَ والمساكينَ، والثاني متعالٍ يسخر من إقبال أخيه على المساكين والفقراء، شبَّ الولدان وبَلَغَا مَبْلَغَ الرجال، ومرّت الأيام وتقدَّم العمرُ بالأب، ثم مرض ومات مُخلِّفًا لولديه كلَّ ما جناه، فتقاسما الميراث، واستقلَّ كلُّ واحدٍ عن الآخر.</p><p>أخذ الأول نصيبَه من مال أبيه، فراح يبحث عن الفقراء والمساكين يُعين المحتاج، ويُعطي المحروم حتى لم يبقَ له من أمواله إلّا ما يَسدُّ حاجاتِه وحاجاتِ أهلِ بيتِه. أمّا أخوه فكان مُسرفًا في حُبِّ المال والسعي وراء تكديسه، وكانت مُعظمُ أموالِ هذا الأخ وثروتُه تتدفق عليه من بُستانَين عظيمَين.</p><p>وأراد هذا الأخ المتكبِّر أن يسخر من أخيه، فأخذه من يَدِه، وأدخله إلى بستانه الذي ينتصفه النَّهر، ونفسُه تُنكِر أن تَبيدَ جنته لطولِ أَملِه وتمادي غفلته، فاعتقادُه بالله مُزَعزَعٌ غير راسخ، وقال: إنَّ هذه الجنَّة لن تَهلك ولن تَفنَى.</p><p>سمِعَ أخوه هذا الكلام، فقال له: أكفرتَ بالله الذي خلقَك من نُطْفةٍ وعدلَك وكمَّلَك رجلًا، إنَّ الله قادرٌ على أن يُذهِبَ ماءَ جنَّتِك فيفنى بُستَانك.</p><p>فَهَلكتْ جنَّتُه ونَدِمَ وتذكَّر نُصْحَ أخيه وأصبح يُقلِّبُ كفيه وهو ينظر إلى جنَّته وهي خَاويةً على عُروشِها.</p></div></details>ما سبب منع أحد الأخوين إعطاء الفقراء المال؟",
+    choices:["البخل","الجحود","التكبر","العناد"], correct:0 },
+  /* ===== قراءة: نص "الخطر المتربص على الطرق" (مضاف) ===== */
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>\"يسعى الإنسان لتوفير سبل الراحة والأمان في وسائل تنقله لتوفير الوقت والجهد والمال\" العبارة السابقة تلخص الفقرة:",
+    choices:["الأولى","الثانية","الثالثة","الرابعة"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>تحدثت الفقرة الثانية من النص عن:",
+    choices:["الإنجازات العظيمة للإنسان","سبل الراحة والأمان في المركبات","الأضرار الناتجة عن حوادث المركبات","القواعد والأنظمة المرورية"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>ما المقصود بالصورة الجمالية: \"لتشكل سيفًا مسلطًا على الرقاب\"؟",
+    choices:["حوادث السير كالسيف المسلط على الرقاب","قطع الطريق كالسيف المسلط على الرقاب","السرعة الزائدة مثل السيف المسلط على الرقاب","الأنظمة المرورية مثل السيف المسلط على الرقاب"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>\"درهم وقاية خير من قنطار علاج\" علام تدل العبارة السابقة؟",
+    choices:["المال خير من العلاج","الوقاية بعد وقوع الضرر","الوقاية قبل وقوع الضرر","إغفال ربط حزام الأمان"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>معنى كلمة (حيازة):",
+    choices:["امتلاك","ترك","رفض","قبول"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>كيف تكون مركباتنا آلة بناء وطني وإنساني؟",
+    choices:["الاهتمام بالسيارات والآلات","بناء المنظمات الإنسانية","تطبيق الأنظمة المرورية","الدفاع عن الوطن"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>ما الذي يقضّ مضاجع كثيرين ويسلبهم البسمة كما ورد في النص؟",
+    choices:["ازدحام الطرقات","حوادث السير","خسارة الممتلكات فقط","الحروب"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>وأنت تقود سيارتك وقع أمام نظرك حادث مروري، ما سببه باعتقادك؟",
+    choices:["إغفال ربط حزام الأمان","انتهاء سريان رخصة القيادة","تأخر الشخص عن موعده","قطع الإشارة الحمراء"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>من الثقافة الحديثة لأخلاقيات القيادة:",
+    choices:["الإجبار على الأنظمة المرورية","حقوق القيادة: ما لي وما عليّ","الخوف من السجن","الاحتراز من الغرامة المالية"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يسعى الإنسانُ عبر مسيرة تطوره الحضاري على توفير سبل الراحة والأمان في وسائل النقل والمواصلات، فانفتحت أمامه آفاق جديدة من الإبداعات المتجددة التي توفر رفاهية لمركبته الخاصة، وذلك باستخدام العقل والتكنولوجيا لتوفير الوقت والمال والجهد.</p><p>ورغم هذه الإنجازات العظيمة إلا أن الإنسان لم يتمكن بعد من الحدِّ من دور وسائل النقل في إزهاق الأرواح وإلحاق آلاف الإصابات الجسدية المتنوعة التي تقضّ مضاجع كثيرين وتحرم البشر الحياة، وما يترتب على ذلك من هدرٍ وخسارة للممتلكات، فتشكِّل سيفًا آخر مسلطًا على الرقاب دون أن نعلم متى تكون المركبة معول راحة للإنسان؟ ومتى تكون معول قتل له، أو تقويض لحياته؟</p><p>إن المسؤولية العظمى تقع على عاتق الشباب في الحدِّ من هذه الحوادث وتقليل الأضرار الناتجة عنها؛ لأنهم الشريحة الكبرى، ولذلك يجب التزام الشباب بالحكمة القائلة: \"درهم وقاية خير من قنطار علاج\". إذ يجب الالتزام بمبادئ الوقاية من الحوادث قبل وقوعها.</p><p>ولابد في سبيل ذلك من التأكد من صلاحية المركبة ميكانيكيًا، وأهليتها للسير على الشوارع، وحيازتها للأوراق الثبوتية السليمة، وحيازة السائق لرخصة تؤهله لقيادة المركبة، ويبقى على السائق التأكد من وضع حزام الأمان قبل ركوبه وللركاب معه، ومراعاة ظروف الطريق، والتزام الشاخصات الإرشادية، والحفاظ على القوانين والأنظمة المرورية التي تحفظ له ولغيره السلامة والأمان، وتضمن له العودة السالمة لأسرته، كما أن على السائقين تمثيل أخلاقيات القيادة، فهي فنٌّ وذوقٌ وأخلاق.</p><p>فلنحافظ على الحياة إذ إنها أغلى من أن تُهدر في لحظة تهور. ولتكن مركباتنا آلة بناء وطني وإنساني تحملنا إلى شاطئ الأمان لا إلى ضفاف الحزن والألم والحرمان.</p></div></details>إذا كنت تريد تصميم لافتة مرورية تخاطب فيها الآباء، فما العبارة المناسبة لهم؟",
+    choices:["\"أسرتك بانتظارك\"","\"انتبه للإشارة الحمراء\"","\"لا تتهور يا بني\"","\"لا تخسر حياتك في دقيقة\""], correct:0 },
+  /* ===== قراءة: نص "الرياضة والصحة" (مضاف) ===== */
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>اهتم الهنود برياضات تتعلق بـ:",
+    choices:["التعاليم الدينية","الحرب","العلاج","الصبر"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>معنى كلمة (نِبَال):",
+    choices:["الأثقال","الحجارة","السهام","العصي"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>الفكرة في الفقرة الثالثة (التي تبدأ بـ: وللرياضة أنواع كثيرة) هي:",
+    choices:["قلة أنواع الرياضة المناسبة","إمكانية انتقاء أنواع الرياضة المناسبة للفرد","كثرة أنواع الرياضة يصعب معها الاختيار","اقتصار الرياضة على فئة معينة"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>سبب اهتمام الفرس والرومان بالرياضة هو:",
+    choices:["تعليمي","صحي","عسكري","عدواني فقط"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>تكمن أهمية الرياضة لمرضى القلب في:",
+    choices:["بناء الجسم","تأخير الشيخوخة","الحماية من جلطات الشريان التاجي","تقوية العضلات فقط"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>الرشاقة مفهوم يدل على:",
+    choices:["حرق الدهون فقط","زيادة الوزن","الوزن المناسب","الثقة بالنفس"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>(الرياضة والسمنة ضدّان لا يجتمعان) والسبب:",
+    choices:["السمنة سبب للرياضة","الرياضة سبب للرشاقة","الثقة سبب للوزن","الرياضة سبب للسمنة"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>الفكرة الرئيسة في الفقرة الأولى هي:",
+    choices:["أنواع الرياضة","تاريخ اهتمام الإنسان بالرياضة","ممارسو الرياضة","أضرار الرياضة"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>من أسباب تجلّط الدم في الشريان التاجي كما ورد في النص:",
+    choices:["ضخ الدم بقوة","زيادة الأكسجين","الشيخوخة","عدم ممارسة الرياضة"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>يقول الحكماء: \"العقل السليم في الجسم السليم\"، من هنا جاء اهتمام الإنسان منذ القدم بالرياضة، فقد كان الصينيون القدماء من أوائل الذين استخدموا الرياضة نظامًا تربويًا ترويحيًا لحياتهم.</p><p>أمّا الهنود فقد اهتموا برياضات تعتمد على الصلة الروحية، وكانوا يعتبرونها وسيلة علاجية. أمّا الفراعنة فقد اهتموا بالرياضات البدنية؛ لإعداد الأولاد ليكونوا محاربين، فمارسوا ركوب الخيل والفيلة والمصارعة، واهتموا بالتربية البدنية بدافع عسكري وحربي. كما اهتم الفرس والرومان بالتربية البدنية بدافع عسكري؛ لإعداد الأولاد ليكونوا محاربين، وكانوا يعدُّون اللياقة البدنية شرطًا من شروط الحكم، واعتبروا التربية البدنية جزءًا من التعاليم الدينية عندهم، فاتسمت رياضاتهم بالقوة والعدوانية والقسوة.</p><p>وقد حملت رسالة الإسلام توازنًا بين الجسد والعقل والنفس، إذ حثّت على الاهتمام بالجسد، إذ إن الإنسان يُسأل أمام ربه عن صحته، واهتم الصحابة -رضوان الله عليهم- بالرياضة، لاسيّما الجري والسباحة وركوب الخيل، ورمي النِّبال؛ لِما فيها من فوائد بدنية وصحية، تتماشى وروح الإسلام وتعاليمه التي تُعنى بتربية الأجسام والعقول والنفوس.</p><p>وللرياضة أنواع كثيرة؛ منها المشي، والجري، ورفع الأثقال، والألعاب الكروية المختلفة، والسباحة، وركوب الخيل، والمصارعة، والتزلج، والشطرنج،... إذ يمكن للإنسان أن يختار منها ما يناسب قدرته، وعمره، وظروفه الخاصة.</p><p>وللرياضة فوائد جمّة لصحة الجسد، منها ما نعلمه، ومنها ما نجهله، ومن هذه الفوائد: أنها تُبقي القلب في حالة نشاط دائم، فكلما مارس الإنسان الرياضة ازداد ضخّ الدم المحمَّل بالأكسجين والغذاء إلى جميع أنحاء جسمه، وهذا مهم لمرضى القلب؛ لحمايتهم من جلطات الشريان التاجي الناتجة عن عدم ممارسة الرياضة، والرياضة تعمل على تقوية العضلات، وتؤخِّر أعراض الشيخوخة، ومثال ذلك أننا نشاهد أشخاصًا معمَّرين لا يعانون من أية أمراض، مع أن أعمارهم قد تجاوزت عقدها الثامن، كما أن الرياضة تقوّي العظام وتحمي من هشاشتها، بالإضافة إلى ذلك فإن الرياضة تحافظ على الرشاقة؛ لأنها تحرق الدهون، وتشدّ الجسد، وتحافظ على الوزن المناسب، والرياضة والسمنة ضدّان لا يجتمعان.</p></div></details>الشعب الذي كان يعتبر اللياقة البدنية شرطًا من شروط الحكم:",
+    choices:["الرومان","الصينيون القدماء","الفراعنة","الهنود"], correct:0 },
+  /* ===== قراءة: نص "العصائر الطبيعية" (مضاف) ===== */
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إنّ تناول عصير الفواكه الطازجة طريقةٌ ممتازة لتزويد الجسم بالفيتامينات والمعادن الضرورية التي تحارب الأمراض، فهو يمتاز بالطعم اللذيذ والفريد، وهو من السهل إعداده واستهلاكه.</p><p>ومن النصائح المهمة لتناول عصائر الفاكهة: يجب إعداد كميات مناسبة وتناولها بعد إعدادها مباشرة؛ لأن تخزين العصائر الطازجة يفقدها الكثير من العناصر الغذائية، وفي الوقت نفسه يجب ألا نشرب أي عصير فواكه مضى على إعداده أكثر من يوم؛ لأن هذا يعني ضياع العناصر المغذية منه.</p><p>وإليك الآن فوائد بعض العصائر؛ عصير البرتقال: إن البرتقال غنيّ بفيتامين (ج)، ويفيد في تجديد خلايا البشرة، ويُقوّي المناعة، فهو السلاح الأفضل لمكافحة نزلات البرد.</p><p>أمّا عصير الطماطم: فإنه يُخفّض من مخاطر أمراض السرطان، ويُفضّل تناول عصير الطماطم قبل وجبة الطعام بنصف ساعة؛ حيث يساعد على الهضم، ولا يمكن تناوله لمرضى القرحة، أو الأمراض المعوية الأخرى المرتبطة بضعف المعدة وزيادة حموضتها.</p><p>ورغم الطعم اللذيذ والفوائد الجمّة للعصائر الطبيعية، فلا تستغنِ عن شرب الماء؛ حيث يمكن شرب ستة إلى ثمانية أكواب من الماء يوميًا، إذ إنّ الماء من أساسيات الحياة لجميع الكائنات الحية، إذ لا يستطيع الإنسان الاستمرار في الحياة من غيره، فالماء أساسٌ للحفاظ على استقرار الجسم وتوازنه، وهو يُشكّل نسبة عالية من تكوين جسم الإنسان.</p></div></details>لماذا تُعدُّ العصائر من الضروريات التي يحتاجها الجسم؟",
+    choices:["لأن تخزينها يفقدها الكثير من العناصر المغذية","لأنها تمدُّ الجسم بالفيتامينات والمعادن","لأن شربها يعطي الجسم الرشاقة","لأن الإنسان لا يستطيع العيش بدونها"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إنّ تناول عصير الفواكه الطازجة طريقةٌ ممتازة لتزويد الجسم بالفيتامينات والمعادن الضرورية التي تحارب الأمراض، فهو يمتاز بالطعم اللذيذ والفريد، وهو من السهل إعداده واستهلاكه.</p><p>ومن النصائح المهمة لتناول عصائر الفاكهة: يجب إعداد كميات مناسبة وتناولها بعد إعدادها مباشرة؛ لأن تخزين العصائر الطازجة يفقدها الكثير من العناصر الغذائية، وفي الوقت نفسه يجب ألا نشرب أي عصير فواكه مضى على إعداده أكثر من يوم؛ لأن هذا يعني ضياع العناصر المغذية منه.</p><p>وإليك الآن فوائد بعض العصائر؛ عصير البرتقال: إن البرتقال غنيّ بفيتامين (ج)، ويفيد في تجديد خلايا البشرة، ويُقوّي المناعة، فهو السلاح الأفضل لمكافحة نزلات البرد.</p><p>أمّا عصير الطماطم: فإنه يُخفّض من مخاطر أمراض السرطان، ويُفضّل تناول عصير الطماطم قبل وجبة الطعام بنصف ساعة؛ حيث يساعد على الهضم، ولا يمكن تناوله لمرضى القرحة، أو الأمراض المعوية الأخرى المرتبطة بضعف المعدة وزيادة حموضتها.</p><p>ورغم الطعم اللذيذ والفوائد الجمّة للعصائر الطبيعية، فلا تستغنِ عن شرب الماء؛ حيث يمكن شرب ستة إلى ثمانية أكواب من الماء يوميًا، إذ إنّ الماء من أساسيات الحياة لجميع الكائنات الحية، إذ لا يستطيع الإنسان الاستمرار في الحياة من غيره، فالماء أساسٌ للحفاظ على استقرار الجسم وتوازنه، وهو يُشكّل نسبة عالية من تكوين جسم الإنسان.</p></div></details>يستطيع الإنسان شرب عصير الفاكهة في أي وقت؛ لأنه يمتاز بـ:",
+    choices:["توفره في كل مكان","رخص ثمنه","احتوائه على السكر","سهولة إعداده"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إنّ تناول عصير الفواكه الطازجة طريقةٌ ممتازة لتزويد الجسم بالفيتامينات والمعادن الضرورية التي تحارب الأمراض، فهو يمتاز بالطعم اللذيذ والفريد، وهو من السهل إعداده واستهلاكه.</p><p>ومن النصائح المهمة لتناول عصائر الفاكهة: يجب إعداد كميات مناسبة وتناولها بعد إعدادها مباشرة؛ لأن تخزين العصائر الطازجة يفقدها الكثير من العناصر الغذائية، وفي الوقت نفسه يجب ألا نشرب أي عصير فواكه مضى على إعداده أكثر من يوم؛ لأن هذا يعني ضياع العناصر المغذية منه.</p><p>وإليك الآن فوائد بعض العصائر؛ عصير البرتقال: إن البرتقال غنيّ بفيتامين (ج)، ويفيد في تجديد خلايا البشرة، ويُقوّي المناعة، فهو السلاح الأفضل لمكافحة نزلات البرد.</p><p>أمّا عصير الطماطم: فإنه يُخفّض من مخاطر أمراض السرطان، ويُفضّل تناول عصير الطماطم قبل وجبة الطعام بنصف ساعة؛ حيث يساعد على الهضم، ولا يمكن تناوله لمرضى القرحة، أو الأمراض المعوية الأخرى المرتبطة بضعف المعدة وزيادة حموضتها.</p><p>ورغم الطعم اللذيذ والفوائد الجمّة للعصائر الطبيعية، فلا تستغنِ عن شرب الماء؛ حيث يمكن شرب ستة إلى ثمانية أكواب من الماء يوميًا، إذ إنّ الماء من أساسيات الحياة لجميع الكائنات الحية، إذ لا يستطيع الإنسان الاستمرار في الحياة من غيره، فالماء أساسٌ للحفاظ على استقرار الجسم وتوازنه، وهو يُشكّل نسبة عالية من تكوين جسم الإنسان.</p></div></details>يُستحسن تناول عصير الطماطم:",
+    choices:["بعد الأكل مباشرة","مع الأكل","قبل الأكل بنصف ساعة","في أي وقت"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إنّ تناول عصير الفواكه الطازجة طريقةٌ ممتازة لتزويد الجسم بالفيتامينات والمعادن الضرورية التي تحارب الأمراض، فهو يمتاز بالطعم اللذيذ والفريد، وهو من السهل إعداده واستهلاكه.</p><p>ومن النصائح المهمة لتناول عصائر الفاكهة: يجب إعداد كميات مناسبة وتناولها بعد إعدادها مباشرة؛ لأن تخزين العصائر الطازجة يفقدها الكثير من العناصر الغذائية، وفي الوقت نفسه يجب ألا نشرب أي عصير فواكه مضى على إعداده أكثر من يوم؛ لأن هذا يعني ضياع العناصر المغذية منه.</p><p>وإليك الآن فوائد بعض العصائر؛ عصير البرتقال: إن البرتقال غنيّ بفيتامين (ج)، ويفيد في تجديد خلايا البشرة، ويُقوّي المناعة، فهو السلاح الأفضل لمكافحة نزلات البرد.</p><p>أمّا عصير الطماطم: فإنه يُخفّض من مخاطر أمراض السرطان، ويُفضّل تناول عصير الطماطم قبل وجبة الطعام بنصف ساعة؛ حيث يساعد على الهضم، ولا يمكن تناوله لمرضى القرحة، أو الأمراض المعوية الأخرى المرتبطة بضعف المعدة وزيادة حموضتها.</p><p>ورغم الطعم اللذيذ والفوائد الجمّة للعصائر الطبيعية، فلا تستغنِ عن شرب الماء؛ حيث يمكن شرب ستة إلى ثمانية أكواب من الماء يوميًا، إذ إنّ الماء من أساسيات الحياة لجميع الكائنات الحية، إذ لا يستطيع الإنسان الاستمرار في الحياة من غيره، فالماء أساسٌ للحفاظ على استقرار الجسم وتوازنه، وهو يُشكّل نسبة عالية من تكوين جسم الإنسان.</p></div></details>ماذا يحدث لعصير فاكهة مضى على إعداده أكثر من يوم؟",
+    choices:["يفقد عناصره الغذائية","يبقى كما هو","تزداد قيمته الغذائية","يتحول إلى ماء وسكر"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إنّ تناول عصير الفواكه الطازجة طريقةٌ ممتازة لتزويد الجسم بالفيتامينات والمعادن الضرورية التي تحارب الأمراض، فهو يمتاز بالطعم اللذيذ والفريد، وهو من السهل إعداده واستهلاكه.</p><p>ومن النصائح المهمة لتناول عصائر الفاكهة: يجب إعداد كميات مناسبة وتناولها بعد إعدادها مباشرة؛ لأن تخزين العصائر الطازجة يفقدها الكثير من العناصر الغذائية، وفي الوقت نفسه يجب ألا نشرب أي عصير فواكه مضى على إعداده أكثر من يوم؛ لأن هذا يعني ضياع العناصر المغذية منه.</p><p>وإليك الآن فوائد بعض العصائر؛ عصير البرتقال: إن البرتقال غنيّ بفيتامين (ج)، ويفيد في تجديد خلايا البشرة، ويُقوّي المناعة، فهو السلاح الأفضل لمكافحة نزلات البرد.</p><p>أمّا عصير الطماطم: فإنه يُخفّض من مخاطر أمراض السرطان، ويُفضّل تناول عصير الطماطم قبل وجبة الطعام بنصف ساعة؛ حيث يساعد على الهضم، ولا يمكن تناوله لمرضى القرحة، أو الأمراض المعوية الأخرى المرتبطة بضعف المعدة وزيادة حموضتها.</p><p>ورغم الطعم اللذيذ والفوائد الجمّة للعصائر الطبيعية، فلا تستغنِ عن شرب الماء؛ حيث يمكن شرب ستة إلى ثمانية أكواب من الماء يوميًا، إذ إنّ الماء من أساسيات الحياة لجميع الكائنات الحية، إذ لا يستطيع الإنسان الاستمرار في الحياة من غيره، فالماء أساسٌ للحفاظ على استقرار الجسم وتوازنه، وهو يُشكّل نسبة عالية من تكوين جسم الإنسان.</p></div></details>كلمة \"السلاح\" في قوله (فهو السلاح الأفضل لمكافحة نزلات البرد) تعني:",
+    choices:["البندقية","المحارب","الوسيلة الفعالة","الدرع"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إنّ تناول عصير الفواكه الطازجة طريقةٌ ممتازة لتزويد الجسم بالفيتامينات والمعادن الضرورية التي تحارب الأمراض، فهو يمتاز بالطعم اللذيذ والفريد، وهو من السهل إعداده واستهلاكه.</p><p>ومن النصائح المهمة لتناول عصائر الفاكهة: يجب إعداد كميات مناسبة وتناولها بعد إعدادها مباشرة؛ لأن تخزين العصائر الطازجة يفقدها الكثير من العناصر الغذائية، وفي الوقت نفسه يجب ألا نشرب أي عصير فواكه مضى على إعداده أكثر من يوم؛ لأن هذا يعني ضياع العناصر المغذية منه.</p><p>وإليك الآن فوائد بعض العصائر؛ عصير البرتقال: إن البرتقال غنيّ بفيتامين (ج)، ويفيد في تجديد خلايا البشرة، ويُقوّي المناعة، فهو السلاح الأفضل لمكافحة نزلات البرد.</p><p>أمّا عصير الطماطم: فإنه يُخفّض من مخاطر أمراض السرطان، ويُفضّل تناول عصير الطماطم قبل وجبة الطعام بنصف ساعة؛ حيث يساعد على الهضم، ولا يمكن تناوله لمرضى القرحة، أو الأمراض المعوية الأخرى المرتبطة بضعف المعدة وزيادة حموضتها.</p><p>ورغم الطعم اللذيذ والفوائد الجمّة للعصائر الطبيعية، فلا تستغنِ عن شرب الماء؛ حيث يمكن شرب ستة إلى ثمانية أكواب من الماء يوميًا، إذ إنّ الماء من أساسيات الحياة لجميع الكائنات الحية، إذ لا يستطيع الإنسان الاستمرار في الحياة من غيره، فالماء أساسٌ للحفاظ على استقرار الجسم وتوازنه، وهو يُشكّل نسبة عالية من تكوين جسم الإنسان.</p></div></details>لماذا لا يمكن للمصابين بالأمراض المعوية تناول عصير الطماطم؟",
+    choices:["يزيد من حموضة المعدة","يسبب عسر هضم فقط","يرفع من خطر الإصابة بالسرطان","يسبب النشاط الزائد"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إنّ تناول عصير الفواكه الطازجة طريقةٌ ممتازة لتزويد الجسم بالفيتامينات والمعادن الضرورية التي تحارب الأمراض، فهو يمتاز بالطعم اللذيذ والفريد، وهو من السهل إعداده واستهلاكه.</p><p>ومن النصائح المهمة لتناول عصائر الفاكهة: يجب إعداد كميات مناسبة وتناولها بعد إعدادها مباشرة؛ لأن تخزين العصائر الطازجة يفقدها الكثير من العناصر الغذائية، وفي الوقت نفسه يجب ألا نشرب أي عصير فواكه مضى على إعداده أكثر من يوم؛ لأن هذا يعني ضياع العناصر المغذية منه.</p><p>وإليك الآن فوائد بعض العصائر؛ عصير البرتقال: إن البرتقال غنيّ بفيتامين (ج)، ويفيد في تجديد خلايا البشرة، ويُقوّي المناعة، فهو السلاح الأفضل لمكافحة نزلات البرد.</p><p>أمّا عصير الطماطم: فإنه يُخفّض من مخاطر أمراض السرطان، ويُفضّل تناول عصير الطماطم قبل وجبة الطعام بنصف ساعة؛ حيث يساعد على الهضم، ولا يمكن تناوله لمرضى القرحة، أو الأمراض المعوية الأخرى المرتبطة بضعف المعدة وزيادة حموضتها.</p><p>ورغم الطعم اللذيذ والفوائد الجمّة للعصائر الطبيعية، فلا تستغنِ عن شرب الماء؛ حيث يمكن شرب ستة إلى ثمانية أكواب من الماء يوميًا، إذ إنّ الماء من أساسيات الحياة لجميع الكائنات الحية، إذ لا يستطيع الإنسان الاستمرار في الحياة من غيره، فالماء أساسٌ للحفاظ على استقرار الجسم وتوازنه، وهو يُشكّل نسبة عالية من تكوين جسم الإنسان.</p></div></details>عصائر الفاكهة لا تُغني عن شرب الماء، والسبب:",
+    choices:["الماء يحتوي على فيتامينات أكثر من العصير","عصائر الفاكهة لا تحتوي على ماء","العصائر تحتوي على الكثير من السكر","الماء يُشكِّل نسبة عالية من تكوين الجسم واستقراره"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إنّ تناول عصير الفواكه الطازجة طريقةٌ ممتازة لتزويد الجسم بالفيتامينات والمعادن الضرورية التي تحارب الأمراض، فهو يمتاز بالطعم اللذيذ والفريد، وهو من السهل إعداده واستهلاكه.</p><p>ومن النصائح المهمة لتناول عصائر الفاكهة: يجب إعداد كميات مناسبة وتناولها بعد إعدادها مباشرة؛ لأن تخزين العصائر الطازجة يفقدها الكثير من العناصر الغذائية، وفي الوقت نفسه يجب ألا نشرب أي عصير فواكه مضى على إعداده أكثر من يوم؛ لأن هذا يعني ضياع العناصر المغذية منه.</p><p>وإليك الآن فوائد بعض العصائر؛ عصير البرتقال: إن البرتقال غنيّ بفيتامين (ج)، ويفيد في تجديد خلايا البشرة، ويُقوّي المناعة، فهو السلاح الأفضل لمكافحة نزلات البرد.</p><p>أمّا عصير الطماطم: فإنه يُخفّض من مخاطر أمراض السرطان، ويُفضّل تناول عصير الطماطم قبل وجبة الطعام بنصف ساعة؛ حيث يساعد على الهضم، ولا يمكن تناوله لمرضى القرحة، أو الأمراض المعوية الأخرى المرتبطة بضعف المعدة وزيادة حموضتها.</p><p>ورغم الطعم اللذيذ والفوائد الجمّة للعصائر الطبيعية، فلا تستغنِ عن شرب الماء؛ حيث يمكن شرب ستة إلى ثمانية أكواب من الماء يوميًا، إذ إنّ الماء من أساسيات الحياة لجميع الكائنات الحية، إذ لا يستطيع الإنسان الاستمرار في الحياة من غيره، فالماء أساسٌ للحفاظ على استقرار الجسم وتوازنه، وهو يُشكّل نسبة عالية من تكوين جسم الإنسان.</p></div></details>من أعظم المنافع التي قد نكتسبها من شرب عصائر الفاكهة الطبيعية:",
+    choices:["تخفيف الوزن فقط","محاربة العديد من الأمراض","المساعدة على صفاء البشرة فقط","إمداد الجسم بالنشاط والطاقة فقط"], correct:1 },
+  /* ===== قراءة: نص "أساليب المحافظة على البيئة" (مضاف) ===== */
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>المواد التي يركز عليها المقال:",
+    choices:["الطاقة/الماء/البلاستيك","الطاقة/النفايات","الماء/الطاقة/النبات","البلاستيك/المنظفات/الماء فقط"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>أقصى مدة يُنصح بها لبقاء الجهاز موصولًا بالكهرباء دون استخدام قبل فصله:",
+    choices:["12 ساعة","24 ساعة","48 ساعة","أسبوع"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>تحلّل المادة يدل على:",
+    choices:["تغيّر لونها","انفصال عناصرها عن بعضها بفعل عوامل طبيعية","تصلّب عناصرها","احتراقها"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>ينصح المقال بـ:",
+    choices:["تقليل استخدام البلاستيك","إلغاء استخدام البلاستيك كليًا وفورًا","استخدام البلاستيك أكثر","عدم تصنيع البلاستيك نهائيًا"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>المواد الكيميائية مقارنة بالمنظفات الطبيعية تكون:",
+    choices:["أكثر فاعلية","أقل سعرًا","أكثر استهلاكًا","أكثر ضررًا على البيئة"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>حدد المعلومة الخاطئة مما يلي:",
+    choices:["الأجهزة المطفأة قد تستمر باستهلاك الطاقة إذا بقيت موصولة","البدائل الطبيعية أفضل من الكيميائية في التنظيف","المواد الطبيعية المذكورة في النص تُلوِّث الماء","الماء والعصير يُباعان عادة في عبوات بلاستيكية"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>يُعدُّ استخدام الماء الفائض من ري النباتات في التنظيف أسلوبًا:",
+    choices:["تقليديًا","اقتصاديًا","معقّدًا","نادرًا"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>توقّع ماذا سيحدث لو مُلئت زجاجة بأكثر من ثلثيها ثم وُضعت في الفريزر:",
+    choices:["قد تتعرض للانفجار أو الكسر","تبقى كما هي دون تغيير","يتغير لونها فقط","تتعرض للتبخر"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>يُعدّ من يُغلق الصنبور أثناء تفريش أسنانه شخصًا:",
+    choices:["غنيًا","مسرفًا","بخيلًا","واعيًا بيئيًا"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>تطمح حكومات دول العالم إلى تحقيق أهم الأهداف التي تسعى إليها، وهو المحافظة على البيئة، لتجنيبها التلوث، ولتجنب امتلائها بالمخلَّفات، وهنالك بعض الأساليب التي يمكن اتِّباعها للحدِّ من التلوث، من هذه الأساليب:</p><p>١- توفير الطاقة: تستمر الأجهزة الكهربائية في استخدام الطاقة الكهربائية حتى لو كانت مطفأة عند تركها موصولة، مثل: الشاحن، والحاسوب، والهاتف. لذا من الخطوات المهمة لتوفير الطاقة: إزالة قابس الأجهزة التي لا تعمل، مثل: الشاحن والأضواء، وفصل قابس الأجهزة التي لن تُستخدم خلال أربع وعشرين ساعة قادمة.</p><p>٢- المحافظة على ترشيد استهلاك الماء: الماء مصدرٌ طبيعي مهم جدًا للبيئة، ويمكن استخدام المنظفات الطبيعية بدلًا من الكيميائية، مثل: خليط الخل مع الماء، أو عصير الليمون، أو البيكنج صودا مع الملح للتنظيف؛ فهي فعّالة للتنظيف دون تلويث الماء، فالمواد الكيميائية التي تُستخدم للتنظيف تتدفق إلى قنوات الصرف الصحي، وتنتهي في تمديدات الماء، وهذه المواد ليست جيدة للحيوانات أو النباتات أو الإنسان. ويمكن الاقتصاد في الماء عن طريق إغلاق صنبور الماء أثناء أي وقت لا يُستخدم فيه، وإغلاق صنبور الماء أثناء غسل الصحون وتنظيف الأسنان، واستخدام الماء الفائض من ري النباتات في التنظيف.</p><p>٣- تقليل استخدام البلاستيك: فالبلاستيك غير قابل للتحلل، ولذا يجب التوقف عن استخدامه قدر الإمكان، وتوجد بدائل أخرى صديقة للبيئة، مثل: التوقف عن شراء المشروبات في عبوات بلاستيكية، فالماء والعصير يُباعان عادةً في عبوات بلاستيكية، ويمكن اختيار الماء المحفوظ في الورق المقوّى، ويمكن استبدال البلاستيك بعبوات زجاجية لحفظ الطعام، أو باستخدام أوعية من المعدن غير القابل للصدأ، مع مراعاة عدم ملء العبوات الزجاجية بأكثر من ثلثيها عند وضعها في أجهزة التجميد.</p></div></details>عندما أكون في نزهة مع أسرتي، أُسهم في الحفاظ على بيئتي عن طريق:",
+    choices:["استغلال الموارد الطبيعية دون قيود","استخدام المواد البلاستيكية بكثرة","الحفاظ على الموارد الطبيعية وعدم الإسراف فيها","رمي النفايات في غير أماكنها"], correct:2 },
+  /* ===== قراءة: نص "أربع عشرة فكرة لاجتياز المقابلة الوظيفية" (مضاف) ===== */
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>عند تقدمك لوظيفة، تأكد من أن يكون حسابك الشخصي:",
+    choices:["خاليًا من إنجازاتك الشخصية","يحوي هواياتك المفضلة","خاليًا من الصراعات والصدامات","يحوي مشاكلك الشخصية"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>لمواجهة التحديات المتوقعة في الوظيفة أقوم بـ:",
+    choices:["الاستفادة من تجارب الموظفين السابقين والحاليين","التركيز على أهم التحديات فقط","التركيز على التخصص المطلوب فقط","التركيز على الراتب"], correct:0 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>لأجل وظيفتي المستقبلية، من المفيد متابعة:",
+    choices:["حسابات توعوية عامة","حسابات تطوير الذات وقراءات المجال","الحسابات الخاصة بالأصدقاء","حسابات المشاهير"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>معنى (البريد الإلكتروني):",
+    choices:["مدونة إلكترونية","صفحة إلكترونية","موقع إلكتروني","وسيلة لتبادل الرسائل"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>يجب عند كتابة السيرة الذاتية:",
+    choices:["ذكر العلاقات الشخصية","تحديد الراتب المطلوب","استخدام بريد إلكتروني باسم صريح وواضح","كتابة الهوايات فقط"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>الفكرة الخامسة (تقديم الشكر قبل بدء المقابلة) تحث على مبدأ:",
+    choices:["الثقة الزائدة","حسن الاستقبال","الاحترام والتقدير","الاستعداد المسبق فقط"], correct:2 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>وفق الفكرة السادسة، أيًّا من المتقدمين ستختار؟",
+    choices:["المُصرّ على الحصول على الوظيفة أيًا كان الثمن","المجامل للجنة المقابلة","المتأنق في مظهره فقط","المطّلع المتحمس الذي يعرف الجهة وأعمالها"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>أيّ العبارات التالية تمثل الثقة بالنفس؟",
+    choices:["أضحك بصوت عالٍ","أبالغ في الارتداء","أتحدث دون توقف","أتزن وأهدأ"], correct:3 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>سرّ نجاح المقابلة الوظيفية بحسب النص:",
+    choices:["قراءة الكثير من الكتب فقط","التميز والتفرد والاستعداد الجيد","الجاذبية الشكلية فقط","ترك الخوض في التفاصيل"], correct:1 },
+  { domain:"info", topic:"الفهم واستيعاب المقروء", text:"<details class=\"passage-box\"><summary>📄 اضغط لعرض النص المرتبط بالسؤال</summary><div class=\"passage-text\"><p>إليك أربع عشرة فكرة مقترحة لاجتياز المقابلة الوظيفية بنجاح -إن شاء الله- وهي على التوالي:</p><p>١- قبل تقديمك على أي وظيفة تأكد من أن حساباتك في الشبكات الاجتماعية خالية من صراعات وصدامات ومواضيع تُحرجك؛ لأن المؤسسة التي تأمل أن تعمل لديها ستبحث عنك في هذه المواقع أولًا.</p><p>٢- احذر أن تضع في سيرتك الذاتية بريدًا إلكترونيًا يحمل اسمًا مستعارًا؛ فالصراحة والوضوح يشيران إلى شخصية جادة وسويّة.</p><p>٣- اقرأ كثيرًا عن المؤسسة أو الوزارة أو الجهة التي ترغب في العمل فيها، وركِّز على القسم الذي تودُّ الالتحاق به، واسأل موظفين سابقين وحاليين عن التحديات التي تواجههم.</p><p>٤- ارتدِ ملابس رسمية، واعتنِ بمظهرك جيدًا، ولا تنسَ اختيار العطر المناسب، ولا تبالغ في لبسك؛ فالأناقة لا تعني المبالغة ولا المباهاة.</p><p>٥- قبل أن تبدأ المقابلة، قدِّم شكرك الجزيل لإتاحة الفرصة لهذه المقابلة، وأبدِ تقديرك واحترامك للوقت الثمين الذي وُفِّر لك.</p><p>٦- أظهر شغفك ورغبتك في الوظيفة من خلال الحديث عن الجهة التي تودُّ العمل فيها، وأشِر إلى مشاريع وخطوات مبهرة قامت بها، مستندًا إلى قراءاتك عنها وسعة اطلاعك على أعمالها.</p><p>٧- تحلَّ بالابتسامة، فالابتسامة تمنحك جاذبية وثقة، إذ من الممكن أن يَنسى مَن يقابلك ماذا قلتَ، لكنه لن ينسى ابتسامتك.</p><p>٨- لا تبدُ مرتبكًا، تدرَّب كثيرًا مع زملائك على المقابلة، وتذكَّر أنك جديرٌ بهذه الوظيفة بناءً على ما تملكه من مهارات وإمكانات؛ فالمؤسسات تبحث عن الشخصيات الممتلئة ثقةً.</p><p>٩- أظهر ثقافتك، تكلَّم عن شركات عالمية تنتمي إلى المجال نفسه، وقارِن بينها على نحو عام دون الدخول في التفاصيل.</p><p>١٠- إذا لم تعرف شيئًا فلا تتردد في أن تقول: لا أملك خلفية عن هذا الموضوع، واحذر المراوغة فإنها قد تُحرجك وتُربكك.</p><p>١١- تكلَّم عن كتب أثارت اهتمامك وانعكست على شخصيتك، ولا تتطرَّق إلى كتب لم تقرأها، واعلم أن المؤسسات تبحث عن شابٍّ مثقَّف مختلف.</p><p>١٢- احذر الخوض في الأمور المالية أثناء المقابلة إلا إذا سُئلت عنها؛ فالمفاوضات المالية تأتي في مرحلة متقدمة بعد المقابلة.</p><p>١٣- لا تُقاطع أبدًا، وتحدَّث عندما يُطلب منك ذلك، يقول إيليا أبو ماضي: إنَّ بعض القول فنٌّ فاجعل الإصغاء فنًا.</p><p>١٤- مهما كانت نتيجة المقابلة تذكَّر أنك محظوظ لأنك دخلتَها، فآلافٌ غيرك لم تُتَح لهم هذه الفرصة، وتأكَّد أنك إن لم تنجح فيها فإنها حتمًا ستساعدك -إن شاء الله- على أن تنجح في غيرها.</p></div></details>\"احذر الخوض في الأمور المالية\" معنى كلمة (الخوض):",
+    choices:["النقاش والحديث","الصمت","الكتابة","الرفض"], correct:0 }
+];
+
+/* ================= STATE ================= */
+let currentSet = [];
+let currentDomainKey = 'all';
+let currentIndex = 0;
+let userAnswers = [];
+let timerInterval = null;
+let elapsedSec = 0;
+
+const HIST_KEY = 'nafsQuizHistory_v1';
+
+/* ================= INIT ================= */
+function countByDomain(key){
+  return QUESTIONS.filter(q=>q.domain===key).length;
+}
+function initCounts(){
+  document.getElementById('countAll').textContent = QUESTIONS.length + ' سؤال متنوع';
+  document.getElementById('totalQCount').textContent = QUESTIONS.length;
+  Object.keys(DOMAINS).forEach(k=>{
+    const el = document.getElementById('count'+k);
+    if(el) el.textContent = countByDomain(k) + ' أسئلة';
+  });
+}
+initCounts();
+
+document.querySelectorAll('.domain-card').forEach(card=>{
+  card.addEventListener('click', ()=>startQuiz(card.dataset.domain));
+});
+
+/* ================= QUIZ FLOW ================= */
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function startQuiz(domainKey){
+  currentDomainKey = domainKey;
+  currentSet = domainKey==='all' ? shuffle(QUESTIONS) : shuffle(QUESTIONS.filter(q=>q.domain===domainKey));
+  currentIndex = 0;
+  userAnswers = [];
+  elapsedSec = 0;
+  showScreen('screenQuiz');
+  document.getElementById('qTotal').textContent = currentSet.length;
+  startTimer();
+  renderQuestion();
+}
+
+function startTimer(){
+  clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{
+    elapsedSec++;
+    const m = String(Math.floor(elapsedSec/60)).padStart(2,'0');
+    const s = String(elapsedSec%60).padStart(2,'0');
+    document.getElementById('quizTimer').textContent = `${m}:${s}`;
+  },1000);
+}
+
+function renderQuestion(){
+  const q = currentSet[currentIndex];
+  document.getElementById('qIndex').textContent = currentIndex+1;
+  document.getElementById('progressFill').style.width = ((currentIndex)/currentSet.length*100)+'%';
+  document.getElementById('qBadge').innerHTML = DOMAINS[q.domain].icon + ' ' + DOMAINS[q.domain].label + ' · ' + q.topic;
+  document.getElementById('qText').innerHTML = q.text;
+
+  const lettersAr = ['أ','ب','ج','د'];
+  const box = document.getElementById('qChoices');
+  box.innerHTML = '';
+  q.choices.forEach((choiceHTML, idx)=>{
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.innerHTML = `<span class="c-letter">${lettersAr[idx]}</span><span>${choiceHTML}</span>`;
+    btn.addEventListener('click', ()=>selectChoice(idx));
+    box.appendChild(btn);
+  });
+
+  document.getElementById('qExplain').classList.remove('show');
+  document.getElementById('btnNext').disabled = true;
+  document.getElementById('btnNext').textContent = currentIndex === currentSet.length-1 ? 'عرض النتيجة' : 'التالي';
+}
+
+function selectChoice(idx){
+  const q = currentSet[currentIndex];
+  if(userAnswers[currentIndex] !== undefined) return; // already answered
+
+  userAnswers[currentIndex] = idx;
+  const buttons = document.querySelectorAll('#qChoices .choice');
+  buttons.forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===q.correct) b.classList.add('correct');
+    else if(i===idx) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+
+  const exp = document.getElementById('qExplain');
+  const isCorrect = idx===q.correct;
+  exp.className = 'explain-box show ' + (isCorrect?'good':'bad');
+  exp.textContent = (isCorrect ? '✔ إجابة صحيحة' : '✘ إجابة غير صحيحة') + (q.explain ? ' — ' + q.explain : '');
+
+  document.getElementById('btnNext').disabled = false;
+}
+
+document.getElementById('btnNext').addEventListener('click', ()=>{
+  if(currentIndex < currentSet.length-1){
+    currentIndex++;
+    renderQuestion();
+  } else {
+    finishQuiz();
+  }
+});
+
+document.getElementById('btnExitQuiz').addEventListener('click', ()=>{
+  if(confirm('هل تريد إنهاء الاختبار الحالي؟ لن تُحتسب نتيجته.')){
+    clearInterval(timerInterval);
+    renderHistory();
+    showScreen('screenHome');
+  }
+});
+
+/* Header navigation icons: home + back */
+function goHome(){
+  const activeScreen = document.querySelector('.screen.active').id;
+  if(activeScreen === 'screenQuiz'){
+    if(!confirm('هل تريد إنهاء الاختبار الحالي؟ لن تُحتسب نتيجته.')) return;
+    clearInterval(timerInterval);
+  }
+  renderHistory();
+  showScreen('screenHome');
+}
+document.getElementById('btnHomeIcon').addEventListener('click', goHome);
+document.getElementById('btnBack').addEventListener('click', ()=>{
+  const activeScreen = document.querySelector('.screen.active').id;
+  if(activeScreen === 'screenHome') return; // already home, nothing to go back to
+  goHome();
+});
+
+/* ================= RESULTS ================= */
+function finishQuiz(){
+  clearInterval(timerInterval);
+  document.getElementById('progressFill').style.width = '100%';
+
+  const total = currentSet.length;
+  let correctCount = 0;
+  const byDomain = {};
+
+  currentSet.forEach((q,i)=>{
+    const isCorrect = userAnswers[i]===q.correct;
+    if(isCorrect) correctCount++;
+    if(!byDomain[q.domain]) byDomain[q.domain] = {correct:0,total:0};
+    byDomain[q.domain].total++;
+    if(isCorrect) byDomain[q.domain].correct++;
+  });
+
+  const pct = Math.round((correctCount/total)*100);
+  window.SafaProgress?.recordResult({correct:correctCount,total:total,percent:pct});
+
+  saveAttempt({
+    date: new Date().toISOString(),
+    domain: currentDomainKey,
+    domainLabel: currentDomainKey==='all' ? 'الاختبار الشامل' : DOMAINS[currentDomainKey].label,
+    correct: correctCount,
+    total: total,
+    percent: pct,
+    seconds: elapsedSec
+  });
+
+  renderResults(correctCount, total, pct, byDomain);
+  showScreen('screenResults');
+}
+
+function ringColor(pct){
+  if(pct>=80) return 'var(--good)';
+  if(pct>=50) return 'var(--gold)';
+  return 'var(--bad)';
+}
+
+function renderResults(correctCount,total,pct,byDomain){
+  const ring = document.getElementById('scoreRing');
+  const col = ringColor(pct);
+  ring.style.background = `conic-gradient(${col} ${pct*3.6}deg, rgba(255,255,255,.15) 0deg)`;
+  document.getElementById('resultPercent').textContent = pct+'%';
+  document.getElementById('resultFraction').textContent = correctCount+' / '+total;
+
+  let msg;
+  if(pct>=90) msg='ممتاز! إتقان رائع 🎉';
+  else if(pct>=75) msg='أداء جيد جدًا 👏';
+  else if(pct>=50) msg='أداء مقبول، واصل التدريب 💪';
+  else msg='تحتاج لمزيد من المراجعة والتدريب 📚';
+  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('resultSub').textContent = 'النطاق: ' + (currentDomainKey==='all' ? 'الاختبار الشامل' : DOMAINS[currentDomainKey].label);
+
+  const bd = document.getElementById('domainBreakdown');
+  bd.innerHTML = '';
+  Object.keys(byDomain).forEach(dk=>{
+    const d = byDomain[dk];
+    const p = Math.round((d.correct/d.total)*100);
+    const item = document.createElement('div');
+    item.className = 'db-item';
+    item.innerHTML = `<div class="db-top"><span>${DOMAINS[dk].icon} ${DOMAINS[dk].label}</span><span>${d.correct}/${d.total}</span></div>
+      <div class="db-bar"><div class="db-fill" style="width:${p}%"></div></div>`;
+    bd.appendChild(item);
+  });
+
+  const lettersAr = ['أ','ب','ج','د'];
+  const rl = document.getElementById('reviewList');
+  rl.innerHTML = '';
+  currentSet.forEach((q,i)=>{
+    const isCorrect = userAnswers[i]===q.correct;
+    const item = document.createElement('div');
+    item.className = 'review-item';
+    item.innerHTML = `
+      <div class="review-head">
+        <div class="review-icon ${isCorrect?'ok':'no'}">${isCorrect?'✔':'✘'}</div>
+        <div>
+          <div class="review-text">${i+1}. ${q.text}</div>
+          <div class="review-answer">إجابتك: <b>${lettersAr[userAnswers[i]]}</b>${isCorrect?'':' — الإجابة الصحيحة: <b>'+lettersAr[q.correct]+'</b>'}</div>
+        </div>
+      </div>`;
+    rl.appendChild(item);
+  });
+}
+
+document.getElementById('btnRetry').addEventListener('click', ()=>startQuiz(currentDomainKey));
+document.getElementById('btnHome').addEventListener('click', ()=>{ renderHistory(); showScreen('screenHome'); });
+
+/* ================= HISTORY / STORAGE ================= */
+function loadHistory(){
+  try{ return JSON.parse(localStorage.getItem(HIST_KEY)) || []; }
+  catch(e){ return []; }
+}
+function saveAttempt(attempt){
+  const hist = loadHistory();
+  hist.unshift(attempt);
+  localStorage.setItem(HIST_KEY, JSON.stringify(hist.slice(0,50)));
+}
+function renderHistory(){
+  const hist = loadHistory();
+  const card = document.getElementById('historyCard');
+  if(hist.length===0){
+    card.innerHTML = '<div class="empty-hint">لم تُجرِ أي محاولة بعد — ابدأ اختبارًا لتظهر نتائجك هنا.</div>';
+    return;
+  }
+  card.innerHTML = '';
+  hist.slice(0,8).forEach(a=>{
+    const d = new Date(a.date);
+    const dateStr = d.toLocaleDateString('ar-SA', {day:'numeric',month:'short',year:'numeric'});
+    const cls = a.percent>=80 ? 'hs-good' : (a.percent>=50 ? 'hs-mid' : 'hs-bad');
+    const row = document.createElement('div');
+    row.className = 'history-row';
+    row.innerHTML = `<div><div class="h-domain">${a.domainLabel}</div><div class="h-date">${dateStr}</div></div>
+      <div class="history-score ${cls}">${a.correct}/${a.total} — ${a.percent}%</div>`;
+    card.appendChild(row);
+  });
+}
+renderHistory();
+
+/* ================= SETTINGS MODAL ================= */
+const modal = document.getElementById('modalSettings');
+document.getElementById('btnSettings').addEventListener('click', ()=>modal.classList.add('show'));
+document.getElementById('btnCloseSettings').addEventListener('click', ()=>modal.classList.remove('show'));
+modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('show'); });
+
+document.getElementById('btnExport').addEventListener('click', ()=>{
+  const data = JSON.stringify(loadHistory(), null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'نسخة-احتياطية-اختبر-نافس.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('تم تنزيل النسخة الاحتياطية');
+});
+
+document.getElementById('btnImportTrigger').addEventListener('click', ()=>document.getElementById('fileImport').click());
+document.getElementById('fileImport').addEventListener('change', function(e){
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(evt){
+    try{
+      const imported = JSON.parse(evt.target.result);
+      if(!Array.isArray(imported)) throw new Error('bad format');
+      const merged = imported.concat(loadHistory()).slice(0,50);
+      localStorage.setItem(HIST_KEY, JSON.stringify(merged));
+      renderHistory();
+      showToast('تم استيراد السجل بنجاح');
+      modal.classList.remove('show');
+    }catch(err){
+      showToast('تعذّر قراءة الملف، تأكد من أنه نسخة احتياطية صحيحة');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+});
+
+document.getElementById('btnReset').addEventListener('click', ()=>{
+  if(confirm('سيتم حذف كل سجل محاولاتك نهائيًا. متابعة؟')){
+    localStorage.removeItem(HIST_KEY);
+    renderHistory();
+    showToast('تم مسح السجل');
+    modal.classList.remove('show');
+  }
+});
+
+/* ================= HELPERS ================= */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2400);
+}
+</script>
+<script>window.NAFS_TEST_CONFIG={"id":"grade3-middle-arabic","title":"لغتي الجميلة","grade":"الصف الثالث المتوسط"};</script>
+<script src="../assets/student-bridge.js"></script>
+</body>
+</html>

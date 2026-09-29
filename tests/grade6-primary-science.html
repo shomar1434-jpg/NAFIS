@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تدريبات نافس | العلوم | مدرسة الصفا المتوسطة بجازان</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef1fb;--bg2:#dfe5f7;--stage:#1d2152;--stage2:#2b3070;
+  --card:#ffffff;--ink:#1c2140;--muted:#5b6285;--line:#d9def0;
+  --sun:#ffc43d;--coral:#ff6b6b;--mint:#1fb8a6;--violet:#6e4bd8;
+  --ok:#1f9d63;--okbg:#e3f7ec;--no:#e04848;--nobg:#fde8e8;
+  --opt:#f6f7fd;--optb:#dfe3f5;
+  --fh:'Baloo Bhaijaan 2','Tajawal',system-ui,sans-serif;
+  --fb:'Tajawal','Segoe UI',Tahoma,system-ui,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#12142e;--bg2:#1a1d40;--stage:#0c0e24;--stage2:#1f2354;
+    --card:#1e2248;--ink:#eef0ff;--muted:#a8aed3;--line:#343a6e;
+    --opt:#262b5a;--optb:#3a4180;--okbg:#153b2e;--nobg:#45202a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12142e;--bg2:#1a1d40;--stage:#0c0e24;--stage2:#1f2354;
+  --card:#1e2248;--ink:#eef0ff;--muted:#a8aed3;--line:#343a6e;
+  --opt:#262b5a;--optb:#3a4180;--okbg:#153b2e;--nobg:#45202a;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--fb);color:var(--ink);background:var(--bg);
+  background-image:radial-gradient(circle at 12% 8%,var(--bg2) 0 120px,transparent 121px),radial-gradient(circle at 92% 30%,var(--bg2) 0 80px,transparent 81px);
+  min-height:100%;line-height:1.7;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px}
+
+/* Stage header */
+.stage{background:var(--stage);color:#fff;position:relative;overflow:hidden}
+.stage::after{content:"";position:absolute;inset:auto 0 0 0;height:10px;
+  background:repeating-linear-gradient(90deg,var(--sun) 0 22px,var(--coral) 22px 44px,var(--mint) 44px 66px,var(--violet) 66px 88px)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0 22px}
+.brand{display:flex;align-items:center;gap:12px}
+.badge{width:52px;height:52px;border-radius:16px;background:var(--sun);color:var(--stage);display:grid;place-items:center;
+  font-family:var(--fh);font-weight:800;font-size:1.05rem;transform:rotate(-6deg);box-shadow:0 4px 0 #c79212}
+.brand h1{font-family:var(--fh);font-size:1.5rem;margin:0;line-height:1.1}
+.brand p{margin:2px 0 0;font-size:.9rem;opacity:.8}
+.iconbtn{background:var(--stage2);color:#fff;border:0;border-radius:12px;width:44px;height:44px;font-size:1.2rem}
+
+.screen{display:none;padding:22px 0 30px}
+.screen.on{display:block}
+
+/* Home */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:center;margin-bottom:18px}
+.hero h2{font-family:var(--fh);font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.15;margin:0 0 8px}
+.hero p{margin:0;color:var(--muted);max-width:44ch}
+.namebox{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px}
+.namebox label{font-weight:700;display:block;margin-bottom:6px}
+.namebox input{width:100%;font:inherit;font-size:1.1rem;padding:12px 14px;border-radius:14px;border:2px solid var(--optb);background:var(--opt);color:var(--ink)}
+.bankcount{margin-top:10px;font-size:.92rem;color:var(--muted)}
+.bankcount b{color:var(--ink);font-family:var(--fh);font-size:1.3rem}
+
+.block{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:16px 18px;margin-bottom:14px}
+.block h3{font-family:var(--fh);font-size:1.15rem;margin:0 0 10px}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mode{border:2px solid var(--optb);background:var(--opt);color:var(--ink);border-radius:18px;padding:14px 12px;text-align:right;position:relative}
+.mode .mi{font-size:1.7rem;display:block}
+.mode b{font-family:var(--fh);font-size:1.1rem;display:block}
+.mode small{color:var(--muted);font-size:.85rem;line-height:1.5;display:block}
+.mode[aria-pressed="true"]{border-color:var(--violet);background:color-mix(in srgb,var(--violet) 12%,var(--opt));box-shadow:0 4px 0 var(--violet)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--optb);background:var(--opt);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.93rem}
+.chip[aria-pressed="true"]{background:var(--stage);color:#fff;border-color:var(--stage)}
+.chip small{opacity:.7;font-weight:500}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.go{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:6px 0 16px}
+.btn{font-family:var(--fh);font-weight:800;font-size:1.3rem;border:0;border-radius:18px;padding:12px 30px;background:var(--sun);color:var(--stage);box-shadow:0 5px 0 #c79212;transition:transform .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c79212}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.alt{background:var(--mint);color:#fff;box-shadow:0 5px 0 #138676}
+.ghost{background:transparent;border:2px solid var(--optb);color:var(--ink);border-radius:14px;padding:9px 16px;font-weight:700}
+.pooltxt{color:var(--muted);font-weight:700}
+.lb{width:100%;border-collapse:collapse;font-size:.95rem}
+.lb td{padding:7px 6px;border-bottom:1px dashed var(--line)}
+.lb td:first-child{width:36px;font-family:var(--fh);font-weight:800;color:var(--violet)}
+.lb td:last-child{text-align:left;font-weight:800}
+.empty{color:var(--muted);margin:0}
+details.notes summary{cursor:pointer;font-family:var(--fh);font-weight:700;font-size:1.05rem}
+details.notes ul{margin:8px 0 0;padding-inline-start:20px;color:var(--muted);font-size:.93rem}
+
+/* Quiz HUD */
+.hud{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:5px 12px;font-weight:800;font-size:.95rem;white-space:nowrap}
+.ring{position:relative;width:62px;height:62px;flex:0 0 auto}
+.ring svg{width:62px;height:62px;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:5}
+.ring .rb{stroke:var(--line)}
+.ring .rf{stroke:var(--mint);stroke-linecap:round;stroke-dasharray:119.38;transition:stroke-dashoffset 1s linear,stroke .3s}
+.ring.hot .rf{stroke:var(--coral)}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--fh);font-weight:800;font-size:1.25rem}
+.track{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:12px}
+.track div{height:100%;width:0;background:linear-gradient(90deg,var(--mint),var(--violet));transition:width .4s}
+.lifes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.lifes button{border:2px dashed var(--optb);background:var(--card);color:var(--ink);border-radius:12px;padding:6px 12px;font-weight:700;font-size:.9rem}
+.lifes button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.lifes.off button{pointer-events:none;opacity:.35}
+
+.qcard{background:var(--card);border-radius:26px;padding:20px 20px 18px;border:2px solid var(--line);box-shadow:0 8px 0 var(--bg2);position:relative}
+.qtags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.tag{font-size:.8rem;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--opt);border:1px solid var(--optb);color:var(--muted)}
+.skill{font-size:.88rem;color:var(--muted);margin:2px 0 8px}
+.qtext{font-family:var(--fb);font-size:clamp(1.15rem,3.2vw,1.45rem);font-weight:800;line-height:1.8;margin:0 0 12px}
+.qtext u{text-decoration-thickness:3px;text-underline-offset:6px;text-decoration-color:var(--coral)}
+.fig{background:#fff;color:#1c2140;border:2px solid #e3e7f5;border-radius:18px;padding:12px;margin:0 0 14px;overflow-x:auto;text-align:center}
+.fig svg{max-width:100%;height:auto;vertical-align:middle}
+.fig .cap{font-weight:800;margin-bottom:4px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{display:flex;align-items:center;gap:10px;text-align:right;border:2px solid var(--optb);background:var(--opt);color:var(--ink);
+  border-radius:16px;padding:10px 12px;font-size:1.12rem;font-weight:700;min-height:60px;transition:transform .08s,border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--violet)}
+.opt:active:not(:disabled){transform:scale(.98)}
+.opt .lt{flex:0 0 36px;height:36px;border-radius:12px;background:var(--stage);color:#fff;display:grid;place-items:center;font-family:var(--fh);font-weight:800}
+.opt .ot{flex:1;min-width:0}
+.opt .ot svg{background:#fff;border-radius:10px;padding:2px;max-width:100%;height:auto}
+.opt .ot table{background:#fff;color:#1c2140}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.ok .lt{background:var(--ok)}
+.opt.no{border-color:var(--no);background:var(--nobg)}
+.opt.no .lt{background:var(--no)}
+.opt.gone{visibility:hidden}
+.opt:disabled{cursor:default}
+.fb{margin-top:14px;border-radius:16px;padding:0;overflow:hidden;max-height:0;transition:max-height .35s}
+.fb.show{max-height:600px;padding:12px 14px}
+.fb.good{background:var(--okbg);border:2px solid var(--ok)}
+.fb.bad{background:var(--nobg);border:2px solid var(--no)}
+.fb b{font-family:var(--fh);font-size:1.15rem}
+.fb p{margin:4px 0 0}
+.qnav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:10px}
+.shake{animation:shake .4s}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.float{position:fixed;font-family:var(--fh);font-weight:800;font-size:1.6rem;color:var(--ok);pointer-events:none;animation:up 1s forwards;z-index:9}
+@keyframes up{to{transform:translateY(-60px);opacity:0}}
+
+/* math bits */
+.eq{direction:ltr;unicode-bidi:isolate;display:inline-block;white-space:nowrap}
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin:0 .15em;font-weight:800}
+.fr>span:first-child{border-bottom:2.5px solid currentColor;padding:0 .25em}
+.dt{border-collapse:collapse;margin:0 auto;font-size:.98rem}
+.dt th,.dt td{border:1.5px solid #9aa3c7;padding:5px 12px;text-align:center}
+.dt th{background:#e8ecfa}
+.pt{border-collapse:collapse;margin:0 auto;min-width:240px}
+.pt caption{font-weight:800;padding-bottom:6px}
+.pt th,.pt td{border:1.5px solid #9aa3c7;padding:4px 10px;text-align:right}
+.pt th{background:#fff4d6;white-space:nowrap}
+.pt tr.key th,.pt tr.key td{background:#f1f3fb;font-size:.92rem}
+.ic{font-size:1.45rem;line-height:1.2;display:inline-block}
+.hf{width:.62em;overflow:hidden;vertical-align:bottom;white-space:nowrap}
+.rowf{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.pricetag{border:2px dashed #1c2140;border-radius:10px;padding:4px 12px;font-weight:800}
+.stk{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.stk div{width:44px;border:2px solid #9aa3c7;border-radius:8px;background:#f7f9ff;text-align:center}
+.stk div span{display:block;font-size:1.5rem;line-height:1.5}
+.stk div small{display:block;border-top:1px solid #9aa3c7;font-weight:800}
+.big{font-size:2.3rem;line-height:1.2}
+.grp{text-align:center;padding:4px 14px}
+.grp small{font-weight:800}
+
+/* Result */
+.res{text-align:center}
+.stars{font-size:3rem;letter-spacing:6px;color:var(--line)}
+.stars .on{color:var(--sun);text-shadow:0 3px 0 #c79212}
+.res h2{font-family:var(--fh);font-size:clamp(1.8rem,5vw,2.6rem);margin:4px 0}
+.score{font-family:var(--fh);font-size:clamp(3rem,10vw,4.6rem);font-weight:800;color:var(--violet);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+.stat{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:10px}
+.stat b{display:block;font-family:var(--fh);font-size:1.6rem}
+.stat span{color:var(--muted);font-size:.88rem}
+.acts{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.rv{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:12px 14px;margin-bottom:10px;text-align:right}
+.rv .rq{font-weight:800}
+.rv .ra{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.rv .ra span{border-radius:10px;padding:3px 10px;font-weight:700}
+.rv .x{background:var(--nobg);color:var(--no)}
+.rv .c{background:var(--okbg);color:var(--ok)}
+.rv .fig{padding:8px;margin:8px 0}
+.rv p{margin:0;color:var(--muted)}
+
+footer{text-align:center;color:var(--muted);font-size:1rem;font-weight:700;padding:14px 0 26px}
+footer a{color:var(--violet);font-weight:800;text-decoration:underline;text-underline-offset:4px}
+#cf{position:fixed;inset:0;pointer-events:none;z-index:8}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--stage);color:#fff;padding:10px 18px;border-radius:14px;font-weight:700;z-index:10}
+
+@media (max-width:640px){
+  .hero,.row2{grid-template-columns:1fr}
+  .modes{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .qcard{padding:16px 14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="wrap topbar">
+    <div class="brand">
+      <div class="badge">نافس</div>
+      <div><h1>تدريبات نافس</h1><p>العلوم · الصف السادس الابتدائي</p></div>
+    </div>
+    <div style="display:flex;gap:8px"><button class="iconbtn" id="homeBtn" aria-label="الرجوع للصفحة الرئيسية" title="الصفحة الرئيسية">🏠</button><button class="iconbtn" id="snd" aria-label="تشغيل الصوت أو إيقافه">🔊</button></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <!-- HOME -->
+  <section id="home" class="screen on">
+    <div class="hero">
+      <div>
+        <h2>جاهز تتحدّى نفسك يا عالِم المستقبل؟</h2>
+        <p>أسئلة نافس للعلوم في مجالاتها الأربعة: علوم الحياة، والعلوم الفيزيائية، والعلوم الكيميائية، وعلوم الأرض والفضاء — من النماذج المحاكية والتجميعات وبرامج تحسين نواتج التعلم. أجب بسرعة لتجمع نقاطًا أكثر، وحافظ على سلسلة الإجابات الصحيحة.</p>
+      </div>
+      <div class="namebox">
+        <label for="nm">اسم المتسابق/ة</label>
+        <input id="nm" maxlength="30" placeholder="اكتب اسمك هنا" autocomplete="off">
+        <div class="bankcount">في بنك الأسئلة <b id="bankN">0</b> سؤالاً مدققاً</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>اختر طريقة اللعب</h3>
+      <div class="modes" id="modes">
+        <button class="mode" data-m="challenge" aria-pressed="true"><span class="mi">⚡</span><b>التحدّي</b><small>45 ثانية لكل سؤال، 3 قلوب، ووسائل مساعدة.</small></button>
+        <button class="mode" data-m="practice" aria-pressed="false"><span class="mi">📝</span><b>اختبار ذاتي</b><small>بلا وقت، مع شرح الحل بعد كل سؤال.</small></button>
+        <button class="mode" data-m="review" aria-pressed="false"><span class="mi">🔁</span><b>مراجعة أخطائي</b><small>الأسئلة التي أخطأت فيها سابقاً فقط.</small></button>
+      </div>
+    </div>
+
+    <div class="row2">
+      <div class="block"><h3>المجال العلمي</h3><div class="chips" id="cats"></div></div>
+      <div class="block"><h3>المصدر</h3><div class="chips" id="srcs"></div></div>
+    </div>
+    <div class="block"><h3>عدد الأسئلة</h3><div class="chips" id="cnts"></div></div>
+
+    <div class="go">
+      <button class="btn" id="start">ابدأ التحدّي</button>
+      <span class="pooltxt" id="pool"></span>
+    </div>
+
+    <div class="block">
+      <h3>لوحة الأبطال على هذا الجهاز</h3>
+      <div id="lb"></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="screen">
+    <div class="hud">
+      <div class="pills">
+        <span class="pill" id="hQ">1 / 10</span>
+        <span class="pill" id="hS">⭐ 0</span>
+        <span class="pill" id="hK">🔥 0</span>
+        <span class="pill" id="hL">❤️❤️❤️</span>
+      </div>
+      <div class="ring" id="ring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" class="rb"/><circle cx="22" cy="22" r="19" class="rf" id="rf"/></svg><span id="tt">45</span></div>
+    </div>
+    <div class="track"><div id="prog"></div></div>
+    <div class="lifes" id="life">
+      <button data-l="half">✂️ احذف إجابتين</button>
+      <button data-l="time">⏱️ أضف 15 ثانية</button>
+      <button data-l="skip">⏭️ تخطَّ السؤال</button>
+    </div>
+    <div id="qbox"></div>
+    <div class="qnav">
+      <button class="ghost" id="quit">إنهاء الجولة</button>
+      <button class="btn alt" id="next" hidden>السؤال التالي</button>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="screen"></section>
+</main>
+<footer>مدرسة الصفا المتوسطة بجازان &nbsp;·&nbsp; من إعداد الأستاذ عمر صالح علان</footer>
+<canvas id="cf"></canvas>
+
+<script>
+const AR='٠١٢٣٤٥٦٧٨٩';
+function ar(s){return String(s).replace(/(<[^>]*>)|(&[a-zA-Z#0-9]+;)|(\d)/g,(m,t,en,d)=>t||en||AR[d]);}
+/* ============ بنك الأسئلة ============ */
+const QS=[];
+function q(c,s,k,t,o,e,v){QS.push({id:QS.length,c,s,k,t,o,e,v:v||''})}
+function tbl(head,rows){return `<table class="dt"><tr>${head.map(x=>`<th>${x}</th>`).join('')}</tr>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</table>`}
+const CAT={life:['🌱','علوم الحياة'],phys:['⚡','العلوم الفيزيائية'],chem:['🧪','العلوم الكيميائية'],earth:['🌍','علوم الأرض والفضاء']};
+const SRC={n3:'نموذج الاختبار ٠٣',n5:'نموذج الاختبار ٠٥',t2:'اختبارات الفصل الثاني',h:'تجميعات نافس ١٤٤٥هـ',b:'برنامج تحسين نواتج التعلم',a:'الأنشطة والمهام الأدائية',z:'تعزيز نواتج التعلم'};
+// ملاحظة: الخيار الأول هو الصحيح دائمًا، وتُخلط الخيارات عند العرض.
+const LC='الخلية وتراكيبها',LG='الوراثة والصفات',LP='النباتات وعملياتها',LE='الأنظمة البيئية',LB='أجهزة الجسم',LT='تصنيف المخلوقات الحية',LA='التكيف والبقاء',
+PM='الحركة والقوة',PE='الطاقة وتحولاتها',PW='الشغل والآلات البسيطة',PS='الصوت والضوء',PC='الكهرباء والمغناطيسية',PH='الحرارة وانتقالها',
+CM='المادة وخصائصها',CS='المخاليط والمحاليل',CR='التغيرات والتفاعلات الكيميائية',CA='الذرة والعناصر',
+EG='الصخور والمعادن',EP='باطن الأرض والصفائح',ES='تشكّل سطح الأرض',EW='الطقس والمناخ',ER='موارد الأرض وحمايتها',EA='الفلك والفضاء';
+
+/* ---------- نموذج الاختبار 03 ---------- */
+q('earth','n3',EG,'الرخام والنايس يُعدّان من أنواع:',['الصخور المتحولة','الصخور الرسوبية','الصخور النارية','المعادن'],'تتكون الصخور المتحولة من صخور أخرى بفعل الضغط والحرارة، ومنها الرخام والنايس.');
+q('earth','n3',ES,'ماذا نسمي عملية نقل فتات الصخور الناتج عن التجوية من مكان إلى آخر؟',['التعرية','التجوية','الترسيب','التحلل'],'التجوية تفتّت الصخور، والتعرية تنقل الفتات، والترسيب يُرسيه في مكان جديد.');
+q('earth','n3',ER,'أيّ الموارد التالية يمكن استخدامه بشكل مستمر؟',['الشمس','الذهب','النفط','الفحم الحجري'],'الشمس مصدر متجدد لا ينفد، أما البقية فموارد غير متجددة.');
+q('earth','n3',ER,'ما المقصود بخزان المياه الجوفية؟',['مياه مختزنة في طبقات الصخور','نوع من محطات معالجة المياه','محيط مالح','بحيرة صناعية'],'المياه الجوفية تتسرب في التربة وتُختزن في مسامات الصخور وشقوقها.');
+q('phys','n3',PE,'أيّ العبارات التالية تصف تحوّل الطاقة في الكرة عند ركلها إلى الأعلى؟',['طاقة الحركة تتحول إلى طاقة وضع','طاقة الحركة تتحول إلى طاقة كيميائية','طاقة الوضع تتحول إلى حركة','طاقة الوضع تتحول إلى طاقة كيميائية'],'كلما ارتفعت الكرة قلّت سرعتها وزاد ارتفاعها، فتتحول طاقتها الحركية إلى طاقة وضع.');
+q('phys','n3',PM,'ماذا يسمى تباطؤ سرعة الجسم المتحرك أو تزايدها؟',['تسارع','قوة','قصور ذاتي','احتكاك'],'التسارع هو معدل تغيّر السرعة بالزيادة أو النقصان أو تغيّر الاتجاه.');
+q('chem','n3',CR,'نسمي المواد الموجودة قبل حدوث التفاعل الكيميائي بالمواد:',['المتفاعلة','الناتجة','المتعادلة','المحفِّزة'],'المواد المتفاعلة قبل التفاعل، والمواد الناتجة بعده.');
+q('life','n3',LE,'تحصل الغزلان على الكربون من:',['تناول الأعشاب','الهواء مباشرة','البناء الضوئي','ماء المطر'],'الغزلان مستهلكات عاشبة تحصل على الكربون من النباتات التي تأكلها.');
+q('life','n3',LP,'عضو التكاثر في النباتات مغطاة البذور هو:',['الأزهار','الورود','الثمار','الأبواغ'],'الزهرة عضو التكاثر في النباتات الزهرية (مغطاة البذور).');
+q('earth','n3',EA,'أيّ العبارات التالية سبب لحدوث الفصول الأربعة؟',['دوران الأرض حول الشمس','حركة الأرض حول محورها','دوران الأرض حول القمر','دوران القمر حول الأرض'],'تحدث الفصول بدوران الأرض حول الشمس مع ميل محورها.');
+q('phys','n3',PC,'ماذا نسمي إمكانية سريان الكهرباء في أكثر من مسار؟',['التوصيل على التوازي','التوصيل على التوالي','دائرة واحدة','التوصيل على التساوي'],'في التوصيل على التوازي يوجد أكثر من مسار للتيار.');
+q('earth','n3',EA,'لماذا لا تبتعد الأرض عن مدارها حول الشمس؟',['لأن قوة الجاذبية والقصور الذاتي تُبقيانها في مدارها','بسبب دوران الشمس حول الأرض','لأن القمر يجذب الأرض','لأن الأرض لا تتحرك'],'جاذبية الشمس تسحب الأرض نحوها، والقصور الذاتي يجعلها تستمر في الحركة، فتبقى في مدارها.');
+q('chem','n3',CM,'أيّ مما يلي ليس من الخصائص الفيزيائية؟',['الصدأ','القساوة','درجة الغليان','الكثافة'],'الصدأ تغيّر كيميائي ينتج مادة جديدة، فهو خاصية كيميائية.');
+q('chem','n3',CS,'عملية الترشيح تُستخدم لفصل مواد:',['صلبة عن سائلة','سائلة عن سائلة','غازية عن سائلة','صلبة عن صلبة'],'ورق الترشيح يحجز المادة الصلبة ويسمح للسائل بالمرور.');
+q('chem','n3',CA,'ماذا نسمي الجسيمات سالبة الشحنة التي تدور حول نواة الذرة؟',['الإلكترونات','البروتونات','النيوترونات','الفوتونات'],'البروتونات موجبة والنيوترونات متعادلة داخل النواة، والإلكترونات سالبة تدور حولها.');
+q('life','n3',LT,'إلى أيّ مملكة من ممالك المخلوقات الحية تُصنَّف الخميرة؟',['الفطريات','الطلائعيات','النباتات','الحيوانات'],'الخميرة فطر وحيد الخلية.');
+q('life','n3',LC,'ما المادة الموجودة داخل البلاستيدات الخضراء وتساعد في امتصاص أشعة الشمس؟',['الكلوروفيل','الميتوكندريا','الكروموسوم','الريبوسوم'],'الكلوروفيل صبغة خضراء تمتص الضوء اللازم للبناء الضوئي.');
+q('life','n3',LA,'لماذا يفتح نبات الصبار ثغوره في الليل ويغلقها في النهار؟',['لكي لا يتبخر الماء من ثغوره في النهار','لأنه لا يحتاج إلى أشعة الشمس لينمو','لأن ثغوره لا تفتح في وجود الضوء','لأنه يتنفس ليلًا فقط'],'تكيّف يقلل فقد الماء في حرارة النهار الشديدة.');
+q('life','n3',LE,'يُعدّ الضفدع في السلسلة الغذائية (عشب ← جرادة ← ضفدع ← أفعى):',['مستهلكًا ثانويًّا','منتجًا','مستهلكًا أوليًّا','محلِّلًا'],'العشب منتج، والجرادة مستهلك أولي، والضفدع يأكل الجرادة فهو مستهلك ثانوي.');
+q('life','n3',LG,'أيّ الأشكال التالية هو من أشكال التكاثر الجنسي؟',['الاقتران','الانشطار الثنائي','التبرعم','الانقسام'],'الاقتران يتضمن تبادل مادة وراثية بين خليتين، أما البقية فتكاثر لاجنسي.');
+q('earth','n3',EW,'ما الصفة التي تميّز عين الإعصار في الأعاصير الحلزونية؟',['الضغط الجوي المنخفض','الضغط الجوي المرتفع','سرعة الرياح العالية جدًا','هطول شديد للأمطار'],'عين الإعصار منطقة هادئة ذات ضغط جوي منخفض جدًا.');
+q('earth','n3',EW,'من خلال بيانات أقل درجات حرارة مسجلة في مناطق المملكة، أيّ العبارات صحيحة؟',['أقل درجة حرارة في حائل','أقل درجة حرارة في عرعر','درجة الحرارة في عرعر أعلى من رفحاء','أعلى درجة حرارة في طريف'],'حائل سجلت −٦ وهي الأدنى في الجدول.',tbl(['المدينة','درجة الحرارة (°س)'],[['حائل','−6'],['طريف','−5'],['القريات','−5'],['رفحاء','−3'],['عرعر','−3'],['طبرجل','−3'],['سكاكا','−2'],['حفر الباطن','−1'],['تبوك','−1']]));
+q('phys','n3',PS,'ما مبدأ عمل أجهزة السونار (الموجات فوق الصوتية)؟',['ارتداد موجات الصوت عن الجسم','مرور موجات الصوت في الجسم','زيادة سرعة الصوت في المواد المختلفة','تحديد موقع الأجسام في الفضاء الخارجي'],'يرسل السونار موجات صوتية ثم يستقبل صداها المرتد لتحديد المسافة والموقع.');
+q('phys','n3',PS,'أيّ مما يلي من المواد شبه الشفافة؟',['البلاستيك المصنفر','المرآة','الحديد','الخشب'],'المادة شبه الشفافة تسمح بمرور جزء من الضوء فقط.');
+q('phys','n3',PM,'ما الذي يعنيه وجود طفلين يشدّان حبلًا بينهما بنفس القوة؟',['قوى متزنة','الجاذبية','الحركة','قوة غير متزنة'],'القوتان متساويتان ومتعاكستان فمحصلتهما صفر ولا يتحرك الحبل.');
+q('life','n3',LG,'تختلف ألوان البشرة بين الطلاب في مدرستك بسبب:',['انتقال هذه الصفة من آبائهم','اختلاف بيئاتهم','نوع غذائهم','انتقال العدوى البكتيرية'],'لون البشرة صفة وراثية تنتقل من الآباء إلى الأبناء.');
+q('life','n3',LB,'عندما يُصاب أحد أفراد أسرتك بمرض معدٍ، فما أهم إجراء يمكن القيام به داخل الأسرة؟',['عزل المريض حتى يتعافى','ترك المريض وعدم متابعته','زيادة جرعة الدواء','إيقاف الدواء بعد زوال الأعراض'],'العزل يمنع انتقال العدوى إلى بقية الأسرة.');
+q('life','n3',LA,'لماذا يكون لون الضبّ مشابهًا للون بيئته التي يعيش فيها؟',['ليختفي من الأعداء','ليحصل على الغذاء','ليتكاثر','ليحتمي من أشعة الشمس'],'التمويه تكيّف يساعده على الاختباء من المفترسات.');
+q('life','n3',LA,'لماذا تكون أوراق النباتات في المناطق الجافة مغطاة بطبقة شمعية سميكة؟',['تقلل من فقدان الماء من جسم النبات','تحميها من الحيوانات العاشبة','تزيد من عملية البناء الضوئي','تساعد في عملية التلقيح'],'الطبقة الشمعية تقلل تبخر الماء في البيئات الجافة.');
+q('life','n3',LB,'ما الترتيب الصحيح لمرور اللقمة الغذائية في الجهاز الهضمي؟',['بلعوم ← معدة ← أمعاء دقيقة ← أمعاء غليظة','بلعوم ← أمعاء دقيقة ← معدة ← أمعاء غليظة','معدة ← أمعاء دقيقة ← بلعوم ← أمعاء غليظة','بلعوم ← أمعاء دقيقة ← أمعاء غليظة ← معدة'],'يمر الطعام من الفم إلى البلعوم فالمريء فالمعدة ثم الأمعاء الدقيقة فالغليظة.');
+
+/* ---------- نموذج الاختبار 05 ---------- */
+q('earth','n5',EG,'ما الخاصية التي تصف مظهر الصخر من حيث حجم حبيباته وترتيبها؟',['النسيج','البريق','الخشونة','اللون'],'نسيج الصخر يصف حجم الحبيبات المكونة له وشكلها وترتيبها.');
+q('earth','n5',EP,'أيّ جزء من الأرض يتكون من صخور قريبة من درجة الانصهار؟',['الغلاف اللدن','القشرة الأرضية','الغلاف الصخري','الستار السفلي'],'الغلاف اللدن طبقة من الستار صخورها قريبة من الانصهار فتنساب ببطء.');
+q('earth','n5',ER,'كيف يمكننا أن نحافظ على جودة المياه في بيئتنا؟',['عدم رمي المخلفات فيها','السباحة','صيد الأسماك','ري المحاصيل'],'رمي المخلفات يلوث المياه، وتجنّبه يحافظ على جودتها.');
+q('earth','n5',ER,'أين يوجد الماء العذب؟',['في الأنهار','في المحيطات','في البحار','في الأنهار والبحار معًا'],'مياه البحار والمحيطات مالحة، أما الأنهار فمياهها عذبة.');
+q('phys','n5',PE,'ماذا يمتلك الجسم المرتفع عن سطح الأرض؟',['طاقة وضع','طاقة كهربائية','طاقة حركية','طاقة ضوئية'],'طاقة الوضع طاقة مختزنة بسبب ارتفاع الجسم.');
+q('phys','n5',PM,'ما القوة التي تقلل من سرعة الجسم على سطح الأرض؟',['الاحتكاك','التسارع','القصور الذاتي','السرعة المتجهة'],'الاحتكاك قوة تعاكس الحركة بين السطحين المتلامسين.');
+q('life','n5',LP,'لا تحدث عملية البناء الضوئي دون تزويدها بالطاقة، فما الوصف المناسب لها؟',['التفاعل الماص للطاقة','التفاعل الطارد للطاقة','المعادلة الكيميائية','الخاصية الكيميائية'],'البناء الضوئي يمتص طاقة الضوء ليصنع الغذاء.');
+q('life','n5',LP,'المركّب الذي تكوّنه المنتجات في عملية البناء الضوئي هو:',['سكر الجلوكوز','الأكسجين','الماء','ثاني أكسيد الكربون'],'يصنع النبات سكر الجلوكوز غذاءً له، ويطلق الأكسجين.');
+q('life','n5',LP,'ماذا تسمى عملية انتقال حبوب اللقاح من المتك إلى الميسم؟',['التلقيح','الأبواغ','البويضات','الإخصاب'],'التلقيح انتقال حبوب اللقاح، ويليه الإخصاب.');
+q('earth','n5',EA,'أيّ الظواهر التالية تحدث بسبب دوران الأرض حول الشمس؟',['الفصول الأربعة','أطوار القمر','خسوف القمر','تعاقب الليل والنهار'],'تعاقب الليل والنهار سببه دوران الأرض حول نفسها، والفصول سببها دورانها حول الشمس.');
+q('phys','n5',PM,'انطلقت سيارة من السكون في اتجاه الشرق فوصلت سرعتها إلى 280 كم/ساعة في 7 ثوانٍ. ما معدل تسارعها؟',['40 (كم/ساعة) لكل ثانية','4 (كم/ساعة) لكل ثانية','7 (كم/ساعة) لكل ثانية','70 (كم/ساعة) لكل ثانية'],'التسارع = التغير في السرعة ÷ الزمن = 280 ÷ 7 = 40.');
+q('chem','n5',CR,'أيّ مما يلي يُعدّ تغيّرًا من التغيرات الكيميائية؟',['صدأ الحديد','تهشيم الزجاج','انصهار الثلج','تقطيع الورق'],'الصدأ ينتج مادة جديدة (أكسيد الحديد)، والبقية تغيّرات فيزيائية.');
+q('chem','n5',CA,'ما أقل عدد من الذرات يمكن أن يشكّل مركّبًا؟',['2','1','3','4'],'المركب يتكوّن من عنصرين مختلفين على الأقل، أي ذرتين على الأقل.');
+q('life','n5',LT,'أيّ المخلوقات الحية تستطيع العيش في ظروف بيئية قاسية جدًا كأعماق المحيطات؟',['البكتيريا البدائية','الفطريات','البكتيريا الحقيقية','النباتات'],'البكتيريا البدائية تعيش في بيئات شديدة الحرارة أو الملوحة أو بلا أكسجين.');
+q('life','n5',LC,'أيّ العبارات التالية صحيحة للتمييز بين الخلية الحيوانية والخلية النباتية؟',['للخلية النباتية فجوة كبيرة','للخلية الحيوانية جدار خلوي','ليس للخلية النباتية نواة','للخلية الحيوانية بلاستيدات'],'الفجوة في الخلية النباتية كبيرة، والجدار والبلاستيدات خاصة بالنباتية.');
+q('life','n5',LP,'هل تحدث عملية البناء الضوئي في الظلام؟',['لا تحدث إطلاقًا','تحدث أحيانًا','تحدث دائمًا','تحدث في بعض النباتات فقط'],'البناء الضوئي يحتاج إلى الضوء مصدرًا للطاقة.');
+q('life','n5',LE,'ماذا يحدث عندما تتغذى المخلوقات المحلِّلة على بقايا المخلوقات الميتة؟',['تنتقل الطاقة إلى المحللات','لا تنتقل الطاقة إلى المحللات','تتساوى طاقة المحللات قبل التغذي وبعده','تصبح طاقة المحللات أقل بعد التغذي'],'المحللات تحصل على طاقتها من البقايا التي تحللها.');
+q('life','n5',LG,'الخميرة تتكاثر بنمو بروز صغير على الخلية الأم، ماذا يسمّى هذا النوع من التكاثر؟',['التبرعم','الاقتران','الانشطار','الانقسام'],'البرعم ينمو على الخلية الأم ثم ينفصل مكوّنًا فردًا جديدًا.');
+q('earth','n5',EW,'ماذا يسبّب هطول الأمطار في أثناء وجود طبقة رقيقة من الهواء البارد قريبًا من سطح الأرض؟',['العواصف الجليدية','العواصف الرملية','الأعاصير الحلزونية','العواصف الرعدية'],'تتجمد قطرات المطر عند ملامستها الهواء البارد أو السطح فتتكون عاصفة جليدية.');
+q('earth','n5',ER,'من خلال الجدول، أيّ الدول تستغل طاقة الرياح بشكل أكبر؟',['الصين','الهند','ألمانيا','فرنسا'],'الصين نسبتها 45.4% وهي الأعلى.',tbl(['الدولة','النسبة العالمية لإنتاج طاقة الرياح'],[['الصين','45.4%'],['ألمانيا','10.3%'],['الولايات المتحدة','9.4%'],['الهند','4.5%'],['كندا','3.6%'],['فرنسا','2.0%']]));
+q('earth','n5',EP,'ما إمكانية استعمال أجهزة السونار لتحديد بعض معالم باطن الأرض؟',['ممكن','غير ممكن','مستحيل','نادر'],'الموجات الصوتية تنتقل في الصخور وترتد عن الطبقات، فيمكن دراسة باطن الأرض بها.');
+q('phys','n5',PS,'ما المرآة التي تُظهر الأجسام بأحجامها الطبيعية؟',['المرآة المستوية','المرآة المحدبة','المرآة المقعرة','المرآتان المقعرة والمستوية'],'المرآة المستوية تكوّن صورة مساوية للجسم في الحجم.');
+q('phys','n5',PM,'لماذا يُستخدم الزيت في محركات السيارات؟',['لتقليل الاحتكاك','لتقليل الكتلة','لتقليل الجاذبية','لزيادة الاحتكاك'],'الزيت يقلل الاحتكاك بين أجزاء المحرك المتحركة.');
+q('life','n5',LG,'إذا كان لكلا الأبوين غمازات، ولكنهما يحملان جين الصفة المتنحية، فأيّ العبارات صحيحة؟',['لا يُشترط أن تظهر هذه الصفة في الأبناء','يكون للأبناء جميعًا غمازات','تظهر في الإناث فقط','هذه الصفة لا تنتقل عن طريق الوراثة'],'قد يرث الابن الجينين المتنحيين من الأبوين فلا تظهر عليه الصفة.');
+q('life','n5',LB,'ما الخطورة التي تميّز المرض المعدي عن غيره من الأمراض؟',['سهولة الانتشار','قوة الإصابة','عدم توفر علاج له','طول مدة الإصابة'],'المرض المعدي ينتقل من شخص لآخر.');
+q('life','n5',LA,'كيف تستطيع الحرباء أن تتكيف في بيئتها؟',['تتشابه مع البيئة من حولها','لها أسنان حادة','تجري بسرعة','تفرز مادة سامة'],'تغيّر لونها لتشبه ما حولها فتختفي عن أعدائها.');
+q('life','n5',LP,'ما السبب في أن الحزازيات تنمو بالقرب من سطح الأرض؟',['ليس لها أوعية ناقلة','أوراقها صغيرة جدًا','لا تقوم بعملية البناء الضوئي','سيقانها قصيرة جدًا'],'الحزازيات نباتات لاوعائية ينتقل فيها الماء ببطء من خلية لأخرى.');
+q('life','n5',LB,'أيّ العمليات التالية تُسهم في تحوّل السكر إلى طاقة؟',['التنفس','الإخراج','النمو','الهضم'],'في التنفس الخلوي يتحد السكر مع الأكسجين فتنطلق الطاقة.');
+
+/* ---------- اختبارات الفصل الدراسي الثاني ---------- */
+q('life','t2',LE,'مخلوقات حية تستطيع إنتاج غذائها بنفسها:',['المنتجات','المستهلكات','المحلِّلات','المستقبلات'],'المنتجات كالنباتات تصنع غذاءها بالبناء الضوئي.');
+q('life','t2',LE,'أيّ المخلوقات الحية التالية لا يُعدّ من المحللات؟',['الطحالب','البكتيريا','الديدان','الفطريات'],'الطحالب منتجات تقوم بالبناء الضوئي.');
+q('life','t2',LE,'كيف تحصل المنتجات التي تعيش في قاع المحيط على الطاقة؟',['من مواد كيميائية','من النباتات','من الشمس','من المستهلكات'],'لا يصل الضوء إلى القاع، فتصنع بعض البكتيريا غذاءها من مواد كيميائية.');
+q('life','t2',LE,'نموذج يمثّل مسار انتقال الطاقة في المواد الغذائية من مخلوق حي إلى آخر:',['السلسلة الغذائية','الشبكة الغذائية','هرم الطاقة','النظام البيئي'],'السلسلة الغذائية مسار واحد لانتقال الطاقة.');
+q('life','t2',LE,'الحيوانات التي تتغذى على النباتات والحيوانات معًا تسمى:',['حيوانات قارتة','حيوانات كانسة','حيوانات لاحمة','حيوانات عاشبة'],'القارت (آكل الكل) يتغذى على النبات والحيوان.');
+q('life','t2',LE,'نموذج يبيّن كيف تنتقل الطاقة خلال سلسلة غذائية معينة:',['هرم الطاقة','الشبكة الغذائية','السلسلة الغذائية','النظام البيئي'],'هرم الطاقة يوضح كمية الطاقة في كل مستوى.');
+q('life','t2',LE,'تشكّل قاعدة الهرم الغذائي:',['المنتجات','المحللات','المستهلكات','المفترسات'],'المنتجات في القاعدة لأنها تحمل أكبر كمية من الطاقة.');
+q('life','t2',LE,'الطاقة التي تنتقل من مستوى في هرم الطاقة إلى المستوى الذي يليه تساوي:',['عُشر الطاقة','نصف الطاقة','كامل الطاقة','ضعف الطاقة'],'ينتقل نحو 10% فقط، والباقي يُستهلك في العمليات الحيوية أو يُفقد حرارة.');
+q('earth','t2',EW,'متوسط حالة الطقس في منطقة جغرافية معينة خلال فترة زمنية طويلة:',['المناخ','الطقس','المنطقة الحيوية','النظام البيئي'],'الطقس حالة الجو اليومية، والمناخ متوسطها لسنوات طويلة.');
+q('life','t2',LE,'نظام بيئي يشغل منطقة جغرافية واسعة على اليابسة له نباتاته وحيواناته ومناخه الخاص:',['المنطقة الحيوية','النظام البيئي','العوامل الحيوية','المناخ'],'المنطقة الحيوية نظام بيئي كبير كالصحراء والغابات.');
+q('life','t2',LE,'غابات باردة جدًا ذات أشجار مخروطية دائمة الخضرة تمتد في النصف الشمالي من الكرة الأرضية:',['التايجا','التندرا','الغابات متساقطة الأوراق','الغابات الاستوائية'],'التايجا غابات صنوبرية باردة جنوب التندرا.');
+q('life','t2',LA,'يتكيف الجربوع مع منطقته فيخرج ليلًا للبحث عن طعامه، إنه يعيش في:',['الصحاري','الأراضي الرطبة','الأراضي العشبية','التندرا'],'يتجنب حرارة النهار في الصحراء بالخروج ليلًا.');
+q('life','t2',LE,'أيّ مما يلي ليس من الأنظمة البيئية ذات المياه العذبة؟',['البحار','البرك','الأنهار','البحيرات'],'مياه البحار مالحة.');
+q('life','t2',LE,'في المحيط تقل أشعة الشمس تدريجيًا إلى أن تختفي عند عمق:',['200 متر','20 مترًا','200 كيلومتر','2000 متر'],'تمتد المنطقة المضاءة في المحيط إلى نحو 200 متر.');
+q('life','t2',LE,'حيوانات تتغذى على حيوانات حية أخرى:',['المفترسات','المحللات','المنتجات','المستهلكات الأولية'],'المفترس يصطاد فريسته الحية.');
+q('earth','t2',ER,'تتشابه أنواع التربة في:',['طريقة تكوينها','المعادن المكونة لها','كمية الدبال فيها','نسيجها'],'جميع أنواع التربة تتكون بتجوية الصخور واختلاطها ببقايا المخلوقات.');
+q('earth','t2',ER,'تنمو معظم جذور النباتات في نطاق:',['التربة السطحية','التربة تحت السطحية','الطبقة الصخرية','الطبقة تحت الصخرية'],'التربة السطحية غنية بالدبال والمواد الغذائية.');
+q('earth','t2',ER,'أغنى أنواع التربة بالدبال هي:',['تربة الأراضي العشبية','تربة الغابات','التربة الصحراوية','تربة التندرا'],'جذور الأعشاب الكثيفة وبقاياها تجعل تربة الأراضي العشبية أغنى بالدبال.');
+q('earth','t2',ER,'أيّ مما يلي ليس من طرق حفظ التربة؟',['استخدام المبيدات الحشرية','التسميد','الحراثة الكنتورية','المصاطب'],'المبيدات لا تحمي التربة من الانجراف وقد تلوثها.');
+q('earth','t2',ER,'يلجأ بعض المزارعين إلى زراعة البقوليات في مزارعهم لأنها:',['تثبّت النيتروجين في التربة','رخيصة الثمن','تنمو بسرعة','تنتج محصولًا وفيرًا'],'في جذور البقوليات بكتيريا تثبت النيتروجين فتزيد خصوبة التربة.');
+q('earth','t2',ER,'المصدر الرئيس لمادة الدبال في التربة هو:',['بقايا المخلوقات الميتة','فتات الصخور','الطين','الماء'],'الدبال مادة عضوية من تحلل بقايا النباتات والحيوانات.');
+q('earth','t2',ER,'لماذا يزرع المزارعون صفوفًا من الأشجار بين صفوف المحاصيل الزراعية بالتبادل؟',['لمنع انجراف التربة','لزيادة الإنتاج','بسبب صغر حجم المزارع','لتكون ظلًّا للمحاصيل'],'الأشرطة المتبادلة ومصدات الرياح تقلل انجراف التربة.');
+q('earth','t2',ER,'أيّ مما يلي لا يُعدّ من أنواع الوقود الأحفوري؟',['الكتلة الحيوية','النفط','الفحم الحجري','الغاز الطبيعي'],'الكتلة الحيوية مصدر متجدد من بقايا حديثة للنباتات والحيوانات.');
+q('earth','t2',ER,'الطاقة الحرارية التي مصدرها باطن الأرض تسمى:',['الطاقة الحرارية الجوفية','طاقة الكتلة الحيوية','طاقة التكرير الحيوي','الطاقة الكهرومائية'],'الحرارة الجوفية حرارة مختزنة في باطن الأرض.');
+q('earth','t2',ER,'أيّ مما يلي ليس من المصادر البديلة للطاقة؟',['الغاز الطبيعي','الخلايا الشمسية','طاقة الرياح','الطاقة الكهرومائية'],'الغاز الطبيعي وقود أحفوري غير متجدد.');
+q('earth','t2',ER,'عملية تحويل الكتلة الحيوية إلى طاقة تنتج عن:',['بقايا النباتات والحيوانات','ضوء الشمس','المياه الجارية','الغاز الطبيعي'],'الكتلة الحيوية مواد من بقايا المخلوقات الحية كالخشب والمخلفات.');
+q('earth','t2',ER,'ما نوع الطاقة التي يمكن الحصول عليها من ينابيع المياه الساخنة؟',['الطاقة الحرارية الجوفية','الطاقة الشمسية','الطاقة الكهرومائية','طاقة الرياح'],'تسخن المياه بحرارة باطن الأرض. (صُحّح هنا ما ظُلّل في الملف: «الكهرومائية»).');
+q('earth','t2',ER,'الترشيد يعني حماية موارد اليابسة والماء، ويكون الحفاظ عليها عن طريق:',['تقليل استخدام الموارد','تدوير الاستخدام','معرفة طرق استخدام الموارد','إعادة استخدام المواد'],'الترشيد هو تقليل الاستهلاك، أما التدوير وإعادة الاستخدام فطريقتان أخريان.');
+q('earth','t2',ER,'محطة لإنتاج الكهرباء تتكون من توربينات بمراوح عملاقة تدور، ما الطاقة التي تعتمد عليها؟',['الرياح','الشمس','الكتلة الحيوية','الحرارة الجوفية'],'توربينات الرياح تحوّل حركة الهواء إلى كهرباء.');
+q('earth','t2',ER,'تفكيك المواد المستخدمة إلى مكوناتها الخام بهدف تصنيع منتجات جديدة هو:',['التدوير','إعادة الاستخدام','الترشيد','الاقتصاد'],'التدوير يحوّل المواد القديمة إلى مواد خام لمنتجات جديدة.');
+q('earth','t2',ER,'يُعدّ النفط من مصادر الطاقة غير المتجددة لأنه:',['يحتاج إلى ملايين السنين ليتكوّن','غالي الثمن','يُستخدم في الأجهزة القديمة فقط','يمكن توفيره بسهولة'],'تكوّن النفط يستغرق ملايين السنين، فلا يُعوَّض بسرعة استهلاكه.');
+q('earth','t2',ER,'سدّ تتدفق منه المياه بقوة لتدير توربينات توليد الكهرباء، ما نوع الطاقة الناتجة؟',['الكهرومائية','الحرارية الجوفية','الشمسية','التكرير الحيوي'],'الطاقة الكهرومائية تُنتج من حركة المياه الجارية.');
+
+/* ---------- تجميعات نافس 1445هـ ---------- */
+q('phys','h',PM,'أيّ مما يلي يمثل القوة التي تساعد الطائرة على التوقف عند هبوطها على المدرج؟',['الاحتكاك','الجاذبية','الاتزان','الدفع'],'الاحتكاك بين العجلات والمدرج يعاكس الحركة فيوقف الطائرة.');
+q('phys','h',PE,'تعمل سيارة بالبطاريات الكهربائية، ما نوع الطاقة المخزنة في بطارية السيارة؟',['كيميائية','ضوئية','حركية','حرارية'],'تخزن البطارية الطاقة في صورة كيميائية ثم تحولها إلى كهربائية.');
+q('chem','h',CS,'حسب الجدول، أيّ الخيارات التالية يمكن تصنيفه من المحاليل؟',['مخلوط 3','مخلوط 1','مخلوط 2','مخلوط 4'],'المحلول مخلوط متجانس تذوب فيه مادة في أخرى.',tbl(['رقم المخلوط','صفاته'],[['مخلوط 1','ينتج عنه مواد جديدة'],['مخلوط 2','يتكون من مادتين لا تذوبان في بعضهما'],['مخلوط 3','ذاب أحدهما في الآخر'],['مخلوط 4','يمكن تمييز المواد المكونة له']]));
+q('chem','h',CR,'حسب الجدول، في أيّ التجارب يحدث تفاعل كيميائي عند خلط المادتين؟',['2','1','3','4'],'تصاعد الغازات دليل على تكوّن مادة جديدة.',tbl(['التجربة','المادة 1','المادة 2','الملاحظات'],[['1','سكر','ماء','يذوب السكر'],['2','الطباشير','الخل','تصاعد الغازات'],['3','ماء','تراب','يتكون الطين'],['4','الحليب','ملون طعام','يتغير اللون']]));
+q('phys','h',PW,'أيّ الحالات التالية تُحدث شغلًا؟',['تحريك عربة التسوق إلى الأمام','الاحتفاظ بالأثقال مرفوعة','دفع سيارة واقفة دون تحريكها','مسك الكرة باليد فترة طويلة'],'يُبذل الشغل عندما يتحرك الجسم في اتجاه القوة المؤثرة.');
+q('earth','h',EW,'حسب الجدول، أيّ المدن يحتاج سكانها إلى تجنب الوقوف تحت الأشجار العالية وأعمدة الكهرباء؟',['مدينة 3','مدينة 1','مدينة 2','مدينة 4'],'الغيوم الكثيفة قد تدل على عواصف رعدية وبرق، فيجب تجنّب الأماكن المرتفعة.',tbl(['','مدينة 1','مدينة 2','مدينة 3','مدينة 4'],[['العظمى °س','49','35','16','34'],['الصغرى °س','30','22','5','23'],['الرياح','6','5','8','4'],['السماء','مشمس','غائم جزئيًا','غيوم كثيفة','مشمس']]));
+q('phys','h',PM,'عند وضع ورقة على كأس ووضع قطعة نقود فوقها ثم سحب الورقة بسرعة، تسقط القطعة داخل الكأس بسبب:',['القصور الذاتي','المغناطيسية','الجاذبية الأرضية','الاحتكاك'],'تميل القطعة للبقاء ساكنة (القصور الذاتي) فلا تتحرك مع الورقة، ثم تسقط.');
+q('phys','h',PC,'يُستخدم الرفع المغناطيسي في صنع بعض القطارات لأنها على درجة عالية من الكفاءة، وذلك بسبب:',['عدم وجود احتكاك','قوة جذب الأجسام','انعدام الجاذبية','التجاذب بين الأقطاب'],'يرتفع القطار عن السكة فلا يلامسها، فينعدم الاحتكاك تقريبًا.');
+q('phys','h',PH,'أيّ العمليات الآتية تنتقل من خلالها الطاقة الحرارية من الشمس إلى الأرض؟',['الإشعاع','التوصيل','الحمل الحراري','التبخر'],'ينتقل الإشعاع عبر الفراغ دون حاجة إلى وسط.');
+q('phys','h',PC,'في المولدات الكهربائية يحدث تحوّل للطاقة من:',['حركية إلى كهربائية','نووية إلى كهربائية','حرارية إلى ميكانيكية','كهربائية إلى حركية'],'المولد يحوّل الحركة إلى كهرباء، والمحرك يفعل العكس.');
+q('phys','h',PS,'وُضع جرس كهربائي داخل ناقوس زجاجي، ثم سُحب الهواء من الناقوس، فلم يُسمع صوت الجرس رغم عمله. ما التفسير؟',['الناقوس مفرغ من الهواء','وجود هواء داخل الناقوس','عدم اكتمال الدائرة الكهربائية','الجرس لا يهتز'],'الصوت يحتاج إلى وسط مادي لينتقل، ولا ينتقل في الفراغ.');
+q('phys','h',PM,'عند هبوط المظلي من الطائرة فإن سرعته تقل بسبب:',['مقاومة الهواء','اقترابه من الأرض','قوة الجاذبية','نقصان كتلته'],'المظلة الواسعة تزيد مقاومة الهواء فتبطئ السقوط.');
+q('phys','h',PW,'أيّ الآلات البسيطة تُستخدم عند استبدال إطارات السيارة؟',['الرافعة','الوتد','البكرة','العجلة'],'الرافعة (العفريتة) ترفع السيارة بجهد أقل.');
+q('phys','h',PM,'القوة التي تنشأ بين جسمين متلامسين وتعيق حركتهما هي:',['الاحتكاك','التسارع','السرعة','الدفع'],'الاحتكاك يعاكس اتجاه الحركة دائمًا.');
+q('phys','h',PC,'أيّ الأدوات التالية تحتاج إلى المغناطيس في عملها؟',['مولد كهربائي','مفتاح كهرباء','مصباح','بطارية'],'يعتمد المولد على حركة ملف داخل مجال مغناطيسي.');
+q('phys','h',PW,'تُقاس القدرة الكهربائية لغسالة الأطباق والميكروويف والحاسب بوحدة:',['الواط','الفولت','الأوم','النيوتن'],'الواط وحدة القدرة، والفولت للجهد، والأوم للمقاومة، والنيوتن للقوة.');
+q('phys','h',PW,'رمى يوسف الكرة لمسافة 3 أمتار، وكان الشغل المبذول 12 جولًا، فما مقدار القوة المبذولة؟',['4 نيوتن','9 نيوتن','15 نيوتن','36 نيوتن'],'الشغل = القوة × المسافة ⇐ القوة = 12 ÷ 3 = 4 نيوتن.');
+q('phys','h',PS,'ترى العين القلم باللون الأزرق وذلك بسبب:',['انعكاس اللون المرئي الأزرق من القلم','امتصاص القلم للون الأزرق','أن القلم يشعّ لونًا أزرق','انكسار اللون الأزرق عند مروره في القلم'],'يمتص الجسم بقية الألوان ويعكس لونه الذي نراه.');
+q('phys','h',PW,'يتميز طائر الرفراف بمنقاره الطويل الذي يساعده في التقاط الطعام، أيّ الآلات البسيطة تشبه عمل منقاره؟',['الرافعة','البكرة','العجلة','المطرقة'],'المنقار يعمل كالملقط، وهو رافعة.');
+q('phys','h',PC,'بماذا يختلف المغناطيس الكهربائي عن المغناطيس الدائم؟',['يمكن تشغيله وإيقاف عمله','له خاصية الجذب المغناطيسي','يمكن أن يسحب ويدفع','يجذب بعض الفلزات'],'يعمل المغناطيس الكهربائي فقط عند مرور التيار.');
+q('phys','h',PM,'يقود محمد سيارة فواجه منعطفًا، فغيّر مسارها ثم زاد من سرعتها، ما القوى التي أثرت في السيارة وأدّت إلى تغير مسارها؟',['غير المتزنة','المتزنة','الاحتكاك','الجاذبية'],'القوى غير المتزنة تغيّر سرعة الجسم أو اتجاهه.');
+q('chem','h',CM,'تتأثر المواد بالحرارة وتتغير حالتها الفيزيائية، أيّ العبارات صحيحة؟',['تزيد حركة جزيئات المادة الصلبة عند تحولها إلى سائل','تقل كثافة المواد عند تحولها إلى الحالة الصلبة','كثافة المادة تزداد عند زيادة درجة حرارتها','عندما تنخفض درجة حرارة السائل يتحول إلى غاز'],'اكتساب الحرارة يزيد طاقة الجزيئات وحركتها فتنصهر المادة.');
+q('phys','h',PW,'حسب الجدول، أيّ الحالات يكون فيها الشغل أكبر ما يمكن؟',['1','2','3','2 و 3'],'في الحالة 1 تتحرك العربة في اتجاه القوة؛ دفع الجدار لا يحركه، وحمل الصندوق أثناء المشي تكون القوة فيه عمودية على اتجاه الحركة.',tbl(['الحالة','الوصف'],[['1','ولد يمشي ويدفع عربة أمامه'],['2','ولد يحمل صندوقًا ويمشي به'],['3','ولد يدفع الجدار بقوة']]));
+q('phys','h',PM,'أيّ الحيوانات التالية تجذبه الأرض بقوة أكبر؟',['الفيل','الضفدع','الحصان','الأرنب'],'كلما زادت الكتلة زادت قوة الجاذبية (الوزن).');
+q('chem','h',CS,'حسب الجدول، أيّ المواد التالية تُعدّ قاعدية؟',['الصابون','الحليب','الطماطم','الخل'],'الرقم الهيدروجيني الأكبر من 7 يدل على مادة قاعدية.',tbl(['المادة','حالة المادة','الرقم الهيدروجيني'],[['الحليب','سائل','6.7'],['الطماطم','صلب','4.3'],['الخل','سائل','2.8'],['الصابون','سائل','12.7']]));
+q('chem','h',CM,'اختبر طلاب مادة بيضاء مجهولة وسجلوا ملاحظاتهم في الجدول، أيّ الاختبارات يكشف عن خاصية كيميائية؟',['3','1','2','4'],'الخلط مع الكلور وإنتاج الحرارة تفاعل كيميائي؛ أما الملمس والكثافة ودرجة الانصهار فخصائص فيزيائية.',tbl(['م','الاختبار','النتيجة'],[['1','الملمس','ناعم ولزج'],['2','الكثافة','1.82 جم/سم³'],['3','خلطها مع الكلور','أنتجت حرارة'],['4','درجة الانصهار','130 °س']]));
+q('earth','h',EW,'لاحظ العلماء في بعض المناطق تغيرًا في المناخ وزيادة في درجات الحرارة وقلة في الأمطار، ماذا يمكن أن يحدث نتيجة لذلك؟',['هجرة بعض الحيوانات','ثوران البراكين','زيادة تنوع الحيوانات','زيادة الغطاء النباتي'],'تبحث الحيوانات عن بيئات أنسب للماء والغذاء.');
+q('earth','h',EA,'جسم صخري أو فلزي صغير يدخل الغلاف الجوي ويحترق قبل ارتطامه بسطح الأرض ويظهر كخط لامع في السماء:',['الشهاب','النيزك','المذنّب','الكويكب'],'إذا احترق كليًا فهو شهاب، وإذا وصل جزء منه إلى الأرض سُمّي نيزكًا.');
+q('earth','h',EA,'تدور الكواكب حول الشمس بسبب قوة الجذب، وتزداد هذه القوة كلما:',['زادت كتلة الكوكب واقترب من الشمس','زادت كتلة الكوكب وابتعد عن الشمس','نقصت كتلة الكوكب واقترب من الشمس','نقصت كتلة الكوكب وابتعد عن الشمس'],'الجاذبية تزيد بزيادة الكتلة ونقصان المسافة.');
+q('earth','h',EA,'ما شكل مجرة درب التبانة التي تقع فيها مجموعتنا الشمسية؟',['لولبي','إهليلجي','بيضاوي','غير منتظم'],'درب التبانة مجرة لولبية ذات أذرع.');
+q('earth','h',EP,'سمعت في نشرة الأخبار عن تدمّر منازل كثيرة بسبب ثوران أحد البراكين، ما نوع هذا البركان؟',['نشط','هامد','ساكن','هادئ'],'البركان النشط هو الذي يثور حاليًا أو ثار حديثًا.');
+q('earth','h',EP,'ماذا نستخدم لقياس قوة زلزال ضرب إحدى المدن؟',['مقياس ريختر','ميزانًا نابضيًّا','جهاز الترمومتر','ميزانًا ذا كفتين'],'مقياس ريختر يقيس قوة الزلزال (مقدار الطاقة المنطلقة).');
+q('earth','h',EA,'أدّت ندى صلاة الظهر وقت الزوال، ويعود الفضل بعد الله في معرفة أوقات الصلاة إلى:',['حركة الشمس الظاهرية','التوقيت المعياري','أطوار القمر','المجموعات النجمية'],'تُحدَّد أوقات الصلاة بمواقع الشمس في السماء.');
+q('earth','h',EW,'ذهب أحمد في رحلة بمنطاد، ولاحظ أثناء ارتفاعه حدوث تغيرات الطقس، فهو في طبقة:',['التروبوسفير','الميزوسفير','الستراتوسفير','الثيرموسفير'],'التروبوسفير أقرب الطبقات إلى الأرض وتحدث فيها معظم تغيرات الطقس.');
+q('earth','h',EP,'يسمى موقع حدوث الزلزال تحت سطح الأرض:',['بؤرة الزلزال','المركز السطحي','الصدع','عين الزلزال'],'البؤرة تحت السطح، والمركز السطحي النقطة فوقها مباشرة.');
+q('earth','h',EG,'أعلنت هيئة المساحة الجيولوجية عن اكتشاف بقايا حوت بدائي منقرض في منطقة الجوف، تسمى هذه البقايا:',['الأحافير','الأصداف','القواقع','الرسوبيات'],'الأحافير بقايا أو آثار مخلوقات عاشت قديمًا.');
+q('earth','h',EP,'ما الترتيب الصحيح لطبقات الأرض من الخارج إلى الداخل؟',['القشرة الأرضية – الستار – اللب','القشرة الأرضية – اللب – الستار','اللب – القشرة الأرضية – الستار','الستار – اللب – القشرة الأرضية'],'القشرة في الخارج، ثم الستار، ثم اللب في المركز.');
+q('earth','h',EW,'ما العامل الرئيس المحرّك لدورة الماء في الطبيعة؟',['الشمس','البحار','الغيوم','الرياح'],'حرارة الشمس تبخّر الماء وتبدأ الدورة.');
+q('life','h',LE,'في أيّ الحالات التالية تقل قدرة النباتات المائية على القيام بالبناء الضوئي؟',['بالقرب من قاع البحر العميق','عند المد والجزر','بالقرب من الشاطئ','عند هطول الأمطار'],'كلما زاد العمق قلّ الضوء الواصل.');
+q('earth','h',ER,'ما نوع الطاقة الناتجة عن المياه الجارية وتُستخدم في توليد الكهرباء؟',['الكهرومائية','الكهروكيميائية','الكهرومغناطيسية','الكهروضوئية'],'الطاقة الكهرومائية تولَّد من حركة المياه.');
+q('earth','h',ER,'أخذت سارة علبة معدنية كانت أمها سترميها، فحوّلتها إلى علبة مناديل جميلة، ماذا نسمي تصرفها؟',['إعادة الاستخدام (التدوير)','الترشيد','الاستهلاك','التبذير'],'استفادت من العلبة بدل رميها في النفايات.');
+q('earth','h',ER,'أيّ الأعمال التالية يمكن أن يقوم بها المزارع ليحافظ على تربة مزرعته من جريان مياه الأمطار؟',['الحراثة الكنتورية','زراعة محصول الذرة كل عام','إضافة سماد حيواني للتربة','حفر عدد من الآبار'],'الحراثة الكنتورية تكون حول المنحدر فتبطئ جريان الماء.');
+
+/* ---------- الأنشطة والمهام الأدائية ---------- */
+q('life','a',LG,'أيّ العبارات التالية تصف التحول الكامل بشكل صحيح؟',['يمر المخلوق بأربع مراحل: بيضة، يرقة، عذراء، حشرة بالغة','يتحول من بيضة إلى بالغ دون المرور بمرحلة العذراء','يشتمل التحول الكامل على ثلاث مراحل فقط','تبدأ الدورة باليرقة وتنتهي بالحشرة البالغة'],'التحول الكامل أربع مراحل كما في الفراشة.');
+q('life','a',LG,'المرحلة الثانية من دورة حياة الضفدع هي:',['أبو ذنيبة','بيضة','ضفدع غير بالغ','ضفدع مكتمل النمو'],'بيضة ← أبو ذنيبة ← ضفدع صغير ← ضفدع بالغ.');
+q('life','a',LG,'أيّ الأنماط التالية يُعدّ من أمثلة التكاثر اللاجنسي؟',['الانشطار الثنائي في البكتيريا','الإخصاب الداخلي في الثدييات','التلقيح في النباتات الزهرية','التزاوج في الطيور'],'الانشطار لا يحتاج إلى أبوين.');
+q('life','a',LT,'أيّ الحيوانات الفقارية ثابتة درجة الحرارة ويغطي جسمها الشعر أو الفرو؟',['الثدييات','الأسماك','الطيور','الزواحف'],'الطيور ثابتة الحرارة لكن يغطيها الريش.');
+q('life','a',LT,'أيّ أنواع النباتات التالية ينتج الثمار؟',['النباتات مغطاة البذور','النباتات اللاوعائية','النباتات اللابذرية','النباتات معرّاة البذور'],'البذور في مغطاة البذور تتكون داخل ثمرة.');
+q('life','a',LT,'أيّ ممالك المخلوقات الحية تضم مخلوقات لبعضها خصائص المملكة النباتية ولبعضها خصائص المملكة الحيوانية؟',['الطلائعيات','البدائيات','البكتيريا','الفطريات'],'منها الطحالب (تشبه النبات) والأوليات (تشبه الحيوان).');
+q('life','a',LT,'لماذا يُصنَّف الحوت ضمن الثدييات وليس الأسماك؟',['لأنه يتنفس الهواء بالرئتين ويملك غددًا ثديية','لأنه يعيش في الماء مثل الأسماك','لأنه يمتلك زعانف مثل الأسماك','لأنه يتغذى على الأسماك'],'الثدييات تتنفس بالرئتين وترضع صغارها.');
+q('earth','a',ES,'أيّ الكوارث الطبيعية التالية يُعدّ الأكثر شيوعًا في المملكة العربية السعودية؟',['الفيضانات والسيول','الأعاصير المدارية','الزلازل القوية','الثوران البركاني'],'السيول الناتجة عن الأمطار الغزيرة أكثر الكوارث حدوثًا في المملكة.');
+q('earth','a',ES,'أيّ الأمثلة التالية يُعدّ من الكوارث الطبيعية التي شهدتها المملكة؟',['سيول جدة عام 2009م','إعصار كاترينا','تسونامي المحيط الهادئ','ثوران بركان فيزوف'],'البقية حدثت خارج المملكة.');
+q('earth','a',ES,'من التأثيرات الإيجابية التي يمكن أن تحدث نتيجة الفيضانات:',['تحسين خصوبة التربة بترسيب الطمي','تدمير المحاصيل الزراعية','تآكل التربة وانجرافها','انقطاع الخدمات الأساسية'],'يترسب الطمي الغني بالمعادن فتخصب التربة.');
+q('earth','a',ES,'من الآثار الإيجابية للبراكين:',['خصوبة التربة','تدمير المدن','الغازات السامة','انزلاق التربة'],'الرماد البركاني غني بالمعادن فيزيد خصوبة التربة.');
+q('earth','a',ES,'أيّ مما يأتي يُعدّ من الأضرار الرئيسة للفيضانات؟',['تدمير البنية التحتية والممتلكات','زيادة نمو المحاصيل','تحسين جودة الهواء','زيادة المياه الجوفية بشكل آمن'],'المياه الجارفة تهدم الطرق والمباني.');
+q('phys','a',PE,'«المقدرة على إنجاز عمل ما» ما المصطلح المناسب لهذه العبارة؟',['الطاقة','الشغل','القوة','المادة'],'الطاقة هي القدرة على بذل شغل أو إحداث تغيير.');
+q('phys','a',PE,'تتحول طاقة الوضع لجسم ساقط إلى طاقة:',['حركية','كهربائية','حرارية','نووية'],'كلما سقط الجسم قلّ ارتفاعه وزادت سرعته.');
+q('phys','a',PE,'ما المفهوم الصحيح لطاقة الوضع؟',['الطاقة المخزنة في الجسم نتيجة لموضعه أو حالته','الطاقة الناتجة عن حركة الجسم','الطاقة الناتجة عن الاحتكاك','الطاقة التي يكتسبها الجسم بسبب تسارعه'],'طاقة الحركة ترتبط بالحركة، وطاقة الوضع بالموضع.');
+q('phys','a',PW,'كلما قلّ طول السطح المائل (مع ثبات الارتفاع) كان الجهد المبذول لرفع الجسم:',['أكبر','أقل','متساويًا','لا تأثير له'],'السطح الأقصر أكثر انحدارًا فيحتاج قوة أكبر.');
+q('phys','a',PE,'«الطاقة لا تفنى ولا تُستحدث من العدم، ولكنها تتحول من شكل إلى آخر» هذا ما يُعرف بـ:',['مبدأ حفظ الطاقة','مبدأ حفظ الكتلة','طاقة الوضع','الطاقة الكامنة'],'نص مبدأ (قانون) حفظ الطاقة.');
+q('phys','a',PE,'طاقة الوضع في الماء الساقط من السدود يمكن أن تتحول إلى طاقة:',['كهربائية','ضوئية','حرارية فقط','نووية'],'يدير الماء الساقط التوربينات فتتولد الكهرباء.');
+q('phys','a',PE,'ما تحوّلات الطاقة التي تحدث في المدفأة الكهربائية؟',['كهربائية إلى حرارية','حرارية إلى كهربائية','ضوئية إلى حرارية','كهربائية إلى ضوئية فقط'],'المدفأة تحوّل الكهرباء إلى حرارة.');
+q('phys','a',PE,'أيّ الأمثلة التالية مثال صحيح لتحويل الطاقة من شكل إلى آخر؟',['تشغيل المصباح الكهربائي (كهربائية إلى ضوئية)','تجميد الماء في الثلاجة (حرارية إلى نووية)','وضع كتاب على رف (حركية إلى صوتية)','الركض لمسافة قصيرة (حرارية إلى كيميائية)'],'المصباح يحوّل الطاقة الكهربائية إلى ضوء.');
+q('phys','a',PS,'الاضطراب الذي يحمل الطاقة عبر الفراغ أو الأوساط المادية هو:',['الموجة','السعة','المسافة','الزمن'],'الموجة تنقل الطاقة دون أن تنقل المادة.');
+q('phys','a',PS,'الطاقة الناتجة عن اهتزاز الأجسام هي:',['الصوت','الضوء','المغناطيس','الكهرباء'],'الصوت ينشأ من اهتزاز الأجسام.');
+q('phys','a',PS,'أيّ ألوان الضوء له طول موجي أكبر؟',['الأحمر','البنفسجي','الأصفر','الأزرق'],'الأحمر أطول الألوان المرئية موجةً، والبنفسجي أقصرها.');
+q('phys','a',PS,'سرعة انتقال الصوت في الهواء تكون أكبر في:',['الهواء الدافئ','الهواء المعتدل','الهواء البارد','الهواء المعتدل والبارد معًا'],'كلما ارتفعت درجة الحرارة زادت سرعة الصوت في الهواء.');
+q('phys','a',PS,'أيّ المواد التالية ينتقل فيها الصوت بشكل أسرع؟',['الفولاذ','الماء','الهواء','الجبس'],'الصوت أسرع في المواد الصلبة كالفولاذ.');
+q('phys','a',PS,'ينتشر الضوء بأكبر سرعة في:',['الفراغ','المواد الصلبة','المواد السائلة','المواد الغازية'],'سرعة الضوء في الفراغ نحو 300000 كم/ث وهي الأكبر.');
+q('phys','a',PS,'حسب قانون الانعكاس، فإن الضوء الساقط على سطح عاكس ينعكس:',['بالزاوية نفسها','بزاوية أقل','بزاوية أكبر','بزاوية تختلف حسب لون الجسم'],'زاوية السقوط تساوي زاوية الانعكاس.');
+q('phys','a',PS,'تعتمد النظارات الطبية على مبدأ:',['انكسار الضوء','انعكاس الضوء','اختلاف الطول الموجي للألوان','امتصاص الضوء'],'عدسات النظارة تكسر الضوء لتصحيح الرؤية.');
+q('phys','a',PS,'أيّ الأمثلة التالية يمثل انعكاس الضوء في الحياة اليومية؟',['رؤية صورتك في المرآة','ذوبان مكعب الثلج في الشمس','طبخ الطعام على النار','استخدام النظارة الشمسية'],'المرآة تعكس الضوء فتتكون الصورة.');
+q('phys','a',PS,'عند سقوط أشعة ضوئية متوازية على عدسة محدبة فإن الأشعة:',['تنكسر وتتجمع في نقطة واحدة خلف العدسة','تنفذ في خطوط مستقيمة دون انحراف','تنكسر وتتشتت في اتجاهات مختلفة','تنعكس وتتجمع أمام العدسة'],'العدسة المحدبة مجمِّعة، ونقطة التجمع هي البؤرة.');
+q('phys','a',PS,'ترى العين علم المملكة العربية السعودية باللون الأخضر بسبب:',['انعكاس اللون الأخضر من العلم','امتصاص العلم للون الأخضر','أن العلم يشعّ لونًا أخضر','انكسار اللون الأخضر عند مروره بالعلم'],'الجسم يعكس لونه ويمتص بقية الألوان.');
+q('phys','a',PS,'الصوت الأصلي يكون أعلى من الصدى، لأن جزءًا من طاقة موجات الصوت الأصلي:',['امتُصّ','انعكس','تضاغط','انكسر'],'السطح يمتص جزءًا من الطاقة ويعكس الباقي فيكون الصدى أضعف.');
+q('phys','a',PS,'ماذا تستعمل الحيتان والدلافين لتحديد طريقها والحصول على غذائها؟',['الصدى','الضوء','الحرارة','موجات الماء'],'تطلق أصواتًا وتستقبل صداها (تحديد الموقع بالصدى).');
+q('phys','a',PS,'أيّ العوامل التالية الأكثر تأثيرًا في حدة الصوت؟',['التردد فقط','شدة الصوت فقط','كل من الشدة والتردد','مدة الصوت'],'الحدة تتحدد بالتردد: كلما زاد التردد صار الصوت أحدّ.');
+q('earth','a',EW,'من صفات طبقة الستراتوسفير أنها:',['تحتوي على طبقة الأوزون','قريبة جدًا من سطح الأرض','تحتوي على معظم بخار الماء','تحدث فيها تغيرات الطقس'],'الأوزون في الستراتوسفير يمتص الأشعة فوق البنفسجية.');
+q('earth','a',EW,'أيّ طبقات الغلاف الجوي تكون فيها دقائق الغازات قليلة ومتباعدة جدًا؟',['الإكسوسفير','الستراتوسفير','الميزوسفير','التروبوسفير'],'الإكسوسفير الطبقة الخارجية حيث الهواء شديد التخلخل.');
+q('earth','a',EW,'أيّ المشكلات البيئية التالية تحدث بسبب التغيرات في طبقات الغلاف الجوي؟',['تآكل طبقة الأوزون','زيادة تلوث التربة','تلوث المحيطات بالبلاستيك','تآكل التربة'],'بعض الغازات الصناعية تتلف طبقة الأوزون.');
+q('earth','a',EW,'أيّ العوامل التالية سبب لتقلب الطقس وله علاقة بدورة الماء؟',['التبخر والتكثف','حركة القارات','حركة التيارات البحرية','انبعاث الغازات'],'التبخر والتكثف يكوّنان الغيوم والهطول.');
+q('earth','a',EW,'تُعرّف الرياح العالمية بأنها رياح:',['تهب فوق مساحات كبيرة من الأرض','تتحرك على شكل حلقات صغيرة','تهب بين البحر واليابسة فقط','تهب بين الجبل والوادي فقط'],'الرياح العالمية تغطي مساحات واسعة، والمحلية تهب في منطقة صغيرة.');
+q('earth','a',EW,'من أسباب التغيرات المناخية في بعض المناطق:',['زيادة استخدام الوقود الأحفوري','زيادة النشاط السياحي','استخدام الأسمدة','التوسع في الغابات'],'احتراق الوقود الأحفوري يزيد غازات الاحتباس الحراري.');
+q('earth','a',EW,'من أهم الطرق لمعالجة التغيرات المناخية:',['ترشيد استخدام الطاقة','زيادة استخدام الطاقة','إزالة الغابات','توسيع المناطق السكانية'],'الترشيد يقلل الانبعاثات.');
+q('earth','a',EP,'يسمى الجزء الذي تعيش فيه جميع المخلوقات الحية على الأرض:',['الغلاف الحيوي','الغلاف الجوي','الغلاف المائي','الغلاف الصخري'],'الغلاف الحيوي يشمل أجزاء من اليابسة والماء والهواء التي توجد فيها الحياة.');
+q('earth','a',EP,'أيّ معالم سطح الأرض ينتج عن تقارب صفائح الأرض؟',['الجبال','المحيطات','الأودية','البحار'],'تصادم الصفائح يرفع القشرة فتتكون الجبال.');
+q('earth','a',EP,'الحركة التي تفسّر تشكّل المحيطات والجبال:',['حركة الصفائح الأرضية','حركة الأرض الدورانية','حركة الكواكب','دوران القمر'],'تباعد الصفائح يكوّن المحيطات، وتقاربها يكوّن الجبال.');
+q('earth','a',ES,'المنطقة المنخفضة التي تمتد بين جبلين أو تلين هي:',['الوادي','الساحل','النهر','الهضبة'],'الوادي أرض منخفضة بين مرتفعات.');
+q('earth','a',ES,'الرصيف القاري والمنحدر القاري من معالم:',['المحيط','اليابسة','الجبال','الأنهار'],'هي معالم قاع المحيط قرب القارات.');
+q('earth','a',ES,'أيّ العمليات الطبيعية التالية تحدث في باطن الأرض وتؤثر في تشكيلها؟',['الزلازل','التجوية','التعرية','الترسيب'],'الزلازل عملية داخلية، أما البقية فعمليات خارجية.');
+q('earth','a',ES,'أيّ العوامل التالية عامل خارجي يعمل على تغيير سطح الأرض؟',['التعرية','الزلازل','حركة الصفائح','البراكين'],'التعرية تحدث على السطح بفعل الماء والرياح.');
+q('earth','a',EP,'التسونامي هو:',['موجات بحرية عملاقة سببها زلزال في قاع المحيط','زلزال على سطح اليابسة','بركان نشط','الأعاصير القمعية'],'زلزال قاع المحيط يحرك الماء فتتكون أمواج هائلة.');
+q('earth','a',EP,'نشأت معظم الحرّات في المملكة العربية السعودية نتيجة:',['النشاط البركاني','الزلازل','الرياح','الأمطار'],'الحرّات حقول من الصخور البركانية السوداء.');
+q('earth','a',EP,'أيّ الآثار التالية نتيجة مباشرة للزلازل على سطح الأرض؟',['حدوث شقوق وانهيارات أرضية','زيادة مستوى سطح البحر','تكوين الجبال فورًا','تحسين التربة الزراعية'],'اهتزاز الأرض يسبب تشققها وانهيار أجزاء منها.');
+q('earth','a',ES,'أيّ العوامل التالية له دور رئيس في حدوث التجوية الكيميائية للصخور؟',['الأمطار الحمضية','تجمد المياه في الشقوق','نمو جذور الأشجار في الشقوق','تغير درجات الحرارة'],'الأمطار الحمضية تغيّر تركيب الصخر الكيميائي، والبقية تجوية فيزيائية.');
+q('earth','a',ES,'استقرار الفتات الصخري والمواد الذائبة التي تنقلها عوامل التعرية يسمى:',['الترسيب','التجوية الكيميائية','التجوية الفيزيائية','التعرية'],'الترسيب هو المرحلة التي تلي النقل.');
+q('earth','a',EG,'اللون والقساوة والبريق من الخصائص التي تميّز:',['المعادن','التربة','الأحافير','طبقات الأرض'],'تُعرف المعادن بخصائصها الفيزيائية.');
+q('earth','a',EG,'العلاقة بين المعادن والصخور هي:',['المعادن مكونات أساسية للصخور','المعادن صخور مكسّرة','الصخور لا تحتوي على معادن','الصخور تحتوي على معدن واحد فقط'],'يتكون الصخر من معدن واحد أو أكثر.');
+q('earth','a',ER,'من الاستخدامات الشائعة للصخور في المملكة العربية السعودية:',['بناء المباني والطرق','صناعة الأدوية','إنتاج الكهرباء','زراعة المحاصيل'],'تُستخدم الصخور كالجرانيت والجير في البناء والرصف.');
+q('earth','a',ES,'ما الذي يؤدي إلى تكوين الكهوف في الصخور؟',['التآكل بفعل الماء','الزلازل','البراكين','الرياح'],'يذيب الماء الحمضي الصخور الجيرية مكوّنًا الكهوف.');
+q('earth','a',ES,'ما السبب الرئيس لتشكّل الأنهار؟',['الأمطار','البراكين','الزلازل','الرياح'],'مياه الأمطار تجري وتتجمع مكوّنة الأنهار.');
+q('earth','a',EP,'أيّ العوامل التالية سبب رئيس لحدوث الزلازل؟',['حركة الصفائح الأرضية','التغيرات في الطقس','تراكم الثلوج','النشاط الزراعي'],'احتكاك الصفائح وتحركها يطلق طاقة تهز الأرض.');
+q('earth','a',EP,'أيّ الحلول التالية يساعد في الحماية من الزلازل؟',['تحديد مواصفات خاصة للأبنية','بناء المنازل قرب الجبال','بناء المنازل على أرض رملية','تجاهل تدريبات الإخلاء'],'المباني المقاومة للزلازل تقلل الخسائر.');
+q('earth','a',EP,'جهاز يُستخدم لرصد الزلازل وتسجيلها:',['السيزموجراف','التلسكوب','الترمومتر','البارومتر'],'السيزموجراف يسجل الموجات الزلزالية.');
+q('earth','a',EP,'من الجهات التي لديها محطات لرصد الزلازل في المملكة العربية السعودية:',['مدينة الملك عبدالعزيز للعلوم والتقنية','المدن الكبيرة فقط','المناطق الجبلية فقط','لا توجد محطات رصد'],'ومنها كذلك هيئة المساحة الجيولوجية السعودية.');
+
+/* ---------- تعزيز نواتج التعلم ---------- */
+q('life','z',LC,'كل مما يلي يناسب مفهوم الخلية ماعدا:',['الخلايا لا تنتج من خلايا موجودة','الخلايا هي الوحدة الأساسية للحياة','الخلية أصغر وحدة حية في المخلوق','الخلايا الوحدة البنائية لجميع المخلوقات'],'تنص نظرية الخلية على أن الخلايا تنتج من خلايا موجودة.');
+q('life','z',LC,'أيّ مما يلي يكوّن الأنسجة؟',['الخلايا','الأعضاء','الأجهزة','جسم المخلوق الحي'],'خلايا ← أنسجة ← أعضاء ← أجهزة ← مخلوق.');
+q('life','z',LC,'تُهضم الفضلات الخلوية وأجزاء الخلية التالفة بواسطة إنزيمات تُنتج في:',['الأجسام المحللة','الشبكة الإندوبلازمية','الفجوات','النواة'],'الأجسام المحللة تحتوي على إنزيمات هاضمة.');
+q('life','z',LC,'أيّ أجزاء الخلية التالية وظيفته صحيحة؟',['السيتوبلازم: يحتوي على تراكيب ومواد كيميائية مختلفة','النواة: تخزّن الماء والغذاء والفضلات','الميتوكندريا: تمتص الطاقة الضوئية','الفجوات: تخزّن المعلومات الوراثية'],'النواة للمعلومات الوراثية، والفجوات للتخزين، والبلاستيدات لامتصاص الضوء.');
+q('life','z',LC,'أيّ التراكيب التالية يتم فيها تصنيع الغذاء في الخلية النباتية؟',['البلاستيدات الخضراء','الشبكة الإندوبلازمية','الميتوكندريا','الريبوسومات'],'تحتوي البلاستيدات على الكلوروفيل وفيها يحدث البناء الضوئي.');
+q('life','z',LC,'سأل المعلم طلابه عن الفرق بين الخلية النباتية والحيوانية، فأيّهم إجابته صحيحة؟',['عمر','خالد','فهد','محمد'],'الجدار الخلوي يحيط بالخلية النباتية ويحميها.',tbl(['الطالب','الإجابة'],[['خالد','تفتقد الخلية الحيوانية للغشاء الخلوي'],['فهد','البلاستيدات الخضراء توجد في الخلية الحيوانية فقط'],['عمر','يحيط بالخلية النباتية جدار خلوي لحمايتها'],['محمد','يقتصر وجود الريبوسومات على الخلية النباتية']]));
+q('life','z',LC,'يريد طالب تجربة انتقال المواد بالخاصية الأسموزية عبر غشاء رقيق، أيّ المواد سينفذ؟',['الماء','السكر','النيتروجين','الأكسجين'],'الخاصية الأسموزية انتشار الماء عبر غشاء شبه منفذ.');
+q('life','z',LC,'عملية تحدث في الخلية يُستعمل فيها الأكسجين:',['التنفس الخلوي','البناء الضوئي','البلعمة','التخمر'],'في التنفس الخلوي يُستخدم الأكسجين لإطلاق الطاقة من الغذاء.');
+q('life','z',LG,'مخلوق حي يستطيع إنتاج أبناء بصفات مختلفة:',['الهجين','الحامل للصفة النقية','البكتيريا','البدائيات'],'الهجين يحمل جينين مختلفين للصفة فقد يورث أبناءه صفات مختلفة.');
+q('life','z',LG,'لتتبع الصفات الوراثية في العائلة ودراسة الأنماط الوراثية نستخدم:',['مخطط السلالة','الانتخاب الطبيعي','دورة الخلية','التلقيح الخلطي'],'مخطط السلالة يوضح انتقال الصفة عبر الأجيال.');
+q('life','z',LG,'الصفة الوراثية التي تمنع صفة أخرى من الظهور تسمى صفة:',['سائدة','متنحية','موروثة','مكتسبة'],'السائدة تظهر وتُخفي المتنحية.');
+q('life','z',LG,'تحمل عينا أحمد جينًا وراثيًّا للعيون الزرقاء، لكن لون عينيه أسود. بالنسبة له تُعدّ صفة العيون الزرقاء صفة:',['متنحية','موروثة ظاهرة','سائدة','مكتسبة'],'الجين المتنحي لا يظهر بوجود السائد.');
+q('life','z',LG,'تُعدّ المهارات الفنية للاعب كرة السلة من الصفات:',['المكتسبة','الموروثة','المتنحية','الغريزية'],'المهارات تُكتسب بالتدريب والتعلم.');
+q('life','z',LG,'تُعدّ صفة الطيران لدى العصافير من الصفات:',['الموروثة','المكتسبة','المتنحية','المتعلَّمة'],'يولد العصفور قادرًا على تعلّم الطيران بغريزته الموروثة.');
+q('life','z',LG,'تستعرض بعض الفيلة اللعب بالكرة بعد تدريبها، ويدل ذلك على أنها صفة:',['مكتسبة','متنحية','غريزية','وراثية'],'اكتسبتها بالتدريب لا بالوراثة.');
+q('life','z',LG,'طلبت المعلمة أمثلة على الصفات الموروثة، أيّ الطالبات أجابت بشكل خاطئ؟',['عبير','مريم','نورة','فاطمة'],'براعة الرياضي صفة مكتسبة بالتدريب.',tbl(['الطالبة','الإجابة'],[['مريم','لون الأزهار في نبات اللوز'],['نورة','شكل المنقار في طائر الببغاء'],['عبير','براعة الرياضي في القفز العالي'],['فاطمة','قوة حاسة الشم لدى الكلاب']]));
+q('life','z',LT,'أيّ مما يلي يُصنّف من النباتات اللازهرية؟',['الصنوبر','القرع','الخوخ','التفاح'],'الصنوبر من معرّاة البذور، يحمل بذوره في مخاريط لا في أزهار.');
+q('life','z',LT,'الخميرة أحد المخلوقات الدقيقة التي تستخدم في إعداد الخبز، إلى أيّ المجموعات تنتمي؟',['الفطريات','البكتيريا','الفيروسات','الطلائعيات'],'الخميرة فطر وحيد الخلية.');
+q('life','z',LB,'أيّ الأجهزة الآتية يفرز الهرمونات مباشرة في الدم؟',['الغدد الصماء','الجهاز الهضمي','الجهاز التنفسي','الجهاز الهيكلي'],'الغدد الصماء بلا قنوات، فتفرز هرموناتها في الدم مباشرة.');
+q('life','z',LB,'جهاز الدوران الذي يدفع الدم مباشرة في تجاويف الجسم:',['جهاز الدوران المفتوح','جهاز الدوران المغلق','جهاز الانتشار','الجهاز الدعامي'],'في المفتوح (كالحشرات) لا يبقى الدم داخل أوعية طوال الوقت.');
+q('life','z',LB,'ما وظيفة الجهاز العصبي؟',['يتحكم في وظائف الجسم وينسقها','يضخ الدم إلى أجزاء الجسم','يأخذ الأكسجين ويطلق ثاني أكسيد الكربون','يحمي الجسم من العدوى'],'الجهاز العصبي مركز التحكم في الجسم.');
+
+/* ---------- برنامج تحسين نواتج التعلم (أسئلة تفكير عليا) ---------- */
+q('phys','b',PM,'مقدار التغير في موضع الجسم بالنسبة للزمن واتجاه هذا التغير هو:',['السرعة المتجهة','التسارع','الحركة','الاتجاه'],'السرعة المتجهة تصف مقدار السرعة واتجاهها معًا.');
+q('phys','b',PM,'مجموعة من الأجسام نستخدمها لمعرفة حركة جسم أو تحديد موقعه بالنسبة لها تسمى:',['إطارًا مرجعيًّا','الحركة','السرعة','الإزاحة'],'مثل الأشجار والمباني حين نلاحظ حركة سيارة.');
+q('phys','b',PM,'قطعت سيارة مسافة 120 كم من جدة إلى مكة المكرمة في ساعة واحدة. ما سرعتها؟',['120 كم/ساعة','100 كم/ساعة','80 كم/ساعة','60 كم/ساعة'],'السرعة = المسافة ÷ الزمن = 120 ÷ 1 = 120 كم/ساعة.');
+q('phys','b',PM,'تتسارع طائرة من السكون حتى تصل إلى سرعة 80 م/ث خلال 8 ثوانٍ. ما مقدار تسارعها؟',['10 م/ث²','4 م/ث²','6 م/ث²','8 م/ث²'],'التسارع = التغير في السرعة ÷ الزمن = 80 ÷ 8 = 10 م/ث².');
+q('phys','b',PM,'تتضمن إعلانات السيارات معلومات عن تسارعها؛ لأن التسارع يعتمد على:',['قوة المحرك','اتجاه الحركة','السائق','المسافة'],'كلما زادت قوة المحرك زاد التسارع لنفس الكتلة.');
+q('phys','b',PM,'أيّ المصطلحات التالية يُعدّ سبب تغيّر اتجاه حركة الأجسام؟',['القوة','السرعة','الكتلة','الزمن'],'القوة هي التي تغيّر سرعة الجسم أو اتجاهه.');
+q('phys','b',PM,'ما وحدة قياس القوة؟',['النيوتن','المتر','الكيلوجرام','الجرام'],'تقاس القوة بالنيوتن، والكتلة بالكيلوجرام.');
+q('phys','b',PM,'القانون الذي ينطبق عليك أثناء المشي أو الجري على الأرض:',['قانون نيوتن الثالث','قانون نيوتن الأول','قانون نيوتن الثاني','قانون الجذب العام'],'تدفع الأرض إلى الخلف فتدفعك الأرض إلى الأمام (فعل ورد فعل). (صُحّح هنا ما ظُلّل في الملف).');
+q('phys','b',PM,'وقف طفل ساكنًا على الجليد وقذف كرة إلى طفل آخر، فتحرك للخلف مبتعدًا عنه. هذه الحركة تتبع:',['قانون نيوتن الثالث','قانون نيوتن الأول','قانون نيوتن الثاني','قانون الجذب العام'],'قذف الكرة للأمام (فعل) يدفعه للخلف (رد فعل).');
+q('phys','b',PM,'ما القوة التي تؤثر في أجنحة الطائرة وتساعدها على الطيران؟',['قوة الرفع إلى أعلى','السحب إلى أسفل','الجاذبية','الاحتكاك'],'شكل الجناح يولّد قوة رفع تعاكس الجاذبية.');
+q('phys','b',PM,'أيّ الأسطح التالية يسبب احتكاكًا أكبر؟',['الأسفلت','الزجاج','الرخام','الجليد'],'السطح الخشن يسبب احتكاكًا أكبر من الأملس.');
+q('phys','b',PM,'أيّ المصطلحات التالية يعبّر عن سبب سقوط الكرة على الأرض بعد ركلها إلى أعلى؟',['الجاذبية','الاحتكاك','الرفع','الفعل'],'الجاذبية تسحب الأجسام نحو مركز الأرض.');
+q('phys','b',PM,'أيّ مما يلي سبب في أن الوزن على سطح القمر أقل من الوزن على الأرض؟',['قوة الجاذبية على القمر أقل من الأرض','كتلة القمر مساوية لكتلة الأرض','كتلة القمر أكبر من كتلة الأرض','قوة الجاذبية على الأرض أقل من القمر'],'كتلة القمر أصغر فجاذبيته نحو سدس جاذبية الأرض.');
+q('phys','b',PM,'قارب من الألومنيوم، لكي يطفو على الماء نربطه بمواد:',['تجعل كثافته الكلية أقل من كثافة الماء','تجعل كثافته الكلية أكبر من كثافة الماء','تزيد حجمه وكتلته معًا','كثافتها مثل كثافة الماء'],'يطفو الجسم إذا كانت كثافته أقل من كثافة الماء، مثل ربطه بالفلين.');
+q('phys','b',PH,'متوسط حركة الجزيئات في جسم ما يُقاس بـ:',['درجة الحرارة','الكتلة','الحجم','الكثافة'],'درجة الحرارة مقياس لمتوسط الطاقة الحركية للجزيئات.');
+q('phys','b',PH,'أيّ المصطلحات التالية يمثل انتقال الحرارة من الشمس الذي يسبب تبخر البحار والأنهار؟',['الإشعاع الحراري','الحمل الحراري','التوصيل الحراري','التدفق الحراري'],'حرارة الشمس تصل بالإشعاع.');
+q('phys','b',PW,'عندما رُفع صندوق وزنه 10 نيوتن إلى ارتفاع 2 م، فإن الشغل المبذول يساوي:',['20 جولًا','5 جول','8 جول','12 جولًا'],'الشغل = القوة × المسافة = 10 × 2 = 20 جولًا.');
+q('phys','b',PW,'أيّ الآلات التالية آلة بسيطة تُستخدم لتثبيت الأشياء؟',['البرغي','البكرة','الوتد','السطح المائل'],'البرغي سطح مائل ملفوف حول أسطوانة يثبت الأشياء.');
+q('phys','b',PW,'الآلة البسيطة التي تُستخدم لفصل الأجسام وتقطيعها تسمى:',['الوتد','الرافعة','البرغي','السطح المائل'],'الوتد كالسكين والفأس يشق الأجسام.');
+q('phys','b',PW,'تُصنّف الدراجة الهوائية ضمن الآلات المركبة لأنها:',['تتكون من أكثر من آلة بسيطة','تحتوي على عجلات للحركة','تحتوي على ناقل للحركة','تتكون من آلة بسيطة واحدة'],'فيها عجلات ومحاور ورافعات وتروس.');
+q('chem','b',CM,'أيّ الخيارات التالية لا يُصنّف من المواد؟',['الحرارة','الهواء','الماء','الرمل'],'المادة لها كتلة وتشغل حيزًا، والحرارة طاقة.');
+q('chem','b',CA,'أيّ العناصر التالية الأكثر عددًا في الجدول الدوري؟',['الفلزات','اللافلزات','أشباه الفلزات','العناصر المصنّعة'],'معظم عناصر الجدول الدوري فلزات.');
+q('chem','b',CA,'لدى أحمد فلز نقي صلب لامع، يتفاعل ببطء مع المواد الأخرى. إلى أيّ مجموعة ينتمي في الجدول الدوري؟',['الفلزات الانتقالية','الفلزات القلوية','الفلزات القلوية الأرضية','أشباه الفلزات'],'الفلزات القلوية نشطة جدًا، أما الانتقالية كالحديد والنحاس فبطيئة التفاعل.');
+q('chem','b',CA,'أيّ العبارات التالية غير صحيحة عن عنصر الكلور؟',['يرتبط فقط مع الصوديوم','ينتمي إلى مجموعة الهالوجينات','عنصر نشط يتفاعل بسهولة','يمكنه الارتباط بعناصر مختلفة'],'الكلور يرتبط بعناصر كثيرة، لا بالصوديوم وحده.');
+q('chem','b',CA,'ما العناصر الأكثر شيوعًا في النباتات والحيوانات؟',['الكربون والهيدروجين','الفسفور والكالسيوم','البوتاسيوم والفسفور','الكبريت والنحاس'],'المركبات العضوية في المخلوقات الحية أساسها الكربون والهيدروجين.');
+q('chem','b',CA,'أكثر العناصر المكوّنة لمياه البحار والمحيطات (من حيث الكتلة):',['الأكسجين','الهيدروجين','الصوديوم','الحديد'],'الماء H₂O، وكتلة الأكسجين فيه أكبر بكثير من كتلة الهيدروجين.');
+q('chem','b',CA,'ما الذي يشغل معظم حجم الذرة؟',['الفراغ','النواة','الإلكترونات','البروتونات والنيوترونات'],'النواة صغيرة جدًا، والإلكترونات تتحرك في فراغ واسع حولها.');
+q('chem','b',CA,'ذرة الأكسجين تحتوي على 8 بروتونات و8 نيوترونات، ما عددها الذري؟',['8','4','12','16'],'العدد الذري = عدد البروتونات.');
+q('chem','b',CA,'مادة لا يمكن طرقها وتشكيلها مثل اليود، هل تُصنّف فلزية أم لا فلزية؟',['لا فلزية؛ لأنها غير قابلة للتشكيل','لا فلزية؛ لأنها قابلة للتشكيل','فلزية؛ لأنها غير قابلة للتشكيل','فلزية؛ لأنها قابلة للطرق'],'الفلزات قابلة للطرق والسحب، واللافلزات هشة.');
+q('chem','b',CS,'أيّ المصطلحات التالية يعبّر عما ستحصل عليه عند إذابة السكر في الشاي؟',['محلول','عنصر','مركب','جزيء'],'المحلول مخلوط متجانس تذوب فيه مادة في أخرى.');
+q('chem','b',CS,'أيّ من المواد التالية يُعدّ محلولًا؟',['السبيكة','برادة الحديد','ملح الطعام الصلب','مسحوق الطباشير'],'السبيكة محلول صلب من فلزين أو أكثر.');
+q('chem','b',CS,'أيّ المخاليط التالية يحتوي على مواد لا تذوب تمامًا ولا تترسب، مما يجعله مثالًا على المخلوط الغروي؟',['الكريمة المخفوقة','الشاي','الزيت والماء','العصير الطبيعي مع اللب'],'في المخلوط الغروي جسيمات صغيرة تبقى معلقة دون أن تترسب.');
+q('chem','b',CS,'ما نوع المخلوط الذي يترسب فيه الطين في الماء بعد فترة؟',['معلّق','محلول متجانس','مستحلب','غروي'],'في المعلّق تترسب الجسيمات الكبيرة إذا تُرك ساكنًا.');
+q('chem','b',CS,'مادة تحوّل لون ورقة تباع الشمس (الكاشف) إلى اللون الأحمر:',['عصير الليمون','الصابون','الماء النقي','المنظّف المنزلي'],'الأحماض تحوّل ورقة تباع الشمس إلى الأحمر، والقواعد إلى الأزرق.');
+q('chem','b',CM,'أيّ من خواص المادة التالية يمكن قياسه بالأرقام؟',['مساحة المدرسة','طعم الأرز مالح','السكر أبيض اللون','الشمع ناعم الملمس'],'المساحة كمية قابلة للقياس بوحدات.');
+q('phys','b',PM,'ما وحدة قياس الاتجاه والزوايا التي تُستخدم فيها المنقلة أو البوصلة؟',['الدرجة','المتر','السنتيمتر','النيوتن'],'الزوايا والاتجاهات تقاس بالدرجات.');
+q('chem','b',CM,'كم كثافة صخرة كتلتها 70 جرامًا وحجمها 10 سم³؟',['7 جم/سم³','0.7 جم/سم³','0.8 جم/سم³','8 جم/سم³'],'الكثافة = الكتلة ÷ الحجم = 70 ÷ 10 = 7 جم/سم³. (صُحّح هنا ما ظُلّل في الملف).');
+q('chem','b',CA,'ماذا يحدث عند تقسيم قطعة من عنصر البورون إلى نصفين؟',['يحتفظ كلاهما بخصائص العنصر','يفقدان خصائصهما','يتحول كل نصف إلى عنصر مختلف','يصبح أحدهما فلزًا والآخر لا فلزًا'],'العنصر يتكون من نوع واحد من الذرات مهما قُسّم.');
+q('chem','b',CM,'أقل حالات المادة كثافة وترابطًا، ولجزيئاتها أكبر طاقة، وتشغل أي حيز توضع فيه:',['الغازية','السائلة','الصلبة','المحلول'],'جزيئات الغاز متباعدة وسريعة الحركة.');
+q('chem','b',CM,'ما الذي يحدث عند ارتفاع درجة حرارة جسم ما؟',['يتمدد','ينكمش','يتكثف','يتقلص'],'تزداد حركة الجزيئات وتتباعد فيتمدد الجسم.');
+q('chem','b',CM,'الوصف المناسب لتغير المادة عند تبخرها هو أنها تتغير من:',['السائل إلى الغاز','الصلب إلى السائل','السائل إلى الصلب','الغاز إلى السائل'],'التبخر تحوّل السائل إلى غاز.');
+q('chem','b',CM,'إذا أحضرت قطع الثلج ثم عرّضتها للحرارة، فإن حالتها تتغير من:',['الصلبة إلى السائلة','السائلة إلى الغازية','الغازية إلى السائلة','السائلة إلى الصلبة'],'ينصهر الثلج فيتحول إلى ماء. (صُحّح هنا ما ظُلّل في الملف).');
+q('chem','b',CM,'أيّ التحولات أدناه يتطلب فقد طاقة؟',['التجمد','الانصهار','التبخر','الغليان'],'عند التجمد تفقد المادة الحرارة، أما البقية فتحتاج إلى اكتساب حرارة.');
+q('chem','b',CM,'لا ترتفع درجة حرارة مادة صلبة رغم استمرار تسخينها؛ وذلك لأنها:',['تمر بعملية الانصهار','لم تمتص الحرارة','تمر بعملية التبخر','تفقد حرارة'],'تُستهلك الحرارة أثناء الانصهار في تحويل الحالة لا في رفع الحرارة.');
+q('chem','b',CM,'ما نوع التغير الذي يحدث لعنصر اليود عند انتقاله من الحالة الصلبة إلى الغازية مباشرة دون المرور بالحالة السائلة؟',['التسامي','التبخر','الانصهار','التكثف'],'التسامي تحوّل الصلب إلى غاز مباشرة.');
+q('chem','b',CS,'أيّ المواد التالية يذوب في الماء؟',['السكر','برادة الحديد','نشارة الخشب','الرمل'],'السكر يذوب مكوّنًا محلولًا.');
+q('chem','b',CS,'إذا اختلط مسحوق الفحم وبرادة الحديد، فأيّ أداة مناسبة للفصل بينهما؟',['مغناطيس','ورق ترشيح','قمع','شمعة'],'المغناطيس يجذب الحديد ولا يجذب الفحم.');
+q('chem','b',CS,'يُستخدم المغناطيس في فصل المخاليط التي تحتوي إحدى مكوناتها على:',['الحديد','الألومنيوم','الخشب','البلاستيك'],'الحديد من المواد التي ينجذب إليها المغناطيس.');
+q('chem','b',CS,'أحضرت مريم 30 جم من الطماطم و30 جم من الخيار و20 جم من الخس لصنع سلطة، وبعد تقطيعها وخلطها وزنتها فكان الوزن:',['80 جم','60 جم','70 جم','100 جم'],'الخلط لا يغيّر الكتلة: 30 + 30 + 20 = 80 جم.');
+q('chem','b',CR,'أيّ التغيرات التالية ينتج عنها مواد جديدة؟',['احتراق الخشب','تقطيع الورق','انصهار الجليد','تبخر الماء وتكثفه'],'الاحتراق تغيّر كيميائي ينتج رمادًا وغازات.');
+q('chem','b',CR,'لاحظت ريما التغيرات عند إضافة مادتين إلى بعضهما، أيّ الأدلة يشير إلى أن التغير كيميائي؟',['تكوّن راسب أو تصاعد غازات','تغيّر في شكل المادة','تغيّر في حجم المادة','تغيّر حالة المادة من سائل إلى صلب'],'تكوّن الراسب أو الغاز دليل على مادة جديدة.');
+q('chem','b',CR,'أيّ التغيرات التالية لا ينتج عنها مواد جديدة؟',['تبخر الماء','صدأ المفتاح','هضم الطعام','احتراق الورق'],'التبخر تغيّر فيزيائي في الحالة فقط.');
+q('chem','b',CA,'عندما ترتبط الذرات معًا تشكّل ما يسمى:',['الجزيء','الذرة','الخلية','الطاقة'],'الجزيء أصغر جزء من المادة يتكون من ذرتين مترابطتين أو أكثر. (صُحّح هنا ما ظُلّل في الملف).');
+q('chem','b',CR,'طريقة التعبير عن التغير الكيميائي باستعمال الرموز والأرقام للمواد المتفاعلة والناتجة تسمى:',['المعادلة الكيميائية','التعادل الكيميائي','الرمز الكيميائي','الخاصية الكيميائية'],'المعادلة الكيميائية تبيّن المتفاعلات والنواتج.');
+q('chem','b',CR,'التفاعل الذي ترتبط فيه عناصر أو مركبات معًا لتكوين مركب جديد أكثر تعقيدًا هو تفاعل:',['اتحاد','إحلال','طارد للطاقة','تحلل'],'في الاتحاد: أ + ب ← أب.');
+q('chem','b',CR,'ما نوع التفاعل الذي تمثله المعادلة: <span class="eq">2H₂ + O₂ → 2H₂O</span>؟',['اتحاد','إحلال','تحلل','إحلال مزدوج'],'اتحد الهيدروجين مع الأكسجين فتكوّن مركب واحد هو الماء.');
+q('chem','b',CA,'صنع عبدالله نموذجًا لمركب ناتج عن ارتباط ذرة كربون مع ذرتي أكسجين، ما الاسم الصحيح لهذا المركب؟',['ثاني أكسيد الكربون','أول أكسيد الكربون','كربون الأكسجين','ثاني كربون الأكسيد'],'CO₂: كلمة «ثاني» تدل على ذرتي الأكسجين.');
+q('phys','b',PS,'أيّ مما يلي يفسّر عدم سماع الصوت في الفضاء؟',['الفراغ؛ إذ لا يوجد وسط مادي ينقل الاهتزاز','التذبذب','الامتصاص','الصدى'],'الصوت موجة ميكانيكية تحتاج إلى وسط.');
+q('phys','b',PS,'إذا زاد تردد موجة الصوت الصادرة من المذياع، كيف ستلاحظ ذلك؟',['زادت حدة الصوت','زادت شدة الصوت','انخفض الصوت','قلّت سرعة الصوت'],'التردد يحدد الحدة، والسعة تحدد الشدة.');
+q('phys','b',PS,'كيف يتمكن الخفاش من صيد فرائسه في الظلام؟',['باستخدام الصوت وصداه','بواسطة الرؤية الحادة','من خلال الشم القوي','عبر الإحساس بالحرارة'],'يطلق أصواتًا عالية التردد ويستقبل صداها.');
+q('phys','b',PS,'أيّ العبارات التالية تصف سرعة الضوء بشكل دقيق؟',['أكبر سرعة للضوء في الفراغ','أكبر سرعة للضوء في الأوساط المادية','لا تتأثر سرعة الضوء بالوسط','تعتمد في انتشارها على التضاغطات والتخلخلات'],'يتباطأ الضوء عند دخوله الماء أو الزجاج.');
+q('phys','b',PS,'ماذا تسمى الظاهرة التي تحدث عند ارتداد الضوء الساقط على سطح ما؟',['انعكاس الضوء','انكسار الضوء','الطيف المرئي','الضوء المرئي'],'الانعكاس ارتداد، والانكسار انحراف عند تغير الوسط. (صُحّح هنا ما ظُلّل في الملف).');
+q('phys','b',PS,'أيّ أنواع المرايا يكون سطحها العاكس إلى الداخل؟',['المرآة المقعرة','المرآة المحدبة','المرآة المستوية','المحدبة والمستوية'],'سطح المقعرة منخفض إلى الداخل كباطن الملعقة.');
+q('phys','b',PS,'العدسة التي تجمع الأشعة المنكسرة في نقطة واحدة تسمى البؤرة هي العدسة:',['المحدبة','المستوية','المقعرة','المفرّقة'],'المحدبة مجمِّعة والمقعرة مفرِّقة.');
+q('phys','b',PS,'العدسة التي تعمل على تفريق الأشعة المنكسرة تسمى عدسة:',['مقعرة','مستوية','محدبة','مجمِّعة'],'العدسة المقعرة أرق في الوسط فتفرق الأشعة.');
+q('phys','b',PS,'إذا سلّط خالد ضوءًا أبيض على منشور زجاجي، فأيّ لون سينحرف بشكل أقل؟',['الأحمر؛ لأن طوله الموجي كبير','الأزرق؛ لأن طوله الموجي كبير','الأحمر؛ لأن طوله الموجي صغير','الأزرق؛ لأن طوله الموجي صغير'],'الأحمر أطول الألوان موجة وأقلها انحرافًا. (صُحّح هنا ما ظُلّل في الملف).');
+q('phys','b',PS,'ما السبب الذي يجعلنا نرى ألوان قوس المطر في السماء بعد سقوط المطر؟',['انكسار ضوء الشمس ثم انعكاسه داخل قطرات المطر','تفاعل ضوء الشمس مع الغبار','امتصاص قطرات المطر لضوء الشمس','انعكاس الضوء عن الغيوم'],'قطرات المطر تعمل كمنشور يحلل الضوء الأبيض إلى ألوانه.');
+q('phys','b',PS,'ما اللون الذي يظهر عند مزج ضوء أحمر وضوء أخضر؟',['الأصفر','الوردي','البنفسجي','البرتقالي'],'في مزج الأضواء: أحمر + أخضر = أصفر.');
+q('phys','b',PS,'أكثر أجزاء الطيف الكهرومغناطيسي طاقة وترددًا هي:',['أشعة جاما','الأشعة السينية','الأشعة فوق البنفسجية','الأشعة تحت الحمراء'],'أشعة جاما أعلى ترددًا وأقصر موجة.');
+q('earth','b',EA,'إذا كان طول ظل عمود أقل كثيرًا من طوله الحقيقي، فإن الوقت تقريبًا:',['الظهر','الصباح الباكر','بعد العشاء','بعد شروق الشمس قليلًا'],'تكون الشمس في أعلى السماء ظهرًا فيقصر الظل.');
+q('phys','b',PC,'تراكم الشحنات الكهربائية على سطح الأجسام يمثل تعريفًا لـ:',['الكهرباء الساكنة','التأريض','التيار الكهربائي','الدائرة الكهربائية'],'الشحنات فيها ساكنة لا تجري.');
+q('phys','b',PC,'تراكم الغبار على شاشة التلفاز يحدث بسبب:',['الكهرباء الساكنة','التيار الكهربائي','توليد الكهرباء','المقاومة الكهربائية'],'الشاشة تكتسب شحنة فتجذب ذرات الغبار. (صُحّح هنا ما ظُلّل في الملف).');
+q('phys','b',PC,'تتولد الكهرباء نتيجة جسيمات صغيرة جدًا لا يمكن رؤيتها تسمى:',['الشحنات الكهربائية','التيار الكهربائي','الدوائر الكهربائية','التفريغ الكهربائي'],'حركة الشحنات أو تراكمها يولد الكهرباء.');
+q('phys','b',PC,'لمس طالب مقبض الباب الحديدي فأحسّ بلسعة كهربائية خفيفة، وذلك بسبب:',['التفريغ الكهربائي','الاحتكاك الكهربائي','الجهد الكهربائي','التيار الكهربائي'],'انتقلت الشحنات المتراكمة على جسمه فجأة إلى المقبض.');
+q('phys','b',PC,'لاحظ معلم أن الكرة 1 والكرة 2 تتجاذبان، بينما الكرة 1 والكرة 3 تتنافران. أيّ العبارات صحيحة؟',['الكرتان 2 و3 مختلفتان في الشحنة','الكرتان 1 و3 مختلفتان في الشحنة','الكرتان 2 و3 متشابهتان في الشحنة','جميع الكرات متشابهة في الشحنة'],'1 و3 متشابهتان (تنافر)، و1 و2 مختلفتان (تجاذب)، إذن 2 تخالف 3.');
+q('phys','b',PC,'أيّ مما يلي يؤدي إلى حدوث البرق؟',['انتقال الشحنات الكهربائية بين طرفي الغيمة أو بين غيمتين','سقوط قطرات الماء من الغيمة بسرعة','اختلاف الحرارة بين قمة الغيمة وقاعدتها','مرور أشعة الشمس خلال قطرات الماء'],'البرق تفريغ كهربائي هائل.');
+q('phys','b',PC,'تُغطّى أسلاك الكهرباء بطبقة من المطاط أو البلاستيك لأن كليهما:',['لا يوصل الكهرباء','يوصل الكهرباء','مصنوع من المعدن','ينجذب للمغناطيس'],'المواد العازلة تمنع وصول التيار إلى أجسامنا.');
+q('phys','b',PC,'لماذا يُستخدم النحاس في الدوائر الكهربائية؟',['لقدرته على التوصيل الجيد','لأنه رخيص الثمن','لأنه متوفر بكثرة','لسهولة الحصول عليه'],'النحاس موصل جيد للكهرباء.');
+q('phys','b',PC,'أيّ المواد التالية ستضيء المصباح عندما تُستخدم لتوصيل الدائرة الكهربائية؟',['النحاس','البلاستيك','الخشب','الزجاج'],'النحاس موصل، والبقية عوازل. (صُحّح هنا ما ظُلّل في الملف).');
+q('phys','b',PC,'لماذا تُوصل المصابيح في المنزل على التوازي؟',['حتى لا يتوقف التيار عند تعطل أحد المصابيح','حتى تكون إضاءتها أشد','حتى لا تستهلك الكهرباء','لترشيد الكهرباء'],'لكل مصباح مسار مستقل في التوصيل على التوازي.');
+q('phys','b',PC,'غرفتان متصلتان على التوالي، وحدث تماس في الغرفة الأولى، فما الذي سيحدث؟',['يتوقف التيار عن الغرفتين','يتوقف التيار عن الغرفة الأولى فقط','يتوقف التيار عن الغرفة الثانية فقط','يعمل التيار في كلتا الغرفتين'],'في التوالي مسار واحد، فانقطاعه يوقف الجميع.');
+q('phys','b',PC,'عند رش برادة الحديد على مغناطيس تتشكل خطوط تمثل اتجاهات القوى المغناطيسية حوله، تسمى:',['المجال المغناطيسي','المغناطيس الكهربائي','المجال الكهربائي','القطب المغناطيسي'],'خطوط المجال تبدأ من القطب الشمالي وتنتهي بالجنوبي.');
+q('phys','b',PC,'عند قطع مغناطيس إلى جزأين، ماذا يحدث؟',['يصبحان مغناطيسين جديدين لكل منهما قطبان','يفقد كل منهما خاصيته','يصبح أحدهما قطبًا شماليًّا والآخر جنوبيًّا','يصبح كل منهما مغناطيسًا بقطب واحد'],'لا يمكن فصل القطبين؛ كل قطعة لها شمال وجنوب.');
+q('phys','b',PC,'أين يكون تأثير المغناطيس أقوى؟',['عند القطبين','في المنتصف','ثابت في جميع أجزائه','عند الطرف الشمالي فقط'],'تتكاثف خطوط المجال عند القطبين.');
+q('phys','b',PC,'كلما كانت خطوط المجال المغناطيسي أقرب إلى بعضها، فإن القوة المغناطيسية تكون:',['أقوى','أضعف','ثابتة لا تتغير','منعدمة'],'تقارب الخطوط يدل على مجال أقوى.');
+q('phys','b',PC,'لفّ فهد سلكًا نحاسيًّا معزولًا حول مسمار من الحديد ثم وصل طرفيه ببطارية، ما قام به فهد هو عمل:',['مغناطيس كهربائي','محرك كهربائي','مولد كهربائي','قاطع كهربائي'],'التيار في الملف يمغنط المسمار.');
+q('phys','b',PC,'كيف يمكنك زيادة قوة جذب مغناطيس كهربائي صنعته؟',['زيادة لفات السلك','استخدام بطارية أضعف','تقليل لفات السلك','وضع خشب بدل المسمار'],'زيادة اللفات أو التيار تقوّي المغناطيس.');
+q('phys','b',PC,'في الجرس الكهربائي، ما الدور الذي يقوم به المغناطيس الكهربائي؟',['يجذب المطرقة عند مرور التيار فتطرق الجرس','يصدر الصوت مباشرة','يزيد من قوة البطارية','يمنع اهتزاز الجرس'],'يتمغنط فيجذب المطرقة، ثم تنقطع الدائرة فتعود، وتتكرر. (صُحّح هنا ما ظُلّل في الملف).');
+q('phys','b',PC,'في المحركات الكهربائية يحدث تحوّل للطاقة من:',['كهربائية إلى حركية','نووية إلى كهربائية','حرارية إلى ميكانيكية','كهربائية إلى حرارية'],'المحرك عكس المولد.');
+
+/* ============ app ============ */
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const L=['أ','ب','ج','د'];
+const T=45;
+let S={mode:'challenge',cat:'all',src:'all',count:'10'};
+let G=null,sound=store.get('ns6_snd',true);
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));window.scrollTo(0,0)}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
+
+/* sound */
+let AC=null;
+function tone(f,d,type='sine',when=0,vol=.12){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(vol,AC.currentTime+when);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+when+d);o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+when);o.stop(AC.currentTime+when+d)}catch(e){}}
+function snd(k){if(!sound)return;if(k==='ok'){tone(660,.12);tone(880,.18,'sine',.1)}else if(k==='no'){tone(200,.3,'square',0,.06)}else if(k==='tick'){tone(1200,.05,'triangle',0,.05)}else if(k==='win'){[523,659,784,1046].forEach((f,i)=>tone(f,.22,'sine',i*.12))}}
+function setSnd(){$('#snd').textContent=sound?'🔊':'🔇'}
+$('#homeBtn').onclick=()=>{if(G&&G.tm)stopT();if(G)G.done=true;renderLB();upd();show('home')};
+$('#snd').onclick=()=>{sound=!sound;store.set('ns6_snd',sound);setSnd()};
+
+/* home */
+function chips(el,items,key){
+  el.innerHTML=items.map(it=>`<button class="chip" data-v="${it.v}" aria-pressed="${S[key]===it.v}">${it.l}</button>`).join('');
+  el.onclick=e=>{const b=e.target.closest('.chip');if(!b)return;S[key]=b.dataset.v;el.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));upd()};
+}
+function pool(){let p=QS.filter(x=>(S.cat==='all'||x.c===S.cat)&&(S.src==='all'||x.s===S.src));if(S.mode==='review'){const w=store.get('ns6_wrong',[]);p=p.filter(x=>w.includes(x.id))}return p}
+function upd(){
+  const p=pool(),n=p.length;
+  $('#pool').textContent=ar(n?`${n} سؤالاً متاحاً بهذه الاختيارات`:(S.mode==='review'?'لا توجد أخطاء محفوظة بهذه الاختيارات — العب جولة أولاً':'لا توجد أسئلة بهذه الاختيارات'));
+  $('#start').disabled=!n;
+  $('#start').textContent=S.mode==='challenge'?'ابدأ التحدّي':S.mode==='practice'?'ابدأ الاختبار':'ابدأ المراجعة';
+}
+function countBy(k,v){return QS.filter(x=>x[k]===v).length}
+function initHome(){
+  $('#bankN').textContent=ar(QS.length);
+  chips($('#cats'),[{v:'all',l:'الكل'},...Object.keys(CAT).map(k=>({v:k,l:`${CAT[k][0]} ${CAT[k][1]} <small>${ar(countBy('c',k))}</small>`}))],'cat');
+  chips($('#srcs'),[{v:'all',l:'الكل'},...Object.keys(SRC).map(k=>({v:k,l:`${SRC[k]} <small>${ar(countBy('s',k))}</small>`}))],'src');
+  chips($('#cnts'),[{v:'10',l:ar('10 أسئلة')},{v:'20',l:ar('20 سؤالاً')},{v:'30',l:ar('30 سؤالاً')},{v:'all',l:'كل الأسئلة'}],'count');
+  $('#modes').onclick=e=>{const b=e.target.closest('.mode');if(!b)return;S.mode=b.dataset.m;document.querySelectorAll('.mode').forEach(m=>m.setAttribute('aria-pressed',m===b));upd()};
+  $('#nm').value=store.get('ns6_name','');
+  renderLB();upd();setSnd();
+}
+function renderLB(){
+  const lb=store.get('ns6_lb',[]);
+  $('#lb').innerHTML=lb.length?`<table class="lb">${lb.slice(0,8).map((r,i)=>`<tr><td>${ar(i+1)}</td><td>${esc(r.n)} <small style="color:var(--muted)">${ar(r.p)}٪ من ${ar(r.q)} سؤالاً</small></td><td>⭐ ${ar(r.s)}</td></tr>`).join('')}</table>`:'<p class="empty">لم يسجّل أحد نتيجة بعد. العب جولة تحدٍّ لتكون أول الأبطال.</p>';
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+/* game */
+$('#start').onclick=()=>{
+  const p=pool();if(!p.length)return;
+  const name=$('#nm').value.trim();store.set('ns6_name',name);
+  const n=S.count==='all'?p.length:Math.min(+S.count,p.length);
+  G={qs:shuffle(p).slice(0,n).map(x=>({...x,ord:shuffle([0,1,2,3])})),i:0,score:0,streak:0,best:0,lives:3,ok:0,okIds:[],bad:[],skip:0,ll:{half:false,time:false,skip:false},done:false,t:T,tm:null,name:name||'بطل/ة نافس'};
+  const ch=S.mode==='challenge';
+  $('#hL').hidden=!ch;$('#ring').style.visibility=ch?'visible':'hidden';$('#life').hidden=!ch;
+  document.querySelectorAll('#life button').forEach(b=>b.disabled=false);
+  show('quiz');render();
+};
+function hud(){
+  $('#hQ').textContent=ar(`${G.i+1} / ${G.qs.length}`);
+  $('#hS').textContent='⭐ '+ar(G.score);
+  $('#hK').textContent='🔥 '+ar(G.streak);
+  $('#hL').textContent='❤️'.repeat(Math.max(G.lives,0))+'🤍'.repeat(3-Math.max(G.lives,0));
+  $('#prog').style.width=(G.i/G.qs.length*100)+'%';
+}
+function ring(){const r=$('#rf');r.style.strokeDashoffset=119.38*(1-G.t/T);$('#tt').textContent=ar(Math.max(G.t,0));$('#ring').classList.toggle('hot',G.t<=10)}
+function stopT(){clearInterval(G.tm);G.tm=null}
+function render(){
+  const q=G.qs[G.i];G.done=false;
+  hud();
+  $('#qbox').innerHTML=`<article class="qcard" id="qc">
+    <div class="qtags"><span class="tag">${CAT[q.c][0]} ${CAT[q.c][1]}</span><span class="tag">${SRC[q.s]}</span></div>
+    <div class="skill">المهارة: ${ar(q.k)}</div>
+    <h2 class="qtext">${ar(q.t)}</h2>
+    ${q.v?`<div class="fig">${ar(q.v)}</div>`:''}
+    <div class="opts">${q.ord.map((oi,j)=>`<button class="opt" data-j="${j}"><span class="lt">${L[j]}</span><span class="ot">${ar(q.o[oi])}</span></button>`).join('')}</div>
+    <div class="fb" id="fb" aria-live="polite"></div>
+  </article>`;
+  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.j));
+  $('#next').hidden=true;$('#life').classList.remove('off');
+  if(S.mode==='challenge'){G.t=T;ring();stopT();G.tm=setInterval(()=>{G.t--;ring();if(G.t<=5&&G.t>0)snd('tick');if(G.t<=0){stopT();answer(-1)}},1000)}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+const PRAISE=['ممتاز! 🌟','أحسنت! 👏','رائع يا بطل! 🏆','إجابة ذكية! 🧠','استمر هكذا! 🚀'];
+function answer(pos){
+  if(G.done)return;G.done=true;stopT();
+  const q=G.qs[G.i],cp=q.ord.indexOf(0),ok=pos===cp;
+  document.querySelectorAll('.opt').forEach((b,j)=>{b.disabled=true;if(j===cp)b.classList.add('ok');else if(j===pos)b.classList.add('no')});
+  if(ok){G.ok++;G.okIds.push(q.id);G.streak++;G.best=Math.max(G.best,G.streak);
+    const p=S.mode==='challenge'?Math.round((100+G.t*3)*(1+Math.min(G.streak-1,5)*.2)):10;
+    G.score+=p;floatPts('+'+p);snd('ok');}
+  else{G.streak=0;G.bad.push({q,pos});if(S.mode==='challenge')G.lives--;snd('no');$('#qc').classList.add('shake')}
+  hud();$('#prog').style.width=((G.i+1)/G.qs.length*100)+'%';
+  const fb=$('#fb');
+  fb.className='fb show '+(ok?'good':'bad');
+  const head=ok?PRAISE[Math.floor(Math.random()*PRAISE.length)]:(pos<0?'انتهى الوقت ⏰':'ليست هذه الإجابة');
+  fb.innerHTML=`<b>${head}</b>${ok?'':` <span>الإجابة الصحيحة: (${L[cp]})</span>`}<p>💡 ${ar(q.e)}</p>`;
+  const last=G.i>=G.qs.length-1||(S.mode==='challenge'&&G.lives<=0);
+  $('#next').textContent=last?'اعرض النتيجة 🏁':'السؤال التالي';$('#next').hidden=false;
+  $('#life').classList.add('off');
+  $('#next').focus({preventScroll:true});
+}
+function floatPts(t){const d=document.createElement('div');d.className='float';d.textContent=ar(t);const r=$('#hS').getBoundingClientRect();d.style.left=r.left+'px';d.style.top=(r.top)+'px';document.body.appendChild(d);setTimeout(()=>d.remove(),1000)}
+$('#next').onclick=()=>{if(!G.done)return;if(G.i>=G.qs.length-1||(S.mode==='challenge'&&G.lives<=0))finish();else{G.i++;render()}};
+$('#quit').onclick=()=>{if(!G)return;stopT();if(G.ok+G.bad.length===0){show('home');return}finish()};
+document.querySelectorAll('#life button').forEach(b=>b.onclick=()=>{
+  if(!G||G.done||G.ll[b.dataset.l])return;G.ll[b.dataset.l]=true;b.disabled=true;const q=G.qs[G.i];
+  if(b.dataset.l==='half'){const cp=q.ord.indexOf(0);shuffle([0,1,2,3].filter(j=>j!==cp)).slice(0,2).forEach(j=>document.querySelectorAll('.opt')[j].classList.add('gone'))}
+  else if(b.dataset.l==='time'){G.t+=15;ring()}
+  else{stopT();G.skip++;G.done=true;if(G.i>=G.qs.length-1)finish();else{G.i++;render()}}
+});
+document.addEventListener('keydown',e=>{
+  if(!$('#quiz').classList.contains('on')||!G)return;
+  const m={'1':0,'2':1,'3':2,'4':3,'١':0,'٢':1,'٣':2,'٤':3}[e.key];
+  if(m!==undefined&&!G.done){answer(m)}
+  else if(e.key==='Enter'&&G.done&&!$('#next').hidden){e.preventDefault();$('#next').click()}
+});
+
+function finish(){
+  stopT();
+  const answered=G.ok+G.bad.length,pct=answered?Math.round(G.ok/answered*100):0;
+  window.SafaProgress?.recordResult({correct:G.ok,total:answered,percent:pct});
+  let w=store.get('ns6_wrong',[]);w=w.filter(id=>!G.okIds.includes(id));G.bad.forEach(b=>{if(!w.includes(b.q.id))w.push(b.q.id)});store.set('ns6_wrong',w);
+  if(S.mode==='challenge'&&answered){const lb=store.get('ns6_lb',[]);lb.push({n:G.name,s:G.score,p:pct,q:answered,d:Date.now()});lb.sort((a,b)=>b.s-a.s);store.set('ns6_lb',lb.slice(0,20))}
+  const st=pct>=90?3:pct>=70?2:pct>=50?1:0;
+  const msg=st===3?'أداء بطل حقيقي!':st===2?'عمل رائع، اقتربت من القمة!':st===1?'بداية جيدة، واصل التدريب':'لا بأس، التدريب يصنع الأبطال';
+  const out=S.mode==='challenge'&&G.lives<=0?'<p style="color:var(--no);font-weight:800">نفدت القلوب! جرّب مرة أخرى.</p>':'';
+  $('#result').innerHTML=`<div class="res">
+    <div class="stars">${[0,1,2].map(i=>`<span class="${i<st?'on':''}">★</span>`).join('')}</div>
+    <h2>${msg}</h2><p style="margin:0;color:var(--muted)">${esc(G.name)}</p>${out}
+    <div class="score">${ar(G.score)}</div><div style="color:var(--muted);font-weight:700">${S.mode==='challenge'?'نقطة':'درجة'}</div>
+    <div class="stats">
+      <div class="stat"><b style="color:var(--ok)">${ar(G.ok)}</b><span>إجابة صحيحة</span></div>
+      <div class="stat"><b style="color:var(--no)">${ar(G.bad.length)}</b><span>إجابة خاطئة</span></div>
+      <div class="stat"><b>${ar(pct)}٪</b><span>نسبة الإتقان</span></div>
+      <div class="stat"><b>🔥 ${ar(G.best)}</b><span>أطول سلسلة</span></div>
+    </div>
+    <div class="acts"><button class="btn" id="again">العب مرة أخرى</button>${G.bad.length?'<button class="btn alt" id="rev">راجع أخطائي الآن</button>':''}<button class="ghost" id="home">الصفحة الرئيسية</button></div>
+  </div>
+  ${G.bad.length?`<h3 style="font-family:var(--fh)">مراجعة الأسئلة التي أخطأت فيها</h3>`+G.bad.map(({q,pos})=>`<div class="rv"><div class="rq">${ar(q.t)}</div>${q.v?`<div class="fig">${ar(q.v)}</div>`:''}<div class="ra"><span class="x">${pos<0?'انتهى الوقت دون إجابة':'إجابتك: '+ar(q.o[q.ord[pos]])}</span><span class="c">الصحيحة: ${ar(q.o[0])}</span></div><p>💡 ${ar(q.e)}</p></div>`).join(''):''}`;
+  show('result');
+  if(st>=2){snd('win');confetti()}
+  $('#again').onclick=()=>$('#start').click();
+  $('#home').onclick=()=>{renderLB();upd();show('home')};
+  if($('#rev'))$('#rev').onclick=()=>{S.mode='review';S.cat='all';S.src='all';document.querySelectorAll('.mode').forEach(m=>m.setAttribute('aria-pressed',m.dataset.m==='review'));initHome();$('#start').click()};
+}
+
+/* confetti */
+function confetti(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const c=$('#cf'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+  const cols=['#ffc43d','#ff6b6b','#1fb8a6','#6e4bd8','#3b8fe0'];
+  let P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,vx:(Math.random()-.5)*3,vy:2+Math.random()*3,r:Math.random()*6.28,s:5+Math.random()*6,c:cols[Math.floor(Math.random()*5)]}));
+  let f=0;(function loop(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()});if(++f<220)requestAnimationFrame(loop);else x.clearRect(0,0,c.width,c.height)})();
+}
+
+initHome();
+</script>
+<script>window.NAFS_TEST_CONFIG={"id":"grade6-primary-science","title":"العلوم","grade":"الصف السادس الابتدائي"};</script>
+<script src="../assets/student-bridge.js"></script>
+</body>
+</html>
