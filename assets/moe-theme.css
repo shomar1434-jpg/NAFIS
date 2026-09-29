@@ -357,6 +357,28 @@ body {
 .certificate-row { border-color: var(--color-border-default); }
 .certificate-row a { background: var(--moe-blue); }
 
+.platform-entry {
+  position: fixed;
+  z-index: 60;
+  right: 22px;
+  bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 11px 18px;
+  border: 1px solid rgba(255,255,255,.38);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--moe-deep-blue), var(--moe-blue));
+  box-shadow: 0 13px 34px rgba(21,68,90,.24);
+  font-weight: 900;
+  text-decoration: none;
+}
+.platform-entry:hover { transform: translateY(-2px); filter: brightness(1.05); }
+@media (max-width:700px) { .platform-entry { right:14px; bottom:72px; left:14px; } }
+@media print { .platform-entry { display:none!important; } }
+
 @media (max-width: 900px) {
   .station { border-radius: var(--radius-24); }
   .school-credit { grid-template-columns: 64px 1fr; }

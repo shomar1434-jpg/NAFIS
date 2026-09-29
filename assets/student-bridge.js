@@ -2,6 +2,7 @@
   'use strict';
   const PROFILE_KEY = 'safa_nafs_student_v1';
   const PROGRESS_KEY = 'safa_nafs_progress_v1';
+  const SYNC_QUEUE_KEY = 'nafis_sync_queue_v1';
   const config = window.NAFS_TEST_CONFIG || {};
   const read = (key, fallback) => {
     try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (_) { return fallback; }
@@ -30,6 +31,19 @@
       const old = all[config.id] || {};
       const percent = Math.max(0, Math.min(100, Number(result.percent || 0)));
       const timestamp = new Date().toISOString();
+      const attempt = {
+        id: config.id + '-' + Date.now(),
+        testId: config.id,
+        studentId: profile.id,
+        title: config.title,
+        grade: config.grade,
+        subject: config.title,
+        correct: Number(result.correct || 0),
+        total: Number(result.total || 0),
+        percent,
+        skills: Array.isArray(result.skills) ? result.skills : [],
+        completedAt: timestamp
+      };
       all[config.id] = {
         ...old,
         title: config.title,
@@ -40,10 +54,15 @@
         bestPercent: Math.max(Number(old.bestPercent || 0), percent),
         correct: Number(result.correct || 0),
         total: Number(result.total || 0),
+        skills: attempt.skills,
+        history: [attempt, ...(Array.isArray(old.history) ? old.history : [])].slice(0, 20),
         lastCompletedAt: timestamp,
         level: percent >= 90 ? 'متميز' : percent >= 80 ? 'متقن' : percent >= 60 ? 'مجتاز' : 'يحتاج إلى مزيد من التدريب'
       };
       write(PROGRESS_KEY, all);
+      const queue = read(SYNC_QUEUE_KEY, []);
+      queue.push({ profile, attempt });
+      write(SYNC_QUEUE_KEY, queue.slice(-100));
       setTimeout(addCertificateAction, 250);
     }
   };
